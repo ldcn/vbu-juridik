@@ -1,0 +1,88 @@
+name: CI and Publish Pages
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  ci:
+    name: Build and Verify Overview
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Build aggregated outputs
+        run: python3 analysis/build_overview.py
+
+      - name: Verify expected files exist
+        run: |
+          test -f analysis/cases.csv
+          test -f analysis/overview.json
+          test -f analysis/overview.md
+          test -f analysis/overview.html
+
+      - name: Ensure generated artefacts are committed
+        run: git diff --exit-code -- analysis/cases.csv analysis/overview.json analysis/overview.md analysis/overview.html
+
+  deploy-pages:
+    name: Publish to GitHub Pages
+    if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
+    needs: ci
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Build aggregated outputs
+        run: python3 analysis/build_overview.py
+
+      - name: Prepare Pages site
+        run: |
+          mkdir -p _site
+          cp analysis/overview.html _site/index.html
+          cp analysis/overview.html analysis/overview.json analysis/overview.md analysis/cases.csv _site/
+          touch _site/.nojekyll
+
+      - name: Configure GitHub Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
