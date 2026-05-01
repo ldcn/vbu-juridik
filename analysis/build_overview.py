@@ -196,6 +196,54 @@ DEFAULT_UI_TEXT = {
       "show_filtered": "Visar {total} mål från {courts}",
       "compare": "Jämför {n_courts} tingsrätter ({parts} = {total} mål)",
     },
+    "visibility": {
+      "sections": {
+        "nyckeltal": True,
+        "filter": True,
+        "instans": True,
+        "utfall": True,
+        "vardnad": True,
+        "barn": True,
+        "foraldrar": True,
+        "faktorer": True,
+        "process": True,
+        "bilaga": True,
+      },
+      "charts": {
+        "court_level": True,
+        "year": True,
+        "court": True,
+        "origin_tingsratt": True,
+        "winners": True,
+        "appeal": True,
+        "outcome": True,
+        "legal_before": True,
+        "legal_after": True,
+        "residence_before": True,
+        "residence_after": True,
+        "n_children": True,
+        "child_gender": True,
+        "child_age": True,
+        "mother_age": True,
+        "father_age": True,
+        "factors": True,
+        "soc": True,
+        "vu": True,
+        "heard": True,
+      },
+      "kpi": {
+        "total": True,
+        "kids_n": False,
+        "children": True,
+        "child_age": True,
+        "mother_age": True,
+        "father_age": True,
+        "cost_n": True,
+        "cost_mean": True,
+        "cost_median": True,
+        "cost_max": True,
+      },
+    },
     "footer": "Genererad av build_overview.py. Underliggande data: per-fall-JSON i analysis/.",
   }
 
@@ -771,6 +819,13 @@ def render_html(agg: dict, cases: list[dict], ui: dict) -> str:
     charts_ui = ui["charts"]
     kpi_ui = ui["kpi"]
     filter_ui = ui["filter"]
+    visibility = ui.get("visibility", {})
+
+    def is_visible(group: str, key: str, default: bool = True) -> bool:
+      bucket = visibility.get(group)
+      if isinstance(bucket, dict) and key in bucket:
+        return bool(bucket.get(key))
+      return default
 
     s_child = agg["child_age_stats"]
     s_mother = agg["mother_age_stats"]
@@ -806,6 +861,86 @@ def render_html(agg: dict, cases: list[dict], ui: dict) -> str:
       f'            <option value="{escape(name or "okänt")}">{escape(name or "okänt")} ({n})</option>'
       for name, n in agg["by_origin_tingsratt"].items()
     )
+
+    nav_order = [
+      "nyckeltal", "filter", "instans", "utfall", "vardnad",
+      "barn", "foraldrar", "faktorer", "process", "bilaga",
+    ]
+    nav_html = "\n".join(
+      f'    <a href="#{sid}">{escape(nav[sid])}</a>'
+      for sid in nav_order
+      if is_visible("sections", sid)
+    )
+
+    nyckeltal_kpis = "\n".join(x for x in [
+      f'        <div class="kpi"><div class="num" id="kpi_total">{agg["total_cases"]}</div><div class="lbl">{escape(kpi_ui["total"])}</div></div>' if is_visible("kpi", "total") else "",
+      f'        <div class="kpi"><div class="num" id="kpi_kids_n">{s_kids.get("n", 0)}</div><div class="lbl">{escape(kpi_ui["kids_n"])}</div></div>' if is_visible("kpi", "kids_n") else "",
+      f'        <div class="kpi"><div class="num" id="kpi_children">{s_child.get("n", 0)}</div><div class="lbl">{escape(kpi_ui["children"])}</div></div>' if is_visible("kpi", "children") else "",
+      f'        <div class="kpi"><div class="num" id="kpi_child_age">{s_child.get("mean", "–")}</div><div class="lbl">{escape(kpi_ui["child_age"])}</div></div>' if is_visible("kpi", "child_age") else "",
+      f'        <div class="kpi"><div class="num" id="kpi_mother_age">{s_mother.get("mean", "–")}</div><div class="lbl">{escape(kpi_ui["mother_age"])}</div></div>' if is_visible("kpi", "mother_age") else "",
+      f'        <div class="kpi"><div class="num" id="kpi_father_age">{s_father.get("mean", "–")}</div><div class="lbl">{escape(kpi_ui["father_age"])}</div></div>' if is_visible("kpi", "father_age") else "",
+    ] if x)
+
+    instans_cards = "\n".join(x for x in [
+      f'        <div class="card"><h3>{escape(charts_ui["court_level"])}</h3><div class="canvas-wrap"><canvas id="ch_court_level"></canvas></div></div>' if is_visible("charts", "court_level") else "",
+      f'        <div class="card"><h3>{escape(charts_ui["year"])}</h3><div class="canvas-wrap"><canvas id="ch_year"></canvas></div></div>' if is_visible("charts", "year") else "",
+      f'        <div class="card"><h3>{escape(charts_ui["court"])}</h3><div class="canvas-wrap" style="height:360px"><canvas id="ch_court"></canvas></div></div>' if is_visible("charts", "court") else "",
+      f'        <div class="card wide"><h3>{escape(charts_ui["origin_tingsratt"])}</h3><div class="canvas-wrap" style="height:__ORIGIN_H__px"><canvas id="ch_origin_tingsratt"></canvas></div></div>' if is_visible("charts", "origin_tingsratt") else "",
+    ] if x)
+
+    utfall_cards = "\n".join(x for x in [
+      f'        <div class="card"><h3>{escape(charts_ui["winners"])}</h3><div class="canvas-wrap"><canvas id="ch_winners"></canvas></div></div>' if is_visible("charts", "winners") else "",
+      f'        <div class="card"><h3>{escape(charts_ui["appeal"])}</h3><div class="canvas-wrap"><canvas id="ch_appeal"></canvas></div></div>' if is_visible("charts", "appeal") else "",
+      f'        <div class="card wide"><h3>{escape(charts_ui["outcome"])}</h3><div class="canvas-wrap" style="height:__OUTCOME_H__px"><canvas id="ch_outcome"></canvas></div></div>' if is_visible("charts", "outcome") else "",
+    ] if x)
+
+    vardnad_cards = "\n".join(x for x in [
+      f'        <div class="card"><h3>{escape(charts_ui["legal_before"])}</h3><div class="canvas-wrap"><canvas id="ch_legal_before"></canvas></div></div>' if is_visible("charts", "legal_before") else "",
+      f'        <div class="card"><h3>{escape(charts_ui["legal_after"])}</h3><div class="canvas-wrap"><canvas id="ch_legal_after"></canvas></div></div>' if is_visible("charts", "legal_after") else "",
+      f'        <div class="card"><h3>{escape(charts_ui["residence_before"])}</h3><div class="canvas-wrap"><canvas id="ch_residence_before"></canvas></div></div>' if is_visible("charts", "residence_before") else "",
+      f'        <div class="card"><h3>{escape(charts_ui["residence_after"])}</h3><div class="canvas-wrap"><canvas id="ch_residence_after"></canvas></div></div>' if is_visible("charts", "residence_after") else "",
+    ] if x)
+
+    barn_cards = "\n".join(x for x in [
+      (
+        f'        <div class="card"><h3>{escape(charts_ui["n_children"])}</h3><div class="canvas-wrap"><canvas id="ch_n_children"></canvas></div>'
+        f'<div class="stats-row"><span>Snitt: <strong>{s_kids.get("mean", "–")}</strong></span><span>Median: <strong>{s_kids.get("median", "–")}</strong></span><span>Min/Max: <strong>{s_kids.get("min", "–")}–{s_kids.get("max", "–")}</strong></span></div></div>'
+      ) if is_visible("charts", "n_children") else "",
+      f'        <div class="card"><h3>{escape(charts_ui["child_gender"])}</h3><div class="canvas-wrap"><canvas id="ch_child_gender"></canvas></div></div>' if is_visible("charts", "child_gender") else "",
+      (
+        f'        <div class="card"><h3>{escape(charts_ui["child_age"])}</h3><div class="canvas-wrap"><canvas id="ch_child_age"></canvas></div>'
+        f'<div class="stats-row"><span>n=<strong>{s_child.get("n", 0)}</strong></span><span>Snitt: <strong>{s_child.get("mean", "–")}</strong></span><span>Median: <strong>{s_child.get("median", "–")}</strong></span><span>Min/Max: <strong>{s_child.get("min", "–")}–{s_child.get("max", "–")}</strong></span></div></div>'
+      ) if is_visible("charts", "child_age") else "",
+    ] if x)
+
+    foraldrar_cards = "\n".join(x for x in [
+      (
+        f'        <div class="card"><h3>{escape(charts_ui["mother_age"])}</h3><div class="canvas-wrap"><canvas id="ch_mother_age"></canvas></div>'
+        f'<div class="stats-row"><span>n=<strong>{s_mother.get("n", 0)}</strong></span><span>Snitt: <strong>{s_mother.get("mean", "–")}</strong></span><span>Median: <strong>{s_mother.get("median", "–")}</strong></span><span>Min/Max: <strong>{s_mother.get("min", "–")}–{s_mother.get("max", "–")}</strong></span></div></div>'
+      ) if is_visible("charts", "mother_age") else "",
+      (
+        f'        <div class="card"><h3>{escape(charts_ui["father_age"])}</h3><div class="canvas-wrap"><canvas id="ch_father_age"></canvas></div>'
+        f'<div class="stats-row"><span>n=<strong>{s_father.get("n", 0)}</strong></span><span>Snitt: <strong>{s_father.get("mean", "–")}</strong></span><span>Median: <strong>{s_father.get("median", "–")}</strong></span><span>Min/Max: <strong>{s_father.get("min", "–")}–{s_father.get("max", "–")}</strong></span></div></div>'
+      ) if is_visible("charts", "father_age") else "",
+    ] if x)
+
+    faktorer_card = (
+      f'      <div class="card"><h3>{escape(charts_ui["factors"])}</h3><div class="canvas-wrap" style="height:420px"><canvas id="ch_factors"></canvas></div></div>'
+      if is_visible("charts", "factors") else ""
+    )
+
+    process_cards = "\n".join(x for x in [
+      f'        <div class="card"><h3>{escape(charts_ui["soc"])}</h3><div class="canvas-wrap"><canvas id="ch_soc"></canvas></div></div>' if is_visible("charts", "soc") else "",
+      f'        <div class="card"><h3>{escape(charts_ui["vu"])}</h3><div class="canvas-wrap"><canvas id="ch_vu"></canvas></div></div>' if is_visible("charts", "vu") else "",
+      f'        <div class="card"><h3>{escape(charts_ui["heard"])}</h3><div class="canvas-wrap"><canvas id="ch_heard"></canvas></div></div>' if is_visible("charts", "heard") else "",
+    ] if x)
+
+    process_kpis = "\n".join(x for x in [
+      f'        <div class="kpi"><div class="num" id="kpi_cost_n">{cost_n}</div><div class="lbl">{escape(kpi_ui["cost_n"])}</div></div>' if is_visible("kpi", "cost_n") else "",
+      f'        <div class="kpi"><div class="num" id="kpi_cost_mean">{cost_mean}</div><div class="lbl">{escape(kpi_ui["cost_mean"])}</div></div>' if is_visible("kpi", "cost_mean") else "",
+      f'        <div class="kpi"><div class="num" id="kpi_cost_median">{cost_median}</div><div class="lbl">{escape(kpi_ui["cost_median"])}</div></div>' if is_visible("kpi", "cost_median") else "",
+      f'        <div class="kpi"><div class="num" id="kpi_cost_max">{cost_max}</div><div class="lbl">{escape(kpi_ui["cost_max"])}</div></div>' if is_visible("kpi", "cost_max") else "",
+    ] if x)
 
     css = """
     :root {
@@ -1227,39 +1362,23 @@ def render_html(agg: dict, cases: list[dict], ui: dict) -> str:
   </header>
 
   <nav>
-    <a href="#nyckeltal">{escape(nav['nyckeltal'])}</a>
-    <a href="#filter">{escape(nav['filter'])}</a>
-    <a href="#instans">{escape(nav['instans'])}</a>
-    <a href="#utfall">{escape(nav['utfall'])}</a>
-    <a href="#vardnad">{escape(nav['vardnad'])}</a>
-    <a href="#barn">{escape(nav['barn'])}</a>
-    <a href="#foraldrar">{escape(nav['foraldrar'])}</a>
-    <a href="#faktorer">{escape(nav['faktorer'])}</a>
-    <a href="#process">{escape(nav['process'])}</a>
-    <a href="#bilaga">{escape(nav['bilaga'])}</a>
+{nav_html}
   </nav>
 
   <main>
-    <section id="nyckeltal">
+{f'''    <section id="nyckeltal">
       <h2>{escape(sections['nyckeltal']['title'])}</h2>
       <p style="color:var(--muted)">{escape(sections['nyckeltal']['description'])}</p>
       <div class="kpi-grid">
-        <div class="kpi"><div class="num" id="kpi_total">{agg['total_cases']}</div><div class="lbl">{escape(kpi_ui['total'])}</div></div>
-        <div class="kpi"><div class="num" id="kpi_kids_n">{s_kids.get('n', 0)}</div><div class="lbl">{escape(kpi_ui['kids_n'])}</div></div>
-        <div class="kpi"><div class="num" id="kpi_children">{s_child.get('n', 0)}</div><div class="lbl">{escape(kpi_ui['children'])}</div></div>
-        <div class="kpi"><div class="num" id="kpi_child_age">{s_child.get('mean', '–')}</div><div class="lbl">{escape(kpi_ui['child_age'])}</div></div>
-        <div class="kpi"><div class="num" id="kpi_mother_age">{s_mother.get('mean', '–')}</div><div class="lbl">{escape(kpi_ui['mother_age'])}</div></div>
-        <div class="kpi"><div class="num" id="kpi_father_age">{s_father.get('mean', '–')}</div><div class="lbl">{escape(kpi_ui['father_age'])}</div></div>
+{nyckeltal_kpis}
       </div>
-    </section>
+    </section>''' if is_visible("sections", "nyckeltal") else ''}
 
-    <section id="filter">
+{f'''    <section id="filter">
       <h2>{escape(sections['filter']['title'])}</h2>
       <p style="color:var(--muted)">{escape(sections['filter']['description'])}</p>
       <div class="card">
-        <p style="margin:.2rem 0 .8rem 0; color:var(--muted); font-size:.92rem;">
-          {filter_ui['intro']}
-        </p>
+        <p style="margin:.2rem 0 .8rem 0; color:var(--muted); font-size:.92rem;">{filter_ui['intro']}</p>
         <div class="filter-row">
           <label for="filter_courts" style="font-weight:600;">{escape(filter_ui['court_label'])}</label>
           <select id="filter_courts" multiple size="8" style="min-width:280px; flex:1;">
@@ -1272,160 +1391,70 @@ def render_html(agg: dict, cases: list[dict], ui: dict) -> str:
         </div>
         <div id="filter_status" style="margin-top:.6rem; font-size:.9rem; color:var(--accent); font-weight:600;"></div>
       </div>
-    </section>
+    </section>''' if is_visible("sections", "filter") else ''}
 
-    <section id="instans">
+{f'''    <section id="instans">
       <h2>{escape(sections['instans']['title'])}</h2>
       <p style="color:var(--muted)">{escape(sections['instans']['description'])}</p>
       <div class="grid">
-        <div class="card">
-          <h3>{escape(charts_ui['court_level'])}</h3>
-          <div class="canvas-wrap"><canvas id="ch_court_level"></canvas></div>
-        </div>
-        <div class="card">
-          <h3>{escape(charts_ui['year'])}</h3>
-          <div class="canvas-wrap"><canvas id="ch_year"></canvas></div>
-        </div>
-        <div class="card">
-          <h3>{escape(charts_ui['court'])}</h3>
-          <div class="canvas-wrap" style="height:360px"><canvas id="ch_court"></canvas></div>
-        </div>
-        <div class="card wide">
-          <h3>{escape(charts_ui['origin_tingsratt'])}</h3>
-          <div class="canvas-wrap" style="height:__ORIGIN_H__px"><canvas id="ch_origin_tingsratt"></canvas></div>
-        </div>
+{instans_cards}
       </div>
-    </section>
+    </section>''' if is_visible("sections", "instans") else ''}
 
-    <section id="utfall">
+{f'''    <section id="utfall">
       <h2>{escape(sections['utfall']['title'])}</h2>
       <p style="color:var(--muted)">{escape(sections['utfall']['description'])}</p>
       <div class="grid">
-        <div class="card">
-          <h3>{escape(charts_ui['winners'])}</h3>
-          <div class="canvas-wrap"><canvas id="ch_winners"></canvas></div>
-        </div>
-        <div class="card">
-          <h3>{escape(charts_ui['appeal'])}</h3>
-          <div class="canvas-wrap"><canvas id="ch_appeal"></canvas></div>
-        </div>
-        <div class="card wide">
-          <h3>{escape(charts_ui['outcome'])}</h3>
-          <div class="canvas-wrap" style="height:__OUTCOME_H__px"><canvas id="ch_outcome"></canvas></div>
-        </div>
+{utfall_cards}
       </div>
-    </section>
+    </section>''' if is_visible("sections", "utfall") else ''}
 
-    <section id="vardnad">
+{f'''    <section id="vardnad">
       <h2>{escape(sections['vardnad']['title'])}</h2>
       <p style="color:var(--muted)">{escape(sections['vardnad']['description'])}</p>
       <div class="grid">
-        <div class="card">
-          <h3>{escape(charts_ui['legal_before'])}</h3>
-          <div class="canvas-wrap"><canvas id="ch_legal_before"></canvas></div>
-        </div>
-        <div class="card">
-          <h3>{escape(charts_ui['legal_after'])}</h3>
-          <div class="canvas-wrap"><canvas id="ch_legal_after"></canvas></div>
-        </div>
-        <div class="card">
-          <h3>{escape(charts_ui['residence_before'])}</h3>
-          <div class="canvas-wrap"><canvas id="ch_residence_before"></canvas></div>
-        </div>
-        <div class="card">
-          <h3>{escape(charts_ui['residence_after'])}</h3>
-          <div class="canvas-wrap"><canvas id="ch_residence_after"></canvas></div>
-        </div>
+{vardnad_cards}
       </div>
-    </section>
+    </section>''' if is_visible("sections", "vardnad") else ''}
 
-    <section id="barn">
+{f'''    <section id="barn">
       <h2>{escape(sections['barn']['title'])}</h2>
       <p style="color:var(--muted)">{escape(sections['barn']['description'])}</p>
       <div class="grid">
-        <div class="card">
-          <h3>{escape(charts_ui['n_children'])}</h3>
-          <div class="canvas-wrap"><canvas id="ch_n_children"></canvas></div>
-          <div class="stats-row">
-            <span>Snitt: <strong>{s_kids.get('mean', '–')}</strong></span>
-            <span>Median: <strong>{s_kids.get('median', '–')}</strong></span>
-            <span>Min/Max: <strong>{s_kids.get('min', '–')}–{s_kids.get('max', '–')}</strong></span>
-          </div>
-        </div>
-        <div class="card">
-          <h3>{escape(charts_ui['child_gender'])}</h3>
-          <div class="canvas-wrap"><canvas id="ch_child_gender"></canvas></div>
-        </div>
-        <div class="card">
-          <h3>{escape(charts_ui['child_age'])}</h3>
-          <div class="canvas-wrap"><canvas id="ch_child_age"></canvas></div>
-          <div class="stats-row">
-            <span>n=<strong>{s_child.get('n', 0)}</strong></span>
-            <span>Snitt: <strong>{s_child.get('mean', '–')}</strong></span>
-            <span>Median: <strong>{s_child.get('median', '–')}</strong></span>
-            <span>Min/Max: <strong>{s_child.get('min', '–')}–{s_child.get('max', '–')}</strong></span>
-          </div>
-        </div>
+{barn_cards}
       </div>
-    </section>
+    </section>''' if is_visible("sections", "barn") else ''}
 
-    <section id="foraldrar">
+{f'''    <section id="foraldrar">
       <h2>{escape(sections['foraldrar']['title'])}</h2>
       <p style="color:var(--muted)">{escape(sections['foraldrar']['description'])}</p>
       <div class="grid">
-        <div class="card">
-          <h3>{escape(charts_ui['mother_age'])}</h3>
-          <div class="canvas-wrap"><canvas id="ch_mother_age"></canvas></div>
-          <div class="stats-row">
-            <span>n=<strong>{s_mother.get('n', 0)}</strong></span>
-            <span>Snitt: <strong>{s_mother.get('mean', '–')}</strong></span>
-            <span>Median: <strong>{s_mother.get('median', '–')}</strong></span>
-            <span>Min/Max: <strong>{s_mother.get('min', '–')}–{s_mother.get('max', '–')}</strong></span>
-          </div>
-        </div>
-        <div class="card">
-          <h3>{escape(charts_ui['father_age'])}</h3>
-          <div class="canvas-wrap"><canvas id="ch_father_age"></canvas></div>
-          <div class="stats-row">
-            <span>n=<strong>{s_father.get('n', 0)}</strong></span>
-            <span>Snitt: <strong>{s_father.get('mean', '–')}</strong></span>
-            <span>Median: <strong>{s_father.get('median', '–')}</strong></span>
-            <span>Min/Max: <strong>{s_father.get('min', '–')}–{s_father.get('max', '–')}</strong></span>
-          </div>
-        </div>
+{foraldrar_cards}
       </div>
-    </section>
+    </section>''' if is_visible("sections", "foraldrar") else ''}
 
-    <section id="faktorer">
+{f'''    <section id="faktorer">
       <h2>{escape(sections['faktorer']['title'])}</h2>
       <p style="color:var(--muted)">{escape(sections['faktorer']['description'])}</p>
-      <div class="card">
-        <h3>{escape(charts_ui['factors'])}</h3>
-        <div class="canvas-wrap" style="height:420px"><canvas id="ch_factors"></canvas></div>
-      </div>
-    </section>
+{faktorer_card}
+    </section>''' if is_visible("sections", "faktorer") else ''}
 
-    <section id="process">
+{f'''    <section id="process">
       <h2>{escape(sections['process']['title'])}</h2>
       <p style="color:var(--muted)">{escape(sections['process']['description'])}</p>
       <div class="grid">
-        <div class="card"><h3>{escape(charts_ui['soc'])}</h3><div class="canvas-wrap"><canvas id="ch_soc"></canvas></div></div>
-        <div class="card"><h3>{escape(charts_ui['vu'])}</h3><div class="canvas-wrap"><canvas id="ch_vu"></canvas></div></div>
-        <div class="card"><h3>{escape(charts_ui['heard'])}</h3><div class="canvas-wrap"><canvas id="ch_heard"></canvas></div></div>
+{process_cards}
       </div>
       <div class="kpi-grid" style="margin-top:1.5rem">
-        <div class="kpi"><div class="num" id="kpi_cost_n">{cost_n}</div><div class="lbl">{escape(kpi_ui['cost_n'])}</div></div>
-        <div class="kpi"><div class="num" id="kpi_cost_mean">{cost_mean}</div><div class="lbl">{escape(kpi_ui['cost_mean'])}</div></div>
-        <div class="kpi"><div class="num" id="kpi_cost_median">{cost_median}</div><div class="lbl">{escape(kpi_ui['cost_median'])}</div></div>
-        <div class="kpi"><div class="num" id="kpi_cost_max">{cost_max}</div><div class="lbl">{escape(kpi_ui['cost_max'])}</div></div>
+{process_kpis}
       </div>
-    </section>
+    </section>''' if is_visible("sections", "process") else ''}
 
-    <section id="bilaga">
+{f'''    <section id="bilaga">
       <h2>{escape(sections['bilaga']['title'])}</h2>
       <p style="color:var(--muted)">{escape(sections['bilaga']['description'])}</p>
 {appendix_html}
-    </section>
+    </section>''' if is_visible("sections", "bilaga") else ''}
   </main>
 
   <footer>

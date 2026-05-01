@@ -380,6 +380,25 @@ A single self-contained HTML5 file produced by
   etikett) and a Swedish summary truncated to **max 150 ord** via
   `_truncate_words(c["summary"], 150)`.
 
+- **Text and visibility config**: all dashboard copy (titles, labels,
+  section descriptions, chart titles, KPI labels, filter UI text) and
+  component visibility are configured via
+  `analysis/overview_ui_text.json`.
+  - `visibility.sections.<id>` controls whole sections (`nyckeltal`,
+    `filter`, `instans`, `utfall`, `vardnad`, `barn`, `foraldrar`,
+    `faktorer`, `process`, `bilaga`).
+  - `visibility.charts.<id>` controls individual chart cards
+    (`court_level`, `year`, `court`, `origin_tingsratt`, `winners`,
+    `appeal`, `outcome`, `legal_before`, `legal_after`,
+    `residence_before`, `residence_after`, `n_children`, `child_gender`,
+    `child_age`, `mother_age`, `father_age`, `factors`, `soc`, `vu`,
+    `heard`).
+  - `visibility.kpi.<id>` controls KPI cards (`total`, `kids_n`,
+    `children`, `child_age`, `mother_age`, `father_age`, `cost_n`,
+    `cost_mean`, `cost_median`, `cost_max`).
+  - Missing keys fall back to defaults in `DEFAULT_UI_TEXT` in
+    `analysis/build_overview.py`.
+
 The HTML is **always** regenerated together with `cases.csv`,
 `overview.json` and `overview.md` by a single run of
 `python3 analysis/build_overview.py`. Whenever new cases are added (or
@@ -425,3 +444,18 @@ identify individuals when combined with the målnummer.
   wrote.
 - Process cases independently; do not let one case's interpretation bias
   another.
+
+## 10. Change documentation policy
+
+Every repository change must be documented in the same commit/PR.
+
+- Update this file (`AGENT_INSTRUCTIONS.md`) when behavior, schema,
+  workflow, or conventions change.
+- Add a dated entry to `CHANGELOG.md` for every implemented change
+  (code, data pipeline, dashboard behavior, configuration keys,
+  documentation-only changes).
+- For dashboard/UI changes, document both:
+  1. user-facing effect and
+  2. config key/path (`analysis/overview_ui_text.json`) or code path
+     (`analysis/build_overview.py`) used.
+- Do not merge undocumented changes.

@@ -1,13 +1,13 @@
 {
   "page": {
-    "title": "Översikt – svenska vårdnadsmål",
+    "title": "Översikt – VBU-mål",
     "subtitle": "Aggregerad statistik från {total_cases} domar om vårdnad, boende och umgänge."
   },
   "nav": {
     "nyckeltal": "Nyckeltal",
     "filter": "Filter",
     "instans": "Instans & år",
-    "utfall": "Utfall",
+    "utfall": "Beslut",
     "vardnad": "Vårdnad & boende",
     "barn": "Barn",
     "foraldrar": "Föräldrar",
@@ -18,7 +18,7 @@
   "sections": {
     "nyckeltal": {
       "title": "Nyckeltal",
-      "description": "Snabb översikt över omfattning, barnvolym och genomsnittliga åldrar i materialet."
+      "description": "Snabb översikt över omfattning, antal barn och genomsnittliga åldrar i materialet."
     },
     "filter": {
       "title": "Filter och jämförelse",
@@ -103,6 +103,54 @@
     "show_all": "Visar alla {total} mål",
     "show_filtered": "Visar {total} mål från {courts}",
     "compare": "Jämför {n_courts} tingsrätter ({parts} = {total} mål)"
+  },
+  "visibility": {
+    "sections": {
+      "nyckeltal": true,
+      "filter": true,
+      "instans": true,
+      "utfall": true,
+      "vardnad": true,
+      "barn": true,
+      "foraldrar": true,
+      "faktorer": true,
+      "process": true,
+      "bilaga": true
+    },
+    "charts": {
+      "court_level": true,
+      "year": true,
+      "court": true,
+      "origin_tingsratt": true,
+      "winners": true,
+      "appeal": true,
+      "outcome": true,
+      "legal_before": true,
+      "legal_after": true,
+      "residence_before": true,
+      "residence_after": true,
+      "n_children": true,
+      "child_gender": true,
+      "child_age": true,
+      "mother_age": true,
+      "father_age": true,
+      "factors": true,
+      "soc": true,
+      "vu": true,
+      "heard": true
+    },
+    "kpi": {
+      "total": true,
+      "kids_n": false,
+      "children": true,
+      "child_age": true,
+      "mother_age": true,
+      "father_age": true,
+      "cost_n": true,
+      "cost_mean": true,
+      "cost_median": true,
+      "cost_max": true
+    }
   },
   "footer": "Genererad av build_overview.py. Underliggande data: per-fall-JSON i analysis/."
 }
