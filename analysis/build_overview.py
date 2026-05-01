@@ -382,6 +382,61 @@ _NO_VISIT_RE = re.compile(
   r"inget umgänge|inga umgängen|utan umgänge|nekad?\s+umgänge|nekad?\s+all\s+kontakt",
   re.IGNORECASE,
 )
+_EQUAL_ACCESS_RE = re.compile(
+  r"växelvis|varannan\s+vecka|halva\s+tiden|50\s*/\s*50|lika\s+mycket",
+  re.IGNORECASE,
+)
+_SUBSTANTIAL_ACCESS_RE = re.compile(
+  r"varje\s+helg|3\s+av\s+4\s+helger|tre\s+helger|flera\s+vardagar|halva\s+lov",
+  re.IGNORECASE,
+)
+_LIMITED_ACCESS_RE = re.compile(
+  r"varannan\s+helg|en\s+vardag|onsdag|två\s+helger|2\s+helger",
+  re.IGNORECASE,
+)
+_VERY_LIMITED_ACCESS_RE = re.compile(
+  r"umgängesstöd|övervakat|kontaktperson|några\s+timmar|kort\s+umgänge|2\s+timmar",
+  re.IGNORECASE,
+)
+
+
+def _score_from_share(father_share: float) -> int:
+  """Map a father contact share to nearest discrete score bucket."""
+  score = (father_share - 0.5) * 200
+  buckets = [-100, -75, -50, -25, 0, 25, 50, 75, 100]
+  return min(buckets, key=lambda b: abs(score - b))
+
+
+def _residence_visit_to_share(res: str | None, visit: str) -> float | None:
+  """Estimate father share from residence + visitation wording."""
+  if res == "alternating" or _EQUAL_ACCESS_RE.search(visit):
+    return 0.5
+
+  if res == "mother":
+    if _NO_VISIT_RE.search(visit):
+      return 0.0
+    if _VERY_LIMITED_ACCESS_RE.search(visit):
+      return 0.125
+    if _LIMITED_ACCESS_RE.search(visit):
+      return 0.25
+    if _SUBSTANTIAL_ACCESS_RE.search(visit):
+      return 0.375
+    # Default for mother residence when visitation exists but is unclear.
+    return 0.25
+
+  if res == "father":
+    if _NO_VISIT_RE.search(visit):
+      return 1.0
+    if _VERY_LIMITED_ACCESS_RE.search(visit):
+      return 0.875
+    if _LIMITED_ACCESS_RE.search(visit):
+      return 0.75
+    if _SUBSTANTIAL_ACCESS_RE.search(visit):
+      return 0.625
+    # Default for father residence when visitation exists but is unclear.
+    return 0.75
+
+  return None
 
 
 def _parental_access_score(c: dict) -> int | None:
@@ -412,17 +467,23 @@ def _parental_access_score(c: dict) -> int | None:
     if scores:
       return round(sum(scores) / len(scores))
 
-  res = ca.get("residence")
-  visit = ca.get("visitation") or ""
-  no_visit = bool(_NO_VISIT_RE.search(visit))
+  # Support both full case objects (custody_after.*) and per-child rows where
+  # residence/visitation may be top-level.
+  res = ca.get("residence") or c.get("residence")
+  visit = (ca.get("visitation") or c.get("visitation") or "")
 
-  if res == "alternating":
-    return 0
-  if res == "mother":
-    return -100 if no_visit else -50
-  if res == "father":
-    return 100 if no_visit else 50
-  return None
+  share = _residence_visit_to_share(res, visit)
+  if share is None:
+    return None
+  return _score_from_share(share)
+
+
+def _format_sek(value: float | int | None) -> str:
+  if value is None:
+    return "–"
+  n = int(round(value))
+  sign = "−" if n < 0 else ""
+  return f"{sign}{abs(n):,}".replace(",", " ") + " kr"
 
 
 def load_cases() -> list[dict]:
@@ -899,14 +960,15 @@ def render_html(agg: dict, cases: list[dict], ui: dict) -> str:
         cid = c.get("case_id", "")
         court = c.get("court", "")
         date = c.get("ruling_date", "")
-        winner_sv = sv(SV_WINNER, c.get("winner"))
+        access_score = _parental_access_score(c)
+        access_label = f"{access_score:+d}" if access_score is not None else "okänt"
         n_kids = c.get("n_children", "?")
         summary = case_short_summary(c)
         appendix_items.append(
             f'        <article class="case">\n'
             f'          <header>\n'
             f'            <h3 id="{escape(cid)}">{escape(cid)}</h3>\n'
-            f'            <div class="meta">{escape(court)} · {escape(date)} · {n_kids} barn · utfall: <strong>{escape(winner_sv)}</strong></div>\n'
+            f'            <div class="meta">{escape(court)} · {escape(date)} · {n_kids} barn · kontaktbalans: <strong>{escape(access_label)}</strong></div>\n'
             f'          </header>\n'
             f'          <p>{escape(summary)}</p>\n'
             f'        </article>'
@@ -914,9 +976,9 @@ def render_html(agg: dict, cases: list[dict], ui: dict) -> str:
     appendix_html = "\n".join(appendix_items)
 
     cost_n = s_costs.get("n", 0)
-    cost_mean = int(s_costs.get("mean", 0)) if cost_n else "–"
-    cost_median = int(s_costs.get("median", 0)) if cost_n else "–"
-    cost_max = int(s_costs.get("max", 0)) if cost_n else "–"
+    cost_mean = _format_sek(s_costs.get("mean")) if cost_n else "–"
+    cost_median = _format_sek(s_costs.get("median")) if cost_n else "–"
+    cost_max = _format_sek(s_costs.get("max")) if cost_n else "–"
 
     filter_options = "\n".join(
       f'            <option value="{escape(name or "okänt")}">{escape(name or "okänt")} ({n})</option>'
@@ -1353,7 +1415,10 @@ def render_html(agg: dict, cases: list[dict], ui: dict) -> str:
       }
     }
 
-    function fmtInt(n) { return n == null ? '–' : Math.round(n).toString(); }
+    const SEK_FMT = new Intl.NumberFormat('sv-SE', {
+      style: 'currency', currency: 'SEK', maximumFractionDigits: 0
+    });
+    function fmtSek(n) { return n == null ? '–' : SEK_FMT.format(Math.round(n)); }
     function mean(values) {
       const v = values.filter(x => x != null);
       if (!v.length) return null;
@@ -1379,9 +1444,9 @@ def render_html(agg: dict, cases: list[dict], ui: dict) -> str:
       set('kpi_mother_age', motherAges.length ? (Math.round(mean(motherAges) * 10) / 10) : '–');
       set('kpi_father_age', fatherAges.length ? (Math.round(mean(fatherAges) * 10) / 10) : '–');
       set('kpi_cost_n', costs.length);
-      set('kpi_cost_mean', costs.length ? fmtInt(mean(costs)) : '–');
-      set('kpi_cost_median', costs.length ? fmtInt(median(costs)) : '–');
-      set('kpi_cost_max', costs.length ? fmtInt(Math.max.apply(null, costs)) : '–');
+      set('kpi_cost_mean', costs.length ? fmtSek(mean(costs)) : '–');
+      set('kpi_cost_median', costs.length ? fmtSek(median(costs)) : '–');
+      set('kpi_cost_max', costs.length ? fmtSek(Math.max.apply(null, costs)) : '–');
       const asValues = filtered.map(c => c.access_score).filter(x => x != null);
       set('kpi_as_n', asValues.length);
       set('kpi_as_mean', asValues.length ? (Math.round(mean(asValues) * 10) / 10) : '–');

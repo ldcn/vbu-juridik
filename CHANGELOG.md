@@ -4,6 +4,16 @@ Detta dokument loggar alla ändringar i repositoryt.
 
 ## 2026-05-01 (2)
 
+- Refined parental-access scoring in `analysis/build_overview.py`:
+  - Heuristic now supports finer buckets `-100, -75, -50, -25, 0, 25, 50, 75, 100` instead of only coarse `-100/-50/0/50/100`.
+  - Scoring uses residence + visitation text signals (e.g. no contact, supervised/very limited contact, varannan helg, substantial contact, alternating/equal split).
+  - Per-child fallback handling improved for `children_custody_outcomes` rows where `residence`/`visitation` are top-level fields.
+- Updated appendix summary meta in generated `overview.html`:
+  - Removed `utfall:` and replaced with `kontaktbalans:` per case.
+- Applied Swedish currency formatting for process-cost KPI cards (mean/median/max):
+  - Static server-rendered values now use Swedish grouping + `kr` (e.g. `104 644 kr`).
+  - Dynamic filtered values in browser now use `Intl.NumberFormat('sv-SE', { style: 'currency', currency: 'SEK' })`.
+
 - Fixed case-loading bug in `analysis/build_overview.py`:
   - `load_cases()` now excludes `analysis/overview_ui_text.json` in addition to `analysis/overview.json`.
   - This removed a non-case config file from aggregates and corrected totals from 66 to 65 real case JSONs.

@@ -244,16 +244,16 @@
   "low_confidence_cases": [],
   "access_score_distribution": {
     "-100": 1,
-    "-50": 46,
-    "0": 2,
-    "50": 11,
-    "100": 1
+    "-75": 7,
+    "-50": 32,
+    "0": 12,
+    "50": 10
   },
   "access_score_stats": {
-    "n": 61,
-    "mean": -28.69,
-    "median": -50,
+    "n": 62,
+    "mean": -27.82,
+    "median": -50.0,
     "min": -100,
-    "max": 100
+    "max": 50
   }
 }
