@@ -1,0 +1,49 @@
+{
+  "case_id": "HRNN_T_2025_1553",
+  "court": "Hovrätten för Nedre Norrland",
+  "court_level": "hovrätt",
+  "lower_court": "Östersunds tingsrätt",
+  "lower_court_case_no": "T 835-24",
+  "ruling_date": "2026-04-29",
+  "saken": "Vårdnad m.m.",
+  "summary": "Föräldrarna har gemensam vårdnad om en pojke född 2015. Tingsrätten beslutade att sonen skulle ha sitt stadigvarande boende hos fadern, med visst umgänge med modern. Modern överklagade och yrkade att sonen skulle bo hos henne; fadern överklagade angående umgängets omfattning. Hovrätten ändrade tingsrättens dom så att sonen ska bo hos modern och ska ha umgänge med fadern, inledningsvis med umgängesstöd och därefter upptrappat till helgumgänge varannan vecka. Sonen har diagnoser (ADHD och trotssyndrom) och särskilda behov. Hovrätten lät den gemensamma vårdnaden bestå.",
+  "parents": [
+    {"label": "AA", "role": "mother", "birth_year": 1987, "gender": "female"},
+    {"label": "BB", "role": "father", "birth_year": 1982, "gender": "male"}
+  ],
+  "children": [
+    {"label": "CC", "birth_year": 2015, "age_at_ruling": 11, "gender": "male"}
+  ],
+  "n_children": 1,
+  "custody_before": {
+    "type": "joint",
+    "residence": "father",
+    "visitation": "Reglerat umgänge med modern enligt tingsrättens dom."
+  },
+  "custody_after": {
+    "type": "joint",
+    "residence": "mother",
+    "visitation": "Umgänge med fadern, inledningsvis med umgängesstöd, upptrappat till helgumgänge varannan vecka."
+  },
+  "winner": "mother",
+  "winner_rationale": "Modern fick gehör för sitt yrkande att sonen ska ha sitt stadigvarande boende hos henne, vilket är den centrala tvistefrågan i hovrätten. Den gemensamma vårdnaden består.",
+  "key_factors": [
+    "child_best_interest",
+    "mental_health",
+    "cooperation_problems",
+    "vårdnadsutredning",
+    "social_services_recommendation",
+    "child_own_wishes"
+  ],
+  "social_services_involved": true,
+  "vårdnadsutredning_performed": true,
+  "child_was_heard": true,
+  "appeal_outcome": "modified",
+  "legal_costs_total_sek": 67465,
+  "judges": ["Hanna Hjorth", "Chris Stattin-Larsson", "Tomi Blumén"],
+  "unanimous": true,
+  "notes": "Sonen har ADHD och trotssyndrom och särskilda behov som beaktats vid bedömningen. Vårdnadsutredning har genomförts. Den gemensamma vårdnaden bibehålls.",
+  "source": "pdftotext",
+  "extraction_confidence": "high",
+  "missing_or_unclear_fields": []
+}

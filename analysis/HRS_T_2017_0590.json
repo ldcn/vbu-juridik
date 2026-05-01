@@ -1,0 +1,82 @@
+{
+  "case_id": "HRS_T_2017_0590",
+  "court": "Svea hovrätt",
+  "court_level": "hovrätt",
+  "lower_court": "Södertälje tingsrätt",
+  "lower_court_case_no": "T 2093-15",
+  "ruling_date": "2018-04-23",
+  "saken": "Vårdnad m.m.",
+  "summary": "Hovrätten ändrade tingsrättens dom om umgänge. Tingsrätten hade beslutat att fadern inte skulle ha något umgänge med sina döttrar på grund av misstankar om våld. Hovrätten förordnade om gradvis upptrappat umgänge med stöd för de två yngre barnen, medan det äldsta barnet (12 år) fick utesluta sig från umgänge enligt sin egen vilja.",
+  "parents": [
+    {
+      "role": "father",
+      "procedural_role": "klagande",
+      "name_initials": "Y.M.",
+      "birth_year": 1987,
+      "age_at_ruling": 31,
+      "nationality": "Eritrea",
+      "represented_by_counsel": true
+    },
+    {
+      "role": "mother",
+      "procedural_role": "motpart",
+      "name_initials": "N.H.",
+      "birth_year": 1981,
+      "age_at_ruling": 37,
+      "nationality": null,
+      "represented_by_counsel": true
+    }
+  ],
+  "children": [
+    {
+      "initials": "L.A.",
+      "birth_year": 2012,
+      "birth_month": 2,
+      "age_at_ruling": 6,
+      "gender": "male"
+    },
+    {
+      "initials": "L.A.",
+      "birth_year": 2013,
+      "birth_month": 7,
+      "age_at_ruling": 5,
+      "gender": "female"
+    }
+  ],
+  "n_children": 2,
+  "custody_before": {
+    "legal_custody": "sole_mother",
+    "residence": "mother",
+    "visitation": "Inget umgänge enligt tingsrättens dom från oktober 2016"
+  },
+  "custody_after": {
+    "legal_custody": "sole_mother",
+    "residence": "mother",
+    "visitation": "Gradvis upptrappat umgänge för flickorna: fyra timmar varannan lördag/söndag (ojämna veckor) från maj 2018, fem-sex timmar från september 2018, från lördag 12-söndag 16 från oktober 2018, därefter från fredag-måndag från december 2018. Med umgängesstöd initialt."
+  },
+  "winner": "partial_father",
+  "winner_rationale": "Faderns yrkande om att få umgänge med barnen fick delvis bifall. Umgänge kom till stånd men med begränsningar och stöd på grund av barnens tidigare erfarenheter.",
+  "key_factors": [
+    "domestic_violence_allegation",
+    "child_best_interest",
+    "vårdnadsutredning",
+    "social_services_recommendation",
+    "cooperation_problems"
+  ],
+  "social_services_involved": true,
+  "vårdnadsutredning_performed": true,
+  "child_was_heard": false,
+  "appeal_outcome": "modified",
+  "legal_costs_total_sek": 135892,
+  "judges": [
+    "Katarina Påhlsson",
+    "Catrine Björkman"
+  ],
+  "unanimous": null,
+  "notes": "Huvudfrågan gällde om umgänge skulle tillåtas eller inte. Tingsrätten hade avslagit all umgänge, men hovrätten bedömde att umgänge efter två och ett halvt år kunde startas under ordnade former. Faderns tidigare misstankar om våld mot moderna kunde inte fullt styrkas men värderades fortfarande.",
+  "extraction_confidence": "high",
+  "missing_or_unclear_fields": [
+    "unanimous"
+  ],
+  "source": "txt"
+}

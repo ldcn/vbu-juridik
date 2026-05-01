@@ -1,0 +1,50 @@
+{
+  "case_id": "HRSB_T_2025_2583",
+  "court": "Hovrätten över Skåne och Blekinge",
+  "court_level": "hovrätt",
+  "lower_court": "Blekinge tingsrätt",
+  "lower_court_case_no": "T 1924-24",
+  "ruling_date": "2026-03-03",
+  "saken": "Vårdnad om barn m.m.",
+  "summary": "Målet rör en pojke född 2013, ca 12,5 år vid hovrättens dom. Fadern är somalisk medborgare. Tingsrätten beslutade om fortsatt gemensam vårdnad med boende hos modern och avslog faderns yrkande om umgänge. Modern överklagade och yrkade ensam vårdnad; fadern överklagade och yrkade umgänge med umgängesstöd. Hovrätten ändrade tingsrättens dom och tillerkände modern ensam vårdnad. Umgänget förblev oreglerat. Hovrätten lade vikt vid sonens neuropsykiatriska diagnoser (autism och ADD), hans uttalade ovilja att träffa fadern, brister i föräldrarnas förmåga till gemensamt ansvar samt risken för att sonens positiva utveckling och tillgång till vårdinsatser annars äventyras.",
+  "parents": [
+    {"label": "AA", "role": "mother", "birth_year": 1990, "gender": "female"},
+    {"label": "BB", "role": "father", "birth_year": 1989, "gender": "male", "nationality": "Somalia"}
+  ],
+  "children": [
+    {"label": "CC", "birth_year": 2013, "age_at_ruling": 13, "gender": "male"}
+  ],
+  "n_children": 1,
+  "custody_before": {
+    "type": "joint",
+    "residence": "mother",
+    "visitation": "Inget reglerat umgänge med fadern."
+  },
+  "custody_after": {
+    "type": "sole_mother",
+    "residence": "mother",
+    "visitation": "Inget reglerat umgänge med fadern."
+  },
+  "winner": "mother",
+  "winner_rationale": "Modern fick bifall till sitt yrkande om ensam vårdnad. Faderns yrkande om umgänge med umgängesstöd avslogs.",
+  "key_factors": [
+    "child_best_interest",
+    "child_own_wishes",
+    "mental_health",
+    "cooperation_problems",
+    "domestic_violence_allegation",
+    "vårdnadsutredning",
+    "international_element"
+  ],
+  "social_services_involved": true,
+  "vårdnadsutredning_performed": true,
+  "child_was_heard": true,
+  "appeal_outcome": "modified",
+  "legal_costs_total_sek": null,
+  "judges": ["Karoline Fridolf", "Elisabeth Ståhl", "Sandra Rohdin"],
+  "unanimous": false,
+  "notes": "Sonen har diagnostiserats med autism och ADD och bedöms åldersadekvat. Han uttrycker stark ovilja mot kontakt med fadern. Två nämndemän (Jeanette Ekberg och Suad Korlat) var skiljaktiga och ville fastställa tingsrättens dom om gemensam vårdnad. Tingsrätten var enhällig. Fadern är somalisk medborgare. Sekretess delvis upphävd.",
+  "source": "pdftotext",
+  "extraction_confidence": "high",
+  "missing_or_unclear_fields": ["legal_costs_total_sek"]
+}

@@ -1,0 +1,77 @@
+{
+  "case_id": "HRS_T_2018_6087",
+  "court": "Svea hovrätt",
+  "court_level": "hovrätt",
+  "lower_court": "Södertälje tingsrätt",
+  "lower_court_case_no": "T 2723-17",
+  "ruling_date": "2018-08-13",
+  "saken": "Vårdnad",
+  "summary": "Föräldrarna var överens om äktenskapsskillnad och att modern skulle ha ensam vårdnad. Tingsrätten glömde att pröva vårdnadsyrkandet i domen. Hovrätten reparerade rättegångsfelet och förordnade om ensam vårdnad för modern enligt parternas överenskommelse och socialnämndens rekommendation.",
+  "parents": [
+    {
+      "role": "mother",
+      "procedural_role": "klagande",
+      "name_initials": "N.G.",
+      "birth_year": 1982,
+      "age_at_ruling": 36,
+      "nationality": null,
+      "represented_by_counsel": false
+    },
+    {
+      "role": "father",
+      "procedural_role": "motpart",
+      "name_initials": "G.G.",
+      "birth_year": 1977,
+      "age_at_ruling": 41,
+      "nationality": null,
+      "represented_by_counsel": false
+    }
+  ],
+  "children": [
+    {
+      "initials": "I.N.G.",
+      "birth_year": 2006,
+      "birth_month": 9,
+      "age_at_ruling": 11,
+      "gender": "female"
+    },
+    {
+      "initials": "M.G.",
+      "birth_year": 2009,
+      "birth_month": 8,
+      "age_at_ruling": 8,
+      "gender": "female"
+    }
+  ],
+  "n_children": 2,
+  "custody_before": {
+    "legal_custody": "joint",
+    "residence": "unknown",
+    "visitation": null
+  },
+  "custody_after": {
+    "legal_custody": "sole_mother",
+    "residence": "mother",
+    "visitation": null
+  },
+  "winner": "both",
+  "winner_rationale": "Båda föräldrarna var överens. Modern fick ensam vårdnad enligt överenskommelse.",
+  "key_factors": [
+    "parental_agreement",
+    "child_best_interest"
+  ],
+  "social_services_involved": false,
+  "vårdnadsutredning_performed": false,
+  "child_was_heard": false,
+  "appeal_outcome": "affirmed",
+  "legal_costs_total_sek": null,
+  "judges": [
+    "Ulrika Stenbeck Gustavson",
+    "Göran Nilsson"
+  ],
+  "unanimous": true,
+  "notes": "Enkel procedurfall där tingsrätten av förbiseende inte prövade vårdnadsyrkandet. Rättegångsfelet avhjälptes utan väsentlig olägenhet av hovrätten.",
+  "extraction_confidence": "high",
+  "missing_or_unclear_fields": [],
+  "source": "txt"
+}

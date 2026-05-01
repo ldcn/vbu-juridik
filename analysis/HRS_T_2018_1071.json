@@ -1,0 +1,71 @@
+{
+  "case_id": "HRS_T_2018_1071",
+  "court": "Svea hovrätt",
+  "court_level": "hovrätt",
+  "lower_court": "Stockholms tingsrätt",
+  "lower_court_case_no": "T 9979-16",
+  "ruling_date": "2018-11-22",
+  "saken": "Vårdnad om barn m.m.",
+  "summary": "Efter att modern överklagat tingsrättens dom som tillerkänt gemensam vårdnad träffade parterna en överenskommelse. Fadern får ensam vårdnad om dottern. Modern får umgänge söndag kl. 11-17 ojämna veckor med upptrappning. Parterna förbinder sig att inte göra nya polisanmälningar eller orosanmälningar.",
+  "parents": [
+    {
+      "role": "father",
+      "procedural_role": "motpart",
+      "name_initials": "F.B.",
+      "birth_year": 1973,
+      "age_at_ruling": 45,
+      "nationality": null,
+      "represented_by_counsel": true
+    },
+    {
+      "role": "mother",
+      "procedural_role": "klagande",
+      "name_initials": "J.D.",
+      "birth_year": 1973,
+      "age_at_ruling": 45,
+      "nationality": null,
+      "represented_by_counsel": true
+    }
+  ],
+  "children": [
+    {
+      "initials": "C.B.",
+      "birth_year": 2008,
+      "birth_month": 5,
+      "age_at_ruling": 10,
+      "gender": "male"
+    }
+  ],
+  "n_children": 1,
+  "custody_before": {
+    "legal_custody": "joint",
+    "residence": "alternating",
+    "visitation": null
+  },
+  "custody_after": {
+    "legal_custody": "sole_father",
+    "residence": "father",
+    "visitation": "Söndagar ojämna veckor kl. 11-17, upptrappning från den 17 mars 2019 till kl. 11-19, plus fyra veckors obruten samvaro under sommaren"
+  },
+  "winner": "father",
+  "winner_rationale": "Fadern fick ensam vårdnad och dottern fick bo hos honom, vilket var hans yrkande. Modern fick umgänge enligt överenskommelse.",
+  "key_factors": [
+    "parental_agreement",
+    "child_best_interest",
+    "cooperation_problems"
+  ],
+  "social_services_involved": false,
+  "vårdnadsutredning_performed": false,
+  "child_was_heard": null,
+  "appeal_outcome": "modified",
+  "legal_costs_total_sek": null,
+  "judges": [
+    "Thomas Kaevergaard",
+    "Lars Olsson"
+  ],
+  "unanimous": null,
+  "notes": "Målet avgjordes utan huvudförhandling på basis av överenskommelse. Parterna förbinder sig att träffas hos advokat för utvärdering av umgänget den 12 september 2019.",
+  "extraction_confidence": "high",
+  "missing_or_unclear_fields": [],
+  "source": "txt"
+}

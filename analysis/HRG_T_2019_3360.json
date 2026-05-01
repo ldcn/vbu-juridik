@@ -1,0 +1,76 @@
+{
+  "case_id": "HRG_T_2019_3360",
+  "court": "Göta hovrätt",
+  "court_level": "hovrätt",
+  "lower_court": "Jönköpings tingsrätt",
+  "lower_court_case_no": "T 3763-18",
+  "ruling_date": "2021-01-07",
+  "saken": "Vårdnad m.m.",
+  "summary": "Mamman överklagade tingsrättens dom om fortsatt gemensam vårdnad och yrkade ensam vårdnad om sonen (född 2016). Pappan, som flyttat tillbaka till Spanien efter tingsrättens dom, motsatte sig och yrkade utvidgat sommar- och julumgänge i Spanien. Hovrätten upphävde den gemensamma vårdnaden och tillerkände mamman ensam vårdnad med hänvisning till djupgående och bestående samarbetssvårigheter samt barnets behov av förutsebarhet, men förordnade endast om dagumgänge i Sverige (utan övernattningar) samt regelbundet Skype-umgänge.",
+  "parents": [
+    {
+      "role": "mother",
+      "procedural_role": "klagande",
+      "name_initials": "I.M.A.",
+      "birth_year": 1983,
+      "age_at_ruling": 37,
+      "nationality": "Sverige",
+      "represented_by_counsel": true
+    },
+    {
+      "role": "father",
+      "procedural_role": "motpart",
+      "name_initials": "J.M.C.C.",
+      "birth_year": 1974,
+      "age_at_ruling": 46,
+      "nationality": "Spanien",
+      "represented_by_counsel": true
+    }
+  ],
+  "children": [
+    {
+      "initials": "A.C.A.",
+      "birth_year": 2016,
+      "birth_month": 3,
+      "age_at_ruling": 4,
+      "gender": "male"
+    }
+  ],
+  "n_children": 1,
+  "custody_before": {
+    "legal_custody": "joint",
+    "residence": "mother",
+    "visitation": "Onsdag eftermiddag, vartannat veckoslut samt lovumgänge enligt tingsrättens dom"
+  },
+  "custody_after": {
+    "legal_custody": "sole_mother",
+    "residence": "mother",
+    "visitation": "Dagumgänge i Sverige (sommar 2-3 veckor och jul/nyår) samt Skype-umgänge tre gånger per vecka; inga övernattningar; inget umgänge i Spanien"
+  },
+  "winner": "mother",
+  "winner_rationale": "Mamman fick bifall till sitt huvudyrkande om ensam vårdnad och hovrätten avslog pappans yrkanden om sammanhängande sommar- och julumgänge i Spanien.",
+  "key_factors": [
+    "cooperation_problems",
+    "child_best_interest",
+    "domestic_violence_allegation",
+    "international_element",
+    "vårdnadsutredning",
+    "social_services_recommendation",
+    "relocation"
+  ],
+  "social_services_involved": true,
+  "vårdnadsutredning_performed": true,
+  "child_was_heard": false,
+  "appeal_outcome": "modified",
+  "legal_costs_total_sek": 72459,
+  "judges": [
+    "Linda Hallstedt",
+    "Madeleine Lindholm",
+    "Maria Snöberg"
+  ],
+  "unanimous": true,
+  "notes": "Internationell dimension: pappan flyttade till Spanien under processens gång. Långvarig konflikt med påståenden om psykisk misshandel. Barnet är ca 4,5 år vid hovrättens dom och beskrivs som särskilt känsligt med behov av förutsebarhet.",
+  "extraction_confidence": "high",
+  "missing_or_unclear_fields": [],
+  "source": "markdown"
+}

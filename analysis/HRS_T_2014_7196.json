@@ -1,0 +1,74 @@
+{
+  "case_id": "HRS_T_2014_7196",
+  "court": "Svea hovrätt",
+  "court_level": "hovrätt",
+  "lower_court": "Södertälje tingsrätt",
+  "lower_court_case_no": "T 1901-12",
+  "ruling_date": "2015-01-19",
+  "saken": "Vårdnad m.m.",
+  "summary": "Tingsrätten tillerkände pappan ensam vårdnad om sonen och avslog mammans yrkande om umgänge på grund av hennes alkoholmissbruk och brister i omsorgsförmåga. Vid hovrätten nådde parterna överenskommelse om att pappan behål ensam vårdnad men sonen skulle ha umgänge med mamman enligt ett detaljerat schema med veckoslut, lovperioder och sommarumgänge.",
+  "parents": [
+    {
+      "role": "father",
+      "procedural_role": "motpart",
+      "name_initials": "J.L.",
+      "birth_year": 1972,
+      "age_at_ruling": 42,
+      "nationality": null,
+      "represented_by_counsel": true
+    },
+    {
+      "role": "mother",
+      "procedural_role": "klagande",
+      "name_initials": "B.N.",
+      "birth_year": 1973,
+      "age_at_ruling": 41,
+      "nationality": null,
+      "represented_by_counsel": false
+    }
+  ],
+  "children": [
+    {
+      "initials": "R.L.",
+      "birth_year": 2004,
+      "birth_month": 5,
+      "age_at_ruling": 10,
+      "gender": "male"
+    }
+  ],
+  "n_children": 1,
+  "custody_before": {
+    "legal_custody": "sole_father",
+    "residence": "father",
+    "visitation": "Oreglerat umgänge enligt tingsrättens dom - no formell umgängesrätt tillerkänd"
+  },
+  "custody_after": {
+    "legal_custody": "sole_father",
+    "residence": "father",
+    "visitation": "Vartannat veckoslut jämna veckor fredag kl. 19 till söndag kl. 19; vartannat sportlov, påsklov, höstlov; varannan julhelg 23-27 dec; varannan nyårshelg 28 dec-1 jan; en vecka varje sommar; hämtning och lämning hos mamman, undantag då pappan har förhinder."
+  },
+  "winner": "father",
+  "winner_rationale": "Pappan fick ensam vårdnad som han yrkade. Mamman fick umgänge för barnet trots tidigare avslagning vid tingsrätten genom överenskommelse vid hovrätten.",
+  "key_factors": [
+    "substance_abuse_allegation",
+    "cooperation_problems",
+    "child_best_interest",
+    "parental_agreement",
+    "mental_health"
+  ],
+  "social_services_involved": true,
+  "vårdnadsutredning_performed": true,
+  "child_was_heard": false,
+  "appeal_outcome": "modified",
+  "legal_costs_total_sek": null,
+  "judges": [
+    "Christina Jacobsson",
+    "Ingela Perklev",
+    "Jessica Didrikson"
+  ],
+  "unanimous": true,
+  "notes": "Mamman hade påtagligt alkoholmissbruk vilket påverkade hennes omsorgsförmåga om barnet. Rasmus mådde mycket dåligt hos mamman med depression, ångest och utåtagerande beteende. Efter flytten till pappan hos en släkting förbättrades sonens situation markant. Parterna kom överens om umgängesschema vid huvudförhandlingen.",
+  "extraction_confidence": "high",
+  "missing_or_unclear_fields": [],
+  "source": "markdown"
+}

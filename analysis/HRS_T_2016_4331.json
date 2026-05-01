@@ -1,0 +1,73 @@
+{
+  "case_id": "HRS_T_2016_4331",
+  "court": "Svea hovrätt",
+  "court_level": "hovrätt",
+  "lower_court": "Mora tingsrätt",
+  "lower_court_case_no": "T 179-15",
+  "ruling_date": "2016-12-19",
+  "saken": "Vårdnad m.m.",
+  "summary": "Hovrätten ändrade endast umgänget för sonen. Modern hade hittills begränsat faderns umgänge. Hovrätten förordnade om ett omfattande umgänge med gradvis upptrappning för fadern, från kortare möten till längre vistelseperioder och sommarumgänge.",
+  "parents": [
+    {
+      "role": "father",
+      "procedural_role": "klagande",
+      "name_initials": "M.J.L.",
+      "birth_year": 1987,
+      "age_at_ruling": 29,
+      "nationality": null,
+      "represented_by_counsel": true
+    },
+    {
+      "role": "mother",
+      "procedural_role": "motpart",
+      "name_initials": "T.L.H.",
+      "birth_year": 1988,
+      "age_at_ruling": 28,
+      "nationality": null,
+      "represented_by_counsel": true
+    }
+  ],
+  "children": [
+    {
+      "initials": "L.L.",
+      "birth_year": 2014,
+      "birth_month": 8,
+      "age_at_ruling": 2,
+      "gender": "male"
+    }
+  ],
+  "n_children": 1,
+  "custody_before": {
+    "legal_custody": "joint",
+    "residence": "mother",
+    "visitation": "Begränsat umgänge enligt tingsrättens dom"
+  },
+  "custody_after": {
+    "legal_custody": "joint",
+    "residence": "mother",
+    "visitation": "Omfattande umgänge enligt schema: dagumgänge var 20:e dag från januari-februari 2017, därefter längre perioder (3-5 dagar varannan vecka), sommarumgänge 1-2 veckor årligen"
+  },
+  "winner": "partial_father",
+  "winner_rationale": "Faderns umgänge fick betydligt utökas från det tingsrätten förordnade. Modern behöll boendeföräldrarvarden men faderns kontakt med barnet reglerades omfattande.",
+  "key_factors": [
+    "parental_agreement",
+    "child_best_interest",
+    "cooperation_problems",
+    "geographical_distance",
+    "relocation"
+  ],
+  "social_services_involved": false,
+  "vårdnadsutredning_performed": false,
+  "child_was_heard": null,
+  "appeal_outcome": "modified",
+  "legal_costs_total_sek": 81338,
+  "judges": null,
+  "unanimous": null,
+  "notes": "Målet gäller Sverige-Norge gränsöverskridande förhållande. Faderns arbetsschema (10 dagar arbete, 10 dagar ledigt i löpande schema) var avgörande för umgängesutformningen. Hovrätten uttalade att modern tidigare inte tillräckligt följt domstolsbeslut om umgänge.",
+  "extraction_confidence": "medium",
+  "missing_or_unclear_fields": [
+    "judges",
+    "unanimous"
+  ],
+  "source": "txt"
+}

@@ -1,0 +1,76 @@
+{
+  "case_id": "HRS_T_2025_1925",
+  "court": "Svea hovrätt",
+  "court_level": "hovrätt",
+  "lower_court": "Nacka tingsrätt",
+  "lower_court_case_no": "T 7579-23",
+  "ruling_date": "2025-10-13",
+  "saken": "Vårdnad m.m.",
+  "summary": "Tvist mellan föräldrar om vårdnad, boende och umgänge avseende två döttrar födda 2013 och 2016. Tingsrätten gav fadern ensam vårdnad och avslog moderns yrkande om umgänge, med hänvisning till att modern utsatt barnen för otillbörlig föräldrapåverkan som lett till att barnen tagit avstånd från fadern. Modern ålades vid vite att lämna ifrån sig döttrarna. Efter att modern överklagat och hovrätten meddelat prövningstillstånd träffade parterna en samförståndslösning som hovrätten fastställde: gemensam vårdnad återinförs, döttrarna bor inledningsvis hos fadern i fyra månader med upptrappat umgänge med modern, och därefter växelvis boende.",
+  "parents": [
+    {
+      "role": "mother",
+      "procedural_role": "klagande",
+      "name_initials": "AA",
+      "birth_year": 1977,
+      "age_at_ruling": 48,
+      "nationality": null,
+      "represented_by_counsel": true
+    },
+    {
+      "role": "father",
+      "procedural_role": "motpart",
+      "name_initials": "BB",
+      "birth_year": 1976,
+      "age_at_ruling": 49,
+      "nationality": null,
+      "represented_by_counsel": true
+    }
+  ],
+  "children": [
+    {
+      "initials": "CC",
+      "birth_year": 2013,
+      "birth_month": null,
+      "age_at_ruling": 12,
+      "gender": "female"
+    },
+    {
+      "initials": "DD",
+      "birth_year": 2016,
+      "birth_month": null,
+      "age_at_ruling": 9,
+      "gender": "female"
+    }
+  ],
+  "n_children": 2,
+  "custody_before": {
+    "legal_custody": "sole_father",
+    "residence": "father",
+    "visitation": "Enligt tingsrättens dom inget umgänge med modern; modern vid vite ålagd att lämna ifrån sig döttrarna"
+  },
+  "custody_after": {
+    "legal_custody": "joint",
+    "residence": "father",
+    "visitation": "Inledningsvis fyra månader hos fadern: två månader utan umgänge med modern, därefter två månader med oreglerat dagumgänge inkl. övernattning sista månaden. Från 16 februari 2026 växelvist boende varannan vecka"
+  },
+  "winner": "both",
+  "winner_rationale": "Parterna nådde en samförståndslösning som hovrätten fastställde efter prövningstillstånd. Båda föräldrarna fick gemensam vårdnad återinförd och en strukturerad väg tillbaka till växelvist boende.",
+  "key_factors": [
+    "parental_agreement",
+    "child_best_interest",
+    "cooperation_problems",
+    "vårdnadsutredning"
+  ],
+  "social_services_involved": true,
+  "vårdnadsutredning_performed": true,
+  "child_was_heard": true,
+  "appeal_outcome": "settlement",
+  "legal_costs_total_sek": null,
+  "judges": ["Maria Billing", "Anita Glad", "Erik Axel Norberg"],
+  "unanimous": true,
+  "notes": "Tingsrättens dom byggde på familjerättens slutsats om omfattande föräldrapåverkan från modern, samt sakkunnigvittnesförhör om föräldraalienation. Tingsrätten beslutade om ensam vårdnad till fadern bland annat för att åtgärda denna påverkan. I hovrätten övergick tvisten till en överenskommelse som hovrätten ansåg förenlig med barnens bästa.",
+  "source": "pdftotext",
+  "extraction_confidence": "high",
+  "missing_or_unclear_fields": ["legal_costs_total_sek", "parents[].nationality", "children[].birth_month"]
+}

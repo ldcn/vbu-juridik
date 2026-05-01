@@ -1,0 +1,72 @@
+{
+  "case_id": "HRS_T_2024_16321",
+  "court": "Svea hovrätt",
+  "court_level": "hovrätt",
+  "lower_court": "Södertörns tingsrätt",
+  "lower_court_case_no": "T 15398-22",
+  "ruling_date": "2026-02-04",
+  "saken": "Vårdnad m.m.",
+  "summary": "Modern överklagade tingsrättens dom om vårdnad, boende och umgänge avseende parternas gemensamma dotter, född 2019. Under handläggningen i hovrätten träffade föräldrarna en överenskommelse om vårdnad, boende och ett detaljerat utvidgat umgänge inklusive helg-, lov- och storhelgsumgänge samt obruten samvaro hos modern. Hovrätten ansåg att överenskommelsen var förenlig med dotterns bästa och ändrade tingsrättens dom endast i fråga om umgänget (punkten 3) i enlighet med parternas överenskommelse, och förordnade att domen skulle gälla omedelbart.",
+  "parents": [
+    {
+      "role": "mother",
+      "procedural_role": "klagande",
+      "name_initials": "AA",
+      "birth_year": 1992,
+      "age_at_ruling": 33,
+      "nationality": null,
+      "represented_by_counsel": true
+    },
+    {
+      "role": "father",
+      "procedural_role": "motpart",
+      "name_initials": "BB",
+      "birth_year": 1987,
+      "age_at_ruling": 38,
+      "nationality": null,
+      "represented_by_counsel": true
+    }
+  ],
+  "children": [
+    {
+      "initials": "CC",
+      "birth_year": 2019,
+      "birth_month": null,
+      "age_at_ruling": 6,
+      "gender": "female"
+    }
+  ],
+  "n_children": 1,
+  "custody_before": {
+    "legal_custody": "joint",
+    "residence": "mother",
+    "visitation": "Tingsrätten beslutade om en stegvis upptrappning av umgänget mellan dottern och fadern, från ojämna helger dagtid till veckoslutsumgänge torsdag–måndag varannan vecka, samt begränsat storhelgs- och lovumgänge."
+  },
+  "custody_after": {
+    "legal_custody": "joint",
+    "residence": "mother",
+    "visitation": "Hovrätten fastställde i enlighet med föräldrarnas överenskommelse ett utvidgat umgänge mellan dottern och fadern: torsdag (ojämna veckor) efter förskolans/skolans slut till måndag morgon (jämna veckor), samt detaljerat reglerat jul-, nyårs-, sport-, höst-, påsk-, midsommar- och sommarumgänge. Modern fick motsvarande obruten samvaro med dottern under vissa angivna perioder och fadern utfärdade beslutandefullmakt till modern enligt bilaga B."
+  },
+  "winner": "both",
+  "winner_rationale": "Parterna träffade en överenskommelse efter tingsrättens dom och hovrätten dömde i enlighet med denna; båda föräldrarna fick i allt väsentligt det de begärde i hovrätten.",
+  "key_factors": [
+    "parental_agreement",
+    "child_best_interest",
+    "domestic_violence_allegation",
+    "substance_abuse_allegation",
+    "cooperation_problems",
+    "social_services_recommendation",
+    "vårdnadsutredning"
+  ],
+  "social_services_involved": true,
+  "vårdnadsutredning_performed": true,
+  "child_was_heard": null,
+  "appeal_outcome": "modified",
+  "legal_costs_total_sek": 244729,
+  "judges": ["Anne Mellqvist", "Robert Barrefelt", "Jacob Strindlöv"],
+  "unanimous": true,
+  "notes": "Hovrätten ändrade endast umgängespunkten i tingsrättens dom efter att föräldrarna träffat en överenskommelse. Tingsrätten hade dessförinnan avslagit moderns yrkande om ensam vårdnad trots att fadern dömts för misshandel och olaga hot mot modern samt för våldtäkt mot annan kvinna; tingsrätten ansåg att gärningarna låg flera år tillbaka i tiden och att faderns situation hade stabiliserats efter villkorlig frigivning. Vårdnads-, boende- och umgängesutredning genomfördes och föräldrarnas samarbete bedömdes som bristfälligt men tillräckligt för gemensam vårdnad. Beslutandefullmakt utfärdades av fadern till modern.",
+  "extraction_confidence": "high",
+  "missing_or_unclear_fields": ["children[0].birth_month", "child_was_heard"],
+  "source": "pdftotext"
+}

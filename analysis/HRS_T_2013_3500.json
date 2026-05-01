@@ -1,0 +1,75 @@
+{
+  "case_id": "HRS_T_2013_3500",
+  "court": "Svea hovrätt",
+  "court_level": "hovrätt",
+  "lower_court": "Södertälje tingsrätt",
+  "lower_court_case_no": "T 1931-08",
+  "ruling_date": "2014-04-01",
+  "saken": "Umgänge med barn",
+  "summary": "Tingsrätten tillerkände modern ensam vårdnad om sonen och förordnade umgänge för fadern varannan helg. Hovrätten upphävde umgänget då Sonen hade utvecklat svår ångestproblematik och BUP förespeglade att traumabehandling inte kunde genomföras medan umgänget pågick.",
+  "parents": [
+    {
+      "role": "mother",
+      "procedural_role": "klagande",
+      "name_initials": "J.E.",
+      "birth_year": 1971,
+      "age_at_ruling": 42,
+      "nationality": null,
+      "represented_by_counsel": true
+    },
+    {
+      "role": "father",
+      "procedural_role": "motpart",
+      "name_initials": "A.L.",
+      "birth_year": 1972,
+      "age_at_ruling": 41,
+      "nationality": null,
+      "represented_by_counsel": true
+    }
+  ],
+  "children": [
+    {
+      "initials": "T.L.",
+      "birth_year": 2001,
+      "birth_month": 9,
+      "age_at_ruling": 12,
+      "gender": "female"
+    }
+  ],
+  "n_children": 1,
+  "custody_before": {
+    "legal_custody": "joint",
+    "residence": "mother",
+    "visitation": "Vartannat veckoslut från torsdag eftermiddag till måndag morgon"
+  },
+  "custody_after": {
+    "legal_custody": "sole_mother",
+    "residence": "mother",
+    "visitation": null
+  },
+  "winner": "mother",
+  "winner_rationale": "Modern fick bifallet för ensam vårdnad. Umgänget upphävdes tills vidare på grund av barnets svåra ångestproblematik och behov av traumabehandling.",
+  "key_factors": [
+    "child_best_interest",
+    "mental_health",
+    "cooperation_problems",
+    "domestic_violence_allegation"
+  ],
+  "social_services_involved": true,
+  "vårdnadsutredning_performed": true,
+  "child_was_heard": true,
+  "appeal_outcome": "modified",
+  "legal_costs_total_sek": null,
+  "judges": [
+    "Mats Walberg",
+    "Maj Johansson",
+    "Anna Uppfeldt"
+  ],
+  "unanimous": null,
+  "notes": "Fadern dömdes 2008 för grov kvinnofridskränking mot modern. Barnet uppvisade allvarlig ångest kopplat till umgängen. Hovrätten upphävde umgänget för att möjliggöra traumabehandling.",
+  "extraction_confidence": "high",
+  "missing_or_unclear_fields": [
+    "judges.number"
+  ],
+  "source": "markdown"
+}

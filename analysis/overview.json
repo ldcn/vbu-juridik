@@ -1,0 +1,245 @@
+{
+  "total_cases": 65,
+  "by_court_level": {
+    "hovrätt": 60,
+    "tingsrätt": 5
+  },
+  "by_court": {
+    "Svea hovrätt": 37,
+    "Göta hovrätt": 7,
+    "Hovrätten för Västra Sverige": 5,
+    "Hovrätten för Nedre Norrland": 4,
+    "Hovrätten för Övre Norrland": 4,
+    "Hovrätten över Skåne och Blekinge": 3,
+    "Göteborgs tingsrätt": 1,
+    "Norrtälje tingsrätt": 1,
+    "Stockholms tingsrätt": 1,
+    "Södertörns tingsrätt": 1,
+    "Växjö tingsrätt": 1
+  },
+  "by_origin_tingsratt": {
+    "Södertälje tingsrätt": 11,
+    "Stockholms tingsrätt": 7,
+    "Södertörns tingsrätt": 6,
+    "Luleå tingsrätt": 4,
+    "Attunda tingsrätt": 4,
+    "Göteborgs tingsrätt": 4,
+    "Norrköpings tingsrätt": 3,
+    "Nyköpings tingsrätt": 3,
+    "Uppsala tingsrätt": 3,
+    "Jönköpings tingsrätt": 2,
+    "Sundsvalls tingsrätt": 2,
+    "Mora tingsrätt": 2,
+    "Eksjö tingsrätt": 1,
+    "Örebro tingsrätt": 1,
+    "Gävle tingsrätt": 1,
+    "Östersunds tingsrätt": 1,
+    "Malmö tingsrätt": 1,
+    "Blekinge tingsrätt": 1,
+    "Ystads tingsrätt": 1,
+    "Gotlands tingsrätt": 1,
+    "Nacka tingsrätt": 1,
+    "Eskilstuna tingsrätt": 1,
+    "Vänersborgs tingsrätt": 1,
+    "Borås tingsrätt": 1,
+    "Norrtälje tingsrätt": 1,
+    "Växjö tingsrätt": 1
+  },
+  "by_year": {
+    "2013": 2,
+    "2014": 3,
+    "2015": 6,
+    "2016": 4,
+    "2017": 1,
+    "2018": 7,
+    "2019": 4,
+    "2020": 9,
+    "2021": 2,
+    "2025": 2,
+    "2026": 25
+  },
+  "winners": {
+    "both": 16,
+    "mother": 22,
+    "father": 11,
+    "partial_mother": 4,
+    "partial_father": 10,
+    "neither": 2
+  },
+  "custody_legal_transitions": {
+    "joint → joint": 14,
+    "joint → sole_mother": 7,
+    "null → null": 10,
+    "sole_father → joint": 3,
+    "sole_mother → joint": 5,
+    "joint → sole_father": 4,
+    "sole_mother → sole_mother": 17,
+    "sole_father → sole_father": 2,
+    "unclear → unclear": 1,
+    "sole_father → sole_mother": 1,
+    "unclear → joint": 1
+  },
+  "custody_residence_transitions": {
+    "alternating → alternating": 1,
+    "father → father": 7,
+    "mother → mother": 41,
+    "mother → shared_for_oldest_mother_for_others": 1,
+    "father_for_oldest → father_for_oldest": 1,
+    "father → mother": 3,
+    "alternating → mother": 1,
+    "other → mother": 1,
+    "mother → father": 4,
+    "alternating → father": 1,
+    "mother → mother for older son, alternating for younger daughter": 1,
+    "unknown → mother": 1,
+    "other → other": 1,
+    "unclear → alternating": 1
+  },
+  "n_children_distribution": {
+    "1": 27,
+    "2": 26,
+    "3": 8,
+    "4": 2,
+    "5": 2
+  },
+  "n_children_stats": {
+    "n": 65,
+    "mean": 1.86,
+    "median": 2,
+    "min": 1,
+    "max": 5
+  },
+  "child_age_stats": {
+    "n": 121,
+    "mean": 8.79,
+    "median": 9,
+    "min": 2,
+    "max": 17
+  },
+  "child_age_histogram_5y": {
+    "0-4": 15,
+    "5-9": 52,
+    "10-14": 48,
+    "15-19": 6
+  },
+  "child_gender_distribution": {
+    "male": 53,
+    "female": 59,
+    "null": 9
+  },
+  "mother_age_stats": {
+    "n": 57,
+    "mean": 37.89,
+    "median": 38,
+    "min": 24,
+    "max": 51
+  },
+  "father_age_stats": {
+    "n": 58,
+    "mean": 41.98,
+    "median": 42.0,
+    "min": 24,
+    "max": 63
+  },
+  "mother_age_histogram_5y": {
+    "20-24": 1,
+    "25-29": 4,
+    "30-34": 9,
+    "35-39": 23,
+    "40-44": 13,
+    "45-49": 5,
+    "50-54": 2
+  },
+  "father_age_histogram_5y": {
+    "20-24": 1,
+    "25-29": 3,
+    "30-34": 4,
+    "35-39": 9,
+    "40-44": 20,
+    "45-49": 13,
+    "50-54": 6,
+    "60-64": 2
+  },
+  "key_factor_frequency": {
+    "child_best_interest": 63,
+    "cooperation_problems": 51,
+    "domestic_violence_allegation": 38,
+    "vårdnadsutredning": 35,
+    "social_services_recommendation": 28,
+    "parental_agreement": 25,
+    "child_own_wishes": 19,
+    "international_element": 17,
+    "mental_health": 15,
+    "substance_abuse_allegation": 10,
+    "relocation": 9,
+    "sexual_abuse_allegation": 2,
+    "protected_identity": 2,
+    "trauma": 1,
+    "continuity": 1,
+    "geographical_distance": 1,
+    "parental_alienation": 1,
+    "sexual_offense_allegation": 1,
+    "abduction_risk_allegation": 1,
+    "criminal_history": 1
+  },
+  "social_services_involved": {
+    "false": 8,
+    "true": 57
+  },
+  "vårdnadsutredning_performed": {
+    "false": 8,
+    "true": 57
+  },
+  "child_was_heard": {
+    "null": 10,
+    "true": 28,
+    "false": 27
+  },
+  "appeal_outcomes_hovratt": {
+    "modified": 45,
+    "settlement": 4,
+    "affirmed": 9,
+    "partially_modified": 2
+  },
+  "legal_costs_sek_stats": {
+    "n": 41,
+    "mean": 104643.59,
+    "median": 82000,
+    "min": 5582,
+    "max": 275208
+  },
+  "outcome_detail": {
+    "Ensam vårdnad (mor), boende hos mor, trappat umgänge": 7,
+    "Gemensam vårdnad, boende hos mor, trappat umgänge": 6,
+    "Ensam vårdnad (mor), boende hos mor, inget/begränsat umgänge": 5,
+    "Ensam vårdnad (mor), boende hos mor": 5,
+    "Gemensam vårdnad, boende hos mor, umgänge varannan vecka": 4,
+    "Ensam vårdnad (mor), boende hos mor, umgänge varannan helg": 4,
+    "Gemensam vårdnad, boende hos far, umgänge varannan helg": 3,
+    "Ensam vårdnad (mor), boende hos mor, videoumgänge / distansumgänge": 3,
+    "Ensam vårdnad (mor), boende hos mor, oreglerat umgänge": 2,
+    "Gemensam vårdnad, boende hos mor": 2,
+    "Ensam vårdnad (mor), boende hos mor, övrigt reglerat umgänge": 2,
+    "Ensam vårdnad (far), boende hos far, trappat umgänge": 2,
+    "Gemensam vårdnad, boende hos mor, övrigt reglerat umgänge": 2,
+    "Gemensam vårdnad, växelvist boende": 1,
+    "Ensam vårdnad (mor), blandat boende (per barn)": 1,
+    "Ensam vårdnad (mor), boende hos mor, reglerat umgänge": 1,
+    "Blandad vårdnad (per barn), blandat boende (per barn)": 1,
+    "Ensam vårdnad (mor), boende hos mor, umgänge var fjärde vecka": 1,
+    "Ensam vårdnad (far), boende hos far, umgänge varannan vecka": 1,
+    "Gemensam vårdnad, boende hos mor, umgänge varannan helg": 1,
+    "Ensam vårdnad (far), boende hos far, umgänge varannan helg": 1,
+    "Ensam vårdnad (far), boende hos far, umgänge att fastställas senare": 1,
+    "Gemensam vårdnad, blandat boende (per barn), umgänge varannan vecka": 1,
+    "Ensam vårdnad (mor), boende hos mor, umgänge varannan vecka": 1,
+    "Gemensam vårdnad, boende hos far, omfattande umgänge": 1,
+    "Ensam vårdnad (far), boende hos far, inget/begränsat umgänge": 1,
+    "Oklart om vårdnad, annat boende, inget/begränsat umgänge": 1,
+    "Ensam vårdnad (mor), boende hos mor, omfattande umgänge": 1,
+    "Gemensam vårdnad, boende hos far, umgänge varannan vecka": 1,
+    "Gemensam vårdnad, boende hos far, videoumgänge / distansumgänge": 1,
+    "Gemensam vårdnad, växelvist boende, övrigt reglerat umgänge": 1
+  },
+  "low_confidence_cases": []
+}

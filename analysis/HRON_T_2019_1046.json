@@ -1,0 +1,77 @@
+{
+  "case_id": "HRON_T_2019_1046",
+  "court": "Hovrätten för Övre Norrland",
+  "court_level": "hovrätt",
+  "lower_court": "Luleå tingsrätt",
+  "lower_court_case_no": "T 3195-18",
+  "ruling_date": "2020-06-25",
+  "saken": "Vårdnad om barn m.m.",
+  "summary": "Tingsrätten hade tillerkänt mamman ensam vårdnad om dottern (född 2018) på grund av djupgående samarbetssvårigheter och pappans tidigare missbruk. Pappan överklagade och yrkade gemensam vårdnad samt utökat umgänge. Hovrätten ändrade och förordnade om gemensam vårdnad – riskerna med ensam vårdnad för någondera ansågs väga tyngre än riskerna med fortsatt gemensamt ansvar. Boendet förblev hos mamman och umgänget trappades upp till varannan vecka onsdag–måndag plus omfattande lovumgänge.",
+  "parents": [
+    {
+      "role": "father",
+      "procedural_role": "klagande",
+      "name_initials": "J.A.N.",
+      "birth_year": 1987,
+      "age_at_ruling": 33,
+      "nationality": null,
+      "represented_by_counsel": true
+    },
+    {
+      "role": "mother",
+      "procedural_role": "motpart",
+      "name_initials": "A.M.H.M.",
+      "birth_year": 1981,
+      "age_at_ruling": 39,
+      "nationality": null,
+      "represented_by_counsel": true
+    }
+  ],
+  "children": [
+    {
+      "initials": "E.M.",
+      "birth_year": 2018,
+      "birth_month": 3,
+      "age_at_ruling": 2,
+      "gender": "male"
+    }
+  ],
+  "n_children": 1,
+  "custody_before": {
+    "legal_custody": "sole_mother",
+    "residence": "mother",
+    "visitation": "Stegvis upptrappat dagumgänge enligt tingsrättens dom"
+  },
+  "custody_after": {
+    "legal_custody": "joint",
+    "residence": "mother",
+    "visitation": "Varannan helg från fredag till måndag (jämna veckor), upptrappning till torsdag–måndag och därefter onsdag–måndag, samt omfattande lov- och sommarumgänge"
+  },
+  "winner": "father",
+  "winner_rationale": "Pappan fick bifall till sitt huvudyrkande om gemensam vårdnad och ett betydligt utökat umgänge.",
+  "key_factors": [
+    "cooperation_problems",
+    "child_best_interest",
+    "substance_abuse_allegation",
+    "mental_health",
+    "vårdnadsutredning",
+    "social_services_recommendation"
+  ],
+  "social_services_involved": true,
+  "vårdnadsutredning_performed": true,
+  "child_was_heard": false,
+  "appeal_outcome": "modified",
+  "legal_costs_total_sek": 124576,
+  "judges": [
+    "Jonas Brodin",
+    "Mikael Forsgren",
+    "Emma Granberg"
+  ],
+  "unanimous": true,
+  "notes": "Pappans tidigare opioidmissbruk efter cykelolycka hade åtgärdats; intyg från behandling visade drogfrihet. Hovrätten såg risk att mamman skulle begränsa pappans tillgång till barnet vid ensam vårdnad. Rättshjälpen för båda parterna upphävdes p.g.a. att tidsgräns nåtts. Legal costs = sum av moderns ombud + faderns ombud775.",
+  "extraction_confidence": "high",
+  "missing_or_unclear_fields": [
+    "parents.nationality"
+  ],
+  "source": "markdown"
+}

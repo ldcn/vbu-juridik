@@ -1,0 +1,49 @@
+{
+  "case_id": "HRON_T_2025_0775",
+  "court": "Hovrätten för Övre Norrland",
+  "court_level": "hovrätt",
+  "lower_court": "Luleå tingsrätt",
+  "lower_court_case_no": "T 1668-24",
+  "ruling_date": "2026-03-20",
+  "saken": "Vårdnad om barn m.m.",
+  "summary": "Målet rör en flicka född 2019. Tingsrätten beslutade att föräldrarna ska ha gemensam vårdnad och att dottern ska bo växelvis hos dem. Modern överklagade och yrkade ensam vårdnad samt att dottern skulle bo hos henne med visst umgänge för fadern. Hovrätten ändrade tingsrättens dom och tillerkände modern ensam vårdnad. Dottern ska bo hos modern och ha umgänge med fadern var fjärde helg samt vid lov enligt schema. Hovrätten lade vikt vid faderns narkotikabruk och kränkande beteende mot modern, samt moderns planerade flytt till annan ort.",
+  "parents": [
+    {"label": "AA", "role": "mother", "birth_year": 2001, "gender": "female"},
+    {"label": "BB", "role": "father", "birth_year": 1997, "gender": "male"}
+  ],
+  "children": [
+    {"label": "CC", "birth_year": 2019, "age_at_ruling": 7, "gender": "female"}
+  ],
+  "n_children": 1,
+  "custody_before": {
+    "type": "joint",
+    "residence": "alternating",
+    "visitation": "Växelvis boende hos båda föräldrarna."
+  },
+  "custody_after": {
+    "type": "sole_mother",
+    "residence": "mother",
+    "visitation": "Umgänge med fadern var fjärde helg samt vid lov enligt schema."
+  },
+  "winner": "mother",
+  "winner_rationale": "Modern fick bifall till sitt yrkande om ensam vårdnad och att dottern ska bo hos henne. Fadern behåller dock rätt till regelbundet umgänge.",
+  "key_factors": [
+    "substance_abuse_allegation",
+    "domestic_violence_allegation",
+    "cooperation_problems",
+    "vårdnadsutredning",
+    "child_best_interest",
+    "relocation"
+  ],
+  "social_services_involved": true,
+  "vårdnadsutredning_performed": true,
+  "child_was_heard": true,
+  "appeal_outcome": "modified",
+  "legal_costs_total_sek": 36676,
+  "judges": ["Erik Sundström", "Linda Ferry", "Jonatan Skörd"],
+  "unanimous": true,
+  "notes": "Vårdnadsutredning har genomförts. Modern planerar flytta med dottern. Faderns narkotikabruk och kränkande beteende mot modern var avgörande för hovrättens bedömning.",
+  "source": "pdftotext",
+  "extraction_confidence": "high",
+  "missing_or_unclear_fields": []
+}

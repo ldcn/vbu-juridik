@@ -1,0 +1,75 @@
+{
+  "case_id": "HRS_T_2019_0852",
+  "court": "Svea hovrätt",
+  "court_level": "hovrätt",
+  "lower_court": "Nyköpings tingsrätt",
+  "lower_court_case_no": "T 844-18",
+  "ruling_date": "2020-03-24",
+  "saken": "Vårdnad m.m.",
+  "summary": "Tingsrätten förordnade om ensam vårdnad för mamman. Pappan överklagade och yrkade på gemensam vårdnad och växelvis boende. Hovrätten ändrade domen och förordnade om gemensam vårdnad men behöll boendet hos mamman, då parternas samarbetsförmåga förbättrats och risken för att den andra föräldern skulle uteslutas inte längre var uppenbar.",
+  "parents": [
+    {
+      "role": "father",
+      "procedural_role": "klagande",
+      "name_initials": "B.G.G.",
+      "birth_year": 1956,
+      "age_at_ruling": 63,
+      "nationality": null,
+      "represented_by_counsel": true
+    },
+    {
+      "role": "mother",
+      "procedural_role": "motpart",
+      "name_initials": "H.L.",
+      "birth_year": 1968,
+      "age_at_ruling": 51,
+      "nationality": null,
+      "represented_by_counsel": true
+    }
+  ],
+  "children": [
+    {
+      "initials": "H.L.",
+      "birth_year": 2011,
+      "birth_month": 7,
+      "age_at_ruling": 8,
+      "gender": "female"
+    }
+  ],
+  "n_children": 1,
+  "custody_before": {
+    "legal_custody": "sole_mother",
+    "residence": "mother",
+    "visitation": "Varannan vecka onsdag till måndag enligt tingsrättens dom"
+  },
+  "custody_after": {
+    "legal_custody": "joint",
+    "residence": "mother",
+    "visitation": "Varannan vecka onsdag till måndag, varannan jul, vartannat nyår, vartannat påsklov samt fyra sommarveckor"
+  },
+  "winner": "partial_father",
+  "winner_rationale": "Pappan fick gemensam vårdnad men mamman behöll boendet. Umgänget förblev i huvudsak oförändrat.",
+  "key_factors": [
+    "cooperation_problems",
+    "child_best_interest",
+    "vårdnadsutredning"
+  ],
+  "social_services_involved": true,
+  "vårdnadsutredning_performed": true,
+  "child_was_heard": false,
+  "appeal_outcome": "modified",
+  "legal_costs_total_sek": null,
+  "judges": [
+    "Sven Jonson",
+    "Charlotte Edvardsson"
+  ],
+  "unanimous": null,
+  "notes": "Barnet var för liten för att hennes vilja skulle påverka bedömningen. Parternas samarbete hade förbättrats under tiden mellan tingsrätts- och hovrättsdomen. Omfattande mejlkorrespondens åberopades.",
+  "extraction_confidence": "high",
+  "missing_or_unclear_fields": [
+    "parents.nationality",
+    "legal_costs_total_sek",
+    "unanimous"
+  ],
+  "source": "markdown"
+}

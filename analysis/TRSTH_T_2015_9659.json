@@ -1,0 +1,96 @@
+{
+  "case_id": "TRSTH_T_2015_9659",
+  "court": "Stockholms tingsrätt",
+  "court_level": "tingsrätt",
+  "lower_court": null,
+  "lower_court_case_no": null,
+  "ruling_date": "2016-09-21",
+  "saken": "Boende och umgänge",
+  "summary": "Tingsrätten förordnade att de två barnen (3 och 2 år) ska ha sitt stadigvarande boende hos mammorna i Freluga. Papporna, gifta tillsammans, yrkade på växelvist boende var annan vecka. Tingsrätten avslog detta då avståndet mellan Freluga och Värmdö och parternas konflikt omöjliggjorde växelvis boende. Umgänget ordnades varannan vecka från onsdag till måndag med omfattande lovumgänge.",
+  "parents": [
+    {
+      "role": "other",
+      "procedural_role": "kärande",
+      "name_initials": "P.J.",
+      "birth_year": 1971,
+      "age_at_ruling": 45,
+      "nationality": null,
+      "represented_by_counsel": true
+    },
+    {
+      "role": "other",
+      "procedural_role": "kärande",
+      "name_initials": "O.N.J.",
+      "birth_year": 1975,
+      "age_at_ruling": 41,
+      "nationality": null,
+      "represented_by_counsel": true
+    },
+    {
+      "role": "other",
+      "procedural_role": "svarande",
+      "name_initials": "L.N.",
+      "birth_year": 1981,
+      "age_at_ruling": 35,
+      "nationality": null,
+      "represented_by_counsel": true
+    },
+    {
+      "role": "other",
+      "procedural_role": "svarande",
+      "name_initials": "J.N.",
+      "birth_year": 1974,
+      "age_at_ruling": 42,
+      "nationality": null,
+      "represented_by_counsel": true
+    }
+  ],
+  "children": [
+    {
+      "initials": "V.L.J.N.",
+      "birth_year": 2013,
+      "birth_month": 5,
+      "age_at_ruling": 3,
+      "gender": "female"
+    },
+    {
+      "initials": "I.L.J.N.",
+      "birth_year": 2014,
+      "birth_month": 5,
+      "age_at_ruling": 2,
+      "gender": "male"
+    }
+  ],
+  "n_children": 2,
+  "custody_before": {
+    "legal_custody": "joint",
+    "residence": "mother",
+    "visitation": "Varje vecka från måndag till onsdag (senare utökat)"
+  },
+  "custody_after": {
+    "legal_custody": "joint",
+    "residence": "mother",
+    "visitation": "Varannan vecka från onsdag till måndag med gradvis upptrappning; omfattande lovumgänge; sommaren fem veckor uppdelat på tre perioder 2+2+1"
+  },
+  "winner": "mother",
+  "winner_rationale": "Mammorna fick bifall till sitt yrkande om att barnen ska bo hos dem. Papporna fick dock utökat umgänge varannan vecka istället för varje vecka.",
+  "key_factors": [
+    "child_best_interest",
+    "parental_agreement",
+    "cooperation_problems",
+    "international_element"
+  ],
+  "social_services_involved": false,
+  "vårdnadsutredning_performed": true,
+  "child_was_heard": false,
+  "appeal_outcome": "n_a",
+  "legal_costs_total_sek": null,
+  "judges": [
+    "Maria Hölcke"
+  ],
+  "unanimous": false,
+  "notes": "Båda barnen helt efterfrågade av samtliga föräldrar. Ett fyparentskap där barnen behandlas som syskon. Papporna gifta. Mammorna gifta. Avståndet mellan Freluga och Värmdö (ca 200 km) gjorde växelvist boende opraktiskt. En en nämndeman var skiljaktig och förespråkade successiv utveckling mot växelvist boende till sommaren 2017.",
+  "extraction_confidence": "high",
+  "missing_or_unclear_fields": [],
+  "source": "txt"
+}

@@ -1,0 +1,83 @@
+{
+  "case_id": "HRS_T_2025_9843",
+  "court": "Svea hovrätt",
+  "court_level": "hovrätt",
+  "lower_court": "Södertälje tingsrätt",
+  "lower_court_case_no": "T 3035-24",
+  "ruling_date": "2026-02-19",
+  "saken": "Vårdnad m.m.",
+  "summary": "Fadern, grekisk medborgare bosatt i Sverige, överklagade tingsrättens dom som gav modern ensam vårdnad om parternas dotter och son, fem respektive snart tre år. Modern, georgisk medborgare, hade i april 2024 olovligen kvarhållit barnen i Georgien, vilket parallellt prövats i ett Haag-ärende. Hovrätten fastställde tingsrättens dom och fann att det vid en helhetsbedömning av barnens bästa i nuvarande situation var bäst för barnen att modern fortsatt har ensam vårdnad, eftersom barnen lever rotade i Georgien, endast talar georgiska och en överflyttning till fadern inte kunde antas leda till en tydlig förbättring på längre sikt.",
+  "parents": [
+    {
+      "role": "father",
+      "procedural_role": "klagande",
+      "name_initials": "AA",
+      "birth_year": 1983,
+      "age_at_ruling": 43,
+      "nationality": "Grekland",
+      "represented_by_counsel": true
+    },
+    {
+      "role": "mother",
+      "procedural_role": "motpart",
+      "name_initials": "BB",
+      "birth_year": 1984,
+      "age_at_ruling": 42,
+      "nationality": "Georgien",
+      "represented_by_counsel": true
+    }
+  ],
+  "children": [
+    {
+      "initials": "CC",
+      "birth_year": 2020,
+      "birth_month": null,
+      "age_at_ruling": 6,
+      "gender": "female"
+    },
+    {
+      "initials": "DD",
+      "birth_year": 2023,
+      "birth_month": 5,
+      "age_at_ruling": 2,
+      "gender": "male"
+    }
+  ],
+  "n_children": 2,
+  "custody_before": {
+    "legal_custody": "sole_mother",
+    "residence": "mother",
+    "visitation": "Videoumgänge med fadern två gånger i veckan samt fysiskt umgänge i Georgien enligt upptrappningsschema."
+  },
+  "custody_after": {
+    "legal_custody": "sole_mother",
+    "residence": "mother",
+    "visitation": "Oförändrat enligt tingsrättens dom: videoumgänge två gånger per vecka och upptrappat fysiskt umgänge i Georgien (helger, lov, sommar, midsommar, jul/nyår)."
+  },
+  "winner": "mother",
+  "winner_rationale": "Modern behöll ensam vårdnad och umgänget fastställdes oförändrat. Faderns förstahands- och andrahandsyrkanden om ensam respektive gemensam vårdnad med boende hos honom avslogs.",
+  "key_factors": [
+    "child_best_interest",
+    "cooperation_problems",
+    "international_element",
+    "relocation",
+    "domestic_violence_allegation"
+  ],
+  "social_services_involved": true,
+  "vårdnadsutredning_performed": false,
+  "child_was_heard": false,
+  "appeal_outcome": "affirmed",
+  "legal_costs_total_sek": 28784,
+  "judges": [
+    "Anna Erman",
+    "Daniel Thorsell",
+    "Axel Hallberg",
+    "Enrico Badiali",
+    "Christina Ibjer"
+  ],
+  "unanimous": true,
+  "notes": "Parallellt Haag-ärende i Georgien om återförande av barnen; en georgisk tingsrätt beslutade i maj 2025 om återförande, men en georgisk hovrätt upphävde beslutet i augusti 2025 och Högsta domstolen i Georgien tar upp ärendet. Modern har varit häktad i sin utevaro i Sverige för egenmäktighet med barn. Hovrätten riktade kritik mot modern för kvarhållandet men ansåg att en flytt till fadern inte var till barnens bästa. Endast rättshjälpskostnaderna i hovrätten redovisas; tingsrätten tillerkände också rättshjälp om 58 601 kr.",
+  "source": "pdftotext",
+  "extraction_confidence": "high",
+  "missing_or_unclear_fields": []
+}

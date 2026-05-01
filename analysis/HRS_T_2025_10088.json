@@ -1,0 +1,78 @@
+{
+  "case_id": "HRS_T_2025_10088",
+  "court": "Svea hovrätt",
+  "court_level": "hovrätt",
+  "lower_court": "Uppsala tingsrätt",
+  "lower_court_case_no": "T 5465-24 och T 5470-24",
+  "ruling_date": "2026-02-12",
+  "saken": "Överflyttning av vårdnad m.m.",
+  "summary": "Socialnämnden i Enköpings kommun begärde att vårdnaden om två systrar (födda 2019 och 2021) skulle flyttas över till familjehemsföräldrarna, där flickorna bott sedan juli 2021. Tingsrätten biföll begäran och beslutade om visst umgänge med båda föräldrarna. Hovrätten fastställde överflyttningen av vårdnaden men upphävde det reglerade umgänget med fadern, som efter tingsrättens dom återfallit i missbruk och dömts till fängelse i tre år och sex månader för våldtäkt mot barn. Två nämndemän var skiljaktiga och ville avslå överflyttningen.",
+  "parents": [
+    {
+      "role": "mother",
+      "procedural_role": "klagande",
+      "name_initials": "AA",
+      "birth_year": 1988,
+      "age_at_ruling": 38,
+      "nationality": null,
+      "represented_by_counsel": true
+    },
+    {
+      "role": "father",
+      "procedural_role": "klagande",
+      "name_initials": "BB",
+      "birth_year": 1997,
+      "age_at_ruling": 29,
+      "nationality": null,
+      "represented_by_counsel": true
+    }
+  ],
+  "children": [
+    {
+      "initials": "CC",
+      "birth_year": 2019,
+      "birth_month": null,
+      "age_at_ruling": 7,
+      "gender": "female"
+    },
+    {
+      "initials": "DD",
+      "birth_year": 2021,
+      "birth_month": null,
+      "age_at_ruling": 5,
+      "gender": "female"
+    }
+  ],
+  "n_children": 2,
+  "custody_before": {
+    "legal_custody": "unclear",
+    "residence": "other",
+    "visitation": "Reglerat umgänge med båda föräldrarna enligt tingsrättens dom; barnen bor i familjehem sedan juli 2021"
+  },
+  "custody_after": {
+    "legal_custody": "unclear",
+    "residence": "other",
+    "visitation": "Umgänge med modern enligt tingsrättens dom (var fjärde vecka, tre timmar, med umgängesstöd inledningsvis); inget reglerat umgänge med fadern"
+  },
+  "winner": "neither",
+  "winner_rationale": "Båda föräldrarna motsatte sig vårdnadsöverflyttning men hovrätten fastställde tingsrättens beslut att flytta vårdnaden till familjehemsföräldrarna. Fadern fick dessutom sitt umgänge upphävt på grund av återfall i missbruk och fängelsedom för allvarlig brottslighet mot barn.",
+  "key_factors": [
+    "child_best_interest",
+    "substance_abuse_allegation",
+    "domestic_violence_allegation",
+    "social_services_recommendation",
+    "vårdnadsutredning",
+    "mental_health"
+  ],
+  "social_services_involved": true,
+  "vårdnadsutredning_performed": true,
+  "child_was_heard": false,
+  "appeal_outcome": "partially_modified",
+  "legal_costs_total_sek": 96362,
+  "judges": ["Mikael Swahn", "Gunilla Schöldström", "Mikaela Dahlborg"],
+  "unanimous": false,
+  "notes": "Två nämndemän var skiljaktiga i frågan om vårdnadsöverflyttning och ville avslå socialnämndens talan med hänvisning till moderns förbättrade livssituation och socialnämndens otillräckliga åtgärder för återförening. Hovrätten diskuterar utförligt Europakonventionens artikel 8 och 2025 års reform av 6 kap. 8 § FB. Barnen har även en yngre helbroder GG som bor hos modern.",
+  "source": "pdftotext",
+  "extraction_confidence": "high",
+  "missing_or_unclear_fields": ["custody_before.legal_custody", "custody_after.legal_custody", "parents[].nationality"]
+}

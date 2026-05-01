@@ -1,0 +1,91 @@
+{
+  "case_id": "HRS_T_2015_11726",
+  "court": "Svea hovrätt",
+  "court_level": "hovrätt",
+  "lower_court": "Nyköpings tingsrätt",
+  "lower_court_case_no": "T 260-15",
+  "ruling_date": "2016-09-21",
+  "saken": "Vårdnad om barn m.m.",
+  "summary": "Tingsrätten tillerkände mamman ensam vårdnad om de tre barnen och förordnade om begränsad umgängesrätt för pappan. Pappan överklagade och yrkade om ensam eller gemensam vårdnad. Hovrätten upprätthöll mamman ensam vårdnad men utökade umgänget betydligt enligt ett detaljerat trappat schema från umgängesstöd till helgumgänge med övemattningar och sommarlover.",
+  "parents": [
+    {
+      "role": "father",
+      "procedural_role": "klagande",
+      "name_initials": "A.M.",
+      "birth_year": 1980,
+      "age_at_ruling": 36,
+      "nationality": null,
+      "represented_by_counsel": true
+    },
+    {
+      "role": "mother",
+      "procedural_role": "motpart",
+      "name_initials": "I.A.",
+      "birth_year": 1988,
+      "age_at_ruling": 28,
+      "nationality": null,
+      "represented_by_counsel": true
+    }
+  ],
+  "children": [
+    {
+      "initials": "M.M.",
+      "birth_year": 2006,
+      "birth_month": 12,
+      "age_at_ruling": 9,
+      "gender": "male"
+    },
+    {
+      "initials": "F.M.",
+      "birth_year": 2009,
+      "birth_month": 1,
+      "age_at_ruling": 7,
+      "gender": "female"
+    },
+    {
+      "initials": "T.M.",
+      "birth_year": 2012,
+      "birth_month": 5,
+      "age_at_ruling": 4,
+      "gender": "male"
+    }
+  ],
+  "n_children": 3,
+  "custody_before": {
+    "legal_custody": "sole_mother",
+    "residence": "mother",
+    "visitation": "Umgänge med umgängesstöd enligt tingsrättens dom - begränsad omfattning"
+  },
+  "custody_after": {
+    "legal_custody": "sole_mother",
+    "residence": "mother",
+    "visitation": "Trappat umgänge: varje tisdag tre timmar med umgängesstöd; därefter löpande dagumgänge varje lördag; därefter varannan helg ojämna veckor fredag-lördag; därefter varannan helg ojämna veckor fredag-söndag; två-tre veckor sommarlov; höstlov och påsklov vartannat år; varannan nyårshelg."
+  },
+  "winner": "partial_father",
+  "winner_rationale": "Pappan fick bifall till utökat umgänge men inte till ansökan om ensam eller gemensam vårdnad. Mamman behöll ensam vårdnad över barnen.",
+  "key_factors": [
+    "cooperation_problems",
+    "child_best_interest",
+    "domestic_violence_allegation",
+    "parental_agreement",
+    "vårdnadsutredning",
+    "child_own_wishes"
+  ],
+  "social_services_involved": true,
+  "vårdnadsutredning_performed": true,
+  "child_was_heard": false,
+  "appeal_outcome": "modified",
+  "legal_costs_total_sek": 129090,
+  "judges": [
+    "Anna Avenberg",
+    "Anna-Karin Winroth",
+    "André Mossberg",
+    "Kitty Ericsson",
+    "Claes Kellgren"
+  ],
+  "unanimous": true,
+  "notes": "Mamman påstod att pappan utövade kontroll och våld under äktenskapet. Pappan förnekar helt. Barnen var negativt inställda till pappan påverkade av modern och familjen konflikten. Hovrätten bedömde att det var till barnens bästa att normalisera kontakten med pappan genom ett utökat umgänge. Det fanns ingen risk för övergrepp enligt hovrätten. Umgänget avbröts av pappan sommaren 2016 och återuppstartas enligt det nya schemat.",
+  "extraction_confidence": "high",
+  "missing_or_unclear_fields": [],
+  "source": "markdown"
+}

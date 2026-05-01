@@ -1,0 +1,77 @@
+{
+  "case_id": "HRS_T_2025_5738",
+  "court": "Svea hovrätt",
+  "court_level": "hovrätt",
+  "lower_court": "Uppsala tingsrätt",
+  "lower_court_case_no": "T 10010-23",
+  "ruling_date": "2026-02-26",
+  "saken": "Vårdnad m.m.",
+  "summary": "Tvist om vårdnad och umgänge avseende två söner födda 2019 och 2021. Föräldrarna separerade i mars 2022 efter att fadern konfronterats av en organisation som dokumenterar personer med sexuellt intresse för barn på nätet. Sedan dess har sönerna inte haft någon kontakt med fadern. Tingsrätten gav modern ensam vårdnad och beslutade om umgänge en gång i veckan med umgängesstöd under ett år. Hovrätten fastställde moderns ensamma vårdnad men avslog faderns yrkande om umgänge helt, eftersom risken för att barnen far illa bedömdes som påtaglig och överhängande och då umgänge med umgängesstöd skulle behövas under väsentligt längre tid än ett år.",
+  "parents": [
+    {
+      "role": "mother",
+      "procedural_role": "klagande",
+      "name_initials": "AA",
+      "birth_year": 1987,
+      "age_at_ruling": 39,
+      "nationality": null,
+      "represented_by_counsel": true
+    },
+    {
+      "role": "father",
+      "procedural_role": "klagande",
+      "name_initials": "BB",
+      "birth_year": 1984,
+      "age_at_ruling": 42,
+      "nationality": null,
+      "represented_by_counsel": true
+    }
+  ],
+  "children": [
+    {
+      "initials": "CC",
+      "birth_year": 2019,
+      "birth_month": 1,
+      "age_at_ruling": 7,
+      "gender": "male"
+    },
+    {
+      "initials": "DD",
+      "birth_year": 2021,
+      "birth_month": 6,
+      "age_at_ruling": 4,
+      "gender": "male"
+    }
+  ],
+  "n_children": 2,
+  "custody_before": {
+    "legal_custody": "sole_mother",
+    "residence": "mother",
+    "visitation": "Enligt tingsrättens dom umgänge varje onsdag tre timmar med umgängesstöd under ett år"
+  },
+  "custody_after": {
+    "legal_custody": "sole_mother",
+    "residence": "mother",
+    "visitation": "Inget reglerat umgänge med fadern; umgänget lämnas oreglerat"
+  },
+  "winner": "mother",
+  "winner_rationale": "Modern fick bifall till sitt överklagande om att inget umgänge ska regleras mellan barnen och fadern. Faderns överklagande om gemensam vårdnad och utökat umgänge avslogs i sin helhet.",
+  "key_factors": [
+    "child_best_interest",
+    "sexual_offense_allegation",
+    "mental_health",
+    "vårdnadsutredning",
+    "cooperation_problems"
+  ],
+  "social_services_involved": true,
+  "vårdnadsutredning_performed": true,
+  "child_was_heard": false,
+  "appeal_outcome": "modified",
+  "legal_costs_total_sek": null,
+  "judges": ["Christina Brobacke", "Christina Berg", "Petter Isoz"],
+  "unanimous": true,
+  "notes": "Bakgrunden är att fadern via en privat organisation som agerar mot personer med sexuellt intresse för barn konfronterats efter att ha chattat om sexuella fantasier rörande en åttaårig flicka och skickat en bild på sig själv tagen i ett sovrum där en av sönerna sov. Fadern har också tittat på barnpornografi enligt tingsrättens brottmålsdom där åtalet dock ogillades på grund av preskription. Hovrätten lyfter behovet av att åldersanpassad information ges till det äldre barnet om varför kontakten med fadern brutits. Ny snake_case-faktor: sexual_offense_allegation. Sönernas åldrar beräknade utifrån personnummerinformation i tingsrättens dom (17 januari 2019 och 25 juni 2021).",
+  "source": "pdftotext",
+  "extraction_confidence": "high",
+  "missing_or_unclear_fields": ["legal_costs_total_sek", "parents[].nationality"]
+}

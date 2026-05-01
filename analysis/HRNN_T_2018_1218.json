@@ -1,0 +1,65 @@
+{
+  "case_id": "HRNN_T_2018_1218",
+  "court": "Hovrätten för Nedre Norrland",
+  "court_level": "hovrätt",
+  "lower_court": "Gävle tingsrätt",
+  "lower_court_case_no": "T 1887-17",
+  "ruling_date": "2019-05-03",
+  "saken": "Vårdnad m.m.",
+  "summary": "Tingsrätten hade flyttat över ensam vårdnad till pappan med motiveringen att mamman inte tillräckligt främjat barnens kontakt med pappan. Mamman överklagade. Hovrätten ändrade och beslutade att den gemensamma vårdnaden skulle bestå, att de två sönerna (14,5 och nästan 13 år) skulle bo hos mamman och att inget umgänge med pappan skulle regleras med hänsyn till barnens uttryckliga vilja, men understryker att mamman har stort ansvar att uppmuntra kontakt med pappan.",
+  "parents": [
+    {
+      "role": "mother",
+      "procedural_role": "klagande",
+      "name_initials": "V.M.S.",
+      "birth_year": 1977,
+      "age_at_ruling": 41,
+      "nationality": null,
+      "represented_by_counsel": true
+    },
+    {
+      "role": "father",
+      "procedural_role": "motpart",
+      "name_initials": "E.C.L.",
+      "birth_year": 1977,
+      "age_at_ruling": 42,
+      "nationality": null,
+      "represented_by_counsel": true
+    }
+  ],
+  "children": [
+    {"initials": "M.S.L.", "birth_year": 2004, "birth_month": 11, "age_at_ruling": 14, "gender": "male"},
+    {"initials": "D.S.L.", "birth_year": 2006, "birth_month": 5, "age_at_ruling": 12, "gender": "male"}
+  ],
+  "n_children": 2,
+  "custody_before": {
+    "legal_custody": "sole_father",
+    "residence": "father",
+    "visitation": "Enligt tingsrättens dom; dessförinnan bodde barnen hos mamman utan umgänge med pappa (förutom visst umgängesstöd för Mattias)"
+  },
+  "custody_after": {
+    "legal_custody": "joint",
+    "residence": "mother",
+    "visitation": null
+  },
+  "winner": "partial_mother",
+  "winner_rationale": "Mamman fick boendet och slapp ensam vårdnad till pappan, men hennes förstahandsyrkande om ensam vårdnad avslogs. Pappans yrkanden om ensam vårdnad/växelvis boende/umgänge avslogs alla.",
+  "key_factors": [
+    "child_own_wishes",
+    "cooperation_problems",
+    "child_best_interest",
+    "vårdnadsutredning",
+    "social_services_recommendation"
+  ],
+  "social_services_involved": true,
+  "vårdnadsutredning_performed": true,
+  "child_was_heard": true,
+  "appeal_outcome": "modified",
+  "legal_costs_total_sek": 38963,
+  "judges": ["Fredrik Johnsson", "Emina Fazlic", "Sofia Lundberg"],
+  "unanimous": true,
+  "notes": "Tydligt exempel där barnens uttryckta vilja (att inte träffa pappan) blev avgörande trots att tingsrätten ansett att den var påverkad av mamman. Barnen bodde tidigare växelvis i ca 8 år.",
+  "extraction_confidence": "high",
+  "missing_or_unclear_fields": ["parents.nationality"],
+  "source": "markdown"
+}

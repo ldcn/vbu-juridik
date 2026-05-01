@@ -1,0 +1,76 @@
+{
+  "case_id": "HRVS_T_2025_3924",
+  "court": "Hovrätten för Västra Sverige",
+  "court_level": "hovrätt",
+  "lower_court": "Borås tingsrätt",
+  "lower_court_case_no": "T 2203-24",
+  "ruling_date": "2026-01-27",
+  "saken": "Vårdnad m.m.",
+  "summary": "Modern överklagade tingsrättens dom som gett fadern ensam vårdnad om dottern, född 2021, med ett sedvanligt helgumgänge för modern. Modern, som riskerade utvisning till sitt hemland, yrkade ensam vårdnad för egen del. I hovrätten träffade parterna en överenskommelse om gemensam vårdnad, stadigvarande boende hos fadern och umgänge med modern två gånger per år i hennes hemland samt regelbundet videoumgänge. Hovrätten ansåg att överenskommelsen var förenlig med barnets bästa och meddelade dom i enlighet med den.",
+  "parents": [
+    {
+      "role": "mother",
+      "procedural_role": "klagande",
+      "name_initials": "AA",
+      "birth_year": 1986,
+      "age_at_ruling": 40,
+      "nationality": null,
+      "represented_by_counsel": true
+    },
+    {
+      "role": "father",
+      "procedural_role": "motpart",
+      "name_initials": "BB",
+      "birth_year": 1981,
+      "age_at_ruling": 45,
+      "nationality": "Afghanistan",
+      "represented_by_counsel": true
+    }
+  ],
+  "children": [
+    {
+      "initials": "CC",
+      "birth_year": 2021,
+      "birth_month": null,
+      "age_at_ruling": 5,
+      "gender": "female"
+    }
+  ],
+  "n_children": 1,
+  "custody_before": {
+    "legal_custody": "sole_father",
+    "residence": "father",
+    "visitation": "Tingsrätten beslutade om umgänge med modern varannan helg från fredag till måndag med hämtning och lämning på Borås centralstation."
+  },
+  "custody_after": {
+    "legal_custody": "joint",
+    "residence": "father",
+    "visitation": "Fysiskt umgänge med modern i hennes hemland två gånger per år på överenskommen plats samt videoumgänge varje onsdag kl. 18.30 (azerbajdzjansk tid) och därutöver när barnet så önskar."
+  },
+  "winner": "both",
+  "winner_rationale": "Parterna träffade en samförståndslösning som hovrätten fastställde. Modern fick tillbaka gemensam vårdnad jämfört med tingsrättens dom om ensam vårdnad åt fadern, medan fadern behöll boendet hos sig.",
+  "key_factors": [
+    "parental_agreement",
+    "child_best_interest",
+    "international_element",
+    "domestic_violence_allegation",
+    "relocation"
+  ],
+  "social_services_involved": true,
+  "vårdnadsutredning_performed": true,
+  "child_was_heard": false,
+  "appeal_outcome": "modified",
+  "legal_costs_total_sek": 58658,
+  "judges": [
+    "Camilla Lyckman",
+    "Sara Fröding Linebäck",
+    "Matilda Hallgren"
+  ],
+  "unanimous": true,
+  "notes": "Moderns nationalitet är pseudoanonymiserad i domen men avser ett land där azerbajdzjanska talas. Modern hade fått avslag på förlängd uppehållstillstånd och bodde med dottern och en äldre son på skyddat boende. Tingsrätten avfärdade moderns påståenden om våld från fadern och bedömde att fadern bäst kunde tillgodose dotterns kontakt med båda föräldrar; överenskommelsen i hovrätten innebar att modern fick åtminstone gemensam vårdnad och regelbundet videoumgänge. Endast rättshjälpsersättningen i hovrätten redovisas (58 658 kr); tingsrätten beslutade om 152 501 kr i rättshjälp åt moderns ombud.",
+  "source": "pdftotext",
+  "extraction_confidence": "high",
+  "missing_or_unclear_fields": [
+    "parents[0].nationality"
+  ]
+}

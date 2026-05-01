@@ -1,0 +1,88 @@
+{
+  "case_id": "HRS_T_2014_0022",
+  "court": "Svea hovrätt",
+  "court_level": "hovrätt",
+  "lower_court": "Södertälje tingsrätt",
+  "lower_court_case_no": "T 3014-11",
+  "ruling_date": "2014-08-27",
+  "saken": "Vårdnad m.m.",
+  "summary": "Tingsrätten förordnade gemensam vårdnad med boende hos modern och umgänge för fadern med umgängesstöd. Efter överenskommelse mellan parterna ändrade hovrätten så att umgänget upphörde tills vidare, då modern meddelat att barnen inte ville träffa fadern.",
+  "parents": [
+    {
+      "role": "father",
+      "procedural_role": "kärande",
+      "name_initials": "M.R.",
+      "birth_year": 1968,
+      "age_at_ruling": 46,
+      "nationality": null,
+      "represented_by_counsel": true
+    },
+    {
+      "role": "mother",
+      "procedural_role": "svarande",
+      "name_initials": "L.R.",
+      "birth_year": 1968,
+      "age_at_ruling": 46,
+      "nationality": null,
+      "represented_by_counsel": true
+    }
+  ],
+  "children": [
+    {
+      "initials": "T.R.",
+      "birth_year": 2000,
+      "birth_month": 8,
+      "age_at_ruling": 13,
+      "gender": "male"
+    },
+    {
+      "initials": "A.R.",
+      "birth_year": 2002,
+      "birth_month": 4,
+      "age_at_ruling": 12,
+      "gender": "male"
+    },
+    {
+      "initials": "F.R.",
+      "birth_year": 2004,
+      "birth_month": 8,
+      "age_at_ruling": 9,
+      "gender": "male"
+    }
+  ],
+  "n_children": 3,
+  "custody_before": {
+    "legal_custody": "joint",
+    "residence": "mother",
+    "visitation": "Med umgängesstöd på Fridaberg fredagar och söndagar, stegvis upptrappning planerad"
+  },
+  "custody_after": {
+    "legal_custody": "joint",
+    "residence": "mother",
+    "visitation": null
+  },
+  "winner": "mother",
+  "winner_rationale": "Modern fick sin överenskommelse godkänd. Umgänget upphörde tills vidare då barnen enligt modern inte ville träffa sin far.",
+  "key_factors": [
+    "child_best_interest",
+    "child_own_wishes",
+    "cooperation_problems",
+    "domestic_violence_allegation",
+    "social_services_recommendation"
+  ],
+  "social_services_involved": true,
+  "vårdnadsutredning_performed": true,
+  "child_was_heard": true,
+  "appeal_outcome": "modified",
+  "legal_costs_total_sek": null,
+  "judges": [
+    "Joakim Zetterstedt",
+    "Birgitta Trägårdh",
+    "Annika Malm"
+  ],
+  "unanimous": true,
+  "notes": "Långvarig tvist om allvarliga anklagelser om sexuella övergrepp. Fadern har genomgått behandling. Barnen genomgick behandling på BUP Vasa. Flera polisanmälningar lämnades in men förundersökningarna lagdes ned då brott inte kunde styrkas. Tingsrätten förordnade gradvis upptrappning av umgänge men barnen var mycket motvilliga. Parterna enades om att upphöra med umgänge för närvarande.",
+  "extraction_confidence": "medium",
+  "missing_or_unclear_fields": [],
+  "source": "markdown"
+}

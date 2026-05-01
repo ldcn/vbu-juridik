@@ -1,0 +1,49 @@
+{
+  "case_id": "HRNN_T_2025_2002",
+  "court": "Hovrätten för Nedre Norrland",
+  "court_level": "hovrätt",
+  "lower_court": "Sundsvalls tingsrätt",
+  "lower_court_case_no": "T 2609-23",
+  "ruling_date": "2026-04-29",
+  "saken": "Umgänge",
+  "summary": "Målet rör tre pojkar födda 2016, 2018 och 2020. Tingsrätten gav modern ensam vårdnad om alla tre barnen och bestämde umgänge med umgängesstöd för det äldsta och det yngsta barnet, men inget umgänge för mellanbarnet. Fadern är dömd för bland annat barnmisshandel och barnfridsbrott riktade mot barnen och modern. Modern överklagade och yrkade att inget umgänge alls skulle bestämmas. Hovrätten upphävde tingsrättens umgängesförordnande och fastställde att inget reglerat umgänge ska ske mellan barnen och fadern. Det äldsta barnet har PTSD-symptom kopplade till våldsutsattheten.",
+  "parents": [
+    {"label": "AA", "role": "mother", "birth_year": 1988, "gender": "female"},
+    {"label": "BB", "role": "father", "birth_year": 1981, "gender": "male"}
+  ],
+  "children": [
+    {"label": "CC", "birth_year": 2016, "age_at_ruling": 10, "gender": "male"},
+    {"label": "DD", "birth_year": 2018, "age_at_ruling": 8, "gender": "male"},
+    {"label": "EE", "birth_year": 2020, "age_at_ruling": 6, "gender": "male"}
+  ],
+  "n_children": 3,
+  "custody_before": {
+    "type": "sole_mother",
+    "residence": "mother",
+    "visitation": "Umgänge med umgängesstöd för det äldsta och det yngsta barnet; inget umgänge för mellanbarnet."
+  },
+  "custody_after": {
+    "type": "sole_mother",
+    "residence": "mother",
+    "visitation": "Inget reglerat umgänge mellan barnen och fadern."
+  },
+  "winner": "mother",
+  "winner_rationale": "Modern fick fullt bifall till sitt yrkande att allt reglerat umgänge mellan barnen och fadern ska upphävas. Den ensamma vårdnaden består.",
+  "key_factors": [
+    "domestic_violence_allegation",
+    "child_best_interest",
+    "mental_health",
+    "social_services_recommendation"
+  ],
+  "social_services_involved": true,
+  "vårdnadsutredning_performed": true,
+  "child_was_heard": true,
+  "appeal_outcome": "modified",
+  "legal_costs_total_sek": 62834,
+  "judges": ["Petra Sjölén Kruse", "Susanna Landström", "Alice Lavin Hållander"],
+  "unanimous": false,
+  "notes": "Fadern är dömd för flera fall av barnmisshandel och barnfridsbrott. Det äldsta barnet uppvisar PTSD-symptom. En av nämndemännen var skiljaktig. Sekretess gäller för uppgifter om parterna och barnen.",
+  "source": "pdftotext",
+  "extraction_confidence": "high",
+  "missing_or_unclear_fields": []
+}

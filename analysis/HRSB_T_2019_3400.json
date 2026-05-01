@@ -1,0 +1,78 @@
+{
+  "case_id": "HRSB_T_2019_3400",
+  "court": "Hovrätten över Skåne och Blekinge",
+  "court_level": "hovrätt",
+  "lower_court": "Malmö tingsrätt",
+  "lower_court_case_no": "T 8576-17",
+  "ruling_date": "2020-02-04",
+  "saken": "Vårdnad",
+  "summary": "Tingsrätten förordnade gemensam vårdnad med boende hos fadern. Fadern överklagade och yrkade ensam vårdnad. Modern medgav ändringsyrkandet. Hovrätten biföllade och förordnade ensam vårdnad för fadern, då parterna var överens om att det var förenligt med barnens bästa.",
+  "parents": [
+    {
+      "role": "father",
+      "procedural_role": "klagande",
+      "name_initials": "J.O.",
+      "birth_year": 1970,
+      "age_at_ruling": 50,
+      "nationality": null,
+      "represented_by_counsel": true
+    },
+    {
+      "role": "mother",
+      "procedural_role": "motpart",
+      "name_initials": "M.B.",
+      "birth_year": 1979,
+      "age_at_ruling": 40,
+      "nationality": null,
+      "represented_by_counsel": true
+    }
+  ],
+  "children": [
+    {
+      "initials": "I.B.",
+      "birth_year": 2007,
+      "birth_month": 12,
+      "age_at_ruling": 12,
+      "gender": "male"
+    },
+    {
+      "initials": "S.B.",
+      "birth_year": 2009,
+      "birth_month": 7,
+      "age_at_ruling": 10,
+      "gender": "male"
+    }
+  ],
+  "n_children": 2,
+  "custody_before": {
+    "legal_custody": "joint",
+    "residence": "father",
+    "visitation": "Varannan vecka från torsdag till måndag, lovumgänge enligt dom"
+  },
+  "custody_after": {
+    "legal_custody": "sole_father",
+    "residence": "father",
+    "visitation": "Varannan vecka från torsdag till måndag, lovumgänge enligt dom"
+  },
+  "winner": "father",
+  "winner_rationale": "Fadern fick bifallet för sin huvudyrkande om ensam vårdnad. Modern medgav ändringsyrkandet.",
+  "key_factors": [
+    "parental_agreement",
+    "child_best_interest"
+  ],
+  "social_services_involved": true,
+  "vårdnadsutredning_performed": true,
+  "child_was_heard": null,
+  "appeal_outcome": "modified",
+  "legal_costs_total_sek": null,
+  "judges": [
+    "Mats Loberg",
+    "Katarina Adolfson",
+    "Elisabet Rune"
+  ],
+  "unanimous": true,
+  "notes": "Parterna hade tidigare tvister om vårdnad. Modern fick insynsfullmakt för barnens skol- och sjukvårdsinformation.",
+  "extraction_confidence": "high",
+  "missing_or_unclear_fields": [],
+  "source": "markdown"
+}

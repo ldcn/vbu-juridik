@@ -1,0 +1,74 @@
+{
+  "case_id": "HRS_T_2014_6359",
+  "court": "Svea hovrätt",
+  "court_level": "hovrätt",
+  "lower_court": "Stockholms tingsrätt",
+  "lower_court_case_no": "T 10341-12",
+  "ruling_date": "2015-09-01",
+  "saken": "Umgänge med barn",
+  "summary": "Tingsrätten tillerkände mamman ensam vårdnad om sonen och avslog pappans yrkanden om gemensam vårdnad och växelvis boende. Pappan fick begränsad umgängesrätt. Vid hovrätten nådde parterna överenskommelse om utökat umgänge enligt ett trappat schema med umgängesstöd initialt. Mamman behöll ensam vårdnad. Både parterna var representerade av advokater.",
+  "parents": [
+    {
+      "role": "father",
+      "procedural_role": "motpart",
+      "name_initials": "J.K.",
+      "birth_year": 1978,
+      "age_at_ruling": 36,
+      "nationality": null,
+      "represented_by_counsel": true
+    },
+    {
+      "role": "mother",
+      "procedural_role": "klagande",
+      "name_initials": "T.S.",
+      "birth_year": 1981,
+      "age_at_ruling": 33,
+      "nationality": null,
+      "represented_by_counsel": true
+    }
+  ],
+  "children": [
+    {
+      "initials": "Å.S.",
+      "birth_year": 2011,
+      "birth_month": 1,
+      "age_at_ruling": 4,
+      "gender": "female"
+    }
+  ],
+  "n_children": 1,
+  "custody_before": {
+    "legal_custody": "sole_mother",
+    "residence": "mother",
+    "visitation": "Begränsad umgängesrätt varannan helg med umgängesstöd enligt tingsrättens dom"
+  },
+  "custody_after": {
+    "legal_custody": "sole_mother",
+    "residence": "mother",
+    "visitation": "Trappat umgänge startat med fyra timmar på helg i närvaro av umgängesstöd, därefter sex timmar, därefter helg från fredag till måndag, varannan helg från och med vecka 2016, plus jullov, nyårlov och påsklov enligt schema. Fyra veckors sommarumgänge fördelat på två perioder."
+  },
+  "winner": "both",
+  "winner_rationale": "Mamman behöll ensam vårdnad som hon yrkade. Pappan fick betydligt utökat umgänge jämfört med första instansens dom genom överenskommelse vid hovrätten.",
+  "key_factors": [
+    "cooperation_problems",
+    "child_best_interest",
+    "mental_health",
+    "trauma",
+    "child_own_wishes"
+  ],
+  "social_services_involved": true,
+  "vårdnadsutredning_performed": true,
+  "child_was_heard": false,
+  "appeal_outcome": "modified",
+  "legal_costs_total_sek": null,
+  "judges": [
+    "Fredrik Wersäll",
+    "Katarina Påhlsson",
+    "Evelina Sandgren"
+  ],
+  "unanimous": true,
+  "notes": "Barnet uppvisade tecken på trauma efter umgänge med pappan enligt behandlande psykolog. Barnet hade mardrömmar, ångest och sexualiserat beteende. Föräldrarna hade djup misstro för varandra. Parterna kom överens om umgängesschema vid huvudförhandlingen.",
+  "extraction_confidence": "high",
+  "missing_or_unclear_fields": [],
+  "source": "markdown"
+}

@@ -1,0 +1,73 @@
+{
+  "case_id": "HRVS_T_2025_5055",
+  "court": "Hovrätten för Västra Sverige",
+  "court_level": "hovrätt",
+  "lower_court": "Göteborgs tingsrätt",
+  "lower_court_case_no": "T 12201-24",
+  "ruling_date": "2026-04-23",
+  "saken": "Umgänge med barn",
+  "summary": "Fadern överklagade tingsrättens dom där hans yrkande om umgänge med dottern, född 2023, helt avslagits. Modern, som har ensam vårdnad och lever med dottern under skyddade personuppgifter, motsatte sig ändring och hävdade att fadern utövat våld och missbrukat narkotika och alkohol. Hovrätten ändrade tingsrättens dom och beviljade en upptrappning av umgänget med början genom umgängesstödjare och senare självständigt umgänge varannan helg, eftersom riskerna kopplade till tidigare missbruk och påståenden om våld bedömdes som små.",
+  "parents": [
+    {
+      "role": "father",
+      "procedural_role": "klagande",
+      "name_initials": "AA",
+      "birth_year": 1982,
+      "age_at_ruling": 44,
+      "nationality": null,
+      "represented_by_counsel": true
+    },
+    {
+      "role": "mother",
+      "procedural_role": "motpart",
+      "name_initials": "BB",
+      "birth_year": null,
+      "age_at_ruling": null,
+      "nationality": null,
+      "represented_by_counsel": true
+    }
+  ],
+  "children": [
+    {
+      "initials": "CC",
+      "birth_year": 2023,
+      "birth_month": null,
+      "age_at_ruling": 3,
+      "gender": "female"
+    }
+  ],
+  "n_children": 1,
+  "custody_before": {
+    "legal_custody": "sole_mother",
+    "residence": "mother",
+    "visitation": "Inget umgänge fastställt; tingsrätten avslog faderns yrkande om umgänge med och utan umgängesstödjare."
+  },
+  "custody_after": {
+    "legal_custody": "sole_mother",
+    "residence": "mother",
+    "visitation": "Upptrappat umgänge: inledningsvis varannan tisdag i närvaro av umgängesstödjare hos Familjerättsbyrån, därefter dagumgänge, sedan över natt och slutligen varannan helg från fredag till måndag."
+  },
+  "winner": "partial_father",
+  "winner_rationale": "Fadern fick i huvudsak bifall till sitt andrahandsyrkande om en upptrappning av umgänget; tingsrättens helt avslående dom ändrades.",
+  "key_factors": [
+    "domestic_violence_allegation",
+    "substance_abuse_allegation",
+    "child_best_interest",
+    "social_services_recommendation",
+    "vårdnadsutredning",
+    "cooperation_problems",
+    "protected_identity",
+    "abduction_risk_allegation"
+  ],
+  "social_services_involved": true,
+  "vårdnadsutredning_performed": true,
+  "child_was_heard": false,
+  "appeal_outcome": "modified",
+  "legal_costs_total_sek": 275208,
+  "judges": ["Hjalmar Forsberg", "Linda Nordblom", "Simon Sandequist", "Anette Ragneborn", "Conny Johansson"],
+  "unanimous": false,
+  "notes": "Hovrättsrådet var skiljaktig och ville fastställa tingsrättens dom som helt avslog umgänge. Modern och dottern lever med skyddade personuppgifter och modern är placerad på skyddat boende. Familjerättens umgängesutredning avstyrkte umgänge men hovrätten gjorde en annan bedömning av faderns förändrade livssituation och skyddsfaktorerna (ny församlingsgemenskap, arbete, sambo). Två interimistiska beslut under hovrättsprocessen ledde aldrig till genomfört umgänge.",
+  "source": "pdftotext",
+  "extraction_confidence": "high",
+  "missing_or_unclear_fields": ["parents[1].birth_year", "parents[1].age_at_ruling", "children[0].birth_month"]
+}

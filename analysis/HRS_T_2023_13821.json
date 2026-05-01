@@ -1,0 +1,81 @@
+{
+  "case_id": "HRS_T_2023_13821",
+  "court": "Svea hovrätt",
+  "court_level": "hovrätt",
+  "lower_court": "Södertörns tingsrätt",
+  "lower_court_case_no": "T 10178-23",
+  "ruling_date": "2025-02-19",
+  "saken": "Vårdnad m.m.",
+  "summary": "Modern överklagade tingsrättens dom och yrkade ensam vårdnad om de två gemensamma barnen, sonen och dottern, alternativt gemensam vårdnad med stadigvarande boende hos henne, samt ett reglerat umgänge. Fadern bestred ändring. Hovrätten inhämtade en kompletterande vårdnadsutredning som föreslog gemensam vårdnad och upptrappat umgänge mellan dottern och modern. Hovrätten ansåg dock att den höga konfliktnivån mellan föräldrarna kvarstod och att gemensam vårdnad framstod som utsiktslös, samt att barnen — särskilt sonen som fyllt 13 år — tydligt motsatte sig umgänge med modern och hade tagit skada av tidigare umgängesförsök. Hovrätten fastställde därför tingsrättens dom, dvs. ensam vårdnad för fadern, boende hos honom och inget reglerat umgänge.",
+  "parents": [
+    {
+      "role": "mother",
+      "procedural_role": "klagande",
+      "name_initials": "AA",
+      "birth_year": 1985,
+      "age_at_ruling": 39,
+      "nationality": "Polen",
+      "represented_by_counsel": true
+    },
+    {
+      "role": "father",
+      "procedural_role": "motpart",
+      "name_initials": "BB",
+      "birth_year": 1981,
+      "age_at_ruling": 43,
+      "nationality": "Polen",
+      "represented_by_counsel": false
+    }
+  ],
+  "children": [
+    {
+      "initials": "CC",
+      "birth_year": 2012,
+      "birth_month": 2,
+      "age_at_ruling": 13,
+      "gender": "male"
+    },
+    {
+      "initials": "DD",
+      "birth_year": 2016,
+      "birth_month": 8,
+      "age_at_ruling": 8,
+      "gender": "female"
+    }
+  ],
+  "n_children": 2,
+  "custody_before": {
+    "legal_custody": "sole_father",
+    "residence": "father",
+    "visitation": "Inget reglerat umgänge mellan barnen och modern."
+  },
+  "custody_after": {
+    "legal_custody": "sole_father",
+    "residence": "father",
+    "visitation": "Inget reglerat umgänge mellan barnen och modern."
+  },
+  "winner": "father",
+  "winner_rationale": "Hovrätten fastställde tingsrättens dom i sin helhet och avslog moderns yrkanden om ändrad vårdnad, boende och reglerat umgänge. Fadern fick alltså igenom sin inställning fullt ut.",
+  "key_factors": [
+    "child_best_interest",
+    "child_own_wishes",
+    "domestic_violence_allegation",
+    "substance_abuse_allegation",
+    "cooperation_problems",
+    "social_services_recommendation",
+    "vårdnadsutredning",
+    "mental_health",
+    "international_element"
+  ],
+  "social_services_involved": true,
+  "vårdnadsutredning_performed": true,
+  "child_was_heard": true,
+  "appeal_outcome": "affirmed",
+  "legal_costs_total_sek": null,
+  "judges": ["Maria Hölcke", "Viktoria Thörnqvist", "Ted Thyrén", "Raouf Ayoub", "Susanne Östros"],
+  "unanimous": true,
+  "notes": "Båda föräldrarna har polskt medborgarskap. Hovrätten avvek från familjerättens förslag i den kompletterande vårdnadsutredningen, som hade förordat gemensam vårdnad och ett upptrappat umgänge mellan dottern och modern med umgängesstöd. Hovrätten betonade samtidigt faderns ansvar som ensam vårdnadshavare att hålla modern informerad om barnen och att underlätta en framtida relation. Sonens uttalade vilja gavs stort genomslag mot bakgrund av hans ålder och mognad. Tidigare uppgifter om våld från modern mot barnen och om faderns historiska alkoholmissbruk förekommer i utredningen.",
+  "extraction_confidence": "high",
+  "missing_or_unclear_fields": ["legal_costs_total_sek"],
+  "source": "pdftotext"
+}

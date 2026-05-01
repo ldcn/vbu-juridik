@@ -1,0 +1,79 @@
+{
+  "case_id": "TRNTJ_T_2015_0475",
+  "court": "Norrtälje tingsrätt",
+  "court_level": "tingsrätt",
+  "lower_court": null,
+  "lower_court_case_no": null,
+  "ruling_date": "2016-05-11",
+  "saken": "Vårdnad och umgänge",
+  "summary": "Tingsrätten förordnade att modern och fadern fortsatt ska ha gemensam vårdnad om de två barnen, och att barnen ska bo hos modern. Dottern motsatte sig umgänge med fadern sedan han brutalt tvingade in henne i sin bil i april 2015, men tingsrätten ordnade gradvis upptrappat umgänge för att återknyta relationen. Sonen ville inte träffa sin pappa överhuvudtaget, eventuellt på grund av påstått våld fadern utsatt en närstående för.",
+  "parents": [
+    {
+      "role": "mother",
+      "procedural_role": "kärande",
+      "name_initials": "H.S.",
+      "birth_year": 1973,
+      "age_at_ruling": 43,
+      "nationality": null,
+      "represented_by_counsel": true
+    },
+    {
+      "role": "father",
+      "procedural_role": "svarande",
+      "name_initials": "H.M.",
+      "birth_year": 1972,
+      "age_at_ruling": 43,
+      "nationality": null,
+      "represented_by_counsel": true
+    }
+  ],
+  "children": [
+    {
+      "initials": "O.S.",
+      "birth_year": 2002,
+      "birth_month": 3,
+      "age_at_ruling": 14,
+      "gender": "female"
+    },
+    {
+      "initials": "C.S.",
+      "birth_year": 2005,
+      "birth_month": 6,
+      "age_at_ruling": 11,
+      "gender": "female"
+    }
+  ],
+  "n_children": 2,
+  "custody_before": {
+    "legal_custody": "joint",
+    "residence": "mother",
+    "visitation": "Cornelia hade ingen umgängesrätt sedan juni 2014, Oliver ingen sedan oktober 2012"
+  },
+  "custody_after": {
+    "legal_custody": "joint",
+    "residence": "mother",
+    "visitation": "Cornelia: Gradvis upptrappning från två timmar per vecka till varannan vecka från torsdag till måndag; Oliver: Ingen tvungen umgängesrätt, men uppmuntras att frivilligt träffa sin pappa"
+  },
+  "winner": "mother",
+  "winner_rationale": "Mamman fick bifall till sitt yrkande om fortsatt gemensam vårdnad och att barnen bor hos henne. Tingsrätten tillerkände henne detta då hennes engagemang för barnens välbefinnande var tydligt och ingen risk föreligger att hon hindrar umgänge.",
+  "key_factors": [
+    "cooperation_problems",
+    "child_best_interest",
+    "domestic_violence_allegation",
+    "child_own_wishes",
+    "mental_health"
+  ],
+  "social_services_involved": true,
+  "vårdnadsutredning_performed": true,
+  "child_was_heard": true,
+  "appeal_outcome": "n_a",
+  "legal_costs_total_sek": 83248,
+  "judges": [
+    "Ylva Myhrberg"
+  ],
+  "unanimous": true,
+  "notes": "Den 24 april 2015 bar fadern med grovt våld ut dottern ur klassrummet och slängde in henne i sin bil trots hennes kraftiga motstånd. Händelsen bevittnades av många personer inklusive lärare och skolkamrater. Polisanmäld och orosanmäld. Oliver tycks ha observerat påstått våld från fadern mot sin sambo. Barnens motstånd mot umgänge bedömdes inte ligga på manipulation från mamman utan på reella upplevelser.",
+  "extraction_confidence": "high",
+  "missing_or_unclear_fields": [],
+  "source": "txt"
+}

@@ -1,0 +1,87 @@
+{
+  "case_id": "HRS_T_2017_6957",
+  "court": "Svea hovrätt",
+  "court_level": "hovrätt",
+  "lower_court": "Södertälje tingsrätt",
+  "lower_court_case_no": "T 2838-16",
+  "ruling_date": "2018-03-09",
+  "saken": "Vårdnad om barn, m.m.",
+  "summary": "Tingsrätten tillerkände föräldrarna gemensam vårdnad om tre barn med moderens boende. Vid hovrätten yrkade modern ensam vårdnad. Hovrätten ändrade domen och förordnade om ensam vårdnad för modern med tanke på djupgående samarbetssvårigheter mellan föräldrarna, dokumenterad misshandel av modern från faderns sida, och barnens tydliga vilja att inte ha umgänge med fadern.",
+  "parents": [
+    {
+      "role": "mother",
+      "procedural_role": "klagande",
+      "name_initials": "H.W.",
+      "birth_year": 1978,
+      "age_at_ruling": 40,
+      "nationality": null,
+      "represented_by_counsel": true
+    },
+    {
+      "role": "father",
+      "procedural_role": "motpart",
+      "name_initials": "S.S.",
+      "birth_year": 1973,
+      "age_at_ruling": 45,
+      "nationality": null,
+      "represented_by_counsel": true
+    }
+  ],
+  "children": [
+    {
+      "initials": "R.H.",
+      "birth_year": 2000,
+      "birth_month": 11,
+      "age_at_ruling": 17,
+      "gender": "male"
+    },
+    {
+      "initials": "Y.H.",
+      "birth_year": 2004,
+      "birth_month": 5,
+      "age_at_ruling": 13,
+      "gender": "female"
+    },
+    {
+      "initials": "H.H.",
+      "birth_year": 2007,
+      "birth_month": 2,
+      "age_at_ruling": 11,
+      "gender": "female"
+    }
+  ],
+  "n_children": 3,
+  "custody_before": {
+    "legal_custody": "joint",
+    "residence": "mother",
+    "visitation": "Två timmar varannan vecka i umgängesstöd, med början efter ett år enligt tingsrättens dom"
+  },
+  "custody_after": {
+    "legal_custody": "sole_mother",
+    "residence": "mother",
+    "visitation": null
+  },
+  "winner": "mother",
+  "winner_rationale": "Modern fick ensam vårdnad som hon yrkade. Faderns yrkande om umgänge avslogs helt.",
+  "key_factors": [
+    "domestic_violence_allegation",
+    "cooperation_problems",
+    "child_own_wishes",
+    "child_best_interest"
+  ],
+  "social_services_involved": true,
+  "vårdnadsutredning_performed": true,
+  "child_was_heard": true,
+  "appeal_outcome": "modified",
+  "legal_costs_total_sek": 95040,
+  "judges": [
+    "Sven Johannisson",
+    "Lars Olsson",
+    "Charlotte Edvardsson"
+  ],
+  "unanimous": false,
+  "notes": "Nämndemännen var skiljaktiga i umgängesfrågan. Fader hade dömts för misshandel av modern år 2012. Barnen gav klara signaler om att inte vilja träffa fadern.",
+  "extraction_confidence": "high",
+  "missing_or_unclear_fields": [],
+  "source": "txt"
+}

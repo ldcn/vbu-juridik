@@ -1,0 +1,84 @@
+{
+  "case_id": "HRS_T_2025_16176",
+  "court": "Svea hovrätt",
+  "court_level": "hovrätt",
+  "lower_court": "Stockholms tingsrätt",
+  "lower_court_case_no": "T 22241-24",
+  "ruling_date": "2026-03-12",
+  "saken": "Vårdnad m.m.",
+  "summary": "Tvist om vårdnaden om tre söner födda 2013, 2015 och 2017. Tingsrätten gav modern ensam vårdnad om de två äldre sönerna och fadern ensam vårdnad om den yngsta sonen, som sedan en händelse i juni 2025 bott hos fadern och inte haft kontakt med modern eller sina bröder. Hovrätten ändrade tingsrättens dom så att även det yngsta barnet ska stå under moderns ensamma vårdnad, med ett omfattande umgänge med fadern. Hovrätten ansåg att fadern inte tagit sitt ansvar att underlätta barnets kontakt med modern och bröderna och att han hade brustit som boendeförälder, bland annat genom att hålla barnet borta från skolan. Två nämndemän var skiljaktiga.",
+  "parents": [
+    {
+      "role": "mother",
+      "procedural_role": "klagande",
+      "name_initials": "AA",
+      "birth_year": 1979,
+      "age_at_ruling": 47,
+      "nationality": null,
+      "represented_by_counsel": true
+    },
+    {
+      "role": "father",
+      "procedural_role": "klagande",
+      "name_initials": "BB",
+      "birth_year": 1978,
+      "age_at_ruling": 48,
+      "nationality": null,
+      "represented_by_counsel": true
+    }
+  ],
+  "children": [
+    {
+      "initials": "CC",
+      "birth_year": 2017,
+      "birth_month": null,
+      "age_at_ruling": 8,
+      "gender": "male"
+    },
+    {
+      "initials": "DD",
+      "birth_year": 2013,
+      "birth_month": null,
+      "age_at_ruling": 12,
+      "gender": "male"
+    },
+    {
+      "initials": "EE",
+      "birth_year": 2015,
+      "birth_month": null,
+      "age_at_ruling": 10,
+      "gender": "male"
+    }
+  ],
+  "n_children": 3,
+  "custody_before": {
+    "legal_custody": "sole_father",
+    "residence": "father",
+    "visitation": "Enligt tingsrättens dom skulle det yngsta barnet ha omfattande umgänge med modern, men umgänget hade i praktiken inte kommit till stånd. Tingsrättens dom upphävde inhibitionen den 19 december 2025 så fadern var ensam vårdnadshavare under perioden"
+  },
+  "custody_after": {
+    "legal_custody": "sole_mother",
+    "residence": "mother",
+    "visitation": "Omfattande umgänge med fadern: varje onsdag ojämna veckor från skolslut till måndag morgon, samt lov- och storhelgsumgänge"
+  },
+  "winner": "mother",
+  "winner_rationale": "Modern fick bifall till sitt överklagande om ensam vårdnad även om det yngsta barnet, vilket var det enda barn som tingsrätten lagt under faderns vårdnad. Hovrätten fann att fadern brustit som boendeförälder och inte underlättat barnets kontakt med modern och syskonen.",
+  "key_factors": [
+    "child_best_interest",
+    "cooperation_problems",
+    "child_own_wishes",
+    "vårdnadsutredning",
+    "social_services_recommendation"
+  ],
+  "social_services_involved": true,
+  "vårdnadsutredning_performed": true,
+  "child_was_heard": true,
+  "appeal_outcome": "modified",
+  "legal_costs_total_sek": null,
+  "judges": ["Cecilia Hager Larsson", "Ann-Sofie Bodin", "Alicia Svensson"],
+  "unanimous": false,
+  "notes": "Två nämndemän var skiljaktiga; en ville fastställa tingsrättens dom helt, en annan ville fastställa faderns vårdnad men avslå reglerat umgänge med modern. Hovrätten lyfter särskilt att det yngsta barnet i princip inte gått i skolan under hela höstterminen 2025 trots skolplikt, och att han inte träffat sina bröder sedan juni 2025. Barnpsykolog och socialsekreterare hade förordat att barnet skulle bo kvar hos fadern, men hovrätten fäste större vikt vid moderns lämplighet och behovet av syskonkontakt. Händelsen den 16 juni 2025, då modern tillsammans med andra vuxna åkt hem till faderns bostad, bedömdes ha fått orimligt stora proportioner.",
+  "source": "pdftotext",
+  "extraction_confidence": "high",
+  "missing_or_unclear_fields": ["legal_costs_total_sek", "parents[].nationality", "children[].birth_month"]
+}

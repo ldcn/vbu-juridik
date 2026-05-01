@@ -1,0 +1,73 @@
+{
+  "case_id": "HRVS_T_2025_6486",
+  "court": "Hovrätten för Västra Sverige",
+  "court_level": "hovrätt",
+  "lower_court": "Göteborgs tingsrätt",
+  "lower_court_case_no": "T 11703-24",
+  "ruling_date": "2026-03-18",
+  "saken": "Vårdnad m.m.",
+  "summary": "Båda föräldrarna överklagade tingsrättens dom om dottern, född 2020. Modern, som har ensam vårdnad och lever med dottern under skyddad folkbokföring, yrkade att inget umgänge skulle ske med fadern på grund av påståenden om sexuella övergrepp mot dottern, våld mot modern samt faderns kriminella förflutna. Fadern yrkade i första hand gemensam vårdnad och utökat umgänge. Hovrätten fastställde fortsatt ensam vårdnad för modern men ändrade umgänget så att det inleds med umgängesstödjare och därefter övergår till veckoslut och lovumgänge, eftersom det enligt hovrätten saknades konkret stöd för påståendena om övergrepp och våld.",
+  "parents": [
+    {
+      "role": "mother",
+      "procedural_role": "klagande och motpart",
+      "name_initials": "AA",
+      "birth_year": 1995,
+      "age_at_ruling": 31,
+      "nationality": null,
+      "represented_by_counsel": true
+    },
+    {
+      "role": "father",
+      "procedural_role": "klagande och motpart",
+      "name_initials": "BB",
+      "birth_year": 1975,
+      "age_at_ruling": 51,
+      "nationality": null,
+      "represented_by_counsel": true
+    }
+  ],
+  "children": [
+    {
+      "initials": "CC",
+      "birth_year": 2020,
+      "birth_month": 9,
+      "age_at_ruling": 5,
+      "gender": "female"
+    }
+  ],
+  "n_children": 1,
+  "custody_before": {
+    "legal_custody": "sole_mother",
+    "residence": "mother",
+    "visitation": "Tingsrätten beslutade om veckoslutsumgänge varannan helg samt lovumgänge med fadern."
+  },
+  "custody_after": {
+    "legal_custody": "sole_mother",
+    "residence": "mother",
+    "visitation": "Inledande umgänge med umgängesstödjare vid fyra tillfällen, därefter veckoslutsumgänge varannan helg från fredag till söndag samt höst-, jul-, nyårs-, sport-, påsk- och sommarlovsumgänge."
+  },
+  "winner": "neither",
+  "winner_rationale": "Ingen part fick bifall till sitt huvudsakliga yrkande: modern fick inte bort umgänget och fadern fick varken gemensam vårdnad eller utökat veckoumgänge; hovrätten lade dock till en inledande period med umgängesstödjare.",
+  "key_factors": [
+    "sexual_abuse_allegation",
+    "domestic_violence_allegation",
+    "criminal_history",
+    "cooperation_problems",
+    "social_services_recommendation",
+    "vårdnadsutredning",
+    "child_best_interest",
+    "protected_identity"
+  ],
+  "social_services_involved": true,
+  "vårdnadsutredning_performed": true,
+  "child_was_heard": false,
+  "appeal_outcome": "partially_modified",
+  "legal_costs_total_sek": 208760,
+  "judges": ["Peter Broberg", "Hanna Forsell", "Emma Hakers", "Anita Blixt", "Göte Karlsson"],
+  "unanimous": false,
+  "notes": "En nämndeman var skiljaktig och ville anförtro fadern ensam vårdnad. Vårdnadsutredningen avstyrkte allt umgänge med fadern på grund av att dottern, knappt fyra år, vid flera tillfällen berättat för socialsekreterare att 'pappa har tagit henne på snippan'; hovrätten värderade dock moderns och barnets uppgifter med försiktighet mot bakgrund av inspelade telefonsamtal där modern hotat med smutskastning samt motsägelser i hennes berättelser. Fadern har långa fängelsestraff sedan 2006 och 2010 för bland annat våldtäkt och grovt narkotikabrott samt tidigare medlemskap i Hells Angels. Modern och dottern har skyddad folkbokföring.",
+  "source": "pdftotext",
+  "extraction_confidence": "high",
+  "missing_or_unclear_fields": []
+}

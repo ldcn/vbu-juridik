@@ -1,0 +1,68 @@
+{
+  "case_id": "HRS_T_2025_10456",
+  "court": "Svea hovrätt",
+  "court_level": "hovrätt",
+  "lower_court": "Södertörns tingsrätt",
+  "lower_court_case_no": "T 2635-24",
+  "ruling_date": "2026-01-12",
+  "saken": "Umgänge",
+  "summary": "Tvist om umgänge mellan dottern (född 2023, knappt tre år) och fadern. Tingsrätten hade tilldömt modern ensam vårdnad och bestämt ett omfattande löpande veckoumgänge samt lov- och storhelgsumgänge med fadern. Modern överklagade umgänget under lov och storhelger. Hovrätten ändrade tingsrättens dom och begränsade sommarumgänget till fyra perioder om en vecka i taget fram till dess barnet börjar förskoleklass, med hänvisning till barnets låga ålder. Tingsrättens dom om löpande veckoumgänge stod fast. Hovrätten förtydligade också tider och plats för överlämningar.",
+  "parents": [
+    {
+      "role": "mother",
+      "procedural_role": "klagande",
+      "name_initials": "AA",
+      "birth_year": 1989,
+      "age_at_ruling": 37,
+      "nationality": null,
+      "represented_by_counsel": true
+    },
+    {
+      "role": "father",
+      "procedural_role": "motpart",
+      "name_initials": "BB",
+      "birth_year": 1988,
+      "age_at_ruling": 38,
+      "nationality": null,
+      "represented_by_counsel": true
+    }
+  ],
+  "children": [
+    {
+      "initials": "CC",
+      "birth_year": 2023,
+      "birth_month": 3,
+      "age_at_ruling": 2,
+      "gender": "female"
+    }
+  ],
+  "n_children": 1,
+  "custody_before": {
+    "legal_custody": "sole_mother",
+    "residence": "mother",
+    "visitation": "Enligt tingsrättens dom: jämna veckor från fredag till måndag och ojämna veckor från onsdag till fredag, samt visst lov- och storhelgsumgänge"
+  },
+  "custody_after": {
+    "legal_custody": "sole_mother",
+    "residence": "mother",
+    "visitation": "Samma löpande veckoumgänge som tingsrätten beslutat; sommarumgänget begränsat till fyra veckor uppdelat 1+1+1+1 fram till förskoleklass; därefter 2+2-uppdelning. Förtydliganden om tider och plats för överlämning"
+  },
+  "winner": "partial_mother",
+  "winner_rationale": "Hovrätten biföll i huvudsak moderns yrkande om begränsning av sommarumgänget med hänvisning till barnets låga ålder. Det löpande veckoumgänget med fadern, som parterna var överens om, kvarstod oförändrat.",
+  "key_factors": [
+    "child_best_interest",
+    "cooperation_problems",
+    "vårdnadsutredning"
+  ],
+  "social_services_involved": true,
+  "vårdnadsutredning_performed": true,
+  "child_was_heard": false,
+  "appeal_outcome": "modified",
+  "legal_costs_total_sek": 225450,
+  "judges": ["Cecilia Hager Larsson", "Ann-Sofie Bodin", "Sean Jansson"],
+  "unanimous": true,
+  "notes": "Konfliktnivån mellan föräldrarna är hög och båda dokumenterar överlämningar (filmer, ljudupptagningar, stödperson). Hovrätten markerar att detta riskerar att gå ut över barnet. I tingsrätten förekom omfattande påståenden om psykiskt och fysiskt våld från fadern mot modern, samt anklagelser om narkotikabruk åt båda hållen. Tingsrätten dömde också till ensam vårdnad för modern. Faderns rättshjälp upphörde i hovrätten då 100-timmarsgränsen passerades.",
+  "source": "pdftotext",
+  "extraction_confidence": "high",
+  "missing_or_unclear_fields": ["parents[].nationality"]
+}

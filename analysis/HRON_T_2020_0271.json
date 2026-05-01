@@ -1,0 +1,63 @@
+{
+  "case_id": "HRON_T_2020_0271",
+  "court": "Hovrätten för Övre Norrland",
+  "court_level": "hovrätt",
+  "lower_court": "Luleå tingsrätt",
+  "lower_court_case_no": "T 2455-18",
+  "ruling_date": "2020-10-20",
+  "saken": "Vårdnad om barn m.m.",
+  "summary": "Tingsrätten hade avslagit pappans yrkande om gemensam vårdnad och växelvis boende; mamman behöll ensam vårdnad och pappan fick visst umgänge. Pappan överklagade. Hovrätten ändrade och förordnade om gemensam vårdnad – samarbetssvårigheterna ansågs inte tillräckligt djupa och båda föräldrarna sätter dottern i centrum. Boendet förblev hos mamman och umgängesomfattningen kvarstod (varannan vecka onsdag–måndag plus lov), med vissa förtydliganden.",
+  "parents": [
+    {
+      "role": "father",
+      "procedural_role": "klagande",
+      "name_initials": "P.H.",
+      "birth_year": 1973,
+      "age_at_ruling": 47,
+      "nationality": null,
+      "represented_by_counsel": true
+    },
+    {
+      "role": "mother",
+      "procedural_role": "motpart",
+      "name_initials": "E.J.",
+      "birth_year": 1974,
+      "age_at_ruling": 46,
+      "nationality": null,
+      "represented_by_counsel": true
+    }
+  ],
+  "children": [
+    {"initials": "L.", "birth_year": 2014, "birth_month": 6, "age_at_ruling": 6, "gender": "female"}
+  ],
+  "n_children": 1,
+  "custody_before": {
+    "legal_custody": "sole_mother",
+    "residence": "mother",
+    "visitation": "Varannan vecka onsdag–måndag plus jul, nyår, påsklov och 4 sommarveckor enligt tingsrättens dom"
+  },
+  "custody_after": {
+    "legal_custody": "joint",
+    "residence": "mother",
+    "visitation": "Varannan vecka onsdag–måndag, varannan jul, vartannat nyår, vartannat påsklov samt fyra sommarveckor; obruten samvaro med mamman under motsvarande perioder andra år"
+  },
+  "winner": "partial_father",
+  "winner_rationale": "Pappan fick bifall till gemensam vårdnad men inte växelvis boende och inte ensam vårdnad. Umgänget förblev i huvudsak oförändrat.",
+  "key_factors": [
+    "cooperation_problems",
+    "child_best_interest",
+    "vårdnadsutredning",
+    "social_services_recommendation"
+  ],
+  "social_services_involved": true,
+  "vårdnadsutredning_performed": true,
+  "child_was_heard": false,
+  "appeal_outcome": "modified",
+  "legal_costs_total_sek": null,
+  "judges": [],
+  "unanimous": null,
+  "notes": "Föräldrarna har aldrig bott tillsammans. Tingsrätten kritiserade familjerättens vårdnadsutredning för att utgå från en presumtion om gemensam vårdnad. Hovrätten gick på utredarens linje. Avgjort utan huvudförhandling. Domarnamn ej lättillgängliga i utdraget.",
+  "extraction_confidence": "medium",
+  "missing_or_unclear_fields": ["parents.nationality", "judges", "legal_costs_total_sek", "unanimous"],
+  "source": "markdown"
+}

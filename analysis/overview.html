@@ -1,0 +1,1083 @@
+<!doctype html>
+<html lang="sv">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Översikt – svenska vårdnadsmål</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+  <style>
+    :root {
+      --bg: #f7f7f5;
+      --card: #ffffff;
+      --ink: #1f2937;
+      --muted: #6b7280;
+      --accent: #2563eb;
+      --border: #e5e7eb;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      line-height: 1.55;
+    }
+    header.page {
+      background: linear-gradient(135deg, #1e3a8a, #2563eb);
+      color: #fff;
+      padding: 2.5rem 1.5rem;
+    }
+    header.page h1 { margin: 0 0 .3rem 0; font-size: 1.9rem; }
+    header.page p { margin: 0; opacity: .9; }
+    nav {
+      background: var(--card);
+      border-bottom: 1px solid var(--border);
+      padding: .6rem 1.5rem;
+      position: sticky; top: 0;
+      display: flex; gap: 1rem; flex-wrap: wrap;
+      z-index: 10;
+    }
+    nav a { color: var(--accent); text-decoration: none; font-size: .9rem; }
+    nav a:hover { text-decoration: underline; }
+    main { max-width: 1200px; margin: 0 auto; padding: 1.5rem; }
+    section { margin-bottom: 2rem; }
+    section > h2 { border-bottom: 2px solid var(--accent); padding-bottom: .3rem; margin-top: 2.5rem; }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+      gap: 1rem;
+    }
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1rem 1.2rem;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.03);
+    }
+    .card.wide { grid-column: 1 / -1; }
+    .card h3 { margin: 0 0 .5rem 0; font-size: 1.05rem; }
+    .card .canvas-wrap { position: relative; height: 280px; }
+    .filter-row {
+      display: flex; flex-wrap: wrap; gap: 1rem; align-items: flex-start;
+    }
+    .filter-row select {
+      font-family: inherit; font-size: .9rem; padding: .3rem;
+      border: 1px solid var(--border); border-radius: 6px; background: #fff;
+    }
+    .filter-controls {
+      display: flex; flex-direction: column; gap: .6rem; min-width: 160px;
+    }
+    .filter-controls label { font-size: .9rem; }
+    .filter-controls button {
+      padding: .4rem .8rem; border: 1px solid var(--accent);
+      background: #fff; color: var(--accent); border-radius: 6px;
+      cursor: pointer; font-size: .9rem;
+    }
+    .filter-controls button:hover { background: var(--accent); color: #fff; }
+    .stats-row {
+      display: flex; gap: 1rem; flex-wrap: wrap; margin-top: .6rem;
+      font-size: .85rem; color: var(--muted);
+    }
+    .stats-row span strong { color: var(--ink); }
+    .kpi-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+    .kpi {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1rem;
+      text-align: center;
+    }
+    .kpi .num { font-size: 2rem; font-weight: 700; color: var(--accent); }
+    .kpi .lbl { font-size: .85rem; color: var(--muted); margin-top: .2rem; }
+    article.case {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1rem 1.2rem;
+      margin-bottom: .8rem;
+    }
+    article.case h3 { margin: 0 0 .2rem 0; font-size: 1rem; font-family: ui-monospace, monospace; }
+    article.case .meta { font-size: .85rem; color: var(--muted); margin-bottom: .5rem; }
+    article.case p { margin: 0; font-size: .92rem; }
+    footer { text-align: center; padding: 2rem 1rem; color: var(--muted); font-size: .85rem; }
+    @media (max-width: 600px) {
+      header.page { padding: 1.5rem 1rem; }
+      header.page h1 { font-size: 1.4rem; }
+    }
+    </style>
+</head>
+<body>
+  <header class="page">
+    <h1>Översikt – svenska vårdnadsmål</h1>
+    <p>Aggregerad statistik från 65 domar om vårdnad, boende och umgänge.</p>
+  </header>
+
+  <nav>
+    <a href="#nyckeltal">Nyckeltal</a>
+    <a href="#filter">Filter</a>
+    <a href="#instans">Instans &amp; år</a>
+    <a href="#utfall">Utfall</a>
+    <a href="#vardnad">Vårdnad &amp; boende</a>
+    <a href="#barn">Barn</a>
+    <a href="#foraldrar">Föräldrar</a>
+    <a href="#faktorer">Nyckelfaktorer</a>
+    <a href="#process">Processuella drag</a>
+    <a href="#bilaga">Bilaga: sammanfattningar</a>
+  </nav>
+
+  <main>
+    <section id="nyckeltal">
+      <h2>Nyckeltal</h2>
+      <div class="kpi-grid">
+        <div class="kpi"><div class="num" id="kpi_total">65</div><div class="lbl">mål totalt</div></div>
+        <div class="kpi"><div class="num" id="kpi_kids_n">65</div><div class="lbl">mål med barnantal</div></div>
+        <div class="kpi"><div class="num" id="kpi_children">121</div><div class="lbl">barn totalt</div></div>
+        <div class="kpi"><div class="num" id="kpi_child_age">8.79</div><div class="lbl">snittålder barn (år)</div></div>
+        <div class="kpi"><div class="num" id="kpi_mother_age">37.89</div><div class="lbl">snittålder mor (år)</div></div>
+        <div class="kpi"><div class="num" id="kpi_father_age">41.98</div><div class="lbl">snittålder far (år)</div></div>
+      </div>
+    </section>
+
+    <section id="filter">
+      <h2>Filter och jämförelse</h2>
+      <div class="card">
+        <p style="margin:.2rem 0 .8rem 0; color:var(--muted); font-size:.92rem;">
+          Välj en eller flera <strong>ursprungliga tingsrätter</strong> (första instans) för att begränsa
+          all statistik nedan till de målen. Markera <em>jämförelseläge</em> för att se varje vald
+          tingsrätt som en egen serie i diagrammen (Ctrl/Cmd-klicka för flera).
+        </p>
+        <div class="filter-row">
+          <label for="filter_courts" style="font-weight:600;">Ursprunglig tingsrätt:</label>
+          <select id="filter_courts" multiple size="8" style="min-width:280px; flex:1;">
+            <option value="Södertälje tingsrätt">Södertälje tingsrätt (11)</option>
+            <option value="Stockholms tingsrätt">Stockholms tingsrätt (7)</option>
+            <option value="Södertörns tingsrätt">Södertörns tingsrätt (6)</option>
+            <option value="Luleå tingsrätt">Luleå tingsrätt (4)</option>
+            <option value="Attunda tingsrätt">Attunda tingsrätt (4)</option>
+            <option value="Göteborgs tingsrätt">Göteborgs tingsrätt (4)</option>
+            <option value="Norrköpings tingsrätt">Norrköpings tingsrätt (3)</option>
+            <option value="Nyköpings tingsrätt">Nyköpings tingsrätt (3)</option>
+            <option value="Uppsala tingsrätt">Uppsala tingsrätt (3)</option>
+            <option value="Jönköpings tingsrätt">Jönköpings tingsrätt (2)</option>
+            <option value="Sundsvalls tingsrätt">Sundsvalls tingsrätt (2)</option>
+            <option value="Mora tingsrätt">Mora tingsrätt (2)</option>
+            <option value="Eksjö tingsrätt">Eksjö tingsrätt (1)</option>
+            <option value="Örebro tingsrätt">Örebro tingsrätt (1)</option>
+            <option value="Gävle tingsrätt">Gävle tingsrätt (1)</option>
+            <option value="Östersunds tingsrätt">Östersunds tingsrätt (1)</option>
+            <option value="Malmö tingsrätt">Malmö tingsrätt (1)</option>
+            <option value="Blekinge tingsrätt">Blekinge tingsrätt (1)</option>
+            <option value="Ystads tingsrätt">Ystads tingsrätt (1)</option>
+            <option value="Gotlands tingsrätt">Gotlands tingsrätt (1)</option>
+            <option value="Nacka tingsrätt">Nacka tingsrätt (1)</option>
+            <option value="Eskilstuna tingsrätt">Eskilstuna tingsrätt (1)</option>
+            <option value="Vänersborgs tingsrätt">Vänersborgs tingsrätt (1)</option>
+            <option value="Borås tingsrätt">Borås tingsrätt (1)</option>
+            <option value="Norrtälje tingsrätt">Norrtälje tingsrätt (1)</option>
+            <option value="Växjö tingsrätt">Växjö tingsrätt (1)</option>
+          </select>
+          <div class="filter-controls">
+            <label><input type="checkbox" id="filter_compare"> Jämförelseläge</label>
+            <button id="filter_clear" type="button">Rensa val</button>
+          </div>
+        </div>
+        <div id="filter_status" style="margin-top:.6rem; font-size:.9rem; color:var(--accent); font-weight:600;"></div>
+      </div>
+    </section>
+
+    <section id="instans">
+      <h2>Instans och år</h2>
+      <div class="grid">
+        <div class="card">
+          <h3>Fördelning per instans</h3>
+          <div class="canvas-wrap"><canvas id="ch_court_level"></canvas></div>
+        </div>
+        <div class="card">
+          <h3>Mål per år</h3>
+          <div class="canvas-wrap"><canvas id="ch_year"></canvas></div>
+        </div>
+        <div class="card">
+          <h3>Fördelning per domstol (avgörande)</h3>
+          <div class="canvas-wrap" style="height:360px"><canvas id="ch_court"></canvas></div>
+        </div>
+        <div class="card wide">
+          <h3>Ursprunglig tingsrätt (första instäns)</h3>
+          <div class="canvas-wrap" style="height:788px"><canvas id="ch_origin_tingsratt"></canvas></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="utfall">
+      <h2>Utfall</h2>
+      <div class="grid">
+        <div class="card">
+          <h3>Vinnare</h3>
+          <div class="canvas-wrap"><canvas id="ch_winners"></canvas></div>
+        </div>
+        <div class="card">
+          <h3>Hovrättens utfall i förhållande till tingsrätten</h3>
+          <div class="canvas-wrap"><canvas id="ch_appeal"></canvas></div>
+        </div>
+        <div class="card wide">
+          <h3>Detaljerat utfall (vårdnad + boende + umgänge)</h3>
+          <div class="canvas-wrap" style="height:928px"><canvas id="ch_outcome"></canvas></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="vardnad">
+      <h2>Vårdnad och boende</h2>
+      <div class="grid">
+        <div class="card">
+          <h3>Rättslig vårdnad – före</h3>
+          <div class="canvas-wrap"><canvas id="ch_legal_before"></canvas></div>
+        </div>
+        <div class="card">
+          <h3>Rättslig vårdnad – efter</h3>
+          <div class="canvas-wrap"><canvas id="ch_legal_after"></canvas></div>
+        </div>
+        <div class="card">
+          <h3>Boende – före</h3>
+          <div class="canvas-wrap"><canvas id="ch_residence_before"></canvas></div>
+        </div>
+        <div class="card">
+          <h3>Boende – efter</h3>
+          <div class="canvas-wrap"><canvas id="ch_residence_after"></canvas></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="barn">
+      <h2>Barn</h2>
+      <div class="grid">
+        <div class="card">
+          <h3>Antal barn per mål</h3>
+          <div class="canvas-wrap"><canvas id="ch_n_children"></canvas></div>
+          <div class="stats-row">
+            <span>Snitt: <strong>1.86</strong></span>
+            <span>Median: <strong>2</strong></span>
+            <span>Min/Max: <strong>1–5</strong></span>
+          </div>
+        </div>
+        <div class="card">
+          <h3>Barnens kön</h3>
+          <div class="canvas-wrap"><canvas id="ch_child_gender"></canvas></div>
+        </div>
+        <div class="card">
+          <h3>Barnens ålder (5-årsintervall)</h3>
+          <div class="canvas-wrap"><canvas id="ch_child_age"></canvas></div>
+          <div class="stats-row">
+            <span>n=<strong>121</strong></span>
+            <span>Snitt: <strong>8.79</strong></span>
+            <span>Median: <strong>9</strong></span>
+            <span>Min/Max: <strong>2–17</strong></span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="foraldrar">
+      <h2>Föräldrar</h2>
+      <div class="grid">
+        <div class="card">
+          <h3>Mödrarnas ålder (5-årsintervall)</h3>
+          <div class="canvas-wrap"><canvas id="ch_mother_age"></canvas></div>
+          <div class="stats-row">
+            <span>n=<strong>57</strong></span>
+            <span>Snitt: <strong>37.89</strong></span>
+            <span>Median: <strong>38</strong></span>
+            <span>Min/Max: <strong>24–51</strong></span>
+          </div>
+        </div>
+        <div class="card">
+          <h3>Fädernas ålder (5-årsintervall)</h3>
+          <div class="canvas-wrap"><canvas id="ch_father_age"></canvas></div>
+          <div class="stats-row">
+            <span>n=<strong>58</strong></span>
+            <span>Snitt: <strong>41.98</strong></span>
+            <span>Median: <strong>42.0</strong></span>
+            <span>Min/Max: <strong>24–63</strong></span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="faktorer">
+      <h2>Nyckelfaktorer i domskäl</h2>
+      <div class="card">
+        <div class="canvas-wrap" style="height:420px"><canvas id="ch_factors"></canvas></div>
+      </div>
+    </section>
+
+    <section id="process">
+      <h2>Processuella drag</h2>
+      <div class="grid">
+        <div class="card"><h3>Socialtjänst inblandad</h3><div class="canvas-wrap"><canvas id="ch_soc"></canvas></div></div>
+        <div class="card"><h3>Vårdnadsutredning utförd</h3><div class="canvas-wrap"><canvas id="ch_vu"></canvas></div></div>
+        <div class="card"><h3>Barnet hört</h3><div class="canvas-wrap"><canvas id="ch_heard"></canvas></div></div>
+      </div>
+      <div class="kpi-grid" style="margin-top:1.5rem">
+        <div class="kpi"><div class="num" id="kpi_cost_n">41</div><div class="lbl">mål med kostnadsuppgift</div></div>
+        <div class="kpi"><div class="num" id="kpi_cost_mean">104643</div><div class="lbl">snittkostnad (SEK)</div></div>
+        <div class="kpi"><div class="num" id="kpi_cost_median">82000</div><div class="lbl">mediankostnad (SEK)</div></div>
+        <div class="kpi"><div class="num" id="kpi_cost_max">275208</div><div class="lbl">högsta kostnad (SEK)</div></div>
+      </div>
+    </section>
+
+    <section id="bilaga">
+      <h2>Bilaga: kort sammanfattning per mål</h2>
+      <p style="color:var(--muted)">Varje sammanfattning är på max 150 ord. Sorterat på målnummer.</p>
+        <article class="case">
+          <header>
+            <h3 id="HRG_T_2014_2550">HRG_T_2014_2550</h3>
+            <div class="meta">Göta hovrätt · 2014-10-24 · 5 barn · utfall: <strong>båda</strong></div>
+          </header>
+          <p>Föräldrarna hade i tingsrätten enats om gemensam vårdnad och växelvis boende fjorton dagar i taget med byte på måndagar. Pappan överklagade endast för att få in datumangivelser i domslutet så att det blev verkställbart. Mamman medgav ändringen och hovrätten lade till tidpunkten för byte (med början 30 juni 2014).</p>
+        </article>
+        <article class="case">
+          <header>
+            <h3 id="HRG_T_2019_0778">HRG_T_2019_0778</h3>
+            <div class="meta">Göta hovrätt · 2020-03-03 · 2 barn · utfall: <strong>båda</strong></div>
+          </header>
+          <p>Pappan överklagade tingsrättens dom (som hade lämnat hans yrkande om ensam vårdnad utan bifall, fastställt boende hos honom och visst umgänge). Mamman framställde yrkande om utökat umgänge. Parterna träffade i hovrätten en överenskommelse om fortsatt gemensam vårdnad, boende hos pappan och utvidgat helg- och lovumgänge för mamman. Hovrätten upphävde tingsrättens domslut (utom rättshjälpsbeslutet) och dömde i enlighet med överenskommelsen då den ansågs förenlig med barnens bästa.</p>
+        </article>
+        <article class="case">
+          <header>
+            <h3 id="HRG_T_2019_3360">HRG_T_2019_3360</h3>
+            <div class="meta">Göta hovrätt · 2021-01-07 · 1 barn · utfall: <strong>mor</strong></div>
+          </header>
+          <p>Mamman överklagade tingsrättens dom om fortsatt gemensam vårdnad och yrkade ensam vårdnad om sonen (född 2016). Pappan, som flyttat tillbaka till Spanien efter tingsrättens dom, motsatte sig och yrkade utvidgat sommar- och julumgänge i Spanien. Hovrätten upphävde den gemensamma vårdnaden och tillerkände mamman ensam vårdnad med hänvisning till djupgående och bestående samarbetssvårigheter samt barnets behov av förutsebarhet, men förordnade endast om dagumgänge i Sverige (utan övernattningar) samt regelbundet Skype-umgänge.</p>
+        </article>
+        <article class="case">
+          <header>
+            <h3 id="HRG_T_2025_2358">HRG_T_2025_2358</h3>
+            <div class="meta">Göta hovrätt · 2026-02-24 · 3 barn · utfall: <strong>båda</strong></div>
+          </header>
+          <p>Fadern överklagade tingsrättens dom där modern hade tillerkänts ensam vårdnad om parternas tre gemensamma barn med umgänge till fadern. Under huvudförhandlingen i hovrätten kom parterna överens om en lösning. Hovrätten fastställde att modern har ensam vårdnad om alla tre barnen. Det äldsta barnet (en flicka född 2013) ska bo växelvis hos föräldrarna. De två yngre barnen (en pojke född 2017 och ett barn fött 2021) ska bo stadigvarande hos modern och ha umgänge med fadern från onsdag eftermiddag till måndag morgon varannan vecka, samt visst lov- och högtidsumgänge. Fadern har varit dömd för misshandel mot modern och har diagnoser kring psykisk ohälsa. Vårdnadsutredning genomfördes och de äldre barnen hördes.</p>
+        </article>
+        <article class="case">
+          <header>
+            <h3 id="HRG_T_2025_2619">HRG_T_2025_2619</h3>
+            <div class="meta">Göta hovrätt · 2026-04-16 · 3 barn · utfall: <strong>mor</strong></div>
+          </header>
+          <p>Modern överklagade tingsrättens dom om fortsatt gemensam vårdnad om parternas tre barn (varav två är tvillingar) och yrkade ensam vårdnad. Modern, ursprungligen från Nordmakedonien, och fadern, ursprungligen från Bulgarien, har en lång konfliktfylld relation där modern och barnen tidigare bott i skyddat boende. Vårdnadsutredningen rekommenderade ensam vårdnad till modern. Hovrätten ändrade tingsrättens dom och tillerkände modern ensam vårdnad. Hovrätten beslutade om videoumgänge varje onsdag samt fysiskt umgänge en lördag i månaden från och med 2026. Risken för att barnen far illa vid gemensam vårdnad och föräldrarnas oförmåga att samarbeta var avgörande.</p>
+        </article>
+        <article class="case">
+          <header>
+            <h3 id="HRG_T_2025_3467">HRG_T_2025_3467</h3>
+            <div class="meta">Göta hovrätt · 2026-01-26 · 2 barn · utfall: <strong>mor</strong></div>
+          </header>
+          <p>Modern överklagade tingsrättens dom om fortsatt gemensam vårdnad om parternas två döttrar (födda 2010 och 2013) och yrkade ensam vårdnad. Fadern har dömts för våld mot tidigare partner och för ofredande mot den äldre dottern, har dokumenterat missbruk och kriminalitet. Vårdnadsutredningen rekommenderade ensam vårdnad till modern. Hovrätten konstaterade att samarbetet mellan föräldrarna inte fungerar och att det finns en konkret risk att barnen far illa vid gemensam vårdnad. Hovrätten ändrade tingsrättens dom och tillerkände modern ensam vårdnad om båda barnen.</p>
+        </article>
+        <article class="case">
+          <header>
+            <h3 id="HRG_T_2025_5069">HRG_T_2025_5069</h3>
+            <div class="meta">Göta hovrätt · 2026-01-27 · 4 barn · utfall: <strong>far</strong></div>
+          </header>
+          <p>Målet i hovrätten gällde vårdnaden om parternas äldsta gemensamma son (född 2011). Tingsrätten hade tillerkänt fadern ensam vårdnad om sonen, med rätt till umgänge för modern under skollov samt vissa video- och fysiska umgängestillfällen mellan sonen och hans yngre syster (som bor hos modern). Modern överklagade och yrkade ensam vårdnad. Under hovrättsprocessen kom parterna överens. Hovrätten fastställde tingsrättens beslut om att fadern ska ha ensam vårdnad om sonen, men upphävde det reglerade umgänget mellan sonen och hans syster efter att sonen själv inte längre velat ha det. Sonen har tidigare varit placerad utanför hemmet.</p>
+        </article>
+        <article class="case">
+          <header>
+            <h3 id="HRNN_T_2018_1218">HRNN_T_2018_1218</h3>
+            <div class="meta">Hovrätten för Nedre Norrland · 2019-05-03 · 2 barn · utfall: <strong>delvis mor</strong></div>
+          </header>
+          <p>Tingsrätten hade flyttat över ensam vårdnad till pappan med motiveringen att mamman inte tillräckligt främjat barnens kontakt med pappan. Mamman överklagade. Hovrätten ändrade och beslutade att den gemensamma vårdnaden skulle bestå, att de två sönerna (14,5 och nästan 13 år) skulle bo hos mamman och att inget umgänge med pappan skulle regleras med hänsyn till barnens uttryckliga vilja, men understryker att mamman har stort ansvar att uppmuntra kontakt med pappan.</p>
+        </article>
+        <article class="case">
+          <header>
+            <h3 id="HRNN_T_2025_1291">HRNN_T_2025_1291</h3>
+            <div class="meta">Hovrätten för Nedre Norrland · 2026-02-20 · 2 barn · utfall: <strong>mor</strong></div>
+          </header>
+          <p>Båda föräldrarna överklagade tingsrättens dom om fortsatt gemensam vårdnad om dottern (född 2016) och sonen (född 2019). Modern, ursprungligen från Spanien, yrkade ensam vårdnad. Fadern, ursprungligen från Albanien, yrkade i andra hand ensam vårdnad och utökat umgänge. Hovrätten inhämtade en kompletterande vårdnadsutredning. Barnen har återkommande berättat om våld från fadern och en polisutredning pågår avseende en händelse i december 2025. Hovrätten fann att fadern visat ett gränslöst beteende, dragit in barnen i föräldrarnas konflikt och saknar verktyg att bemöta dem på ett omdömesgillt sätt. Bedömningen var att det finns en risk att barnen far illa hos fadern. Tingsrättens bedömning att modern skulle föra bort barnen till utlandet delades inte. Hovrätten ändrade tingsrättens dom och tillerkände modern ensam vårdnad samt avslog faderns umgängesyrkande, så att umgänget lämnades oreglerat.</p>
+        </article>
+        <article class="case">
+          <header>
+            <h3 id="HRNN_T_2025_1553">HRNN_T_2025_1553</h3>
+            <div class="meta">Hovrätten för Nedre Norrland · 2026-04-29 · 1 barn · utfall: <strong>mor</strong></div>
+          </header>
+          <p>Föräldrarna har gemensam vårdnad om en pojke född 2015. Tingsrätten beslutade att sonen skulle ha sitt stadigvarande boende hos fadern, med visst umgänge med modern. Modern överklagade och yrkade att sonen skulle bo hos henne; fadern överklagade angående umgängets omfattning. Hovrätten ändrade tingsrättens dom så att sonen ska bo hos modern och ska ha umgänge med fadern, inledningsvis med umgängesstöd och därefter upptrappat till helgumgänge varannan vecka. Sonen har diagnoser (ADHD och trotssyndrom) och särskilda behov. Hovrätten lät den gemensamma vårdnaden bestå.</p>
+        </article>
+        <article class="case">
+          <header>
+            <h3 id="HRNN_T_2025_2002">HRNN_T_2025_2002</h3>
+            <div class="meta">Hovrätten för Nedre Norrland · 2026-04-29 · 3 barn · utfall: <strong>mor</strong></div>
+          </header>
+          <p>Målet rör tre pojkar födda 2016, 2018 och 2020. Tingsrätten gav modern ensam vårdnad om alla tre barnen och bestämde umgänge med umgängesstöd för det äldsta och det yngsta barnet, men inget umgänge för mellanbarnet. Fadern är dömd för bland annat barnmisshandel och barnfridsbrott riktade mot barnen och modern. Modern överklagade och yrkade att inget umgänge alls skulle bestämmas. Hovrätten upphävde tingsrättens umgängesförordnande och fastställde att inget reglerat umgänge ska ske mellan barnen och fadern. Det äldsta barnet har PTSD-symptom kopplade till våldsutsattheten.</p>
+        </article>
+        <article class="case">
+          <header>
+            <h3 id="HRON_T_2019_1046">HRON_T_2019_1046</h3>
+            <div class="meta">Hovrätten för Övre Norrland · 2020-06-25 · 1 barn · utfall: <strong>far</strong></div>
+          </header>
+          <p>Tingsrätten hade tillerkänt mamman ensam vårdnad om dottern (född 2018) på grund av djupgående samarbetssvårigheter och pappans tidigare missbruk. Pappan överklagade och yrkade gemensam vårdnad samt utökat umgänge. Hovrätten ändrade och förordnade om gemensam vårdnad – riskerna med ensam vårdnad för någondera ansågs väga tyngre än riskerna med fortsatt gemensamt ansvar. Boendet förblev hos mamman och umgänget trappades upp till varannan vecka onsdag–måndag plus omfattande lovumgänge.</p>
+        </article>
+        <article class="case">
+          <header>
+            <h3 id="HRON_T_2020_0271">HRON_T_2020_0271</h3>
+            <div class="meta">Hovrätten för Övre Norrland · 2020-10-20 · 1 barn · utfall: <strong>delvis far</strong></div>
+          </header>
+          <p>Tingsrätten hade avslagit pappans yrkande om gemensam vårdnad och växelvis boende; mamman behöll ensam vårdnad och pappan fick visst umgänge. Pappan överklagade. Hovrätten ändrade och förordnade om gemensam vårdnad – samarbetssvårigheterna ansågs inte tillräckligt djupa och båda föräldrarna sätter dottern i centrum. Boendet förblev hos mamman och umgängesomfattningen kvarstod (varannan vecka onsdag–måndag plus lov), med vissa förtydliganden.</p>
+        </article>
+        <article class="case">
+          <header>
+            <h3 id="HRON_T_2025_0775">HRON_T_2025_0775</h3>
+            <div class="meta">Hovrätten för Övre Norrland · 2026-03-20 · 1 barn · utfall: <strong>mor</strong></div>
+          </header>
+          <p>Målet rör en flicka född 2019. Tingsrätten beslutade att föräldrarna ska ha gemensam vårdnad och att dottern ska bo växelvis hos dem. Modern överklagade och yrkade ensam vårdnad samt att dottern skulle bo hos henne med visst umgänge för fadern. Hovrätten ändrade tingsrättens dom och tillerkände modern ensam vårdnad. Dottern ska bo hos modern och ha umgänge med fadern var fjärde helg samt vid lov enligt schema. Hovrätten lade vikt vid faderns narkotikabruk och kränkande beteende mot modern, samt moderns planerade flytt till annan ort.</p>
+        </article>
+        <article class="case">
+          <header>
+            <h3 id="HRON_T_2025_1580">HRON_T_2025_1580</h3>
+            <div class="meta">Hovrätten för Övre Norrland · 2026-04-23 · 2 barn · utfall: <strong>mor</strong></div>
+          </header>
+          <p>Målet rör en flicka född 2019 och en pojke född 2021. Fadern är tunisisk medborgare. Tingsrätten beslutade om fortsatt gemensam vårdnad med boende hos modern. Modern överklagade och yrkade ensam vårdnad samt att inget fysiskt umgänge skulle ske med fadern. Hovrätten ändrade tingsrättens dom och tillerkände modern ensam vårdnad om båda barnen. Endast videoumgänge bestämdes (tisdagar, torsdagar och lördagar). Hovrätten lade vikt vid uppgifter om faderns våld mot sonen, samarbetssvårigheter och moderns flytt till annan ort. Internationella aspekter beaktades.</p>
+        </article>
+        <article class="case">
+          <header>
+            <h3 id="HRSB_T_2019_3400">HRSB_T_2019_3400</h3>
+            <div class="meta">Hovrätten över Skåne och Blekinge · 2020-02-04 · 2 barn · utfall: <strong>far</strong></div>
+          </header>
+          <p>Tingsrätten förordnade gemensam vårdnad med boende hos fadern. Fadern överklagade och yrkade ensam vårdnad. Modern medgav ändringsyrkandet. Hovrätten biföllade och förordnade ensam vårdnad för fadern, då parterna var överens om att det var förenligt med barnens bästa.</p>
+        </article>
+        <article class="case">
+          <header>
+            <h3 id="HRSB_T_2025_2583">HRSB_T_2025_2583</h3>
+            <div class="meta">Hovrätten över Skåne och Blekinge · 2026-03-03 · 1 barn · utfall: <strong>mor</strong></div>
+          </header>
+          <p>Målet rör en pojke född 2013, ca 12,5 år vid hovrättens dom. Fadern är somalisk medborgare. Tingsrätten beslutade om fortsatt gemensam vårdnad med boende hos modern och avslog faderns yrkande om umgänge. Modern överklagade och yrkade ensam vårdnad; fadern överklagade och yrkade umgänge med umgängesstöd. Hovrätten ändrade tingsrättens dom och tillerkände modern ensam vårdnad. Umgänget förblev oreglerat. Hovrätten lade vikt vid sonens neuropsykiatriska diagnoser (autism och ADD), hans uttalade ovilja att träffa fadern, brister i föräldrarnas förmåga till gemensamt ansvar samt risken för att sonens positiva utveckling och tillgång till vårdinsatser annars äventyras.</p>
+        </article>
+        <article class="case">
+          <header>
+            <h3 id="HRSB_T_2025_3605">HRSB_T_2025_3605</h3>
+            <div class="meta">Hovrätten över Skåne och Blekinge · 2026-01-08 · 2 barn · utfall: <strong>mor</strong></div>
+          </header>
+          <p>Föräldrarna, som aldrig bott tillsammans och numera är skilda, hade gemensam vårdnad om en son (född 2019) och en dotter (född 2021). Sonen bodde hos fadern i Sverige och dottern hos modern i Finland. Modern överklagade tingsrättens dom och yrkade ensam vårdnad om båda barnen; fadern yrkade i första hand ensam vårdnad om båda barnen. Hovrätten konstaterade att samarbetsförmågan i princip var obefintlig, att fadern hade svårt att sätta barnens behov främst (bl.a. genom att förmedla en negativ bild av modern till sonen och motverka umgänge) och att modern bedömdes som lämpligare vårdnadshavare, varför hon ensam tillerkändes vårdnaden om båda barnen med boende hos henne och ett omfattande umgänge för fadern.</p>
+        </article>
+        <article class="case">
+          <header>
+            <h3 id="HRS_T_2012_5994">HRS_T_2012_5994</h3>
+            <div class="meta">Svea hovrätt · 2013-01-09 · 2 barn · utfall: <strong>båda</strong></div>
+          </header>
+          <p>Tingsrätten förordnade gemensam vårdnad med boende hos modern och umgänge för fadern varannan helg. Fadern yrkade ensam vårdnad men hovrätten fastställde tingsrättens dom. Hovrätten fann att samarbetssvårigheterna inte var av sådan omfattning att gemensam vårdnad uteslöts.</p>
+        </article>
+        <article class="case">
+          <header>
+            <h3 id="HRS_T_2013_3500">HRS_T_2013_3500</h3>
+            <div class="meta">Svea hovrätt · 2014-04-01 · 1 barn · utfall: <strong>mor</strong></div>
+          </header>
+          <p>Tingsrätten tillerkände modern ensam vårdnad om sonen och förordnade umgänge för fadern varannan helg. Hovrätten upphävde umgänget då Sonen hade utvecklat svår ångestproblematik och BUP förespeglade att traumabehandling inte kunde genomföras medan umgänget pågick.</p>
+        </article>
+        <article class="case">
+          <header>
+            <h3 id="HRS_T_2013_5076">HRS_T_2013_5076</h3>
+            <div class="meta">Svea hovrätt · 2013-09-18 · 1 barn · utfall: <strong>båda</strong></div>
+          </header>
+          <p>Tingsrätten förordnade gemensam vårdnad med boende hos modern på Lidingö och umgänge för fadern varannan helg. Modern yrkade ensam vårdnad men hovrätten fastställde tingsrättens dom. Efter överenskommelse mellan parterna i hovrätten ändrades vissa umgängesdetaljer.</p>
+        </article>
+        <article class="case">
+          <header>
+            <h3 id="HRS_T_2014_0022">HRS_T_2014_0022</h3>
+            <div class="meta">Svea hovrätt · 2014-08-27 · 3 barn · utfall: <strong>mor</strong></div>
+          </header>
+          <p>Tingsrätten förordnade gemensam vårdnad med boende hos modern och umgänge för fadern med umgängesstöd. Efter överenskommelse mellan parterna ändrade hovrätten så att umgänget upphörde tills vidare, då modern meddelat att barnen inte ville träffa fadern.</p>
+        </article>
+        <article class="case">
+          <header>
+            <h3 id="HRS_T_2014_6311">HRS_T_2014_6311</h3>
+            <div class="meta">Svea hovrätt · 2015-03-03 · 1 barn · utfall: <strong>båda</strong></div>
+          </header>
+          <p>Tingsrätten tillerkände mamman ensam vårdnad om sonen då föräldrarnas samarbetssvårigheter var omfattande. Pappan överklagade. Hovrätten upprätthöll ensam vårdnad för mamman men ändrade umgänget enligt överenskommelse mellan parterna. Sonen tillerkändes umgänge med pappan i form av längre perioder under somrarna och kortare besök under året, med resor till Estland.</p>
+        </article>
+        <article class="case">
+          <header>
+            <h3 id="HRS_T_2014_6359">HRS_T_2014_6359</h3>
+            <div class="meta">Svea hovrätt · 2015-09-01 · 1 barn · utfall: <strong>båda</strong></div>
+          </header>
+          <p>Tingsrätten tillerkände mamman ensam vårdnad om sonen och avslog pappans yrkanden om gemensam vårdnad och växelvis boende. Pappan fick begränsad umgängesrätt. Vid hovrätten nådde parterna överenskommelse om utökat umgänge enligt ett trappat schema med umgängesstöd initialt. Mamman behöll ensam vårdnad. Både parterna var representerade av advokater.</p>
+        </article>
+        <article class="case">
+          <header>
+            <h3 id="HRS_T_2014_7196">HRS_T_2014_7196</h3>
+            <div class="meta">Svea hovrätt · 2015-01-19 · 1 barn · utfall: <strong>far</strong></div>
+          </header>
+          <p>Tingsrätten tillerkände pappan ensam vårdnad om sonen och avslog mammans yrkande om umgänge på grund av hennes alkoholmissbruk och brister i omsorgsförmåga. Vid hovrätten nådde parterna överenskommelse om att pappan behål ensam vårdnad men sonen skulle ha umgänge med mamman enligt ett detaljerat schema med veckoslut, lovperioder och sommarumgänge.</p>
+        </article>
+        <article class="case">
+          <header>
+            <h3 id="HRS_T_2015_11726">HRS_T_2015_11726</h3>
+            <div class="meta">Svea hovrätt · 2016-09-21 · 3 barn · utfall: <strong>delvis far</strong></div>
+          </header>
+          <p>Tingsrätten tillerkände mamman ensam vårdnad om de tre barnen och förordnade om begränsad umgängesrätt för pappan. Pappan överklagade och yrkade om ensam eller gemensam vårdnad. Hovrätten upprätthöll mamman ensam vårdnad men utökade umgänget betydligt enligt ett detaljerat trappat schema från umgängesstöd till helgumgänge med övemattningar och sommarlover.</p>
+        </article>
+        <article class="case">
+          <header>
+            <h3 id="HRS_T_2015_3738">HRS_T_2015_3738</h3>
+            <div class="meta">Svea hovrätt · 2015-09-08 · 2 barn · utfall: <strong>båda</strong></div>
+          </header>
+          <p>Tingsrätten tillerkände mamman ensam vårdnad om de två sönerna med begränsad umgängesrätt för pappan. Vid hovrätten nådde parterna överenskommelse om att mamman behål ensam vårdnad men umgänget utökades enligt ett omfattande schema med vecko-, lov- och sommarperioder. Parterna kom även överens om samarbetsregler för information om barnen.</p>
+        </article>
+        <article class="case">
+          <header>
+            <h3 id="HRS_T_2016_4331">HRS_T_2016_4331</h3>
+            <div class="meta">Svea hovrätt · 2016-12-19 · 1 barn · utfall: <strong>delvis far</strong></div>
+          </header>
+          <p>Hovrätten ändrade endast umgänget för sonen. Modern hade hittills begränsat faderns umgänge. Hovrätten förordnade om ett omfattande umgänge med gradvis upptrappning för fadern, från kortare möten till längre vistelseperioder och sommarumgänge.</p>
+        </article>
+        <article class="case">
+          <header>
+            <h3 id="HRS_T_2016_5314">HRS_T_2016_5314</h3>
+            <div class="meta">Svea hovrätt · 2017-01-12 · 1 barn · utfall: <strong>delvis far</strong></div>
+          </header>
+          <p>Hovrätten stadfäste förlikning mellan parterna. Faderns yrkande om umgänge resulterade i överenskommelse. Barnet skulle få umgänge varannan helg från fredag kväll till söndag kväll enligt ett specifikt schema. Båda parterna ställde krav på villkor för umgänget (ingen alkohol, ingen frågor om modern, bara kontakt med vissa kusiner).</p>
+        </article>
+        <article class="case">
+          <header>
+            <h3 id="HRS_T_2017_0590">HRS_T_2017_0590</h3>
+            <div class="meta">Svea hovrätt · 2018-04-23 · 2 barn · utfall: <strong>delvis far</strong></div>
+          </header>
+          <p>Hovrätten ändrade tingsrättens dom om umgänge. Tingsrätten hade beslutat att fadern inte skulle ha något umgänge med sina döttrar på grund av misstankar om våld. Hovrätten förordnade om gradvis upptrappat umgänge med stöd för de två yngre barnen, medan det äldsta barnet (12 år) fick utesluta sig från umgänge enligt sin egen vilja.</p>
+        </article>
+        <article class="case">
+          <header>
+            <h3 id="HRS_T_2017_11396">HRS_T_2017_11396</h3>
+            <div class="meta">Svea hovrätt · 2019-02-01 · 2 barn · utfall: <strong>far</strong></div>
+          </header>
+          <p>Hovrätten ändrade tingsrättens dom om gemensam vårdnad till ensam vårdnad för fadern. Modern hade de senaste fyra åren aktivt motverkat umgänge mellan barnen och fadern. Hovrätten bedömde att fadern var lämpligare att tillgodose barnens behov av kontakt med båda föräldrarna. Umgänge mellan barnen och modern skulle planeras senare.</p>
+        </article>
+        <article class="case">
+          <header>
+            <h3 id="HRS_T_2017_4044">HRS_T_2017_4044</h3>
+            <div class="meta">Svea hovrätt · 2018-01-30 · 3 barn · utfall: <strong>delvis far</strong></div>
+          </header>
+          <p>Hovrätten ändrade tingsrättens dom om umgänge för två av tre barn. För det äldsta barnet (12 år) upphävdes umgänge helt enligt hans egen vilja. För de två yngre barnen (10 och 5 år) förordnade hovrätten om gradvis upptrappat umgänge med stöd trots att socialtjänsten inte rekommenderade det utan att fadern skapat insikt.</p>
+        </article>
+        <article class="case">
+          <header>
+            <h3 id="HRS_T_2017_6957">HRS_T_2017_6957</h3>
+            <div class="meta">Svea hovrätt · 2018-03-09 · 3 barn · utfall: <strong>mor</strong></div>
+          </header>
+          <p>Tingsrätten tillerkände föräldrarna gemensam vårdnad om tre barn med moderens boende. Vid hovrätten yrkade modern ensam vårdnad. Hovrätten ändrade domen och förordnade om ensam vårdnad för modern med tanke på djupgående samarbetssvårigheter mellan föräldrarna, dokumenterad misshandel av modern från faderns sida, och barnens tydliga vilja att inte ha umgänge med fadern.</p>
+        </article>
+        <article class="case">
+          <header>
+            <h3 id="HRS_T_2018_1071">HRS_T_2018_1071</h3>
+            <div class="meta">Svea hovrätt · 2018-11-22 · 1 barn · utfall: <strong>far</strong></div>
+          </header>
+          <p>Efter att modern överklagat tingsrättens dom som tillerkänt gemensam vårdnad träffade parterna en överenskommelse. Fadern får ensam vårdnad om dottern. Modern får umgänge söndag kl. 11-17 ojämna veckor med upptrappning. Parterna förbinder sig att inte göra nya polisanmälningar eller orosanmälningar.</p>
+        </article>
+        <article class="case">
+          <header>
+            <h3 id="HRS_T_2018_12346">HRS_T_2018_12346</h3>
+            <div class="meta">Svea hovrätt · 2020-02-27 · 2 barn · utfall: <strong>delvis far</strong></div>
+          </header>
+          <p>Fadern överklagade tingsrättens dom som tillerkänt modern ensam vårdnad. Hovrätten ändrade domen och förordnade om gemensam vårdnad för båda barnen. För den äldre sonen gäller dagtidsumgänge med fadern varannan lördag, för den yngre flickan växelvis boende varannan vecka. Tvärtom från vad modern yrkade.</p>
+        </article>
+        <article class="case">
+          <header>
+            <h3 id="HRS_T_2018_5222">HRS_T_2018_5222</h3>
+            <div class="meta">Svea hovrätt · 2018-12-21 · 2 barn · utfall: <strong>delvis mor</strong></div>
+          </header>
+          <p>Fadern överklagade tingsrättens dom som tillerkänt modern ensam vårdnad. Hovrätten fastställde ensam vårdnad för modern men utökade betydligt umgänget för fadern från sex timmar varannan vecka till omfattande helg- och lovumgänge. Barnen växer upp i olika städer, fadern i Södertälje, modern och barn i Göteborg.</p>
+        </article>
+        <article class="case">
+          <header>
+            <h3 id="HRS_T_2018_6087">HRS_T_2018_6087</h3>
+            <div class="meta">Svea hovrätt · 2018-08-13 · 2 barn · utfall: <strong>båda</strong></div>
+          </header>
+          <p>Föräldrarna var överens om äktenskapsskillnad och att modern skulle ha ensam vårdnad. Tingsrätten glömde att pröva vårdnadsyrkandet i domen. Hovrätten reparerade rättegångsfelet och förordnade om ensam vårdnad för modern enligt parternas överenskommelse och socialnämndens rekommendation.</p>
+        </article>
+        <article class="case">
+          <header>
+            <h3 id="HRS_T_2018_6361">HRS_T_2018_6361</h3>
+            <div class="meta">Svea hovrätt · 2019-01-08 · 2 barn · utfall: <strong>mor</strong></div>
+          </header>
+          <p>Tingsrätten förordnade om stegvis upptrappat umgänge med umgängesstöd mellan barnen och fadern. Fadern överklagade och yrkade på obegränsat umgänge. Hovrätten fastställde tingsrättens dom och avvisade faderns yrkande, då barnen hade uttryckt stark rädsla för fadern och mamman hade allvarlig säkerhetssituation.</p>
+        </article>
+        <article class="case">
+          <header>
+            <h3 id="HRS_T_2019_0852">HRS_T_2019_0852</h3>
+            <div class="meta">Svea hovrätt · 2020-03-24 · 1 barn · utfall: <strong>delvis far</strong></div>
+          </header>
+          <p>Tingsrätten förordnade om ensam vårdnad för mamman. Pappan överklagade och yrkade på gemensam vårdnad och växelvis boende. Hovrätten ändrade domen och förordnade om gemensam vårdnad men behöll boendet hos mamman, då parternas samarbetsförmåga förbättrats och risken för att den andra föräldern skulle uteslutas inte längre var uppenbar.</p>
+        </article>
+        <article class="case">
+          <header>
+            <h3 id="HRS_T_2019_10077">HRS_T_2019_10077</h3>
+            <div class="meta">Svea hovrätt · 2020-06-17 · 2 barn · utfall: <strong>far</strong></div>
+          </header>
+          <p>Tingsrätten förordnade om gemensam vårdnad med boende hos fadern. Mamman överklagade. Hovrätten fastställde tingsrättens dom. Domstolarna fann att samarbetssvårigheterna inte var tillräckligt djupa för att motivera ensam vårdnad för någondera föräldern, och att det fanns risk för att den andra föräldern skulle uteslutas vid ensam vårdnad.</p>
+        </article>
+        <article class="case">
+          <header>
+            <h3 id="HRS_T_2019_7172">HRS_T_2019_7172</h3>
+            <div class="meta">Svea hovrätt · 2019-11-29 · 1 barn · utfall: <strong>båda</strong></div>
+          </header>
+          <p>Tingsrätten förordnade om gemensam vårdnad med boende hos mamman. Pappan överklagade. Parterna nådde en överenskommelse i hovrätten om att barnet ska bo hos pappan med umgänge för mamman enligt överenskommet schema.</p>
+        </article>
+        <article class="case">
+          <header>
+            <h3 id="HRS_T_2019_8851">HRS_T_2019_8851</h3>
+            <div class="meta">Svea hovrätt · 2020-03-31 · 5 barn · utfall: <strong>båda</strong></div>
+          </header>
+          <p>Tingsrätten förordnade om ensam vårdnad för mamman med mycket begränsat umgänge för pappan med umgängesstöd. Parterna överklagade båda och nådde en överenskommelse i hovrätten om umgänget för pappan med umgängesstöd och hämtning/lämning hos Familjerätten.</p>
+        </article>
+        <article class="case">
+          <header>
+            <h3 id="HRS_T_2021_2922">HRS_T_2021_2922</h3>
+            <div class="meta">Svea hovrätt · 2021-09-29 · 2 barn · utfall: <strong>mor</strong></div>
+          </header>
+          <p>Tingsrätten hade förordnat om umgänge mellan dottern och hennes pappa varannan vecka från onsdag till måndag. Efter domen framkom att dottern helt motsatte sig umgänget och uppgav att hon var rädd för fadern, som ofta var aggressiv och utövade påtryckningar på henne. Hovrätten ändrade och upphävde umgängesförordnandet då dotterns tydliga vilja, som en närmande 15-åring, måste bli utslagsgivande. Ett framtvingat umgänge skulle enligt hovrätten kunna verkställas endast under tvång.</p>
+        </article>
+        <article class="case">
+          <header>
+            <h3 id="HRS_T_2023_13821">HRS_T_2023_13821</h3>
+            <div class="meta">Svea hovrätt · 2025-02-19 · 2 barn · utfall: <strong>far</strong></div>
+          </header>
+          <p>Modern överklagade tingsrättens dom och yrkade ensam vårdnad om de två gemensamma barnen, sonen och dottern, alternativt gemensam vårdnad med stadigvarande boende hos henne, samt ett reglerat umgänge. Fadern bestred ändring. Hovrätten inhämtade en kompletterande vårdnadsutredning som föreslog gemensam vårdnad och upptrappat umgänge mellan dottern och modern. Hovrätten ansåg dock att den höga konfliktnivån mellan föräldrarna kvarstod och att gemensam vårdnad framstod som utsiktslös, samt att barnen — särskilt sonen som fyllt 13 år — tydligt motsatte sig umgänge med modern och hade tagit skada av tidigare umgängesförsök. Hovrätten fastställde därför tingsrättens dom, dvs. ensam vårdnad för fadern, boende hos honom och inget reglerat umgänge.</p>
+        </article>
+        <article class="case">
+          <header>
+            <h3 id="HRS_T_2024_13543">HRS_T_2024_13543</h3>
+            <div class="meta">Svea hovrätt · 2026-01-14 · 1 barn · utfall: <strong>far</strong></div>
+          </header>
+          <p>Modern överklagade Attunda tingsrätts dom som hade beslutat om fortsatt gemensam vårdnad med dottern boende hos modern och umgänge med fadern. Båda föräldrarna yrkade i hovrätten i första hand ensam vårdnad. Modern hade i november 2024, kort efter tingsrättens dom, lämnat Sverige och flyttat till Ohio i USA tillsammans med dotterns två äldre halvsyskon, varefter dottern bott hos fadern och endast haft videokontakt med modern. Hovrätten ändrade tingsrättens dom och tillerkände fadern ensam vårdnad samt fastställde rätt till videoumgänge och successivt utökat fysiskt umgänge med modern i USA, men avslog moderns yrkande om att fadern skulle dela på resekostnaderna.</p>
+        </article>
+        <article class="case">
+          <header>
+            <h3 id="HRS_T_2024_16321">HRS_T_2024_16321</h3>
+            <div class="meta">Svea hovrätt · 2026-02-04 · 1 barn · utfall: <strong>båda</strong></div>
+          </header>
+          <p>Modern överklagade tingsrättens dom om vårdnad, boende och umgänge avseende parternas gemensamma dotter, född 2019. Under handläggningen i hovrätten träffade föräldrarna en överenskommelse om vårdnad, boende och ett detaljerat utvidgat umgänge inklusive helg-, lov- och storhelgsumgänge samt obruten samvaro hos modern. Hovrätten ansåg att överenskommelsen var förenlig med dotterns bästa och ändrade tingsrättens dom endast i fråga om umgänget (punkten 3) i enlighet med parternas överenskommelse, och förordnade att domen skulle gälla omedelbart.</p>
+        </article>
+        <article class="case">
+          <header>
+            <h3 id="HRS_T_2025_0545">HRS_T_2025_0545</h3>
+            <div class="meta">Svea hovrätt · 2026-02-25 · 4 barn · utfall: <strong>delvis mor</strong></div>
+          </header>
+          <p>Modern överklagade tingsrättens dom om umgänge mellan fadern och de fyra gemensamma barnen (två söner 13 och 12 år samt tvillingar 8 år). Modern yrkade att fysiskt umgänge för de två äldsta barnen skulle upphävas och att umgänget för tvillingarna skulle begränsas till korta dagumgängen, medan fadern motsatte sig ändring. Hovrätten ändrade tingsrättens dom så att de två äldsta endast får videoumgänge med fadern, mot bakgrund av deras ålder, mognad och uttryckta motvilja, samtidigt som tvillingarna får ett upptrappat fysiskt umgänge inklusive helger med övernattning och sommarumgänge. Avgörande för bedömningen var barnens bästa enligt 6 kap. 2 a § föräldrabalken efter lagändringen 1 januari 2025, där de äldsta barnens vilja gavs stor betydelse medan tvillingarnas behov av nära och god kontakt med båda föräldrarna vägde tyngre än moderns invändningar.</p>
+        </article>
+        <article class="case">
+          <header>
+            <h3 id="HRS_T_2025_10088">HRS_T_2025_10088</h3>
+            <div class="meta">Svea hovrätt · 2026-02-12 · 2 barn · utfall: <strong>ingen</strong></div>
+          </header>
+          <p>Socialnämnden i Enköpings kommun begärde att vårdnaden om två systrar (födda 2019 och 2021) skulle flyttas över till familjehemsföräldrarna, där flickorna bott sedan juli 2021. Tingsrätten biföll begäran och beslutade om visst umgänge med båda föräldrarna. Hovrätten fastställde överflyttningen av vårdnaden men upphävde det reglerade umgänget med fadern, som efter tingsrättens dom återfallit i missbruk och dömts till fängelse i tre år och sex månader för våldtäkt mot barn. Två nämndemän var skiljaktiga och ville avslå överflyttningen.</p>
+        </article>
+        <article class="case">
+          <header>
+            <h3 id="HRS_T_2025_10456">HRS_T_2025_10456</h3>
+            <div class="meta">Svea hovrätt · 2026-01-12 · 1 barn · utfall: <strong>delvis mor</strong></div>
+          </header>
+          <p>Tvist om umgänge mellan dottern (född 2023, knappt tre år) och fadern. Tingsrätten hade tilldömt modern ensam vårdnad och bestämt ett omfattande löpande veckoumgänge samt lov- och storhelgsumgänge med fadern. Modern överklagade umgänget under lov och storhelger. Hovrätten ändrade tingsrättens dom och begränsade sommarumgänget till fyra perioder om en vecka i taget fram till dess barnet börjar förskoleklass, med hänvisning till barnets låga ålder. Tingsrättens dom om löpande veckoumgänge stod fast. Hovrätten förtydligade också tider och plats för överlämningar.</p>
+        </article>
+        <article class="case">
+          <header>
+            <h3 id="HRS_T_2025_16176">HRS_T_2025_16176</h3>
+            <div class="meta">Svea hovrätt · 2026-03-12 · 3 barn · utfall: <strong>mor</strong></div>
+          </header>
+          <p>Tvist om vårdnaden om tre söner födda 2013, 2015 och 2017. Tingsrätten gav modern ensam vårdnad om de två äldre sönerna och fadern ensam vårdnad om den yngsta sonen, som sedan en händelse i juni 2025 bott hos fadern och inte haft kontakt med modern eller sina bröder. Hovrätten ändrade tingsrättens dom så att även det yngsta barnet ska stå under moderns ensamma vårdnad, med ett omfattande umgänge med fadern. Hovrätten ansåg att fadern inte tagit sitt ansvar att underlätta barnets kontakt med modern och bröderna och att han hade brustit som boendeförälder, bland annat genom att hålla barnet borta från skolan. Två nämndemän var skiljaktiga.</p>
+        </article>
+        <article class="case">
+          <header>
+            <h3 id="HRS_T_2025_1925">HRS_T_2025_1925</h3>
+            <div class="meta">Svea hovrätt · 2025-10-13 · 2 barn · utfall: <strong>båda</strong></div>
+          </header>
+          <p>Tvist mellan föräldrar om vårdnad, boende och umgänge avseende två döttrar födda 2013 och 2016. Tingsrätten gav fadern ensam vårdnad och avslog moderns yrkande om umgänge, med hänvisning till att modern utsatt barnen för otillbörlig föräldrapåverkan som lett till att barnen tagit avstånd från fadern. Modern ålades vid vite att lämna ifrån sig döttrarna. Efter att modern överklagat och hovrätten meddelat prövningstillstånd träffade parterna en samförståndslösning som hovrätten fastställde: gemensam vårdnad återinförs, döttrarna bor inledningsvis hos fadern i fyra månader med upptrappat umgänge med modern, och därefter växelvis boende.</p>
+        </article>
+        <article class="case">
+          <header>
+            <h3 id="HRS_T_2025_5738">HRS_T_2025_5738</h3>
+            <div class="meta">Svea hovrätt · 2026-02-26 · 2 barn · utfall: <strong>mor</strong></div>
+          </header>
+          <p>Tvist om vårdnad och umgänge avseende två söner födda 2019 och 2021. Föräldrarna separerade i mars 2022 efter att fadern konfronterats av en organisation som dokumenterar personer med sexuellt intresse för barn på nätet. Sedan dess har sönerna inte haft någon kontakt med fadern. Tingsrätten gav modern ensam vårdnad och beslutade om umgänge en gång i veckan med umgängesstöd under ett år. Hovrätten fastställde moderns ensamma vårdnad men avslog faderns yrkande om umgänge helt, eftersom risken för att barnen far illa bedömdes som påtaglig och överhängande och då umgänge med umgängesstöd skulle behövas under väsentligt längre tid än ett år.</p>
+        </article>
+        <article class="case">
+          <header>
+            <h3 id="HRS_T_2025_7637">HRS_T_2025_7637</h3>
+            <div class="meta">Svea hovrätt · 2026-04-17 · 1 barn · utfall: <strong>mor</strong></div>
+          </header>
+          <p>Modern, svensk medborgare bosatt i Sverige, överklagade tingsrättens dom om fortsatt gemensam vårdnad om dottern, drygt fem år, och yrkade ensam vårdnad samt mer begränsat umgänge med fadern, som är egyptisk medborgare och bor i Egypten. Hovrätten ändrade tingsrättens dom och tillerkände modern ensam vårdnad eftersom parternas samarbetssvårigheter och konflikter, bl.a. om skolval, gjorde gemensam vårdnad olämplig. Hovrätten bestämde ett upptrappat umgänge mellan dottern och fadern med inledande umgängesstöd och regelbundet videoumgänge.</p>
+        </article>
+        <article class="case">
+          <header>
+            <h3 id="HRS_T_2025_9843">HRS_T_2025_9843</h3>
+            <div class="meta">Svea hovrätt · 2026-02-19 · 2 barn · utfall: <strong>mor</strong></div>
+          </header>
+          <p>Fadern, grekisk medborgare bosatt i Sverige, överklagade tingsrättens dom som gav modern ensam vårdnad om parternas dotter och son, fem respektive snart tre år. Modern, georgisk medborgare, hade i april 2024 olovligen kvarhållit barnen i Georgien, vilket parallellt prövats i ett Haag-ärende. Hovrätten fastställde tingsrättens dom och fann att det vid en helhetsbedömning av barnens bästa i nuvarande situation var bäst för barnen att modern fortsatt har ensam vårdnad, eftersom barnen lever rotade i Georgien, endast talar georgiska och en överflyttning till fadern inte kunde antas leda till en tydlig förbättring på längre sikt.</p>
+        </article>
+        <article class="case">
+          <header>
+            <h3 id="HRS_T_2026_0657">HRS_T_2026_0657</h3>
+            <div class="meta">Svea hovrätt · 2026-04-10 · 2 barn · utfall: <strong>båda</strong></div>
+          </header>
+          <p>Fadern överklagade tingsrättens dom som gav modern ensam vårdnad om parternas två döttrar, födda 2016 och 2019. I hovrätten träffade föräldrarna en överenskommelse om gemensam vårdnad, stadigvarande boende hos modern och ett detaljerat upptrappat umgänge med fadern, inklusive videoumgänge, helger, lov och storhelger. Hovrätten meddelade dom i enlighet med överenskommelsen och ansåg att den var förenlig med barnens bästa.</p>
+        </article>
+        <article class="case">
+          <header>
+            <h3 id="HRVS_T_2015_2312">HRVS_T_2015_2312</h3>
+            <div class="meta">Hovrätten för Västra Sverige · 2015-08-10 · 1 barn · utfall: <strong>delvis far</strong></div>
+          </header>
+          <p>Tingsrätten hade förordnat om umgänge mellan sonen och hans far från fredag eftermiddag till söndag eftermiddag var tredje vecka. Fadern yrkade på utökat umgänge från lördag förmiddag i stället för fredag eftermiddag för att undvika kvällstågresa. Hovrätten fann att ett växelvis umgänge var tredje vecka bör omfatta så lång tid som möjligt och förordnade om umgänge från lördag förmiddag till söndag eftermiddag.</p>
+        </article>
+        <article class="case">
+          <header>
+            <h3 id="HRVS_T_2025_3605">HRVS_T_2025_3605</h3>
+            <div class="meta">Hovrätten för Västra Sverige · 2026-01-29 · 1 barn · utfall: <strong>far</strong></div>
+          </header>
+          <p>Fadern överklagade tingsrättens dom som begränsade hans umgänge med dottern, född 2018, till varannan lördag dagtid. Tingsrätten hade gett modern ensam vårdnad bl.a. med hänsyn till påståenden om sexuella övergrepp och tidigare narkotikamissbruk hos fadern. Hovrätten utökade kraftigt umgänget till regelbundna helger med övernattning, lov- och storhelgsumgänge enligt faderns yrkande, eftersom det inte fanns konkreta omständigheter som visade någon beaktansvärd risk för att barnet skulle utsättas för sexuella övergrepp eller annars fara illa hos fadern.</p>
+        </article>
+        <article class="case">
+          <header>
+            <h3 id="HRVS_T_2025_3924">HRVS_T_2025_3924</h3>
+            <div class="meta">Hovrätten för Västra Sverige · 2026-01-27 · 1 barn · utfall: <strong>båda</strong></div>
+          </header>
+          <p>Modern överklagade tingsrättens dom som gett fadern ensam vårdnad om dottern, född 2021, med ett sedvanligt helgumgänge för modern. Modern, som riskerade utvisning till sitt hemland, yrkade ensam vårdnad för egen del. I hovrätten träffade parterna en överenskommelse om gemensam vårdnad, stadigvarande boende hos fadern och umgänge med modern två gånger per år i hennes hemland samt regelbundet videoumgänge. Hovrätten ansåg att överenskommelsen var förenlig med barnets bästa och meddelade dom i enlighet med den.</p>
+        </article>
+        <article class="case">
+          <header>
+            <h3 id="HRVS_T_2025_5055">HRVS_T_2025_5055</h3>
+            <div class="meta">Hovrätten för Västra Sverige · 2026-04-23 · 1 barn · utfall: <strong>delvis far</strong></div>
+          </header>
+          <p>Fadern överklagade tingsrättens dom där hans yrkande om umgänge med dottern, född 2023, helt avslagits. Modern, som har ensam vårdnad och lever med dottern under skyddade personuppgifter, motsatte sig ändring och hävdade att fadern utövat våld och missbrukat narkotika och alkohol. Hovrätten ändrade tingsrättens dom och beviljade en upptrappning av umgänget med början genom umgängesstödjare och senare självständigt umgänge varannan helg, eftersom riskerna kopplade till tidigare missbruk och påståenden om våld bedömdes som små.</p>
+        </article>
+        <article class="case">
+          <header>
+            <h3 id="HRVS_T_2025_6486">HRVS_T_2025_6486</h3>
+            <div class="meta">Hovrätten för Västra Sverige · 2026-03-18 · 1 barn · utfall: <strong>ingen</strong></div>
+          </header>
+          <p>Båda föräldrarna överklagade tingsrättens dom om dottern, född 2020. Modern, som har ensam vårdnad och lever med dottern under skyddad folkbokföring, yrkade att inget umgänge skulle ske med fadern på grund av påståenden om sexuella övergrepp mot dottern, våld mot modern samt faderns kriminella förflutna. Fadern yrkade i första hand gemensam vårdnad och utökat umgänge. Hovrätten fastställde fortsatt ensam vårdnad för modern men ändrade umgänget så att det inleds med umgängesstödjare och därefter övergår till veckoslut och lovumgänge, eftersom det enligt hovrätten saknades konkret stöd för påståendena om övergrepp och våld.</p>
+        </article>
+        <article class="case">
+          <header>
+            <h3 id="TRGBG_T_2017_15531">TRGBG_T_2017_15531</h3>
+            <div class="meta">Göteborgs tingsrätt · 2018-12-05 · 1 barn · utfall: <strong>mor</strong></div>
+          </header>
+          <p>Tingsrätten beslutade att dottern, 9 år, fortsatt ska ha sitt boende hos mamman i Göteborg och ensam vårdnad ska tillkomma modern. Fadern, bosatt i Luxemburg, yrkade på ensam vårdnad eller växelvist boende i Luxemburg. Tingsrätten avslog detta då fadern tidigare dömts för egenmäktighet med barn, och fann att dottern, trots sin önskan att bo hos pappan, inte var tillräckligt mogen att fatta sådant beslut. Umgänget reglerades omfattande med flera perioder per år.</p>
+        </article>
+        <article class="case">
+          <header>
+            <h3 id="TRNTJ_T_2015_0475">TRNTJ_T_2015_0475</h3>
+            <div class="meta">Norrtälje tingsrätt · 2016-05-11 · 2 barn · utfall: <strong>mor</strong></div>
+          </header>
+          <p>Tingsrätten förordnade att modern och fadern fortsatt ska ha gemensam vårdnad om de två barnen, och att barnen ska bo hos modern. Dottern motsatte sig umgänge med fadern sedan han brutalt tvingade in henne i sin bil i april 2015, men tingsrätten ordnade gradvis upptrappat umgänge för att återknyta relationen. Sonen ville inte träffa sin pappa överhuvudtaget, eventuellt på grund av påstått våld fadern utsatt en närstående för.</p>
+        </article>
+        <article class="case">
+          <header>
+            <h3 id="TRSTH_T_2015_9659">TRSTH_T_2015_9659</h3>
+            <div class="meta">Stockholms tingsrätt · 2016-09-21 · 2 barn · utfall: <strong>mor</strong></div>
+          </header>
+          <p>Tingsrätten förordnade att de två barnen (3 och 2 år) ska ha sitt stadigvarande boende hos mammorna i Freluga. Papporna, gifta tillsammans, yrkade på växelvist boende var annan vecka. Tingsrätten avslog detta då avståndet mellan Freluga och Värmdö och parternas konflikt omöjliggjorde växelvis boende. Umgänget ordnades varannan vecka från onsdag till måndag med omfattande lovumgänge.</p>
+        </article>
+        <article class="case">
+          <header>
+            <h3 id="TRSTN_T_2014_6489">TRSTN_T_2014_6489</h3>
+            <div class="meta">Södertörns tingsrätt · 2015-03-18 · 1 barn · utfall: <strong>båda</strong></div>
+          </header>
+          <p>Tingsrätten fastställde en överenskommelse mellan föräldrarna om växelvist boende för dottern. Växlingen skulle ske var vecka på torsdagar mellan mamman och pappan, med två veckor hos vardera föräldern under sommaren och särskilda regler för julaftonen och juldagen.</p>
+        </article>
+        <article class="case">
+          <header>
+            <h3 id="TRVAX_T_2018_1365">TRVAX_T_2018_1365</h3>
+            <div class="meta">Växjö tingsrätt · 2020-01-28 · 2 barn · utfall: <strong>far</strong></div>
+          </header>
+          <p>Tingsrätten fastställde en överenskommelse mellan föräldrarna om att de två döttrarna fortsatt ska bo hos fadern med gemensam vårdnad. Mamman hade tidigare yrkat på växelvist boende, men parterna nådde överenskommelse om ett omfattande umgänge för mamman med flera helger per månad, lovumgänge och sommarperioder.</p>
+        </article>
+    </section>
+  </main>
+
+  <footer>
+    Genererad av build_overview.py. Underliggande data: per-fall-JSON i analysis/.
+  </footer>
+
+  <script>
+
+    const ALL = [{"id": "HRG_T_2014_2550", "level": "hovrätt", "court": "Göta hovrätt", "origin": "Norrköpings tingsrätt", "year": "2014", "winner": "båda", "legal_before": "gemensam", "legal_after": "gemensam", "res_before": "växelvis", "res_after": "växelvis", "n_children": 5, "child_ages": [14, 12, 10, 9, 7], "child_genders": ["pojke", "pojke", "flicka", "pojke", "flicka"], "mother_age": 34, "father_age": 41, "factors": ["överenskommelse mellan föräldrarna", "barnets bästa"], "soc": "nej", "vu": "nej", "heard": "okänt", "appeal": "ändrad", "cost": 5582, "outcome": "Gemensam vårdnad, växelvist boende"}, {"id": "HRG_T_2019_0778", "level": "hovrätt", "court": "Göta hovrätt", "origin": "Norrköpings tingsrätt", "year": "2020", "winner": "båda", "legal_before": "gemensam", "legal_after": "gemensam", "res_before": "hos far", "res_after": "hos far", "n_children": 2, "child_ages": [11, 10], "child_genders": ["flicka", "flicka"], "mother_age": 34, "father_age": 38, "factors": ["överenskommelse mellan föräldrarna", "barnets bästa", "påståenden om våld", "samarbetssvårigheter", "socialtjänstens rekommendation", "vårdnadsutredning", "internationell anknytning"], "soc": "ja", "vu": "ja", "heard": "ja", "appeal": "ändrad", "cost": 43081, "outcome": "Gemensam vårdnad, boende hos far, umgänge varannan helg"}, {"id": "HRG_T_2019_3360", "level": "hovrätt", "court": "Göta hovrätt", "origin": "Jönköpings tingsrätt", "year": "2021", "winner": "mor", "legal_before": "gemensam", "legal_after": "ensam mor", "res_before": "hos mor", "res_after": "hos mor", "n_children": 1, "child_ages": [4], "child_genders": ["pojke"], "mother_age": 37, "father_age": 46, "factors": ["samarbetssvårigheter", "barnets bästa", "påståenden om våld", "internationell anknytning", "vårdnadsutredning", "socialtjänstens rekommendation", "flytt"], "soc": "ja", "vu": "ja", "heard": "nej", "appeal": "ändrad", "cost": 72459, "outcome": "Ensam vårdnad (mor), boende hos mor, inget/begränsat umgänge"}, {"id": "HRG_T_2025_2358", "level": "hovrätt", "court": "Göta hovrätt", "origin": "Eksjö tingsrätt", "year": "2026", "winner": "båda", "legal_before": "okänt", "legal_after": "okänt", "res_before": "hos mor", "res_after": "okänt", "n_children": 3, "child_ages": [13, 9, 5], "child_genders": ["flicka", "pojke", "okänt"], "mother_age": 36, "father_age": 40, "factors": ["samarbetssvårigheter", "påståenden om våld", "psykisk ohälsa", "barnets egen vilja", "vårdnadsutredning", "överenskommelse mellan föräldrarna"], "soc": "ja", "vu": "ja", "heard": "ja", "appeal": "förlikning", "cost": 252831, "outcome": "Ensam vårdnad (mor), blandat boende (per barn)"}, {"id": "HRG_T_2025_2619", "level": "hovrätt", "court": "Göta hovrätt", "origin": "Jönköpings tingsrätt", "year": "2026", "winner": "mor", "legal_before": "okänt", "legal_after": "okänt", "res_before": "hos mor", "res_after": "hos mor", "n_children": 3, "child_ages": [10, 10, 9], "child_genders": ["okänt", "okänt", "okänt"], "mother_age": 37, "father_age": 42, "factors": ["påståenden om våld", "samarbetssvårigheter", "internationell anknytning", "socialtjänstens rekommendation", "vårdnadsutredning", "barnets bästa"], "soc": "ja", "vu": "ja", "heard": "ja", "appeal": "ändrad", "cost": 243520, "outcome": "Ensam vårdnad (mor), boende hos mor, reglerat umgänge"}, {"id": "HRG_T_2025_3467", "level": "hovrätt", "court": "Göta hovrätt", "origin": "Örebro tingsrätt", "year": "2026", "winner": "mor", "legal_before": "okänt", "legal_after": "okänt", "res_before": "hos mor", "res_after": "hos mor", "n_children": 2, "child_ages": [16, 13], "child_genders": ["flicka", "okänt"], "mother_age": 36, "father_age": 40, "factors": ["påståenden om missbruk", "påståenden om våld", "samarbetssvårigheter", "vårdnadsutredning", "socialtjänstens rekommendation", "barnets bästa"], "soc": "ja", "vu": "ja", "heard": "ja", "appeal": "ändrad", "cost": 74138, "outcome": "Ensam vårdnad (mor), boende hos mor, oreglerat umgänge"}, {"id": "HRG_T_2025_5069", "level": "hovrätt", "court": "Göta hovrätt", "origin": "Norrköpings tingsrätt", "year": "2026", "winner": "far", "legal_before": "okänt", "legal_after": "okänt", "res_before": "okänt", "res_after": "okänt", "n_children": 4, "child_ages": [15, 13, 9, 8], "child_genders": ["pojke", "flicka", "okänt", "okänt"], "mother_age": 42, "father_age": 41, "factors": ["barnets egen vilja", "påståenden om våld", "socialtjänstens rekommendation", "vårdnadsutredning", "överenskommelse mellan föräldrarna"], "soc": "ja", "vu": "ja", "heard": "ja", "appeal": "förlikning", "cost": 176723, "outcome": "Blandad vårdnad (per barn), blandat boende (per barn)"}, {"id": "HRNN_T_2018_1218", "level": "hovrätt", "court": "Hovrätten för Nedre Norrland", "origin": "Gävle tingsrätt", "year": "2019", "winner": "delvis mor", "legal_before": "ensam far", "legal_after": "gemensam", "res_before": "hos far", "res_after": "hos mor", "n_children": 2, "child_ages": [14, 12], "child_genders": ["pojke", "pojke"], "mother_age": 41, "father_age": 42, "factors": ["barnets egen vilja", "samarbetssvårigheter", "barnets bästa", "vårdnadsutredning", "socialtjänstens rekommendation"], "soc": "ja", "vu": "ja", "heard": "ja", "appeal": "ändrad", "cost": 38963, "outcome": "Gemensam vårdnad, boende hos mor"}, {"id": "HRNN_T_2025_1291", "level": "hovrätt", "court": "Hovrätten för Nedre Norrland", "origin": "Sundsvalls tingsrätt", "year": "2026", "winner": "mor", "legal_before": "okänt", "legal_after": "okänt", "res_before": "hos mor", "res_after": "hos mor", "n_children": 2, "child_ages": [10, 7], "child_genders": ["flicka", "pojke"], "mother_age": 43, "father_age": 36, "factors": ["påståenden om våld", "psykisk ohälsa", "samarbetssvårigheter", "internationell anknytning", "socialtjänstens rekommendation", "vårdnadsutredning", "barnets bästa", "barnets egen vilja"], "soc": "ja", "vu": "ja", "heard": "ja", "appeal": "ändrad", "cost": null, "outcome": "Ensam vårdnad (mor), boende hos mor, oreglerat umgänge"}, {"id": "HRNN_T_2025_1553", "level": "hovrätt", "court": "Hovrätten för Nedre Norrland", "origin": "Östersunds tingsrätt", "year": "2026", "winner": "mor", "legal_before": "okänt", "legal_after": "okänt", "res_before": "hos far", "res_after": "hos mor", "n_children": 1, "child_ages": [11], "child_genders": ["pojke"], "mother_age": null, "father_age": null, "factors": ["barnets bästa", "psykisk ohälsa", "samarbetssvårigheter", "vårdnadsutredning", "socialtjänstens rekommendation", "barnets egen vilja"], "soc": "ja", "vu": "ja", "heard": "ja", "appeal": "ändrad", "cost": 67465, "outcome": "Gemensam vårdnad, boende hos mor, trappat umgänge"}, {"id": "HRNN_T_2025_2002", "level": "hovrätt", "court": "Hovrätten för Nedre Norrland", "origin": "Sundsvalls tingsrätt", "year": "2026", "winner": "mor", "legal_before": "okänt", "legal_after": "okänt", "res_before": "hos mor", "res_after": "hos mor", "n_children": 3, "child_ages": [10, 8, 6], "child_genders": ["pojke", "pojke", "pojke"], "mother_age": null, "father_age": null, "factors": ["påståenden om våld", "barnets bästa", "psykisk ohälsa", "socialtjänstens rekommendation"], "soc": "ja", "vu": "ja", "heard": "ja", "appeal": "ändrad", "cost": 62834, "outcome": "Ensam vårdnad (mor), boende hos mor, inget/begränsat umgänge"}, {"id": "HRON_T_2019_1046", "level": "hovrätt", "court": "Hovrätten för Övre Norrland", "origin": "Luleå tingsrätt", "year": "2020", "winner": "far", "legal_before": "ensam mor", "legal_after": "gemensam", "res_before": "hos mor", "res_after": "hos mor", "n_children": 1, "child_ages": [2], "child_genders": ["pojke"], "mother_age": 39, "father_age": 33, "factors": ["samarbetssvårigheter", "barnets bästa", "påståenden om missbruk", "psykisk ohälsa", "vårdnadsutredning", "socialtjänstens rekommendation"], "soc": "ja", "vu": "ja", "heard": "nej", "appeal": "ändrad", "cost": 124576, "outcome": "Gemensam vårdnad, boende hos mor, trappat umgänge"}, {"id": "HRON_T_2020_0271", "level": "hovrätt", "court": "Hovrätten för Övre Norrland", "origin": "Luleå tingsrätt", "year": "2020", "winner": "delvis far", "legal_before": "ensam mor", "legal_after": "gemensam", "res_before": "hos mor", "res_after": "hos mor", "n_children": 1, "child_ages": [6], "child_genders": ["flicka"], "mother_age": 46, "father_age": 47, "factors": ["samarbetssvårigheter", "barnets bästa", "vårdnadsutredning", "socialtjänstens rekommendation"], "soc": "ja", "vu": "ja", "heard": "nej", "appeal": "ändrad", "cost": null, "outcome": "Gemensam vårdnad, boende hos mor, umgänge varannan vecka"}, {"id": "HRON_T_2025_0775", "level": "hovrätt", "court": "Hovrätten för Övre Norrland", "origin": "Luleå tingsrätt", "year": "2026", "winner": "mor", "legal_before": "okänt", "legal_after": "okänt", "res_before": "växelvis", "res_after": "hos mor", "n_children": 1, "child_ages": [7], "child_genders": ["flicka"], "mother_age": null, "father_age": null, "factors": ["påståenden om missbruk", "påståenden om våld", "samarbetssvårigheter", "vårdnadsutredning", "barnets bästa", "flytt"], "soc": "ja", "vu": "ja", "heard": "ja", "appeal": "ändrad", "cost": 36676, "outcome": "Ensam vårdnad (mor), boende hos mor, umgänge var fjärde vecka"}, {"id": "HRON_T_2025_1580", "level": "hovrätt", "court": "Hovrätten för Övre Norrland", "origin": "Luleå tingsrätt", "year": "2026", "winner": "mor", "legal_before": "okänt", "legal_after": "okänt", "res_before": "hos mor", "res_after": "hos mor", "n_children": 2, "child_ages": [7, 5], "child_genders": ["flicka", "pojke"], "mother_age": null, "father_age": null, "factors": ["påståenden om våld", "samarbetssvårigheter", "barnets bästa", "vårdnadsutredning", "internationell anknytning", "flytt"], "soc": "ja", "vu": "ja", "heard": "ja", "appeal": "ändrad", "cost": 194687, "outcome": "Ensam vårdnad (mor), boende hos mor, videoumgänge / distansumgänge"}, {"id": "HRSB_T_2019_3400", "level": "hovrätt", "court": "Hovrätten över Skåne och Blekinge", "origin": "Malmö tingsrätt", "year": "2020", "winner": "far", "legal_before": "gemensam", "legal_after": "ensam far", "res_before": "hos far", "res_after": "hos far", "n_children": 2, "child_ages": [12, 10], "child_genders": ["pojke", "pojke"], "mother_age": 40, "father_age": 50, "factors": ["överenskommelse mellan föräldrarna", "barnets bästa"], "soc": "ja", "vu": "ja", "heard": "okänt", "appeal": "ändrad", "cost": null, "outcome": "Ensam vårdnad (far), boende hos far, umgänge varannan vecka"}, {"id": "HRSB_T_2025_2583", "level": "hovrätt", "court": "Hovrätten över Skåne och Blekinge", "origin": "Blekinge tingsrätt", "year": "2026", "winner": "mor", "legal_before": "okänt", "legal_after": "okänt", "res_before": "hos mor", "res_after": "hos mor", "n_children": 1, "child_ages": [13], "child_genders": ["pojke"], "mother_age": null, "father_age": null, "factors": ["barnets bästa", "barnets egen vilja", "psykisk ohälsa", "samarbetssvårigheter", "påståenden om våld", "vårdnadsutredning", "internationell anknytning"], "soc": "ja", "vu": "ja", "heard": "ja", "appeal": "ändrad", "cost": null, "outcome": "Ensam vårdnad (mor), boende hos mor, inget/begränsat umgänge"}, {"id": "HRSB_T_2025_3605", "level": "hovrätt", "court": "Hovrätten över Skåne och Blekinge", "origin": "Ystads tingsrätt", "year": "2026", "winner": "mor", "legal_before": "gemensam", "legal_after": "ensam mor", "res_before": "annat", "res_after": "hos mor", "n_children": 2, "child_ages": [6, 4], "child_genders": ["pojke", "flicka"], "mother_age": null, "father_age": 45, "factors": ["barnets bästa", "samarbetssvårigheter", "påståenden om våld", "vårdnadsutredning", "socialtjänstens rekommendation", "internationell anknytning", "flytt"], "soc": "ja", "vu": "ja", "heard": "okänt", "appeal": "ändrad", "cost": 90045, "outcome": "Ensam vårdnad (mor), boende hos mor, videoumgänge / distansumgänge"}, {"id": "HRS_T_2012_5994", "level": "hovrätt", "court": "Svea hovrätt", "origin": "Södertörns tingsrätt", "year": "2013", "winner": "båda", "legal_before": "gemensam", "legal_after": "gemensam", "res_before": "hos mor", "res_after": "hos mor", "n_children": 2, "child_ages": [7, 3], "child_genders": ["flicka", "flicka"], "mother_age": 35, "father_age": 60, "factors": ["samarbetssvårigheter", "barnets bästa"], "soc": "ja", "vu": "ja", "heard": "okänt", "appeal": "fastställd", "cost": 33702, "outcome": "Gemensam vårdnad, boende hos mor, umgänge varannan vecka"}, {"id": "HRS_T_2013_3500", "level": "hovrätt", "court": "Svea hovrätt", "origin": "Södertälje tingsrätt", "year": "2014", "winner": "mor", "legal_before": "gemensam", "legal_after": "ensam mor", "res_before": "hos mor", "res_after": "hos mor", "n_children": 1, "child_ages": [12], "child_genders": ["flicka"], "mother_age": 42, "father_age": 41, "factors": ["barnets bästa", "psykisk ohälsa", "samarbetssvårigheter", "påståenden om våld"], "soc": "ja", "vu": "ja", "heard": "ja", "appeal": "ändrad", "cost": null, "outcome": "Ensam vårdnad (mor), boende hos mor"}, {"id": "HRS_T_2013_5076", "level": "hovrätt", "court": "Svea hovrätt", "origin": "Stockholms tingsrätt", "year": "2013", "winner": "båda", "legal_before": "gemensam", "legal_after": "gemensam", "res_before": "hos mor", "res_after": "hos mor", "n_children": 1, "child_ages": [8], "child_genders": ["pojke"], "mother_age": 30, "father_age": 40, "factors": ["överenskommelse mellan föräldrarna", "barnets bästa", "internationell anknytning"], "soc": "ja", "vu": "ja", "heard": "okänt", "appeal": "fastställd", "cost": 14000, "outcome": "Gemensam vårdnad, boende hos mor, umgänge varannan helg"}, {"id": "HRS_T_2014_0022", "level": "hovrätt", "court": "Svea hovrätt", "origin": "Södertälje tingsrätt", "year": "2014", "winner": "mor", "legal_before": "gemensam", "legal_after": "gemensam", "res_before": "hos mor", "res_after": "hos mor", "n_children": 3, "child_ages": [13, 12, 9], "child_genders": ["pojke", "pojke", "pojke"], "mother_age": 46, "father_age": 46, "factors": ["barnets bästa", "barnets egen vilja", "samarbetssvårigheter", "påståenden om våld", "socialtjänstens rekommendation"], "soc": "ja", "vu": "ja", "heard": "ja", "appeal": "ändrad", "cost": null, "outcome": "Gemensam vårdnad, boende hos mor"}, {"id": "HRS_T_2014_6311", "level": "hovrätt", "court": "Svea hovrätt", "origin": "Södertälje tingsrätt", "year": "2015", "winner": "båda", "legal_before": "ensam mor", "legal_after": "ensam mor", "res_before": "hos mor", "res_after": "hos mor", "n_children": 1, "child_ages": [6], "child_genders": ["flicka"], "mother_age": 29, "father_age": 38, "factors": ["samarbetssvårigheter", "barnets bästa", "påståenden om våld", "påståenden om missbruk", "internationell anknytning", "flytt"], "soc": "ja", "vu": "ja", "heard": "okänt", "appeal": "ändrad", "cost": 26458, "outcome": "Ensam vårdnad (mor), boende hos mor, övrigt reglerat umgänge"}, {"id": "HRS_T_2014_6359", "level": "hovrätt", "court": "Svea hovrätt", "origin": "Stockholms tingsrätt", "year": "2015", "winner": "båda", "legal_before": "ensam mor", "legal_after": "ensam mor", "res_before": "hos mor", "res_after": "hos mor", "n_children": 1, "child_ages": [4], "child_genders": ["flicka"], "mother_age": 33, "father_age": 36, "factors": ["samarbetssvårigheter", "barnets bästa", "psykisk ohälsa", "trauma", "barnets egen vilja"], "soc": "ja", "vu": "ja", "heard": "nej", "appeal": "ändrad", "cost": null, "outcome": "Ensam vårdnad (mor), boende hos mor, trappat umgänge"}, {"id": "HRS_T_2014_7196", "level": "hovrätt", "court": "Svea hovrätt", "origin": "Södertälje tingsrätt", "year": "2015", "winner": "far", "legal_before": "ensam far", "legal_after": "ensam far", "res_before": "hos far", "res_after": "hos far", "n_children": 1, "child_ages": [10], "child_genders": ["pojke"], "mother_age": 41, "father_age": 42, "factors": ["påståenden om missbruk", "samarbetssvårigheter", "barnets bästa", "överenskommelse mellan föräldrarna", "psykisk ohälsa"], "soc": "ja", "vu": "ja", "heard": "nej", "appeal": "ändrad", "cost": null, "outcome": "Ensam vårdnad (far), boende hos far, umgänge varannan helg"}, {"id": "HRS_T_2015_11726", "level": "hovrätt", "court": "Svea hovrätt", "origin": "Nyköpings tingsrätt", "year": "2016", "winner": "delvis far", "legal_before": "ensam mor", "legal_after": "ensam mor", "res_before": "hos mor", "res_after": "hos mor", "n_children": 3, "child_ages": [9, 7, 4], "child_genders": ["pojke", "flicka", "pojke"], "mother_age": 28, "father_age": 36, "factors": ["samarbetssvårigheter", "barnets bästa", "påståenden om våld", "överenskommelse mellan föräldrarna", "vårdnadsutredning", "barnets egen vilja"], "soc": "ja", "vu": "ja", "heard": "nej", "appeal": "ändrad", "cost": 129090, "outcome": "Ensam vårdnad (mor), boende hos mor, trappat umgänge"}, {"id": "HRS_T_2015_3738", "level": "hovrätt", "court": "Svea hovrätt", "origin": "Mora tingsrätt", "year": "2015", "winner": "båda", "legal_before": "ensam mor", "legal_after": "ensam mor", "res_before": "hos mor", "res_after": "hos mor", "n_children": 2, "child_ages": [12, 10], "child_genders": ["pojke", "pojke"], "mother_age": 39, "father_age": 46, "factors": ["överenskommelse mellan föräldrarna", "barnets bästa", "samarbetssvårigheter", "kontinuitet"], "soc": "ja", "vu": "ja", "heard": "nej", "appeal": "ändrad", "cost": null, "outcome": "Ensam vårdnad (mor), boende hos mor, umgänge varannan helg"}, {"id": "HRS_T_2016_4331", "level": "hovrätt", "court": "Svea hovrätt", "origin": "Mora tingsrätt", "year": "2016", "winner": "delvis far", "legal_before": "gemensam", "legal_after": "gemensam", "res_before": "hos mor", "res_after": "hos mor", "n_children": 1, "child_ages": [2], "child_genders": ["pojke"], "mother_age": 28, "father_age": 29, "factors": ["överenskommelse mellan föräldrarna", "barnets bästa", "samarbetssvårigheter", "geografiskt avstånd", "flytt"], "soc": "nej", "vu": "nej", "heard": "okänt", "appeal": "ändrad", "cost": 81338, "outcome": "Gemensam vårdnad, boende hos mor, umgänge varannan vecka"}, {"id": "HRS_T_2016_5314", "level": "hovrätt", "court": "Svea hovrätt", "origin": "Stockholms tingsrätt", "year": "2017", "winner": "delvis far", "legal_before": "ensam mor", "legal_after": "ensam mor", "res_before": "hos mor", "res_after": "hos mor", "n_children": 1, "child_ages": [12], "child_genders": ["flicka"], "mother_age": 39, "father_age": 53, "factors": ["överenskommelse mellan föräldrarna", "barnets bästa", "påståenden om våld", "samarbetssvårigheter"], "soc": "ja", "vu": "ja", "heard": "ja", "appeal": "ändrad", "cost": null, "outcome": "Ensam vårdnad (mor), boende hos mor, umgänge varannan helg"}, {"id": "HRS_T_2017_0590", "level": "hovrätt", "court": "Svea hovrätt", "origin": "Södertälje tingsrätt", "year": "2018", "winner": "delvis far", "legal_before": "ensam mor", "legal_after": "ensam mor", "res_before": "hos mor", "res_after": "hos mor", "n_children": 2, "child_ages": [6, 5], "child_genders": ["pojke", "flicka"], "mother_age": 37, "father_age": 31, "factors": ["påståenden om våld", "barnets bästa", "vårdnadsutredning", "socialtjänstens rekommendation", "samarbetssvårigheter"], "soc": "ja", "vu": "ja", "heard": "nej", "appeal": "ändrad", "cost": 135892, "outcome": "Ensam vårdnad (mor), boende hos mor, trappat umgänge"}, {"id": "HRS_T_2017_11396", "level": "hovrätt", "court": "Svea hovrätt", "origin": "Gotlands tingsrätt", "year": "2019", "winner": "far", "legal_before": "gemensam", "legal_after": "ensam far", "res_before": "hos mor", "res_after": "hos far", "n_children": 2, "child_ages": [11, 8], "child_genders": ["pojke", "flicka"], "mother_age": 37, "father_age": 44, "factors": ["överenskommelse mellan föräldrarna", "barnets bästa", "samarbetssvårigheter", "påståenden om våld", "vårdnadsutredning", "socialtjänstens rekommendation", "föräldraalienation"], "soc": "ja", "vu": "ja", "heard": "ja", "appeal": "ändrad", "cost": null, "outcome": "Ensam vårdnad (far), boende hos far, umgänge att fastställas senare"}, {"id": "HRS_T_2017_4044", "level": "hovrätt", "court": "Svea hovrätt", "origin": "Södertälje tingsrätt", "year": "2018", "winner": "delvis far", "legal_before": "ensam mor", "legal_after": "ensam mor", "res_before": "hos mor", "res_after": "hos mor", "n_children": 3, "child_ages": [9, 10, 5], "child_genders": ["okänt", "flicka", "pojke"], "mother_age": 38, "father_age": 46, "factors": ["påståenden om våld", "barnets bästa", "barnets egen vilja", "samarbetssvårigheter", "vårdnadsutredning", "socialtjänstens rekommendation"], "soc": "ja", "vu": "ja", "heard": "ja", "appeal": "ändrad", "cost": 82000, "outcome": "Ensam vårdnad (mor), boende hos mor, inget/begränsat umgänge"}, {"id": "HRS_T_2017_6957", "level": "hovrätt", "court": "Svea hovrätt", "origin": "Södertälje tingsrätt", "year": "2018", "winner": "mor", "legal_before": "gemensam", "legal_after": "ensam mor", "res_before": "hos mor", "res_after": "hos mor", "n_children": 3, "child_ages": [17, 13, 11], "child_genders": ["pojke", "flicka", "flicka"], "mother_age": 40, "father_age": 45, "factors": ["påståenden om våld", "samarbetssvårigheter", "barnets egen vilja", "barnets bästa"], "soc": "ja", "vu": "ja", "heard": "ja", "appeal": "ändrad", "cost": 95040, "outcome": "Ensam vårdnad (mor), boende hos mor"}, {"id": "HRS_T_2018_1071", "level": "hovrätt", "court": "Svea hovrätt", "origin": "Stockholms tingsrätt", "year": "2018", "winner": "far", "legal_before": "gemensam", "legal_after": "ensam far", "res_before": "växelvis", "res_after": "hos far", "n_children": 1, "child_ages": [10], "child_genders": ["pojke"], "mother_age": 45, "father_age": 45, "factors": ["överenskommelse mellan föräldrarna", "barnets bästa", "samarbetssvårigheter"], "soc": "nej", "vu": "nej", "heard": "okänt", "appeal": "ändrad", "cost": null, "outcome": "Ensam vårdnad (far), boende hos far, trappat umgänge"}, {"id": "HRS_T_2018_12346", "level": "hovrätt", "court": "Svea hovrätt", "origin": "Attunda tingsrätt", "year": "2020", "winner": "delvis far", "legal_before": "ensam mor", "legal_after": "gemensam", "res_before": "hos mor", "res_after": "okänt", "n_children": 2, "child_ages": [10, 9], "child_genders": ["flicka", "flicka"], "mother_age": 33, "father_age": 36, "factors": ["samarbetssvårigheter", "barnets bästa", "psykisk ohälsa", "vårdnadsutredning", "socialtjänstens rekommendation"], "soc": "ja", "vu": "ja", "heard": "nej", "appeal": "ändrad", "cost": 69250, "outcome": "Gemensam vårdnad, blandat boende (per barn), umgänge varannan vecka"}, {"id": "HRS_T_2018_5222", "level": "hovrätt", "court": "Svea hovrätt", "origin": "Södertälje tingsrätt", "year": "2018", "winner": "delvis mor", "legal_before": "ensam mor", "legal_after": "ensam mor", "res_before": "hos mor", "res_after": "hos mor", "n_children": 2, "child_ages": [7, 5], "child_genders": ["pojke", "flicka"], "mother_age": 38, "father_age": 40, "factors": ["barnets bästa", "samarbetssvårigheter", "påståenden om våld"], "soc": "ja", "vu": "ja", "heard": "nej", "appeal": "ändrad", "cost": null, "outcome": "Ensam vårdnad (mor), boende hos mor, umgänge varannan vecka"}, {"id": "HRS_T_2018_6087", "level": "hovrätt", "court": "Svea hovrätt", "origin": "Södertälje tingsrätt", "year": "2018", "winner": "båda", "legal_before": "gemensam", "legal_after": "ensam mor", "res_before": "okänt", "res_after": "hos mor", "n_children": 2, "child_ages": [11, 8], "child_genders": ["flicka", "flicka"], "mother_age": 36, "father_age": 41, "factors": ["överenskommelse mellan föräldrarna", "barnets bästa"], "soc": "nej", "vu": "nej", "heard": "nej", "appeal": "fastställd", "cost": null, "outcome": "Ensam vårdnad (mor), boende hos mor"}, {"id": "HRS_T_2018_6361", "level": "hovrätt", "court": "Svea hovrätt", "origin": "Stockholms tingsrätt", "year": "2019", "winner": "mor", "legal_before": "ensam mor", "legal_after": "ensam mor", "res_before": "hos mor", "res_after": "hos mor", "n_children": 2, "child_ages": [11, 7], "child_genders": ["flicka", "flicka"], "mother_age": 36, "father_age": 53, "factors": ["barnets egen vilja", "påståenden om våld", "barnets bästa", "samarbetssvårigheter"], "soc": "ja", "vu": "ja", "heard": "ja", "appeal": "fastställd", "cost": 66867, "outcome": "Ensam vårdnad (mor), boende hos mor"}, {"id": "HRS_T_2019_0852", "level": "hovrätt", "court": "Svea hovrätt", "origin": "Nyköpings tingsrätt", "year": "2020", "winner": "delvis far", "legal_before": "ensam mor", "legal_after": "gemensam", "res_before": "hos mor", "res_after": "hos mor", "n_children": 1, "child_ages": [8], "child_genders": ["flicka"], "mother_age": 51, "father_age": 63, "factors": ["samarbetssvårigheter", "barnets bästa", "vårdnadsutredning"], "soc": "ja", "vu": "ja", "heard": "nej", "appeal": "ändrad", "cost": null, "outcome": "Gemensam vårdnad, boende hos mor, umgänge varannan vecka"}, {"id": "HRS_T_2019_10077", "level": "hovrätt", "court": "Svea hovrätt", "origin": "Södertälje tingsrätt", "year": "2020", "winner": "far", "legal_before": "gemensam", "legal_after": "gemensam", "res_before": "hos mor", "res_after": "hos far", "n_children": 2, "child_ages": [8, 4], "child_genders": ["pojke", "flicka"], "mother_age": 35, "father_age": 30, "factors": ["samarbetssvårigheter", "barnets bästa", "socialtjänstens rekommendation", "vårdnadsutredning"], "soc": "ja", "vu": "ja", "heard": "nej", "appeal": "fastställd", "cost": 134467, "outcome": "Gemensam vårdnad, boende hos far, umgänge varannan helg"}, {"id": "HRS_T_2019_7172", "level": "hovrätt", "court": "Svea hovrätt", "origin": "Attunda tingsrätt", "year": "2019", "winner": "båda", "legal_before": "gemensam", "legal_after": "gemensam", "res_before": "hos mor", "res_after": "hos far", "n_children": 1, "child_ages": [5], "child_genders": ["pojke"], "mother_age": 24, "father_age": 24, "factors": ["överenskommelse mellan föräldrarna", "barnets bästa"], "soc": "ja", "vu": "ja", "heard": "nej", "appeal": "fastställd", "cost": 45713, "outcome": "Gemensam vårdnad, boende hos far, omfattande umgänge"}, {"id": "HRS_T_2019_8851", "level": "hovrätt", "court": "Svea hovrätt", "origin": "Nyköpings tingsrätt", "year": "2020", "winner": "båda", "legal_before": "gemensam", "legal_after": "ensam mor", "res_before": "hos mor", "res_after": "hos mor", "n_children": 5, "child_ages": [15, 13, 11, 9, 7], "child_genders": ["flicka", "flicka", "pojke", "flicka", "pojke"], "mother_age": 34, "father_age": 41, "factors": ["överenskommelse mellan föräldrarna", "barnets bästa", "påståenden om våld"], "soc": "ja", "vu": "ja", "heard": "ja", "appeal": "fastställd", "cost": 117394, "outcome": "Ensam vårdnad (mor), boende hos mor, umgänge varannan helg"}, {"id": "HRS_T_2021_2922", "level": "hovrätt", "court": "Svea hovrätt", "origin": "Attunda tingsrätt", "year": "2021", "winner": "mor", "legal_before": "ensam mor", "legal_after": "ensam mor", "res_before": "hos mor", "res_after": "hos mor", "n_children": 2, "child_ages": [15, 12], "child_genders": ["flicka", "flicka"], "mother_age": 50, "father_age": 52, "factors": ["barnets egen vilja", "påståenden om våld", "barnets bästa", "samarbetssvårigheter", "psykisk ohälsa"], "soc": "ja", "vu": "nej", "heard": "nej", "appeal": "ändrad", "cost": null, "outcome": "Ensam vårdnad (mor), boende hos mor"}, {"id": "HRS_T_2023_13821", "level": "hovrätt", "court": "Svea hovrätt", "origin": "Södertörns tingsrätt", "year": "2025", "winner": "far", "legal_before": "ensam far", "legal_after": "ensam far", "res_before": "hos far", "res_after": "hos far", "n_children": 2, "child_ages": [13, 8], "child_genders": ["pojke", "flicka"], "mother_age": 39, "father_age": 43, "factors": ["barnets bästa", "barnets egen vilja", "påståenden om våld", "påståenden om missbruk", "samarbetssvårigheter", "socialtjänstens rekommendation", "vårdnadsutredning", "psykisk ohälsa", "internationell anknytning"], "soc": "ja", "vu": "ja", "heard": "ja", "appeal": "fastställd", "cost": null, "outcome": "Ensam vårdnad (far), boende hos far, inget/begränsat umgänge"}, {"id": "HRS_T_2024_13543", "level": "hovrätt", "court": "Svea hovrätt", "origin": "Attunda tingsrätt", "year": "2026", "winner": "far", "legal_before": "gemensam", "legal_after": "ensam far", "res_before": "hos mor", "res_after": "hos far", "n_children": 1, "child_ages": [3], "child_genders": ["flicka"], "mother_age": 41, "father_age": 51, "factors": ["barnets bästa", "samarbetssvårigheter", "flytt", "socialtjänstens rekommendation", "vårdnadsutredning", "internationell anknytning", "påståenden om våld"], "soc": "ja", "vu": "ja", "heard": "nej", "appeal": "ändrad", "cost": 235465, "outcome": "Ensam vårdnad (far), boende hos far, trappat umgänge"}, {"id": "HRS_T_2024_16321", "level": "hovrätt", "court": "Svea hovrätt", "origin": "Södertörns tingsrätt", "year": "2026", "winner": "båda", "legal_before": "gemensam", "legal_after": "gemensam", "res_before": "hos mor", "res_after": "hos mor", "n_children": 1, "child_ages": [6], "child_genders": ["flicka"], "mother_age": 33, "father_age": 38, "factors": ["överenskommelse mellan föräldrarna", "barnets bästa", "påståenden om våld", "påståenden om missbruk", "samarbetssvårigheter", "socialtjänstens rekommendation", "vårdnadsutredning"], "soc": "ja", "vu": "ja", "heard": "okänt", "appeal": "ändrad", "cost": 244729, "outcome": "Gemensam vårdnad, boende hos mor, övrigt reglerat umgänge"}, {"id": "HRS_T_2025_0545", "level": "hovrätt", "court": "Svea hovrätt", "origin": "Uppsala tingsrätt", "year": "2026", "winner": "delvis mor", "legal_before": "gemensam", "legal_after": "gemensam", "res_before": "hos mor", "res_after": "hos mor", "n_children": 4, "child_ages": [13, 12, 8, 8], "child_genders": ["pojke", "pojke", "okänt", "pojke"], "mother_age": 39, "father_age": 47, "factors": ["barnets bästa", "barnets egen vilja", "samarbetssvårigheter", "socialtjänstens rekommendation", "vårdnadsutredning", "påståenden om våld", "internationell anknytning"], "soc": "ja", "vu": "ja", "heard": "ja", "appeal": "ändrad", "cost": 132927, "outcome": "Gemensam vårdnad, boende hos mor, trappat umgänge"}, {"id": "HRS_T_2025_10088", "level": "hovrätt", "court": "Svea hovrätt", "origin": "Uppsala tingsrätt", "year": "2026", "winner": "ingen", "legal_before": "oklart", "legal_after": "oklart", "res_before": "annat", "res_after": "annat", "n_children": 2, "child_ages": [7, 5], "child_genders": ["flicka", "flicka"], "mother_age": 38, "father_age": 29, "factors": ["barnets bästa", "påståenden om missbruk", "påståenden om våld", "socialtjänstens rekommendation", "vårdnadsutredning", "psykisk ohälsa"], "soc": "ja", "vu": "ja", "heard": "nej", "appeal": "delvis ändrad", "cost": 96362, "outcome": "Oklart om vårdnad, annat boende, inget/begränsat umgänge"}, {"id": "HRS_T_2025_10456", "level": "hovrätt", "court": "Svea hovrätt", "origin": "Södertörns tingsrätt", "year": "2026", "winner": "delvis mor", "legal_before": "ensam mor", "legal_after": "ensam mor", "res_before": "hos mor", "res_after": "hos mor", "n_children": 1, "child_ages": [2], "child_genders": ["flicka"], "mother_age": 37, "father_age": 38, "factors": ["barnets bästa", "samarbetssvårigheter", "vårdnadsutredning"], "soc": "ja", "vu": "ja", "heard": "nej", "appeal": "ändrad", "cost": 225450, "outcome": "Ensam vårdnad (mor), boende hos mor, övrigt reglerat umgänge"}, {"id": "HRS_T_2025_16176", "level": "hovrätt", "court": "Svea hovrätt", "origin": "Stockholms tingsrätt", "year": "2026", "winner": "mor", "legal_before": "ensam far", "legal_after": "ensam mor", "res_before": "hos far", "res_after": "hos mor", "n_children": 3, "child_ages": [8, 12, 10], "child_genders": ["pojke", "pojke", "pojke"], "mother_age": 47, "father_age": 48, "factors": ["barnets bästa", "samarbetssvårigheter", "barnets egen vilja", "vårdnadsutredning", "socialtjänstens rekommendation"], "soc": "ja", "vu": "ja", "heard": "ja", "appeal": "ändrad", "cost": null, "outcome": "Ensam vårdnad (mor), boende hos mor, omfattande umgänge"}, {"id": "HRS_T_2025_1925", "level": "hovrätt", "court": "Svea hovrätt", "origin": "Nacka tingsrätt", "year": "2025", "winner": "båda", "legal_before": "ensam far", "legal_after": "gemensam", "res_before": "hos far", "res_after": "hos far", "n_children": 2, "child_ages": [12, 9], "child_genders": ["flicka", "flicka"], "mother_age": 48, "father_age": 49, "factors": ["överenskommelse mellan föräldrarna", "barnets bästa", "samarbetssvårigheter", "vårdnadsutredning"], "soc": "ja", "vu": "ja", "heard": "ja", "appeal": "förlikning", "cost": null, "outcome": "Gemensam vårdnad, boende hos far, umgänge varannan vecka"}, {"id": "HRS_T_2025_5738", "level": "hovrätt", "court": "Svea hovrätt", "origin": "Uppsala tingsrätt", "year": "2026", "winner": "mor", "legal_before": "ensam mor", "legal_after": "ensam mor", "res_before": "hos mor", "res_after": "hos mor", "n_children": 2, "child_ages": [7, 4], "child_genders": ["pojke", "pojke"], "mother_age": 39, "father_age": 42, "factors": ["barnets bästa", "sexual_offense_allegation", "psykisk ohälsa", "vårdnadsutredning", "samarbetssvårigheter"], "soc": "ja", "vu": "ja", "heard": "nej", "appeal": "ändrad", "cost": null, "outcome": "Ensam vårdnad (mor), boende hos mor, inget/begränsat umgänge"}, {"id": "HRS_T_2025_7637", "level": "hovrätt", "court": "Svea hovrätt", "origin": "Eskilstuna tingsrätt", "year": "2026", "winner": "mor", "legal_before": "gemensam", "legal_after": "ensam mor", "res_before": "hos mor", "res_after": "hos mor", "n_children": 1, "child_ages": [6], "child_genders": ["flicka"], "mother_age": 36, "father_age": null, "factors": ["barnets bästa", "samarbetssvårigheter", "påståenden om våld", "internationell anknytning", "vårdnadsutredning", "socialtjänstens rekommendation"], "soc": "ja", "vu": "ja", "heard": "nej", "appeal": "ändrad", "cost": null, "outcome": "Ensam vårdnad (mor), boende hos mor, trappat umgänge"}, {"id": "HRS_T_2025_9843", "level": "hovrätt", "court": "Svea hovrätt", "origin": "Södertälje tingsrätt", "year": "2026", "winner": "mor", "legal_before": "ensam mor", "legal_after": "ensam mor", "res_before": "hos mor", "res_after": "hos mor", "n_children": 2, "child_ages": [6, 2], "child_genders": ["flicka", "pojke"], "mother_age": 42, "father_age": 43, "factors": ["barnets bästa", "samarbetssvårigheter", "internationell anknytning", "flytt", "påståenden om våld"], "soc": "ja", "vu": "nej", "heard": "nej", "appeal": "fastställd", "cost": 28784, "outcome": "Ensam vårdnad (mor), boende hos mor, trappat umgänge"}, {"id": "HRS_T_2026_0657", "level": "hovrätt", "court": "Svea hovrätt", "origin": "Södertörns tingsrätt", "year": "2026", "winner": "båda", "legal_before": "ensam mor", "legal_after": "gemensam", "res_before": "hos mor", "res_after": "hos mor", "n_children": 2, "child_ages": [10, 7], "child_genders": ["flicka", "flicka"], "mother_age": 36, "father_age": 33, "factors": ["överenskommelse mellan föräldrarna", "barnets bästa", "påståenden om våld", "samarbetssvårigheter"], "soc": "ja", "vu": "ja", "heard": "ja", "appeal": "förlikning", "cost": 86890, "outcome": "Gemensam vårdnad, boende hos mor, trappat umgänge"}, {"id": "HRVS_T_2015_2312", "level": "hovrätt", "court": "Hovrätten för Västra Sverige", "origin": "Vänersborgs tingsrätt", "year": "2015", "winner": "delvis far", "legal_before": "gemensam", "legal_after": "gemensam", "res_before": "hos mor", "res_after": "hos mor", "n_children": 1, "child_ages": [10], "child_genders": ["pojke"], "mother_age": 27, "father_age": 29, "factors": ["barnets bästa", "överenskommelse mellan föräldrarna"], "soc": "nej", "vu": "nej", "heard": "okänt", "appeal": "ändrad", "cost": null, "outcome": "Gemensam vårdnad, boende hos mor, övrigt reglerat umgänge"}, {"id": "HRVS_T_2025_3605", "level": "hovrätt", "court": "Hovrätten för Västra Sverige", "origin": "Göteborgs tingsrätt", "year": "2026", "winner": "far", "legal_before": "ensam mor", "legal_after": "ensam mor", "res_before": "hos mor", "res_after": "hos mor", "n_children": 1, "child_ages": [7], "child_genders": ["flicka"], "mother_age": 34, "father_age": 45, "factors": ["barnets bästa", "barnets egen vilja", "påståenden om våld", "påståenden om missbruk", "socialtjänstens rekommendation", "vårdnadsutredning", "sexual_abuse_allegation"], "soc": "ja", "vu": "ja", "heard": "ja", "appeal": "ändrad", "cost": 30729, "outcome": "Ensam vårdnad (mor), boende hos mor, trappat umgänge"}, {"id": "HRVS_T_2025_3924", "level": "hovrätt", "court": "Hovrätten för Västra Sverige", "origin": "Borås tingsrätt", "year": "2026", "winner": "båda", "legal_before": "ensam far", "legal_after": "gemensam", "res_before": "hos far", "res_after": "hos far", "n_children": 1, "child_ages": [5], "child_genders": ["flicka"], "mother_age": 40, "father_age": 45, "factors": ["överenskommelse mellan föräldrarna", "barnets bästa", "internationell anknytning", "påståenden om våld", "flytt"], "soc": "ja", "vu": "ja", "heard": "nej", "appeal": "ändrad", "cost": 58658, "outcome": "Gemensam vårdnad, boende hos far, videoumgänge / distansumgänge"}, {"id": "HRVS_T_2025_5055", "level": "hovrätt", "court": "Hovrätten för Västra Sverige", "origin": "Göteborgs tingsrätt", "year": "2026", "winner": "delvis far", "legal_before": "ensam mor", "legal_after": "ensam mor", "res_before": "hos mor", "res_after": "hos mor", "n_children": 1, "child_ages": [3], "child_genders": ["flicka"], "mother_age": null, "father_age": 44, "factors": ["påståenden om våld", "påståenden om missbruk", "barnets bästa", "socialtjänstens rekommendation", "vårdnadsutredning", "samarbetssvårigheter", "protected_identity", "abduction_risk_allegation"], "soc": "ja", "vu": "ja", "heard": "nej", "appeal": "ändrad", "cost": 275208, "outcome": "Ensam vårdnad (mor), boende hos mor, trappat umgänge"}, {"id": "HRVS_T_2025_6486", "level": "hovrätt", "court": "Hovrätten för Västra Sverige", "origin": "Göteborgs tingsrätt", "year": "2026", "winner": "ingen", "legal_before": "ensam mor", "legal_after": "ensam mor", "res_before": "hos mor", "res_after": "hos mor", "n_children": 1, "child_ages": [5], "child_genders": ["flicka"], "mother_age": 31, "father_age": 51, "factors": ["sexual_abuse_allegation", "påståenden om våld", "criminal_history", "samarbetssvårigheter", "socialtjänstens rekommendation", "vårdnadsutredning", "barnets bästa", "protected_identity"], "soc": "ja", "vu": "ja", "heard": "nej", "appeal": "delvis ändrad", "cost": 208760, "outcome": "Ensam vårdnad (mor), boende hos mor, umgänge varannan helg"}, {"id": "TRGBG_T_2017_15531", "level": "tingsrätt", "court": "Göteborgs tingsrätt", "origin": "Göteborgs tingsrätt", "year": "2018", "winner": "mor", "legal_before": "ensam mor", "legal_after": "ensam mor", "res_before": "hos mor", "res_after": "hos mor", "n_children": 1, "child_ages": [9], "child_genders": ["flicka"], "mother_age": 44, "father_age": 36, "factors": ["barnets bästa", "internationell anknytning", "överenskommelse mellan föräldrarna", "samarbetssvårigheter", "barnets egen vilja"], "soc": "ja", "vu": "ja", "heard": "ja", "appeal": null, "cost": null, "outcome": "Ensam vårdnad (mor), boende hos mor, videoumgänge / distansumgänge"}, {"id": "TRNTJ_T_2015_0475", "level": "tingsrätt", "court": "Norrtälje tingsrätt", "origin": "Norrtälje tingsrätt", "year": "2016", "winner": "mor", "legal_before": "gemensam", "legal_after": "gemensam", "res_before": "hos mor", "res_after": "hos mor", "n_children": 2, "child_ages": [14, 11], "child_genders": ["flicka", "flicka"], "mother_age": 43, "father_age": 43, "factors": ["samarbetssvårigheter", "barnets bästa", "påståenden om våld", "barnets egen vilja", "psykisk ohälsa"], "soc": "ja", "vu": "ja", "heard": "ja", "appeal": null, "cost": 83248, "outcome": "Gemensam vårdnad, boende hos mor, trappat umgänge"}, {"id": "TRSTH_T_2015_9659", "level": "tingsrätt", "court": "Stockholms tingsrätt", "origin": "Stockholms tingsrätt", "year": "2016", "winner": "mor", "legal_before": "gemensam", "legal_after": "gemensam", "res_before": "hos mor", "res_after": "hos mor", "n_children": 2, "child_ages": [3, 2], "child_genders": ["flicka", "pojke"], "mother_age": null, "father_age": null, "factors": ["barnets bästa", "överenskommelse mellan föräldrarna", "samarbetssvårigheter", "internationell anknytning"], "soc": "nej", "vu": "ja", "heard": "nej", "appeal": null, "cost": null, "outcome": "Gemensam vårdnad, boende hos mor, trappat umgänge"}, {"id": "TRSTN_T_2014_6489", "level": "tingsrätt", "court": "Södertörns tingsrätt", "origin": "Södertörns tingsrätt", "year": "2015", "winner": "båda", "legal_before": "oklart", "legal_after": "gemensam", "res_before": "oklart", "res_after": "växelvis", "n_children": 1, "child_ages": [10], "child_genders": ["flicka"], "mother_age": 36, "father_age": 41, "factors": ["överenskommelse mellan föräldrarna", "barnets bästa"], "soc": "nej", "vu": "nej", "heard": "nej", "appeal": null, "cost": 24313, "outcome": "Gemensam vårdnad, växelvist boende, övrigt reglerat umgänge"}, {"id": "TRVAX_T_2018_1365", "level": "tingsrätt", "court": "Växjö tingsrätt", "origin": "Växjö tingsrätt", "year": "2020", "winner": "far", "legal_before": "gemensam", "legal_after": "gemensam", "res_before": "hos far", "res_after": "hos far", "n_children": 2, "child_ages": [16, 14], "child_genders": ["pojke", "pojke"], "mother_age": 41, "father_age": 41, "factors": ["överenskommelse mellan föräldrarna", "barnets bästa"], "soc": "nej", "vu": "ja", "heard": "nej", "appeal": null, "cost": 44073, "outcome": "Gemensam vårdnad, boende hos far, umgänge varannan helg"}];
+    const PALETTE = [
+      '#2563eb','#db2777','#059669','#d97706','#7c3aed','#0891b2',
+      '#dc2626','#65a30d','#ea580c','#0d9488','#9333ea','#ca8a04',
+      '#1d4ed8','#be185d','#15803d','#b45309','#6d28d9','#0e7490'
+    ];
+    // Stabila färger per etikett — samma kategori har alltid samma färg
+    // i alla diagram (mor=blå, far=rosa, gemensam=grön, osv.).
+    const LABEL_COLOR = {
+      // Vinnare
+      'mor': '#2563eb', 'far': '#db2777', 'båda': '#059669',
+      'ingen': '#6b7280', 'delvis mor': '#60a5fa', 'delvis far': '#f472b6',
+      'ej tillämpligt': '#9ca3af',
+      // Vårdnad
+      'gemensam': '#059669', 'ensam mor': '#2563eb', 'ensam far': '#db2777',
+      'oklart': '#9ca3af',
+      // Boende
+      'hos mor': '#2563eb', 'hos far': '#db2777', 'växelvis': '#059669',
+      'annat': '#7c3aed',
+      // Kön
+      'pojke': '#2563eb', 'flicka': '#db2777',
+      // Bool
+      'ja': '#059669', 'nej': '#dc2626',
+      // Instans
+      'tingsrätt': '#2563eb', 'hovrätt': '#db2777', 'högsta domstolen': '#7c3aed',
+      // Hovrättens utfall
+      'fastställd': '#059669', 'ändrad': '#d97706', 'delvis ändrad': '#fbbf24',
+      'återförvisad': '#7c3aed', 'förlikning': '#0891b2',
+      // Generiska
+      'okänt': '#9ca3af',
+    };
+    function colorFor(label, fallbackIdx) {
+      return LABEL_COLOR[label] || PALETTE[fallbackIdx % PALETTE.length];
+    }
+    const inst = {};
+    const CHART_META = {
+      court_level:      {type: 'pie'},
+      court:            {type: 'barh'},
+      origin_tingsratt: {type: 'barh'},
+      year:             {type: 'line', sort: 'label'},
+      winners:          {type: 'pie'},
+      legal_before:     {type: 'pie'},
+      legal_after:      {type: 'pie'},
+      residence_before: {type: 'pie'},
+      residence_after:  {type: 'pie'},
+      n_children:       {type: 'bar', sort: 'numeric_label'},
+      child_age:        {type: 'bar', sort: 'numeric_label'},
+      child_gender:     {type: 'pie'},
+      mother_age:       {type: 'bar', sort: 'numeric_label'},
+      father_age:       {type: 'bar', sort: 'numeric_label'},
+      factors:          {type: 'barh'},
+      soc:              {type: 'pie'},
+      vu:               {type: 'pie'},
+      heard:            {type: 'pie'},
+      appeal:           {type: 'pie'},
+      outcome:          {type: 'barh'},
+    };
+
+    function tally(items, keyFn) {
+      const m = new Map();
+      for (const x of items) {
+        const k = keyFn(x);
+        if (k == null) continue;
+        m.set(k, (m.get(k) || 0) + 1);
+      }
+      return m;
+    }
+    function histMap(values, w) {
+      const m = new Map();
+      for (const v of values) {
+        if (v == null) continue;
+        const lo = Math.floor(v / w) * w;
+        const k = lo + '-' + (lo + w - 1);
+        m.set(k, (m.get(k) || 0) + 1);
+      }
+      return m;
+    }
+    function sortPairs(map, mode) {
+      const arr = [...map.entries()];
+      if (mode === 'label') arr.sort((a, b) => String(a[0]).localeCompare(String(b[0])));
+      else if (mode === 'numeric_label') arr.sort((a, b) => parseInt(a[0]) - parseInt(b[0]));
+      else arr.sort((a, b) => b[1] - a[1]);
+      return arr;
+    }
+
+    function aggregate(cases) {
+      const m = {
+        court_level:      tally(cases, c => c.level),
+        court:            tally(cases, c => c.court),
+        origin_tingsratt: tally(cases, c => c.origin),
+        year:             tally(cases, c => c.year),
+        winners:          tally(cases, c => c.winner),
+        legal_before:     tally(cases, c => c.legal_before),
+        legal_after:      tally(cases, c => c.legal_after),
+        residence_before: tally(cases, c => c.res_before),
+        residence_after:  tally(cases, c => c.res_after),
+        n_children:       tally(cases.filter(c => c.n_children != null), c => String(c.n_children)),
+        child_age:        histMap(cases.flatMap(c => c.child_ages || []), 5),
+        child_gender:     tally(cases.flatMap(c => c.child_genders || []), x => x),
+        mother_age:       histMap(cases.map(c => c.mother_age), 5),
+        father_age:       histMap(cases.map(c => c.father_age), 5),
+        factors:          tally(cases.flatMap(c => c.factors || []), x => x),
+        soc:              tally(cases, c => c.soc),
+        vu:               tally(cases, c => c.vu),
+        heard:            tally(cases, c => c.heard),
+        appeal:           tally(cases.filter(c => c.appeal), c => c.appeal),
+        outcome:          tally(cases, c => c.outcome),
+      };
+      const out = {};
+      for (const k in m) {
+        const sorted = sortPairs(m[k], CHART_META[k].sort);
+        out[k] = { labels: sorted.map(x => x[0]), data: sorted.map(x => x[1]) };
+      }
+      return out;
+    }
+
+    function destroyAll() {
+      for (const k in inst) { inst[k].destroy(); delete inst[k]; }
+    }
+
+    function chartOptions(meta, isCompare) {
+      const horizontal = meta.type === 'barh';
+      const isPieAsBar = isCompare && meta.type === 'pie';
+      return {
+        responsive: true, maintainAspectRatio: false,
+        indexAxis: horizontal ? 'y' : 'x',
+        plugins: {
+          legend: { display: isCompare || meta.type === 'pie', position: 'bottom' },
+          tooltip: { mode: 'index', intersect: false }
+        },
+        scales: meta.type === 'pie' && !isCompare
+          ? {}
+          : (horizontal
+              ? { x: { beginAtZero: true, ticks: { precision: 0 } } }
+              : { y: { beginAtZero: true, ticks: { precision: 0 } } })
+      };
+    }
+
+    function renderChart(id, key, datasets, labels, isCompare) {
+      const meta = CHART_META[key];
+      const el = document.getElementById(id);
+      if (!el) return;
+      let type = meta.type;
+      if (isCompare && type === 'pie') type = 'bar';
+      if (type === 'barh') type = 'bar';
+      inst[id] = new Chart(el, {
+        type: type === 'line' ? 'line' : type,
+        data: { labels, datasets },
+        options: chartOptions(meta, isCompare)
+      });
+    }
+
+    function renderSingle(filtered) {
+      const agg = aggregate(filtered);
+      for (const key in CHART_META) {
+        const meta = CHART_META[key];
+        const { labels, data } = agg[key];
+        let datasets;
+        if (meta.type === 'pie') {
+          datasets = [{ data, backgroundColor: labels.map((l, i) => colorFor(l, i)) }];
+        } else if (meta.type === 'line') {
+          datasets = [{
+            label: 'Mål', data,
+            borderColor: '#2563eb',
+            backgroundColor: 'rgba(37,99,235,0.15)',
+            fill: true, tension: 0.25, pointRadius: 4
+          }];
+        } else if (meta.type === 'barh') {
+          datasets = [{ label: 'Antal', data, backgroundColor: '#db2777' }];
+        } else {
+          // bar — färglägg per etikett om vi har stabil färg, annars enhetlig accent
+          const colors = labels.map((l, i) => LABEL_COLOR[l] || '#2563eb');
+          datasets = [{ label: 'Antal', data, backgroundColor: colors }];
+        }
+        renderChart('ch_' + key, key, datasets, labels, false);
+      }
+    }
+
+    function renderCompare(courts) {
+      const aggs = courts.map(c => ({
+        court: c,
+        agg: aggregate(ALL.filter(x => x.origin === c)),
+      }));
+      for (const key in CHART_META) {
+        const meta = CHART_META[key];
+        const labelSet = new Set();
+        aggs.forEach(({ agg }) => agg[key].labels.forEach(l => labelSet.add(l)));
+        let labels = [...labelSet];
+        if (meta.sort === 'label') labels.sort((a, b) => String(a).localeCompare(String(b)));
+        else if (meta.sort === 'numeric_label') labels.sort((a, b) => parseInt(a) - parseInt(b));
+        const datasets = aggs.map(({ court, agg }, idx) => {
+          const map = new Map(agg[key].labels.map((l, i) => [l, agg[key].data[i]]));
+          const color = PALETTE[idx % PALETTE.length];
+          if (meta.type === 'line') {
+            return {
+              label: court,
+              data: labels.map(l => map.get(l) || 0),
+              borderColor: color,
+              backgroundColor: color + '33',
+              fill: false, tension: 0.25, pointRadius: 3
+            };
+          }
+          return {
+            label: court,
+            data: labels.map(l => map.get(l) || 0),
+            backgroundColor: color,
+          };
+        });
+        renderChart('ch_' + key, key, datasets, labels, true);
+      }
+    }
+
+    function fmtInt(n) { return n == null ? '–' : Math.round(n).toString(); }
+    function mean(values) {
+      const v = values.filter(x => x != null);
+      if (!v.length) return null;
+      return v.reduce((a, b) => a + b, 0) / v.length;
+    }
+    function median(values) {
+      const v = values.filter(x => x != null).sort((a, b) => a - b);
+      if (!v.length) return null;
+      const m = Math.floor(v.length / 2);
+      return v.length % 2 ? v[m] : (v[m - 1] + v[m]) / 2;
+    }
+
+    function updateKPIs(filtered) {
+      const childAges = filtered.flatMap(c => c.child_ages || []);
+      const motherAges = filtered.map(c => c.mother_age).filter(x => x != null);
+      const fatherAges = filtered.map(c => c.father_age).filter(x => x != null);
+      const costs = filtered.map(c => c.cost).filter(x => x != null);
+      const set = (id, v) => { const e = document.getElementById(id); if (e) e.textContent = v; };
+      set('kpi_total', filtered.length);
+      set('kpi_kids_n', filtered.filter(c => c.n_children != null).length);
+      set('kpi_children', childAges.length);
+      set('kpi_child_age', childAges.length ? (Math.round(mean(childAges) * 10) / 10) : '–');
+      set('kpi_mother_age', motherAges.length ? (Math.round(mean(motherAges) * 10) / 10) : '–');
+      set('kpi_father_age', fatherAges.length ? (Math.round(mean(fatherAges) * 10) / 10) : '–');
+      set('kpi_cost_n', costs.length);
+      set('kpi_cost_mean', costs.length ? fmtInt(mean(costs)) : '–');
+      set('kpi_cost_median', costs.length ? fmtInt(median(costs)) : '–');
+      set('kpi_cost_max', costs.length ? fmtInt(Math.max.apply(null, costs)) : '–');
+    }
+
+    function applyFilter() {
+      const sel = document.getElementById('filter_courts');
+      const compare = document.getElementById('filter_compare').checked;
+      const courts = [...sel.selectedOptions].map(o => o.value);
+      destroyAll();
+      let filtered = ALL;
+      let label = '';
+      if (compare && courts.length >= 2) {
+        filtered = ALL.filter(c => courts.includes(c.origin));
+        renderCompare(courts);
+        const counts = courts.map(c => ALL.filter(x => x.origin === c).length);
+        label = 'Jämför ' + courts.length + ' tingsrätter (' + counts.join(' + ') + ' = ' + filtered.length + ' mål)';
+      } else {
+        if (courts.length > 0) {
+          filtered = ALL.filter(c => courts.includes(c.origin));
+          label = 'Visar ' + filtered.length + ' mål från ' + courts.join(', ');
+        } else {
+          label = 'Visar alla ' + ALL.length + ' mål';
+        }
+        renderSingle(filtered);
+      }
+      document.getElementById('filter_status').textContent = label;
+      updateKPIs(filtered);
+    }
+
+    function clearFilter() {
+      const sel = document.getElementById('filter_courts');
+      [...sel.options].forEach(o => o.selected = false);
+      document.getElementById('filter_compare').checked = false;
+      applyFilter();
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      document.getElementById('filter_courts').addEventListener('change', applyFilter);
+      document.getElementById('filter_compare').addEventListener('change', applyFilter);
+      document.getElementById('filter_clear').addEventListener('click', clearFilter);
+      applyFilter();
+    });
+    
+  </script>
+</body>
+</html>

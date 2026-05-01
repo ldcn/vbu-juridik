@@ -1,0 +1,83 @@
+{
+  "case_id": "HRG_T_2019_0778",
+  "court": "Göta hovrätt",
+  "court_level": "hovrätt",
+  "lower_court": "Norrköpings tingsrätt",
+  "lower_court_case_no": "T 982-18",
+  "ruling_date": "2020-03-03",
+  "saken": "Vårdnad m.m.",
+  "summary": "Pappan överklagade tingsrättens dom (som hade lämnat hans yrkande om ensam vårdnad utan bifall, fastställt boende hos honom och visst umgänge). Mamman framställde yrkande om utökat umgänge. Parterna träffade i hovrätten en överenskommelse om fortsatt gemensam vårdnad, boende hos pappan och utvidgat helg- och lovumgänge för mamman. Hovrätten upphävde tingsrättens domslut (utom rättshjälpsbeslutet) och dömde i enlighet med överenskommelsen då den ansågs förenlig med barnens bästa.",
+  "parents": [
+    {
+      "role": "father",
+      "procedural_role": "klagande",
+      "name_initials": "S.I.",
+      "birth_year": 1981,
+      "age_at_ruling": 38,
+      "nationality": "Syrien",
+      "represented_by_counsel": true
+    },
+    {
+      "role": "mother",
+      "procedural_role": "motpart",
+      "name_initials": "K.M.",
+      "birth_year": 1985,
+      "age_at_ruling": 34,
+      "nationality": "Syrien",
+      "represented_by_counsel": true
+    }
+  ],
+  "children": [
+    {
+      "initials": "G.I.",
+      "birth_year": 2008,
+      "birth_month": 4,
+      "age_at_ruling": 11,
+      "gender": "female"
+    },
+    {
+      "initials": "J.I.",
+      "birth_year": 2009,
+      "birth_month": 11,
+      "age_at_ruling": 10,
+      "gender": "female"
+    }
+  ],
+  "n_children": 2,
+  "custody_before": {
+    "legal_custody": "joint",
+    "residence": "father",
+    "visitation": "Begränsat helg- och lovumgänge enligt tingsrättens dom"
+  },
+  "custody_after": {
+    "legal_custody": "joint",
+    "residence": "father",
+    "visitation": "Vartannat veckoslut (jämna veckor) samt jul-, påsk-, sport-/höstlov och tre veckors sommarumgänge enligt parternas överenskommelse"
+  },
+  "winner": "both",
+  "winner_rationale": "Parterna förlikades i hovrätten; båda fick delvis sina yrkanden tillgodosedda (mamman fick utökat umgänge, pappan behöll boende men fick inte ensam vårdnad).",
+  "key_factors": [
+    "parental_agreement",
+    "child_best_interest",
+    "domestic_violence_allegation",
+    "cooperation_problems",
+    "social_services_recommendation",
+    "vårdnadsutredning",
+    "international_element"
+  ],
+  "social_services_involved": true,
+  "vårdnadsutredning_performed": true,
+  "child_was_heard": true,
+  "appeal_outcome": "modified",
+  "legal_costs_total_sek": 43081,
+  "judges": [
+    "Mats Lundeholm",
+    "Frida Barrstrand",
+    "Sebastian Lindroth"
+  ],
+  "unanimous": true,
+  "notes": "Bakgrund med LVU-placering, tidigare misshandel och växlingar i vårdnaden. Tingsrättens dom från 2019-02-06 (mål T 982-18) bifogad. Förlikning i hovrätten.",
+  "extraction_confidence": "high",
+  "missing_or_unclear_fields": [],
+  "source": "markdown"
+}

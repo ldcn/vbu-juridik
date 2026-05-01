@@ -1,0 +1,72 @@
+{
+  "case_id": "HRS_T_2024_13543",
+  "court": "Svea hovrätt",
+  "court_level": "hovrätt",
+  "lower_court": "Attunda tingsrätt",
+  "lower_court_case_no": "T 8399-23",
+  "ruling_date": "2026-01-14",
+  "saken": "Vårdnad m.m.",
+  "summary": "Modern överklagade Attunda tingsrätts dom som hade beslutat om fortsatt gemensam vårdnad med dottern boende hos modern och umgänge med fadern. Båda föräldrarna yrkade i hovrätten i första hand ensam vårdnad. Modern hade i november 2024, kort efter tingsrättens dom, lämnat Sverige och flyttat till Ohio i USA tillsammans med dotterns två äldre halvsyskon, varefter dottern bott hos fadern och endast haft videokontakt med modern. Hovrätten ändrade tingsrättens dom och tillerkände fadern ensam vårdnad samt fastställde rätt till videoumgänge och successivt utökat fysiskt umgänge med modern i USA, men avslog moderns yrkande om att fadern skulle dela på resekostnaderna.",
+  "parents": [
+    {
+      "role": "mother",
+      "procedural_role": "klagande",
+      "name_initials": "AA",
+      "birth_year": 1984,
+      "age_at_ruling": 41,
+      "nationality": null,
+      "represented_by_counsel": true
+    },
+    {
+      "role": "father",
+      "procedural_role": "motpart",
+      "name_initials": "BB",
+      "birth_year": 1974,
+      "age_at_ruling": 51,
+      "nationality": null,
+      "represented_by_counsel": true
+    }
+  ],
+  "children": [
+    {
+      "initials": "DD",
+      "birth_year": 2022,
+      "birth_month": null,
+      "age_at_ruling": 3,
+      "gender": "female"
+    }
+  ],
+  "n_children": 1,
+  "custody_before": {
+    "legal_custody": "joint",
+    "residence": "mother",
+    "visitation": "Enligt tingsrättens dom umgänge med fadern varannan helg samt vid lov och högtider; faktiskt sedan november 2024 bodde dottern hos fadern och hade endast videokontakt med modern."
+  },
+  "custody_after": {
+    "legal_custody": "sole_father",
+    "residence": "father",
+    "visitation": "Videoumgänge med modern varje fredag och söndag kl. 17.30–18.30. Fysiskt umgänge med modern i USA varje sommar med upptrappning från två veckor 2026 till fem veckor från och med 2030, samt vartannat årsskifte i USA med början 2026/2027. Detaljerade hämtnings- och lämningsregler via Arlanda och Columbus flygplats."
+  },
+  "winner": "father",
+  "winner_rationale": "Fadern fick bifall till sitt förstahandsyrkande om ensam vårdnad och slapp dela på umgängesresekostnaderna. Modern fick avslag på sitt yrkande om ensam vårdnad men tillerkändes utökat video- och semesterumgänge i USA.",
+  "key_factors": [
+    "child_best_interest",
+    "cooperation_problems",
+    "relocation",
+    "social_services_recommendation",
+    "vårdnadsutredning",
+    "international_element",
+    "domestic_violence_allegation"
+  ],
+  "social_services_involved": true,
+  "vårdnadsutredning_performed": true,
+  "child_was_heard": false,
+  "appeal_outcome": "modified",
+  "legal_costs_total_sek": 235465,
+  "judges": ["Viveca Lång", "Karin Annikas Persson", "Frida Östergren", "Glenn Jaasund", "Natalia Ringblom"],
+  "unanimous": true,
+  "notes": "Internationellt ärende: modern flyttade efter tingsrättens dom till Ohio, USA, med dotterns två äldre halvsyskon, vilket var en central omständighet i hovrättens bedömning. Modern uppgav sig förhindrad att resa till Sverige på grund av en (sedermera nedlagd) polisanmälan om olaga hot. Hovrätten tillämpade de nya reglerna i 6 kap. 2 a § föräldrabalken (i kraft 1 januari 2025). Källa: pdftotext.",
+  "extraction_confidence": "high",
+  "missing_or_unclear_fields": ["parents[].nationality", "children[].birth_month"],
+  "source": "pdftotext"
+}

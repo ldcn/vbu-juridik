@@ -1,0 +1,83 @@
+{
+  "case_id": "HRS_T_2018_6361",
+  "court": "Svea hovrätt",
+  "court_level": "hovrätt",
+  "lower_court": "Stockholms tingsrätt",
+  "lower_court_case_no": "T 10661-17",
+  "ruling_date": "2019-01-08",
+  "saken": "Umgänge",
+  "summary": "Tingsrätten förordnade om stegvis upptrappat umgänge med umgängesstöd mellan barnen och fadern. Fadern överklagade och yrkade på obegränsat umgänge. Hovrätten fastställde tingsrättens dom och avvisade faderns yrkande, då barnen hade uttryckt stark rädsla för fadern och mamman hade allvarlig säkerhetssituation.",
+  "parents": [
+    {
+      "role": "mother",
+      "procedural_role": "klagande",
+      "name_initials": "A.A.",
+      "birth_year": 1982,
+      "age_at_ruling": 36,
+      "nationality": "Syrien",
+      "represented_by_counsel": true
+    },
+    {
+      "role": "father",
+      "procedural_role": "motpart",
+      "name_initials": "B.F.",
+      "birth_year": 1965,
+      "age_at_ruling": 53,
+      "nationality": "Syrien",
+      "represented_by_counsel": true
+    }
+  ],
+  "children": [
+    {
+      "initials": "M.F.",
+      "birth_year": 2007,
+      "birth_month": null,
+      "age_at_ruling": 11,
+      "gender": "female"
+    },
+    {
+      "initials": "V.F.",
+      "birth_year": 2011,
+      "birth_month": null,
+      "age_at_ruling": 7,
+      "gender": "female"
+    }
+  ],
+  "n_children": 2,
+  "custody_before": {
+    "legal_custody": "sole_mother",
+    "residence": "mother",
+    "visitation": "Stegvis upptrappat dagumgänge enligt tingsrättens dom"
+  },
+  "custody_after": {
+    "legal_custody": "sole_mother",
+    "residence": "mother",
+    "visitation": null
+  },
+  "winner": "mother",
+  "winner_rationale": "Mamman fick behållit ensam vårdnaden och hovrätten fastställde att umgänge inte skulle ske då barnen hade stark rädsla för fadern och säkerheten för mamman och barnen var hotad.",
+  "key_factors": [
+    "child_own_wishes",
+    "domestic_violence_allegation",
+    "child_best_interest",
+    "cooperation_problems"
+  ],
+  "social_services_involved": true,
+  "vårdnadsutredning_performed": true,
+  "child_was_heard": true,
+  "appeal_outcome": "affirmed",
+  "legal_costs_total_sek": 66867,
+  "judges": [
+    "Kerstin Elserth",
+    "Gunilla Schöldström",
+    "Elisabet Brunlid"
+  ],
+  "unanimous": true,
+  "notes": "Fadern hade tidigare misstänkts för olaga hot och misshandel. Förundersökningen lades ned. Barnen var rädda för fadern. Mamman hade skyddad adress. Falköpings kommun kunde erbjuda umgängesstöd men umgänget kom aldrig till stånd.",
+  "extraction_confidence": "high",
+  "missing_or_unclear_fields": [
+    "children.birth_month",
+    "children.gender_venus"
+  ],
+  "source": "markdown"
+}

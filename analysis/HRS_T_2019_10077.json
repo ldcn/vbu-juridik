@@ -1,0 +1,82 @@
+{
+  "case_id": "HRS_T_2019_10077",
+  "court": "Svea hovrätt",
+  "court_level": "hovrätt",
+  "lower_court": "Södertälje tingsrätt",
+  "lower_court_case_no": "T 1947-18",
+  "ruling_date": "2020-06-17",
+  "saken": "Vårdnad m.m.",
+  "summary": "Tingsrätten förordnade om gemensam vårdnad med boende hos fadern. Mamman överklagade. Hovrätten fastställde tingsrättens dom. Domstolarna fann att samarbetssvårigheterna inte var tillräckligt djupa för att motivera ensam vårdnad för någondera föräldern, och att det fanns risk för att den andra föräldern skulle uteslutas vid ensam vårdnad.",
+  "parents": [
+    {
+      "role": "father",
+      "procedural_role": "klagande",
+      "name_initials": "I.H.",
+      "birth_year": 1989,
+      "age_at_ruling": 30,
+      "nationality": "Tanzania",
+      "represented_by_counsel": true
+    },
+    {
+      "role": "mother",
+      "procedural_role": "motpart",
+      "name_initials": "M.L.",
+      "birth_year": 1984,
+      "age_at_ruling": 35,
+      "nationality": "Tanzania",
+      "represented_by_counsel": true
+    }
+  ],
+  "children": [
+    {
+      "initials": "S.L.H.",
+      "birth_year": 2012,
+      "birth_month": 1,
+      "age_at_ruling": 8,
+      "gender": "male"
+    },
+    {
+      "initials": "S.M.H.",
+      "birth_year": 2016,
+      "birth_month": 3,
+      "age_at_ruling": 4,
+      "gender": "female"
+    }
+  ],
+  "n_children": 2,
+  "custody_before": {
+    "legal_custody": "joint",
+    "residence": "mother",
+    "visitation": "Varannan helg från fredag till söndag enligt tingsrättens interimistiska beslut"
+  },
+  "custody_after": {
+    "legal_custody": "joint",
+    "residence": "father",
+    "visitation": "Varannan helg från fredag till söndag, omfattande lov- och sommarumgänge med mamman"
+  },
+  "winner": "father",
+  "winner_rationale": "Pappan fick behållit gemensam vårdnad och barnen fick bo hos honom. Mamman fick betydande umgänge med barnen.",
+  "key_factors": [
+    "cooperation_problems",
+    "child_best_interest",
+    "social_services_recommendation",
+    "vårdnadsutredning"
+  ],
+  "social_services_involved": true,
+  "vårdnadsutredning_performed": true,
+  "child_was_heard": false,
+  "appeal_outcome": "affirmed",
+  "legal_costs_total_sek": 134467,
+  "judges": [
+    "Mona Wildig",
+    "Sven Johannisson"
+  ],
+  "unanimous": null,
+  "notes": "Mamman hade inte medverkat till att barnen folkbokfördes hos pappan vilket orsakat praktiska svårigheter. LVU-placering hade gjorts då socialtjänsten bedömde att mamman inte kunde tillgodose barnens behov.",
+  "extraction_confidence": "high",
+  "missing_or_unclear_fields": [
+    "judges_full",
+    "unanimous"
+  ],
+  "source": "markdown"
+}

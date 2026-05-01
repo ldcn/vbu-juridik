@@ -1,0 +1,74 @@
+{
+  "case_id": "TRGBG_T_2017_15531",
+  "court": "Göteborgs tingsrätt",
+  "court_level": "tingsrätt",
+  "lower_court": null,
+  "lower_court_case_no": null,
+  "ruling_date": "2018-12-05",
+  "saken": "Vårdnad om barn m.m.",
+  "summary": "Tingsrätten beslutade att dottern, 9 år, fortsatt ska ha sitt boende hos mamman i Göteborg och ensam vårdnad ska tillkomma modern. Fadern, bosatt i Luxemburg, yrkade på ensam vårdnad eller växelvist boende i Luxemburg. Tingsrätten avslog detta då fadern tidigare dömts för egenmäktighet med barn, och fann att dottern, trots sin önskan att bo hos pappan, inte var tillräckligt mogen att fatta sådant beslut. Umgänget reglerades omfattande med flera perioder per år.",
+  "parents": [
+    {
+      "role": "father",
+      "procedural_role": "kärande",
+      "name_initials": "M.B.",
+      "birth_year": 1981,
+      "age_at_ruling": 36,
+      "nationality": "Luxembourg",
+      "represented_by_counsel": true
+    },
+    {
+      "role": "mother",
+      "procedural_role": "svarande",
+      "name_initials": "M.J.",
+      "birth_year": 1974,
+      "age_at_ruling": 44,
+      "nationality": null,
+      "represented_by_counsel": true
+    }
+  ],
+  "children": [
+    {
+      "initials": "E.J.",
+      "birth_year": 2009,
+      "birth_month": 5,
+      "age_at_ruling": 9,
+      "gender": "female"
+    }
+  ],
+  "n_children": 1,
+  "custody_before": {
+    "legal_custody": "sole_mother",
+    "residence": "mother",
+    "visitation": "Omfattande umgänge flera gånger per år"
+  },
+  "custody_after": {
+    "legal_custody": "sole_mother",
+    "residence": "mother",
+    "visitation": "Tre gånger per år (mars/april, maj, september), första helgerna; månatliga helger i Sverige; omfattande lovumgänge från första helgen varje månad torsdag till söndag; Skypeumgänge torsdagar och söndagar; sommaren fyra veckor från vecka 28-32"
+  },
+  "winner": "mother",
+  "winner_rationale": "Mamman fick bifall till sitt yrkande att behålla ensam vårdnad och att dottern fortsatt ska bo hos henne. Tingsrätten ansåg att dotterns påstådda vilja att bo hos pappan i Luxemburg var påverkad av honom och att ett barn på 9 år inte kan fatta sådana omfattande beslut.",
+  "key_factors": [
+    "child_best_interest",
+    "international_element",
+    "parental_agreement",
+    "cooperation_problems",
+    "child_own_wishes"
+  ],
+  "social_services_involved": true,
+  "vårdnadsutredning_performed": true,
+  "child_was_heard": true,
+  "appeal_outcome": "n_a",
+  "legal_costs_total_sek": null,
+  "judges": [
+    "Caroline Björne"
+  ],
+  "unanimous": false,
+  "notes": "Fadern dömdes 2015 för egenmäktighet med barn då han förde dottern till Luxemburg och höll henne där från dec 2013 till april 2014. Två nämndemän ansåg dock att gemensam vårdnad var möjlig och en nämndeman ville ge fadern ensam vårdnad för att dottern kunde få bo i Luxemburg. Elin uttryckte från 4-årsåldern vilja att bo hos pappan, men utredarna bedömde att hennes vilja var påverkad av hans önskan.",
+  "extraction_confidence": "medium",
+  "missing_or_unclear_fields": [
+    "legal_costs_total_sek"
+  ],
+  "source": "txt"
+}

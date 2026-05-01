@@ -1,0 +1,77 @@
+{
+  "case_id": "HRS_T_2014_6311",
+  "court": "Svea hovrätt",
+  "court_level": "hovrätt",
+  "lower_court": "Södertälje tingsrätt",
+  "lower_court_case_no": "T 435-12",
+  "ruling_date": "2015-03-03",
+  "saken": "Vårdnad m.m.",
+  "summary": "Tingsrätten tillerkände mamman ensam vårdnad om sonen då föräldrarnas samarbetssvårigheter var omfattande. Pappan överklagade. Hovrätten upprätthöll ensam vårdnad för mamman men ändrade umgänget enligt överenskommelse mellan parterna. Sonen tillerkändes umgänge med pappan i form av längre perioder under somrarna och kortare besök under året, med resor till Estland.",
+  "parents": [
+    {
+      "role": "father",
+      "procedural_role": "klagande",
+      "name_initials": "M.A.",
+      "birth_year": 1977,
+      "age_at_ruling": 38,
+      "nationality": "Estland",
+      "represented_by_counsel": true
+    },
+    {
+      "role": "mother",
+      "procedural_role": "motpart",
+      "name_initials": "W.K.",
+      "birth_year": 1985,
+      "age_at_ruling": 29,
+      "nationality": "Thailand",
+      "represented_by_counsel": true
+    }
+  ],
+  "children": [
+    {
+      "initials": "A.",
+      "birth_year": 2008,
+      "birth_month": 7,
+      "age_at_ruling": 6,
+      "gender": "female"
+    }
+  ],
+  "n_children": 1,
+  "custody_before": {
+    "legal_custody": "sole_mother",
+    "residence": "mother",
+    "visitation": "Mycket begränsat umgänge i närvaro av umgängesstöd enligt tingsrättens dom"
+  },
+  "custody_after": {
+    "legal_custody": "sole_mother",
+    "residence": "mother",
+    "visitation": "Umgänge varannan månad med början våren 2015, två veckor sommaren 2015, därefter två veckors sammanhängande umgänge varje sommar från 2016. Resor till Estland genomfördes genom att mamman reste med sonen."
+  },
+  "winner": "both",
+  "winner_rationale": "Parterna nådde överenskommelse vid huvudförhandlingen i hovrätten. Mamman behöll ensam vårdnad som hon yrkade, medan pappan fick betydligt utökat umgänge jämfört med tingsrättens beslut.",
+  "key_factors": [
+    "cooperation_problems",
+    "child_best_interest",
+    "domestic_violence_allegation",
+    "substance_abuse_allegation",
+    "international_element",
+    "relocation"
+  ],
+  "social_services_involved": true,
+  "vårdnadsutredning_performed": true,
+  "child_was_heard": null,
+  "appeal_outcome": "modified",
+  "legal_costs_total_sek": 26458,
+  "judges": [
+    "Jan Öhman",
+    "Annika Åkerlind",
+    "Lina Cajvert",
+    "Catharina Ingvarsson",
+    "Nemanja Kovavevic"
+  ],
+  "unanimous": true,
+  "notes": "Internationell element: pappan är estnisk medborgare och hade avtjänat fängelsestraff. Det förekom uppgifter om våld och hot från pappans sida under förhållandet. Barnet diagnosticerades med autism. Migrationsverket hade utvisningsbeslut mot både pappan och mamman. Umgänget skulle utövas genom att mamman reste till Estland med barnet.",
+  "extraction_confidence": "high",
+  "missing_or_unclear_fields": [],
+  "source": "markdown"
+}

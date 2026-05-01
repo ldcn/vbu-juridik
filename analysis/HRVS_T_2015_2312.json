@@ -1,0 +1,71 @@
+{
+  "case_id": "HRVS_T_2015_2312",
+  "court": "Hovrätten för Västra Sverige",
+  "court_level": "hovrätt",
+  "lower_court": "Vänersborgs tingsrätt",
+  "lower_court_case_no": "T 1163-14",
+  "ruling_date": "2015-08-10",
+  "saken": "Umgänge med barn",
+  "summary": "Tingsrätten hade förordnat om umgänge mellan sonen och hans far från fredag eftermiddag till söndag eftermiddag var tredje vecka. Fadern yrkade på utökat umgänge från lördag förmiddag i stället för fredag eftermiddag för att undvika kvällstågresa. Hovrätten fann att ett växelvis umgänge var tredje vecka bör omfatta så lång tid som möjligt och förordnade om umgänge från lördag förmiddag till söndag eftermiddag.",
+  "parents": [
+    {
+      "role": "father",
+      "procedural_role": "klagande",
+      "name_initials": "D.G.",
+      "birth_year": 1986,
+      "age_at_ruling": 29,
+      "nationality": null,
+      "represented_by_counsel": true
+    },
+    {
+      "role": "mother",
+      "procedural_role": "motpart",
+      "name_initials": "S.T.O.",
+      "birth_year": 1988,
+      "age_at_ruling": 27,
+      "nationality": null,
+      "represented_by_counsel": true
+    }
+  ],
+  "children": [
+    {
+      "initials": "V.G.",
+      "birth_year": 2005,
+      "birth_month": 5,
+      "age_at_ruling": 10,
+      "gender": "male"
+    }
+  ],
+  "n_children": 1,
+  "custody_before": {
+    "legal_custody": "joint",
+    "residence": "mother",
+    "visitation": "Fredag eftermiddag till söndag eftermiddag var tredje vecka"
+  },
+  "custody_after": {
+    "legal_custody": "joint",
+    "residence": "mother",
+    "visitation": "Lördag förmiddag till söndag eftermiddag var tredje vecka, med start 22 augusti 2015"
+  },
+  "winner": "partial_father",
+  "winner_rationale": "Fadern fick delvis bifall till sitt yrkande genom att umgänget förordnades från lördag förmiddag istället för fredag eftermiddag, vilket möjliggör en morgontågresa för sonen.",
+  "key_factors": [
+    "child_best_interest",
+    "parental_agreement"
+  ],
+  "social_services_involved": false,
+  "vårdnadsutredning_performed": false,
+  "child_was_heard": null,
+  "appeal_outcome": "modified",
+  "legal_costs_total_sek": null,
+  "judges": [
+    "Henrik Winman",
+    "Gunnel Alenbratt",
+    "Bengt von Reis"
+  ],
+  "unanimous": true,
+  "notes": "Parterna var överens om gemensam vårdnad och sonens boende hos mamman. Oenigheten avgjordes enbart gällande tidpunkten för umgängenas början. Tågresor mellan parternas orter var ett praktiskt hinder.",
+  "extraction_confidence": "high",
+  "missing_or_unclear_fields": [],
+  "source": "txt"
+}

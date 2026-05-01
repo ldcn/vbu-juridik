@@ -1,0 +1,78 @@
+{
+  "case_id": "HRS_T_2018_5222",
+  "court": "Svea hovrätt",
+  "court_level": "hovrätt",
+  "lower_court": "Södertälje tingsrätt",
+  "lower_court_case_no": "T 102-17",
+  "ruling_date": "2018-12-21",
+  "saken": "Vårdnad m.m.",
+  "summary": "Fadern överklagade tingsrättens dom som tillerkänt modern ensam vårdnad. Hovrätten fastställde ensam vårdnad för modern men utökade betydligt umgänget för fadern från sex timmar varannan vecka till omfattande helg- och lovumgänge. Barnen växer upp i olika städer, fadern i Södertälje, modern och barn i Göteborg.",
+  "parents": [
+    {
+      "role": "father",
+      "procedural_role": "klagande",
+      "name_initials": "Z.B.",
+      "birth_year": 1978,
+      "age_at_ruling": 40,
+      "nationality": null,
+      "represented_by_counsel": true
+    },
+    {
+      "role": "mother",
+      "procedural_role": "motpart",
+      "name_initials": "I.B.",
+      "birth_year": 1980,
+      "age_at_ruling": 38,
+      "nationality": null,
+      "represented_by_counsel": true
+    }
+  ],
+  "children": [
+    {
+      "initials": "M.",
+      "birth_year": 2011,
+      "birth_month": 3,
+      "age_at_ruling": 7,
+      "gender": "male"
+    },
+    {
+      "initials": "M.",
+      "birth_year": 2013,
+      "birth_month": 7,
+      "age_at_ruling": 5,
+      "gender": "female"
+    }
+  ],
+  "n_children": 2,
+  "custody_before": {
+    "legal_custody": "sole_mother",
+    "residence": "mother",
+    "visitation": "Varannan lördag-söndag jämna veckor kl. 11-16 (totalt 10 timmar varannan vecka), plus umgänge via Skype varannan söndag och varje onsdag"
+  },
+  "custody_after": {
+    "legal_custody": "sole_mother",
+    "residence": "mother",
+    "visitation": "Utökad: helg i Göteborg varannan vecka 23-24 feb, 9-10 mars, 23-24 mars, 5-7 april, sedan varannan fredag-söndag i Södertälje från maj, plus en vecka sommaren 2019, plus lovumgänge"
+  },
+  "winner": "partial_mother",
+  "winner_rationale": "Modern behöll ensam vårdnad som hon hade från tingsrätten, men fadern fick sitt yrkande om utökat umgänge delvis bifallet.",
+  "key_factors": [
+    "child_best_interest",
+    "cooperation_problems",
+    "domestic_violence_allegation"
+  ],
+  "social_services_involved": true,
+  "vårdnadsutredning_performed": true,
+  "child_was_heard": false,
+  "appeal_outcome": "modified",
+  "legal_costs_total_sek": null,
+  "judges": [
+    "Sven Johannisson",
+    "Lars Olsson"
+  ],
+  "unanimous": false,
+  "notes": "Gemensam vårdnad var utesluten enligt hovrätten. Barnen växer upp långt från fadern vilket påverkar umgängesomfattningen. Nämndemännen var skiljaktiga och menade att gemensam vårdnad skulle gälla.",
+  "extraction_confidence": "high",
+  "missing_or_unclear_fields": [],
+  "source": "txt"
+}

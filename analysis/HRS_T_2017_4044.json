@@ -1,0 +1,91 @@
+{
+  "case_id": "HRS_T_2017_4044",
+  "court": "Svea hovrätt",
+  "court_level": "hovrätt",
+  "lower_court": "Södertälje tingsrätt",
+  "lower_court_case_no": "T 1164-16",
+  "ruling_date": "2018-01-30",
+  "saken": "Umgänge",
+  "summary": "Hovrätten ändrade tingsrättens dom om umgänge för två av tre barn. För det äldsta barnet (12 år) upphävdes umgänge helt enligt hans egen vilja. För de två yngre barnen (10 och 5 år) förordnade hovrätten om gradvis upptrappat umgänge med stöd trots att socialtjänsten inte rekommenderade det utan att fadern skapat insikt.",
+  "parents": [
+    {
+      "role": "father",
+      "procedural_role": "klagande",
+      "name_initials": "B.H.",
+      "birth_year": 1971,
+      "age_at_ruling": 46,
+      "nationality": "Irak",
+      "represented_by_counsel": true
+    },
+    {
+      "role": "mother",
+      "procedural_role": "motpart",
+      "name_initials": "I.S.",
+      "birth_year": 1979,
+      "age_at_ruling": 38,
+      "nationality": "Irak",
+      "represented_by_counsel": true
+    }
+  ],
+  "children": [
+    {
+      "initials": "F.",
+      "birth_year": 2008,
+      "birth_month": null,
+      "age_at_ruling": 9,
+      "gender": null
+    },
+    {
+      "initials": "R.",
+      "birth_year": 2007,
+      "birth_month": 9,
+      "age_at_ruling": 10,
+      "gender": "female"
+    },
+    {
+      "initials": "V.",
+      "birth_year": 2012,
+      "birth_month": 8,
+      "age_at_ruling": 5,
+      "gender": "male"
+    }
+  ],
+  "n_children": 3,
+  "custody_before": {
+    "legal_custody": "sole_mother",
+    "residence": "mother",
+    "visitation": "Inget umgänge enligt tingsrättens dom"
+  },
+  "custody_after": {
+    "legal_custody": "sole_mother",
+    "residence": "mother",
+    "visitation": "Lorans: ingen kontakt. Rinos och Valenttina: gradvis upptrappat umgänge - två timmar varannan lördag med stöd (nio tillfällen), fyra timmar med stöd (sex tillfällen), fyra timmar utan stöd (nio tillfällen), därefter varannan lördag 10:00-18:00 vid biblioteket."
+  },
+  "winner": "partial_father",
+  "winner_rationale": "Faderns yrkande om umgänge för barnen fick delvis bifall för de två yngre barnen men avslogs helt för det äldsta barnet enligt dennes vilja.",
+  "key_factors": [
+    "domestic_violence_allegation",
+    "child_best_interest",
+    "child_own_wishes",
+    "cooperation_problems",
+    "vårdnadsutredning",
+    "social_services_recommendation"
+  ],
+  "social_services_involved": true,
+  "vårdnadsutredning_performed": true,
+  "child_was_heard": true,
+  "appeal_outcome": "modified",
+  "legal_costs_total_sek": 82000,
+  "judges": [
+    "Mona Wildig",
+    "Marianne Lishajko"
+  ],
+  "unanimous": false,
+  "notes": "Barnen hade omhändertages 2015 på grund av våld från båda föräldrarna. Fadern förnekar sin del i situationen och har inte genomgått behandling, vilket utredarna ursprungligen såg som hinder för umgänge. Hovrätten bedömde dock att två och ett halvt år hade förflutit och att gradvis upptrappat umgänge var lämpligt för de två yngre barnen. Nämndemannen var skiljaktig och ansåg att umgänge inte borde regleras i dom men i stället påbörjas när barnen och modern var redo.",
+  "extraction_confidence": "medium",
+  "missing_or_unclear_fields": [
+    "children.birth_month (Frans)",
+    "children.gender (alla)"
+  ],
+  "source": "txt"
+}

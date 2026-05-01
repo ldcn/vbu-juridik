@@ -1,0 +1,88 @@
+{
+  "case_id": "HRG_T_2025_2619",
+  "court": "Göta hovrätt",
+  "court_level": "hovrätt",
+  "lower_court": "Jönköpings tingsrätt",
+  "ruling_date": "2026-04-16",
+  "saken": "Vårdnad m.m.",
+  "summary": "Modern överklagade tingsrättens dom om fortsatt gemensam vårdnad om parternas tre barn (varav två är tvillingar) och yrkade ensam vårdnad. Modern, ursprungligen från Nordmakedonien, och fadern, ursprungligen från Bulgarien, har en lång konfliktfylld relation där modern och barnen tidigare bott i skyddat boende. Vårdnadsutredningen rekommenderade ensam vårdnad till modern. Hovrätten ändrade tingsrättens dom och tillerkände modern ensam vårdnad. Hovrätten beslutade om videoumgänge varje onsdag samt fysiskt umgänge en lördag i månaden från och med 2026. Risken för att barnen far illa vid gemensam vårdnad och föräldrarnas oförmåga att samarbeta var avgörande.",
+  "parents": [
+    {
+      "label": "AA",
+      "role": "mother",
+      "birth_year": 1989,
+      "age_at_ruling": 37,
+      "represented_by_counsel": true,
+      "legal_aid": true,
+      "appellant": true
+    },
+    {
+      "label": "BB",
+      "role": "father",
+      "birth_year": 1984,
+      "age_at_ruling": 42,
+      "represented_by_counsel": true,
+      "legal_aid": false,
+      "appellant": false
+    }
+  ],
+  "children": [
+    {
+      "label": "CC",
+      "birth_year": 2016,
+      "age_at_ruling": 10,
+      "gender": null
+    },
+    {
+      "label": "DD",
+      "birth_year": 2016,
+      "age_at_ruling": 10,
+      "gender": null
+    },
+    {
+      "label": "EE",
+      "birth_year": 2017,
+      "age_at_ruling": 9,
+      "gender": null
+    }
+  ],
+  "n_children": 3,
+  "custody_before": {
+    "type": "joint",
+    "residence": "mother",
+    "visitation": "regulated"
+  },
+  "custody_after": {
+    "type": "sole_mother",
+    "residence": "mother",
+    "visitation": "regulated"
+  },
+  "winner": "mother",
+  "winner_rationale": "Hovrätten ändrade tingsrättens dom och tillerkände modern ensam vårdnad i enlighet med hennes yrkande. Fadern fick visserligen viss rätt till video- och fysiskt umgänge men förlorade i den centrala vårdnadsfrågan.",
+  "key_factors": [
+    "domestic_violence_allegation",
+    "cooperation_problems",
+    "international_element",
+    "social_services_recommendation",
+    "vårdnadsutredning",
+    "child_best_interest"
+  ],
+  "social_services_involved": true,
+  "vårdnadsutredning_performed": true,
+  "child_was_heard": true,
+  "appeal_outcome": "modified",
+  "legal_costs_total_sek": 243520,
+  "judges": [
+    "Linda Hallstedt",
+    "Rebecca Hjälmarö",
+    "Maria Robinson"
+  ],
+  "unanimous": true,
+  "notes": "Båda föräldrarna har utländsk bakgrund. Modern och barnen bodde i skyddat boende under en period. Två av barnen är tvillingar födda 2016. Barnens kön framgår inte entydigt av materialet. I rätten deltog även nämndemännen Ove Dahl och Sofia Cronholm.",
+  "source": "pdftotext",
+  "extraction_confidence": "high",
+  "missing_or_unclear_fields": [
+    "children genders"
+  ],
+  "lower_court_case_no": "T 1602-24"
+}

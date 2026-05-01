@@ -1,0 +1,84 @@
+{
+  "case_id": "HRNN_T_2025_1291",
+  "court": "Hovrätten för Nedre Norrland",
+  "court_level": "hovrätt",
+  "lower_court": "Sundsvalls tingsrätt",
+  "ruling_date": "2026-02-20",
+  "saken": "Vårdnad m.m.",
+  "summary": "Båda föräldrarna överklagade tingsrättens dom om fortsatt gemensam vårdnad om dottern (född 2016) och sonen (född 2019). Modern, ursprungligen från Spanien, yrkade ensam vårdnad. Fadern, ursprungligen från Albanien, yrkade i andra hand ensam vårdnad och utökat umgänge. Hovrätten inhämtade en kompletterande vårdnadsutredning. Barnen har återkommande berättat om våld från fadern och en polisutredning pågår avseende en händelse i december 2025. Hovrätten fann att fadern visat ett gränslöst beteende, dragit in barnen i föräldrarnas konflikt och saknar verktyg att bemöta dem på ett omdömesgillt sätt. Bedömningen var att det finns en risk att barnen far illa hos fadern. Tingsrättens bedömning att modern skulle föra bort barnen till utlandet delades inte. Hovrätten ändrade tingsrättens dom och tillerkände modern ensam vårdnad samt avslog faderns umgängesyrkande, så att umgänget lämnades oreglerat.",
+  "parents": [
+    {
+      "label": "AA",
+      "role": "mother",
+      "birth_year": 1983,
+      "age_at_ruling": 43,
+      "represented_by_counsel": true,
+      "legal_aid": false,
+      "appellant": true
+    },
+    {
+      "label": "BB",
+      "role": "father",
+      "birth_year": 1990,
+      "age_at_ruling": 36,
+      "represented_by_counsel": true,
+      "legal_aid": false,
+      "appellant": true
+    }
+  ],
+  "children": [
+    {
+      "label": "CC",
+      "birth_year": 2016,
+      "age_at_ruling": 10,
+      "gender": "female"
+    },
+    {
+      "label": "DD",
+      "birth_year": 2019,
+      "age_at_ruling": 7,
+      "gender": "male"
+    }
+  ],
+  "n_children": 2,
+  "custody_before": {
+    "type": "joint",
+    "residence": "mother",
+    "visitation": "regulated"
+  },
+  "custody_after": {
+    "type": "sole_mother",
+    "residence": "mother",
+    "visitation": "unregulated"
+  },
+  "winner": "mother",
+  "winner_rationale": "Hovrätten ändrade tingsrättens dom och tillerkände modern ensam vårdnad i enlighet med hennes förstahandsyrkande. Faderns umgängesyrkande avslogs och umgänget lämnades oreglerat. Hovrätten bedömde också att det inte fanns någon konkret risk för att modern skulle föra bort barnen, till skillnad från tingsrätten.",
+  "key_factors": [
+    "domestic_violence_allegation",
+    "mental_health",
+    "cooperation_problems",
+    "international_element",
+    "social_services_recommendation",
+    "vårdnadsutredning",
+    "child_best_interest",
+    "child_own_wishes"
+  ],
+  "social_services_involved": true,
+  "vårdnadsutredning_performed": true,
+  "child_was_heard": true,
+  "appeal_outcome": "modified",
+  "legal_costs_total_sek": null,
+  "judges": [
+    "Fredrik Johnsson",
+    "Chris Stattin-Larsson",
+    "Tomi Blumén"
+  ],
+  "unanimous": true,
+  "notes": "Vardera parten ska bära sin egen rättegångskostnad i hovrätten. Modern och barnen har tidigare bott i skyddat boende. Polisutredning pågår mot fadern. Modern har PTSD och har varit sjukskriven. I rätten deltog även nämndemännen Stefan Fax och Anette Rangdag.",
+  "source": "pdftotext",
+  "extraction_confidence": "high",
+  "missing_or_unclear_fields": [
+    "legal_costs_total_sek (vardera parten står sin egen kostnad; totalbelopp anges inte i domen)"
+  ],
+  "lower_court_case_no": "T 2040-24"
+}

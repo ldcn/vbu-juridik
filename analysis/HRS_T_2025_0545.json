@@ -1,0 +1,93 @@
+{
+  "case_id": "HRS_T_2025_0545",
+  "court": "Svea hovrätt",
+  "court_level": "hovrätt",
+  "lower_court": "Uppsala tingsrätt",
+  "lower_court_case_no": "T 2837-24",
+  "ruling_date": "2026-02-25",
+  "saken": "Umgänge med barn",
+  "summary": "Modern överklagade tingsrättens dom om umgänge mellan fadern och de fyra gemensamma barnen (två söner 13 och 12 år samt tvillingar 8 år). Modern yrkade att fysiskt umgänge för de två äldsta barnen skulle upphävas och att umgänget för tvillingarna skulle begränsas till korta dagumgängen, medan fadern motsatte sig ändring. Hovrätten ändrade tingsrättens dom så att de två äldsta endast får videoumgänge med fadern, mot bakgrund av deras ålder, mognad och uttryckta motvilja, samtidigt som tvillingarna får ett upptrappat fysiskt umgänge inklusive helger med övernattning och sommarumgänge. Avgörande för bedömningen var barnens bästa enligt 6 kap. 2 a § föräldrabalken efter lagändringen 1 januari 2025, där de äldsta barnens vilja gavs stor betydelse medan tvillingarnas behov av nära och god kontakt med båda föräldrarna vägde tyngre än moderns invändningar.",
+  "parents": [
+    {
+      "role": "mother",
+      "procedural_role": "klagande",
+      "name_initials": "AA",
+      "birth_year": 1986,
+      "age_at_ruling": 39,
+      "nationality": "Eritrea",
+      "represented_by_counsel": true
+    },
+    {
+      "role": "father",
+      "procedural_role": "motpart",
+      "name_initials": "CC",
+      "birth_year": 1978,
+      "age_at_ruling": 47,
+      "nationality": "Eritrea",
+      "represented_by_counsel": true
+    }
+  ],
+  "children": [
+    {
+      "initials": "DD",
+      "birth_year": 2012,
+      "birth_month": null,
+      "age_at_ruling": 13,
+      "gender": "male"
+    },
+    {
+      "initials": "EE",
+      "birth_year": 2013,
+      "birth_month": null,
+      "age_at_ruling": 12,
+      "gender": "male"
+    },
+    {
+      "initials": "FF",
+      "birth_year": 2017,
+      "birth_month": null,
+      "age_at_ruling": 8,
+      "gender": null
+    },
+    {
+      "initials": "GG",
+      "birth_year": 2017,
+      "birth_month": null,
+      "age_at_ruling": 8,
+      "gender": "male"
+    }
+  ],
+  "n_children": 4,
+  "custody_before": {
+    "legal_custody": "joint",
+    "residence": "mother",
+    "visitation": "Enligt tingsrättens dom: fysiskt helgumgänge varannan helg (ojämna veckor) med upptrappning till två övernattningar, videoumgänge tisdag/onsdag samt varannan söndag, och två veckors sommarumgänge — gällande samtliga fyra barn. Hämtning och lämning på Uppsala centralstation."
+  },
+  "custody_after": {
+    "legal_custody": "joint",
+    "residence": "mother",
+    "visitation": "För de två äldsta barnen (sönerna 13 och 12 år): endast videoumgänge enligt tingsrättens punkt 2 b. För tvillingarna (8 år): upptrappat fysiskt umgänge varannan söndag (först 14–16, sedan 12–18, sedan lördag–söndag, slutligen fredag–söndag) plus två veckors sommarumgänge från och med 2027 samt fortsatt videoumgänge. Hämtning och lämning inledningsvis vid moderns bostad, därefter på Uppsala centralstation."
+  },
+  "winner": "partial_mother",
+  "winner_rationale": "Modern fick bifall till att det fysiska umgänget mellan fadern och de två äldsta sönerna skulle upphävas, men förlorade beträffande tvillingarna där hovrätten beslutade om mer omfattande fysiskt umgänge än hon yrkat.",
+  "key_factors": [
+    "child_best_interest",
+    "child_own_wishes",
+    "cooperation_problems",
+    "social_services_recommendation",
+    "vårdnadsutredning",
+    "domestic_violence_allegation",
+    "international_element"
+  ],
+  "social_services_involved": true,
+  "vårdnadsutredning_performed": true,
+  "child_was_heard": true,
+  "appeal_outcome": "modified",
+  "legal_costs_total_sek": 132927,
+  "judges": ["Maria Hölcke", "Therese Linderoth", "Christina Åqvist", "Mattias Albinsson", "Paraskevi Karazissi"],
+  "unanimous": true,
+  "notes": "Hovrätten tillämpar uttryckligen den nya lydelsen av 6 kap. 2 a § föräldrabalken (1 januari 2025) och hänvisar till prop. 2024/25:10 s. 75 om att behovet av kontakt med båda föräldrarna inte längre uttryckligen ska vägas mot risken för att barnet far illa. Familjen kommer ursprungligen från Eritrea; barnen och modern flyttade till Sverige 2018, fadern 2021. Tingsrätten betonade boendeförälderns ansvar att uppmuntra umgänge och varnade för att fortsatta brister kunde göra modern olämplig som vårdnadshavare. Vaga våldspåståenden mot båda föräldrar förekom i utredningen men ledde inte till åtal. Boende- och umgängesutredning enligt 6 kap. 19 § FB samt snabbupplysningar har inhämtats; det yngre barnet (12 år) har hörts genom snabbupplysning, medan det äldre barnet (13 år) vägrat samtal. Rättshjälpskostnader: 50 173 kr respektive 82 754 kr.",
+  "extraction_confidence": "high",
+  "missing_or_unclear_fields": ["children[2].gender", "children[0].birth_month", "children[1].birth_month", "children[2].birth_month", "children[3].birth_month"],
+  "source": "pdftotext"
+}

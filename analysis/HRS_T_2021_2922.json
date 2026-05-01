@@ -1,0 +1,81 @@
+{
+  "case_id": "HRS_T_2021_2922",
+  "court": "Svea hovrätt",
+  "court_level": "hovrätt",
+  "lower_court": "Attunda tingsrätt",
+  "lower_court_case_no": "T 1090-20",
+  "ruling_date": "2021-09-29",
+  "saken": "Umgänge med barn",
+  "summary": "Tingsrätten hade förordnat om umgänge mellan dottern och hennes pappa varannan vecka från onsdag till måndag. Efter domen framkom att dottern helt motsatte sig umgänget och uppgav att hon var rädd för fadern, som ofta var aggressiv och utövade påtryckningar på henne. Hovrätten ändrade och upphävde umgängesförordnandet då dotterns tydliga vilja, som en närmande 15-åring, måste bli utslagsgivande. Ett framtvingat umgänge skulle enligt hovrätten kunna verkställas endast under tvång.",
+  "parents": [
+    {
+      "role": "father",
+      "procedural_role": "klagande",
+      "name_initials": "T.L.",
+      "birth_year": 1969,
+      "age_at_ruling": 52,
+      "nationality": null,
+      "represented_by_counsel": true
+    },
+    {
+      "role": "mother",
+      "procedural_role": "motpart",
+      "name_initials": "M.M.L.",
+      "birth_year": 1971,
+      "age_at_ruling": 50,
+      "nationality": null,
+      "represented_by_counsel": true
+    }
+  ],
+  "children": [
+    {
+      "initials": "M.L.",
+      "birth_year": 2006,
+      "birth_month": 11,
+      "age_at_ruling": 15,
+      "gender": "female"
+    },
+    {
+      "initials": "A.L.",
+      "birth_year": 2009,
+      "birth_month": 4,
+      "age_at_ruling": 12,
+      "gender": "female"
+    }
+  ],
+  "n_children": 2,
+  "custody_before": {
+    "legal_custody": "sole_mother",
+    "residence": "mother",
+    "visitation": "Varje jämn vecka från onsdag efter skolans slut till påföljande måndag före skoldagens början, jämte lov- och storhelgsumgänge"
+  },
+  "custody_after": {
+    "legal_custody": "sole_mother",
+    "residence": "mother",
+    "visitation": null
+  },
+  "winner": "mother",
+  "winner_rationale": "Mamman fick bifall till sitt yrkande att upphäva umgängesförordnandet då dotterns bestämda vilja att inte träffa sin pappa ansågs avgörande för hennes bästa.",
+  "key_factors": [
+    "child_own_wishes",
+    "domestic_violence_allegation",
+    "child_best_interest",
+    "cooperation_problems",
+    "mental_health"
+  ],
+  "social_services_involved": true,
+  "vårdnadsutredning_performed": false,
+  "child_was_heard": false,
+  "appeal_outcome": "modified",
+  "legal_costs_total_sek": null,
+  "judges": [
+    "Christina Brobacke",
+    "Gunilla Schöldström",
+    "Axel Zacharoff"
+  ],
+  "unanimous": true,
+  "notes": "Dottern uppgav att fadern var aggressiv, arg, kränkande och utövade påtryckningar på henne. Efter tingsrättens dom framkom nya uppgifter via socialutredning om att dottern inte ville träffa fadern. Hovrätten konstaterade att dotterns filmade umgängestillfällen med fadern visade tydlig press på barnet.",
+  "extraction_confidence": "high",
+  "missing_or_unclear_fields": [],
+  "source": "txt"
+}

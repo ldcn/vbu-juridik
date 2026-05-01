@@ -1,0 +1,79 @@
+{
+  "case_id": "HRS_T_2018_12346",
+  "court": "Svea hovrätt",
+  "court_level": "hovrätt",
+  "lower_court": "Attunda tingsrätt",
+  "lower_court_case_no": "T 6760-17",
+  "ruling_date": "2020-02-27",
+  "saken": "Vårdnad om barn m.m.",
+  "summary": "Fadern överklagade tingsrättens dom som tillerkänt modern ensam vårdnad. Hovrätten ändrade domen och förordnade om gemensam vårdnad för båda barnen. För den äldre sonen gäller dagtidsumgänge med fadern varannan lördag, för den yngre flickan växelvis boende varannan vecka. Tvärtom från vad modern yrkade.",
+  "parents": [
+    {
+      "role": "father",
+      "procedural_role": "klagande",
+      "name_initials": "J.E.",
+      "birth_year": 1984,
+      "age_at_ruling": 36,
+      "nationality": null,
+      "represented_by_counsel": true
+    },
+    {
+      "role": "mother",
+      "procedural_role": "motpart",
+      "name_initials": "A.K.",
+      "birth_year": 1987,
+      "age_at_ruling": 33,
+      "nationality": null,
+      "represented_by_counsel": true
+    }
+  ],
+  "children": [
+    {
+      "initials": "J.K.",
+      "birth_year": 2009,
+      "birth_month": 5,
+      "age_at_ruling": 10,
+      "gender": "female"
+    },
+    {
+      "initials": "J.K.",
+      "birth_year": 2010,
+      "birth_month": 6,
+      "age_at_ruling": 9,
+      "gender": "female"
+    }
+  ],
+  "n_children": 2,
+  "custody_before": {
+    "legal_custody": "sole_mother",
+    "residence": "mother",
+    "visitation": "Begränsat dagtidsumgänge på vardagar för den äldre sonen"
+  },
+  "custody_after": {
+    "legal_custody": "joint",
+    "residence": "mother for older son, alternating for younger daughter",
+    "visitation": "Äldre sonen: varannan lördag kl. 10-18, sedan fredag efter skolan till lördag kl. 18. Yngre dottern: växelvis möndagar varannan vecka från skoldagens slut till nästa måndag"
+  },
+  "winner": "partial_father",
+  "winner_rationale": "Fadern fick gemensam vårdnad och växelvis boende för yngre dottern, men inte allt han yrkade. Modern förlorade sin ensam vårdnad men ungarna stannar i huvudsak hos henne.",
+  "key_factors": [
+    "cooperation_problems",
+    "child_best_interest",
+    "mental_health",
+    "vårdnadsutredning",
+    "social_services_recommendation"
+  ],
+  "social_services_involved": true,
+  "vårdnadsutredning_performed": true,
+  "child_was_heard": false,
+  "appeal_outcome": "modified",
+  "legal_costs_total_sek": 69250,
+  "judges": [],
+  "unanimous": null,
+  "notes": "Äldre sonen har autism och adhd-diagnos. Yngre dottern har adhd-diagnos. Modern var oroad för faderns förmåga att hantera barnens speciella behov och medicineringar. Hovrätten bedömde att gemensam vårdnad var möjlig trots tidigare konflikter.",
+  "extraction_confidence": "medium",
+  "missing_or_unclear_fields": [
+    "judges"
+  ],
+  "source": "txt"
+}

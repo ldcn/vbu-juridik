@@ -1,0 +1,88 @@
+{
+  "case_id": "HRG_T_2025_2358",
+  "court": "Göta hovrätt",
+  "court_level": "hovrätt",
+  "lower_court": "Eksjö tingsrätt",
+  "ruling_date": "2026-02-24",
+  "saken": "Vårdnad m.m.",
+  "summary": "Fadern överklagade tingsrättens dom där modern hade tillerkänts ensam vårdnad om parternas tre gemensamma barn med umgänge till fadern. Under huvudförhandlingen i hovrätten kom parterna överens om en lösning. Hovrätten fastställde att modern har ensam vårdnad om alla tre barnen. Det äldsta barnet (en flicka född 2013) ska bo växelvis hos föräldrarna. De två yngre barnen (en pojke född 2017 och ett barn fött 2021) ska bo stadigvarande hos modern och ha umgänge med fadern från onsdag eftermiddag till måndag morgon varannan vecka, samt visst lov- och högtidsumgänge. Fadern har varit dömd för misshandel mot modern och har diagnoser kring psykisk ohälsa. Vårdnadsutredning genomfördes och de äldre barnen hördes.",
+  "parents": [
+    {
+      "label": "AA",
+      "role": "father",
+      "birth_year": 1986,
+      "age_at_ruling": 40,
+      "represented_by_counsel": true,
+      "legal_aid": false,
+      "appellant": true
+    },
+    {
+      "label": "BB",
+      "role": "mother",
+      "birth_year": 1990,
+      "age_at_ruling": 36,
+      "represented_by_counsel": true,
+      "legal_aid": true,
+      "appellant": false
+    }
+  ],
+  "children": [
+    {
+      "label": "CC",
+      "birth_year": 2013,
+      "age_at_ruling": 13,
+      "gender": "female"
+    },
+    {
+      "label": "DD",
+      "birth_year": 2017,
+      "age_at_ruling": 9,
+      "gender": "male"
+    },
+    {
+      "label": "EE",
+      "birth_year": 2021,
+      "age_at_ruling": 5,
+      "gender": null
+    }
+  ],
+  "n_children": 3,
+  "custody_before": {
+    "type": "sole_mother",
+    "residence": "mother",
+    "visitation": "regulated"
+  },
+  "custody_after": {
+    "type": "sole_mother",
+    "residence": "shared_for_oldest_mother_for_others",
+    "visitation": "regulated"
+  },
+  "winner": "both",
+  "winner_rationale": "Parterna kom överens i hovrätten. Modern behöll ensam vårdnad enligt tingsrättens dom. Fadern fick utökat umgänge med de yngre barnen och växelvist boende för det äldsta barnet jämfört med tingsrättens dom.",
+  "key_factors": [
+    "cooperation_problems",
+    "domestic_violence_allegation",
+    "mental_health",
+    "child_own_wishes",
+    "vårdnadsutredning",
+    "parental_agreement"
+  ],
+  "social_services_involved": true,
+  "vårdnadsutredning_performed": true,
+  "child_was_heard": true,
+  "appeal_outcome": "settlement",
+  "legal_costs_total_sek": 252831,
+  "judges": [
+    "Per Christensen",
+    "Kristina Emme",
+    "Siri Stjernfeldt"
+  ],
+  "unanimous": true,
+  "notes": "Hovrätten fastställde i huvudsak parternas överenskommelse. Medlare hade anlitats i hovrätten. Modern har en tidigare dom för misshandel av fadern. Fadern uppgav diagnoser såsom ADHD och PTSD. Det yngsta barnets kön framgår inte tydligt av materialet.",
+  "source": "pdftotext",
+  "extraction_confidence": "high",
+  "missing_or_unclear_fields": [
+    "gender of youngest child"
+  ],
+  "lower_court_case_no": "T 518-24"
+}

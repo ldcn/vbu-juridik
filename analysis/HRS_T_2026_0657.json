@@ -1,0 +1,80 @@
+{
+  "case_id": "HRS_T_2026_0657",
+  "court": "Svea hovrätt",
+  "court_level": "hovrätt",
+  "lower_court": "Södertörns tingsrätt",
+  "lower_court_case_no": "T 7447-24",
+  "ruling_date": "2026-04-10",
+  "saken": "Vårdnad m.m.",
+  "summary": "Fadern överklagade tingsrättens dom som gav modern ensam vårdnad om parternas två döttrar, födda 2016 och 2019. I hovrätten träffade föräldrarna en överenskommelse om gemensam vårdnad, stadigvarande boende hos modern och ett detaljerat upptrappat umgänge med fadern, inklusive videoumgänge, helger, lov och storhelger. Hovrätten meddelade dom i enlighet med överenskommelsen och ansåg att den var förenlig med barnens bästa.",
+  "parents": [
+    {
+      "role": "father",
+      "procedural_role": "klagande",
+      "name_initials": "AA",
+      "birth_year": 1993,
+      "age_at_ruling": 33,
+      "nationality": null,
+      "represented_by_counsel": true
+    },
+    {
+      "role": "mother",
+      "procedural_role": "motpart",
+      "name_initials": "BB",
+      "birth_year": 1990,
+      "age_at_ruling": 36,
+      "nationality": null,
+      "represented_by_counsel": true
+    }
+  ],
+  "children": [
+    {
+      "initials": "CC",
+      "birth_year": 2016,
+      "birth_month": null,
+      "age_at_ruling": 10,
+      "gender": "female"
+    },
+    {
+      "initials": "DD",
+      "birth_year": 2019,
+      "birth_month": null,
+      "age_at_ruling": 7,
+      "gender": "female"
+    }
+  ],
+  "n_children": 2,
+  "custody_before": {
+    "legal_custody": "sole_mother",
+    "residence": "mother",
+    "visitation": "Tingsrätten beslutade om umgänge varannan helg lördag (senare lördag-söndag) samt videoumgänge varje onsdag och vissa storhelger."
+  },
+  "custody_after": {
+    "legal_custody": "joint",
+    "residence": "mother",
+    "visitation": "Upptrappat helgumgänge med fadern (lördagar jämna veckor, sedan lördag-söndag jämna veckor), videoumgänge varje onsdag och söndag samt detaljerat lov- och storhelgsumgänge enligt parternas överenskommelse."
+  },
+  "winner": "both",
+  "winner_rationale": "Parterna träffade en samförståndslösning som hovrätten fastställde. Fadern fick tillbaka gemensam vårdnad och ett betydligt mer omfattande umgänge än tingsrätten beslutat, samtidigt som modern behöll boendet och sekretessen kring sin adress.",
+  "key_factors": [
+    "parental_agreement",
+    "child_best_interest",
+    "domestic_violence_allegation",
+    "cooperation_problems"
+  ],
+  "social_services_involved": true,
+  "vårdnadsutredning_performed": true,
+  "child_was_heard": true,
+  "appeal_outcome": "settlement",
+  "legal_costs_total_sek": 86890,
+  "judges": [
+    "Staffan Lind",
+    "Patrik Skogh",
+    "Christina Blomberg"
+  ],
+  "unanimous": true,
+  "notes": "Modern och döttrarna bor på skyddad adress efter att modern våren 2024 flyttat till skyddat boende med påståenden om våld i relationen. Tingsrätten gav modern ensam vårdnad efter dissens (en nämndeman skiljaktig och ville behålla gemensam vårdnad). I hovrätten kom parterna överens om bl.a. familjebehandling för fadern, fortsatt skydd för moderns adress samt ett mål om att övergå till övernattningsumgänge när faderns boendesituation och behandling tillåter. Rättshjälpskostnaderna i hovrätten uppgår till sammanlagt 86 890 kr (52 337 + 34 553).",
+  "source": "pdftotext",
+  "extraction_confidence": "high",
+  "missing_or_unclear_fields": ["parents[].nationality"]
+}

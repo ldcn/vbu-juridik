@@ -1,0 +1,94 @@
+{
+  "case_id": "HRG_T_2025_5069",
+  "court": "Göta hovrätt",
+  "court_level": "hovrätt",
+  "lower_court": "Norrköpings tingsrätt",
+  "ruling_date": "2026-01-27",
+  "saken": "Vårdnad om barn",
+  "summary": "Målet i hovrätten gällde vårdnaden om parternas äldsta gemensamma son (född 2011). Tingsrätten hade tillerkänt fadern ensam vårdnad om sonen, med rätt till umgänge för modern under skollov samt vissa video- och fysiska umgängestillfällen mellan sonen och hans yngre syster (som bor hos modern). Modern överklagade och yrkade ensam vårdnad. Under hovrättsprocessen kom parterna överens. Hovrätten fastställde tingsrättens beslut om att fadern ska ha ensam vårdnad om sonen, men upphävde det reglerade umgänget mellan sonen och hans syster efter att sonen själv inte längre velat ha det. Sonen har tidigare varit placerad utanför hemmet.",
+  "parents": [
+    {
+      "label": "AA",
+      "role": "mother",
+      "birth_year": 1984,
+      "age_at_ruling": 42,
+      "represented_by_counsel": true,
+      "legal_aid": true,
+      "appellant": true
+    },
+    {
+      "label": "BB",
+      "role": "father",
+      "birth_year": 1985,
+      "age_at_ruling": 41,
+      "represented_by_counsel": true,
+      "legal_aid": false,
+      "appellant": false
+    }
+  ],
+  "children": [
+    {
+      "label": "CC",
+      "birth_year": 2011,
+      "age_at_ruling": 15,
+      "gender": "male"
+    },
+    {
+      "label": "GG",
+      "birth_year": 2013,
+      "age_at_ruling": 13,
+      "gender": "female"
+    },
+    {
+      "label": "EE",
+      "birth_year": 2017,
+      "age_at_ruling": 9,
+      "gender": null
+    },
+    {
+      "label": "FF",
+      "birth_year": 2018,
+      "age_at_ruling": 8,
+      "gender": null
+    }
+  ],
+  "n_children": 4,
+  "custody_before": {
+    "type": "sole_father_for_oldest_sole_mother_for_others",
+    "residence": "father_for_oldest",
+    "visitation": "regulated"
+  },
+  "custody_after": {
+    "type": "sole_father_for_oldest_sole_mother_for_others",
+    "residence": "father_for_oldest",
+    "visitation": "regulated"
+  },
+  "winner": "father",
+  "winner_rationale": "Hovrätten fastställde tingsrättens dom om att fadern ska ha ensam vårdnad om sonen i enlighet med parternas överenskommelse i hovrätten. Modern fick inte sitt yrkande om ensam vårdnad bifallet. Det reglerade syskonumgänget upphävdes på begäran.",
+  "key_factors": [
+    "child_own_wishes",
+    "domestic_violence_allegation",
+    "social_services_recommendation",
+    "vårdnadsutredning",
+    "parental_agreement"
+  ],
+  "social_services_involved": true,
+  "vårdnadsutredning_performed": true,
+  "child_was_heard": true,
+  "appeal_outcome": "settlement",
+  "legal_costs_total_sek": 176723,
+  "judges": [
+    "Charlotte Brokelind",
+    "Niklas Rundberg",
+    "Anna Holmström"
+  ],
+  "unanimous": true,
+  "notes": "Hovrätten prövade endast vårdnaden om det äldsta barnet. Övriga tre syskon bor hos modern enligt tidigare avgörande. Sonen har varit placerad på HVB-hem under utredningen. Faderns historik innefattar tidigare våldsdom. Anonymiseringen i originaldomen är inkonsekvent mellan tings- och hovrättsdelarna.",
+  "source": "pdftotext",
+  "extraction_confidence": "medium",
+  "missing_or_unclear_fields": [
+    "exact gender of two youngest siblings",
+    "scope of n_children given that hovrätten endast prövade vårdnaden om ett barn"
+  ],
+  "lower_court_case_no": "T 4767-24"
+}

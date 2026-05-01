@@ -1,0 +1,72 @@
+{
+  "case_id": "HRS_T_2013_5076",
+  "court": "Svea hovrätt",
+  "court_level": "hovrätt",
+  "lower_court": "Stockholms tingsrätt",
+  "lower_court_case_no": "T 11166-11",
+  "ruling_date": "2013-09-18",
+  "saken": "Umgänge med barn",
+  "summary": "Tingsrätten förordnade gemensam vårdnad med boende hos modern på Lidingö och umgänge för fadern varannan helg. Modern yrkade ensam vårdnad men hovrätten fastställde tingsrättens dom. Efter överenskommelse mellan parterna i hovrätten ändrades vissa umgängesdetaljer.",
+  "parents": [
+    {
+      "role": "mother",
+      "procedural_role": "klagande",
+      "name_initials": "M.A.",
+      "birth_year": 1982,
+      "age_at_ruling": 30,
+      "nationality": "Tyskland",
+      "represented_by_counsel": true
+    },
+    {
+      "role": "father",
+      "procedural_role": "motpart",
+      "name_initials": "T.S.",
+      "birth_year": 1973,
+      "age_at_ruling": 40,
+      "nationality": null,
+      "represented_by_counsel": true
+    }
+  ],
+  "children": [
+    {
+      "initials": "E.A.S.",
+      "birth_year": 2004,
+      "birth_month": 10,
+      "age_at_ruling": 8,
+      "gender": "male"
+    }
+  ],
+  "n_children": 1,
+  "custody_before": {
+    "legal_custody": "joint",
+    "residence": "mother",
+    "visitation": "Varannan helg från torsdag eftermiddag till måndag eftermiddag"
+  },
+  "custody_after": {
+    "legal_custody": "joint",
+    "residence": "mother",
+    "visitation": "Varannan helg ojämna veckor från torsdag eftermiddag till söndag eftermiddag, lovumgänge enligt överenskommelse"
+  },
+  "winner": "both",
+  "winner_rationale": "Parterna träffade överenskommelse om umgänge. Gemensam vårdnad kvarstod med boende hos modern. Umgänget justerades något enligt överenskommelse.",
+  "key_factors": [
+    "parental_agreement",
+    "child_best_interest",
+    "international_element"
+  ],
+  "social_services_involved": true,
+  "vårdnadsutredning_performed": true,
+  "child_was_heard": null,
+  "appeal_outcome": "affirmed",
+  "legal_costs_total_sek": 14000,
+  "judges": [
+    "Mona Wildig",
+    "Ingela Perklev",
+    "Daniel Brunson"
+  ],
+  "unanimous": true,
+  "notes": "Modern är tysk medborgare och ville flytta till Tyskland med barnet, vilket barnet också ville. Tingsrätten avslogs detta. Barnet uppvisade oro kring umgängen under hösten 2011 men detta förbättrades. Internationell element fanns då fadern hade varit villig för att modern och barnet skulle flytta till Tyskland.",
+  "extraction_confidence": "high",
+  "missing_or_unclear_fields": [],
+  "source": "markdown"
+}

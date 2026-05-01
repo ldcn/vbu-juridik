@@ -1,0 +1,80 @@
+{
+  "case_id": "HRS_T_2012_5994",
+  "court": "Svea hovrätt",
+  "court_level": "hovrätt",
+  "lower_court": "Södertörns tingsrätt",
+  "lower_court_case_no": "T 5651-11",
+  "ruling_date": "2013-01-09",
+  "saken": "Vårdnad m.m.",
+  "summary": "Tingsrätten förordnade gemensam vårdnad med boende hos modern och umgänge för fadern varannan helg. Fadern yrkade ensam vårdnad men hovrätten fastställde tingsrättens dom. Hovrätten fann att samarbetssvårigheterna inte var av sådan omfattning att gemensam vårdnad uteslöts.",
+  "parents": [
+    {
+      "role": "father",
+      "procedural_role": "klagande",
+      "name_initials": "P.F.",
+      "birth_year": 1952,
+      "age_at_ruling": 60,
+      "nationality": null,
+      "represented_by_counsel": true
+    },
+    {
+      "role": "mother",
+      "procedural_role": "motpart",
+      "name_initials": "M.F.",
+      "birth_year": 1977,
+      "age_at_ruling": 35,
+      "nationality": null,
+      "represented_by_counsel": true
+    }
+  ],
+  "children": [
+    {
+      "initials": "M.F.",
+      "birth_year": 2005,
+      "birth_month": 11,
+      "age_at_ruling": 7,
+      "gender": "female"
+    },
+    {
+      "initials": "M.F.",
+      "birth_year": 2009,
+      "birth_month": 8,
+      "age_at_ruling": 3,
+      "gender": "female"
+    }
+  ],
+  "n_children": 2,
+  "custody_before": {
+    "legal_custody": "joint",
+    "residence": "mother",
+    "visitation": "Varje jämn vecka från fredag eftermiddag till måndag morgon"
+  },
+  "custody_after": {
+    "legal_custody": "joint",
+    "residence": "mother",
+    "visitation": "Varje jämn vecka från fredag eftermiddag till måndag morgon, lovumgänge enligt dom"
+  },
+  "winner": "both",
+  "winner_rationale": "Hovrätten fastställde tingsrättens dom helt. Båda föräldrarna fick sina respektive intressen tillgodosedda genom gemensam vårdnad med moderboende.",
+  "key_factors": [
+    "cooperation_problems",
+    "child_best_interest"
+  ],
+  "social_services_involved": true,
+  "vårdnadsutredning_performed": true,
+  "child_was_heard": null,
+  "appeal_outcome": "affirmed",
+  "legal_costs_total_sek": 33702,
+  "judges": [
+    "Lars Hesser",
+    "Maj Johansson",
+    "Lars Swedenborg"
+  ],
+  "unanimous": true,
+  "notes": "Föräldrarna hade samarbetssvårigheter men hovrätten bedömde att motsättningarna inte var så djupgående att gemensam vårdnad skulle uteslutas.",
+  "extraction_confidence": "medium",
+  "missing_or_unclear_fields": [
+    "children.gender"
+  ],
+  "source": "markdown"
+}

@@ -1,0 +1,77 @@
+{
+  "case_id": "HRS_T_2025_7637",
+  "court": "Svea hovrätt",
+  "court_level": "hovrätt",
+  "lower_court": "Eskilstuna tingsrätt",
+  "lower_court_case_no": "T 2522-24",
+  "ruling_date": "2026-04-17",
+  "saken": "Vårdnad m.m.",
+  "summary": "Modern, svensk medborgare bosatt i Sverige, överklagade tingsrättens dom om fortsatt gemensam vårdnad om dottern, drygt fem år, och yrkade ensam vårdnad samt mer begränsat umgänge med fadern, som är egyptisk medborgare och bor i Egypten. Hovrätten ändrade tingsrättens dom och tillerkände modern ensam vårdnad eftersom parternas samarbetssvårigheter och konflikter, bl.a. om skolval, gjorde gemensam vårdnad olämplig. Hovrätten bestämde ett upptrappat umgänge mellan dottern och fadern med inledande umgängesstöd och regelbundet videoumgänge.",
+  "parents": [
+    {
+      "role": "mother",
+      "procedural_role": "klagande",
+      "name_initials": "AA",
+      "birth_year": 1990,
+      "age_at_ruling": 36,
+      "nationality": "Sverige",
+      "represented_by_counsel": true
+    },
+    {
+      "role": "father",
+      "procedural_role": "motpart",
+      "name_initials": "BB",
+      "birth_year": null,
+      "age_at_ruling": null,
+      "nationality": "Egypten",
+      "represented_by_counsel": true
+    }
+  ],
+  "children": [
+    {
+      "initials": "DD",
+      "birth_year": 2020,
+      "birth_month": null,
+      "age_at_ruling": 6,
+      "gender": "female"
+    }
+  ],
+  "n_children": 1,
+  "custody_before": {
+    "legal_custody": "joint",
+    "residence": "mother",
+    "visitation": "Tingsrätten beslutade om upptrappat fysiskt umgänge med fadern med inledande umgängesstöd samt videoumgänge varje vecka."
+  },
+  "custody_after": {
+    "legal_custody": "sole_mother",
+    "residence": "mother",
+    "visitation": "Upptrappat umgänge: först åtta tillfällen med umgängesstöd 1,5 timme i Eskilstuna, sedan fyra tillfällen 14-18 med stödd överlämning, därefter tisdag-onsdag 14-19 med hämtning/lämning vid skolan; videoumgänge varannan tisdag 30 minuter samt vissa storhelger."
+  },
+  "winner": "mother",
+  "winner_rationale": "Modern fick fullt bifall till sitt yrkande om ensam vårdnad. Hovrätten begränsade också det fysiska umgänget och kortade ner videoumgänget jämfört med tingsrättens beslut.",
+  "key_factors": [
+    "child_best_interest",
+    "cooperation_problems",
+    "domestic_violence_allegation",
+    "international_element",
+    "vårdnadsutredning",
+    "social_services_recommendation"
+  ],
+  "social_services_involved": true,
+  "vårdnadsutredning_performed": true,
+  "child_was_heard": false,
+  "appeal_outcome": "modified",
+  "legal_costs_total_sek": null,
+  "judges": [
+    "Cecilia Hager Larsson",
+    "Ann-Sofie Bodin",
+    "Maria Järlefelt",
+    "Parvin Araghi",
+    "Roger Bodin"
+  ],
+  "unanimous": true,
+  "notes": "Parterna har varit gifta och bott tillsammans i Egypten. Modern uppger att hon utsatts för fysiskt, psykiskt, sexuellt och ekonomiskt våld under äktenskapet och har diagnostiserats med PTSD; hovrätten bedömde dock risken för framtida våld som låg eftersom parterna nu lever separerade i olika länder. Skolvalskonflikt ledde till hovrättens interimistiska beslut om ensam vårdnad i februari 2026. Domen gäller omedelbart.",
+  "source": "pdftotext",
+  "extraction_confidence": "high",
+  "missing_or_unclear_fields": ["parents[1].birth_year", "parents[1].age_at_ruling", "legal_costs_total_sek"]
+}

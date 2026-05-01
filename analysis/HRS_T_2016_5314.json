@@ -1,0 +1,75 @@
+{
+  "case_id": "HRS_T_2016_5314",
+  "court": "Svea hovrätt",
+  "court_level": "hovrätt",
+  "lower_court": "Stockholms tingsrätt",
+  "lower_court_case_no": "T 16455-14",
+  "ruling_date": "2017-01-12",
+  "saken": "Umgänge",
+  "summary": "Hovrätten stadfäste förlikning mellan parterna. Faderns yrkande om umgänge resulterade i överenskommelse. Barnet skulle få umgänge varannan helg från fredag kväll till söndag kväll enligt ett specifikt schema. Båda parterna ställde krav på villkor för umgänget (ingen alkohol, ingen frågor om modern, bara kontakt med vissa kusiner).",
+  "parents": [
+    {
+      "role": "father",
+      "procedural_role": "klagande",
+      "name_initials": "A.I.",
+      "birth_year": 1963,
+      "age_at_ruling": 53,
+      "nationality": "Irak",
+      "represented_by_counsel": true
+    },
+    {
+      "role": "mother",
+      "procedural_role": "motpart",
+      "name_initials": "J.S.",
+      "birth_year": 1977,
+      "age_at_ruling": 39,
+      "nationality": null,
+      "represented_by_counsel": true
+    }
+  ],
+  "children": [
+    {
+      "initials": "F.I.",
+      "birth_year": 2004,
+      "birth_month": 11,
+      "age_at_ruling": 12,
+      "gender": "female"
+    }
+  ],
+  "n_children": 1,
+  "custody_before": {
+    "legal_custody": "sole_mother",
+    "residence": "mother",
+    "visitation": "Inget reglerat umgänge före tingsrättens dom"
+  },
+  "custody_after": {
+    "legal_custody": "sole_mother",
+    "residence": "mother",
+    "visitation": "Varannan helg från fredag kväll klockan 19.00 till söndag kväll klockan 17.00. Från 2018 högst en helg per månad enligt samma tider. Tågbiljetter betalas av fadern."
+  },
+  "winner": "partial_father",
+  "winner_rationale": "Faderns yrkande om umgänge fick bifall genom överenskommelse. Dock begränsad omfattning jämfört med vad tingsrätten avslog (ingen umgänge).",
+  "key_factors": [
+    "parental_agreement",
+    "child_best_interest",
+    "domestic_violence_allegation",
+    "cooperation_problems"
+  ],
+  "social_services_involved": true,
+  "vårdnadsutredning_performed": true,
+  "child_was_heard": true,
+  "appeal_outcome": "modified",
+  "legal_costs_total_sek": null,
+  "judges": [
+    "Joakim Zetterstedt",
+    "Annika Malm"
+  ],
+  "unanimous": null,
+  "notes": "Förlikning mellan parterna. Tingsrätten hade avslagit all umgänge på grund av barnets önskan och misstankar om våld. Parterna ställde villkor för umgänget: ingen alkohol, inga frågor om modern, endast visst familjeumgänge, ingen överlåtelse till tredje part.",
+  "extraction_confidence": "high",
+  "missing_or_unclear_fields": [
+    "legal_costs_total_sek",
+    "unanimous"
+  ],
+  "source": "txt"
+}

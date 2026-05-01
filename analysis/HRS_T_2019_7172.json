@@ -1,0 +1,73 @@
+{
+  "case_id": "HRS_T_2019_7172",
+  "court": "Svea hovrätt",
+  "court_level": "hovrätt",
+  "lower_court": "Attunda tingsrätt",
+  "lower_court_case_no": "T 6749-18",
+  "ruling_date": "2019-11-29",
+  "saken": "Barns boende mm.",
+  "summary": "Tingsrätten förordnade om gemensam vårdnad med boende hos mamman. Pappan överklagade. Parterna nådde en överenskommelse i hovrätten om att barnet ska bo hos pappan med umgänge för mamman enligt överenskommet schema.",
+  "parents": [
+    {
+      "role": "father",
+      "procedural_role": "klagande",
+      "name_initials": "N.T.B.",
+      "birth_year": 1995,
+      "age_at_ruling": 24,
+      "nationality": null,
+      "represented_by_counsel": true
+    },
+    {
+      "role": "mother",
+      "procedural_role": "motpart",
+      "name_initials": "C.D.",
+      "birth_year": 1995,
+      "age_at_ruling": 24,
+      "nationality": null,
+      "represented_by_counsel": true
+    }
+  ],
+  "children": [
+    {
+      "initials": "A.B.",
+      "birth_year": 2014,
+      "birth_month": 8,
+      "age_at_ruling": 5,
+      "gender": "male"
+    }
+  ],
+  "n_children": 1,
+  "custody_before": {
+    "legal_custody": "joint",
+    "residence": "mother",
+    "visitation": "Varannan helg från torsdag till måndag enligt tingsrättens dom"
+  },
+  "custody_after": {
+    "legal_custody": "joint",
+    "residence": "father",
+    "visitation": "Var tredje helg från fredag till söndag, omfattande lov- och sommarumgänge för mamman"
+  },
+  "winner": "both",
+  "winner_rationale": "Parterna nådde en överenskommelse som både var acceptabel för dem och var förenlig med barnets bästa enligt hovrätten.",
+  "key_factors": [
+    "parental_agreement",
+    "child_best_interest"
+  ],
+  "social_services_involved": true,
+  "vårdnadsutredning_performed": true,
+  "child_was_heard": false,
+  "appeal_outcome": "affirmed",
+  "legal_costs_total_sek": 45713,
+  "judges": [
+    "Jens Wieslander",
+    "Henrik Matz"
+  ],
+  "unanimous": null,
+  "notes": "Tredje tvist mellan parterna om samma barn. Mamman hade vid förskolegången i moderns ort och pappan på annan ort. Parterna kom överens om överenskommelse under hovrättproceduren.",
+  "extraction_confidence": "high",
+  "missing_or_unclear_fields": [
+    "parents.nationality",
+    "child.gender_certainty"
+  ],
+  "source": "markdown"
+}

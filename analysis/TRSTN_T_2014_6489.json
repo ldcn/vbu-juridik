@@ -1,0 +1,71 @@
+{
+  "case_id": "TRSTN_T_2014_6489",
+  "court": "Södertörns tingsrätt",
+  "court_level": "tingsrätt",
+  "lower_court": null,
+  "lower_court_case_no": null,
+  "ruling_date": "2015-03-18",
+  "saken": "Vårdnad och boende",
+  "summary": "Tingsrätten fastställde en överenskommelse mellan föräldrarna om växelvist boende för dottern. Växlingen skulle ske var vecka på torsdagar mellan mamman och pappan, med två veckor hos vardera föräldern under sommaren och särskilda regler för julaftonen och juldagen.",
+  "parents": [
+    {
+      "role": "mother",
+      "procedural_role": "kärande",
+      "name_initials": "M.J.M.",
+      "birth_year": 1979,
+      "age_at_ruling": 36,
+      "nationality": null,
+      "represented_by_counsel": true
+    },
+    {
+      "role": "father",
+      "procedural_role": "svarande",
+      "name_initials": "M.A.C.",
+      "birth_year": 1974,
+      "age_at_ruling": 41,
+      "nationality": null,
+      "represented_by_counsel": true
+    }
+  ],
+  "children": [
+    {
+      "initials": "E.M.C.",
+      "birth_year": 2005,
+      "birth_month": 12,
+      "age_at_ruling": 10,
+      "gender": "female"
+    }
+  ],
+  "n_children": 1,
+  "custody_before": {
+    "legal_custody": "unclear",
+    "residence": "unclear",
+    "visitation": null
+  },
+  "custody_after": {
+    "legal_custody": "joint",
+    "residence": "alternating",
+    "visitation": "Växelvis boende var vecka (byte på torsdagar); två veckor hos vardera föräldern under sommaren; Julafton hos mamman, juldagen hos pappan"
+  },
+  "winner": "both",
+  "winner_rationale": "Båda föräldrarna nådde överenskommelse om växelvist boende med mycket flexibilitet för barnets aktiviteter och släktträffar.",
+  "key_factors": [
+    "parental_agreement",
+    "child_best_interest"
+  ],
+  "social_services_involved": false,
+  "vårdnadsutredning_performed": false,
+  "child_was_heard": false,
+  "appeal_outcome": "n_a",
+  "legal_costs_total_sek": 24313,
+  "judges": [
+    "Kai Koskela"
+  ],
+  "unanimous": true,
+  "notes": "Mamman hade ursprungligen yrkat på ensam vårdnad, men parterna kom överens om växelvist boende efter samarbetssamtal. Föräldrarna kom även överens om lika delning av barnbidraget. Avvikelser från schemat tillåts för dotterns aktiviteter och släktmöten.",
+  "extraction_confidence": "high",
+  "missing_or_unclear_fields": [
+    "custody_before"
+  ],
+  "source": "txt"
+}

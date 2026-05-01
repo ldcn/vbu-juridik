@@ -1,0 +1,50 @@
+{
+  "case_id": "HRON_T_2025_1580",
+  "court": "Hovrätten för Övre Norrland",
+  "court_level": "hovrätt",
+  "lower_court": "Luleå tingsrätt",
+  "lower_court_case_no": "T 176-24",
+  "ruling_date": "2026-04-23",
+  "saken": "Vårdnad om barn m.m.",
+  "summary": "Målet rör en flicka född 2019 och en pojke född 2021. Fadern är tunisisk medborgare. Tingsrätten beslutade om fortsatt gemensam vårdnad med boende hos modern. Modern överklagade och yrkade ensam vårdnad samt att inget fysiskt umgänge skulle ske med fadern. Hovrätten ändrade tingsrättens dom och tillerkände modern ensam vårdnad om båda barnen. Endast videoumgänge bestämdes (tisdagar, torsdagar och lördagar). Hovrätten lade vikt vid uppgifter om faderns våld mot sonen, samarbetssvårigheter och moderns flytt till annan ort. Internationella aspekter beaktades.",
+  "parents": [
+    {"label": "AA", "role": "mother", "birth_year": 1980, "gender": "female"},
+    {"label": "BB", "role": "father", "birth_year": 1978, "gender": "male", "nationality": "Tunisien"}
+  ],
+  "children": [
+    {"label": "CC", "birth_year": 2019, "age_at_ruling": 7, "gender": "female"},
+    {"label": "DD", "birth_year": 2021, "age_at_ruling": 5, "gender": "male"}
+  ],
+  "n_children": 2,
+  "custody_before": {
+    "type": "joint",
+    "residence": "mother",
+    "visitation": "Reglerat umgänge med fadern enligt tingsrättens dom."
+  },
+  "custody_after": {
+    "type": "sole_mother",
+    "residence": "mother",
+    "visitation": "Endast videoumgänge med fadern tisdagar, torsdagar och lördagar."
+  },
+  "winner": "mother",
+  "winner_rationale": "Modern fick bifall till sitt yrkande om ensam vårdnad och att fysiskt umgänge med fadern ska upphävas. Endast videoumgänge bestämdes.",
+  "key_factors": [
+    "domestic_violence_allegation",
+    "cooperation_problems",
+    "child_best_interest",
+    "vårdnadsutredning",
+    "international_element",
+    "relocation"
+  ],
+  "social_services_involved": true,
+  "vårdnadsutredning_performed": true,
+  "child_was_heard": true,
+  "appeal_outcome": "modified",
+  "legal_costs_total_sek": 194687,
+  "judges": ["Magnus Forsberg", "Ann-Christine Johansson", "Lisa Hedlund"],
+  "unanimous": false,
+  "notes": "Fadern är tunisisk medborgare; risk för olovligt bortförande diskuterades. Modern har flyttat till Västerås. Vårdnadsutredning genomförd i Boden. En ledamot var skiljaktig i motiveringen och två nämndemän var skiljaktiga i delar av domslutet.",
+  "source": "pdftotext",
+  "extraction_confidence": "high",
+  "missing_or_unclear_fields": []
+}

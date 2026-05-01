@@ -1,0 +1,76 @@
+{
+  "case_id": "HRVS_T_2025_3605",
+  "court": "Hovrätten för Västra Sverige",
+  "court_level": "hovrätt",
+  "lower_court": "Göteborgs tingsrätt",
+  "lower_court_case_no": "T 2505-24",
+  "ruling_date": "2026-01-29",
+  "saken": "Umgänge med barn",
+  "summary": "Fadern överklagade tingsrättens dom som begränsade hans umgänge med dottern, född 2018, till varannan lördag dagtid. Tingsrätten hade gett modern ensam vårdnad bl.a. med hänsyn till påståenden om sexuella övergrepp och tidigare narkotikamissbruk hos fadern. Hovrätten utökade kraftigt umgänget till regelbundna helger med övernattning, lov- och storhelgsumgänge enligt faderns yrkande, eftersom det inte fanns konkreta omständigheter som visade någon beaktansvärd risk för att barnet skulle utsättas för sexuella övergrepp eller annars fara illa hos fadern.",
+  "parents": [
+    {
+      "role": "father",
+      "procedural_role": "klagande",
+      "name_initials": "AA",
+      "birth_year": 1981,
+      "age_at_ruling": 45,
+      "nationality": null,
+      "represented_by_counsel": true
+    },
+    {
+      "role": "mother",
+      "procedural_role": "motpart",
+      "name_initials": "BB",
+      "birth_year": 1992,
+      "age_at_ruling": 34,
+      "nationality": null,
+      "represented_by_counsel": true
+    }
+  ],
+  "children": [
+    {
+      "initials": "CC",
+      "birth_year": 2018,
+      "birth_month": 12,
+      "age_at_ruling": 7,
+      "gender": "female"
+    }
+  ],
+  "n_children": 1,
+  "custody_before": {
+    "legal_custody": "sole_mother",
+    "residence": "mother",
+    "visitation": "Umgänge med fadern varannan lördag kl. 10-18 (tingsrättens beslut)."
+  },
+  "custody_after": {
+    "legal_custody": "sole_mother",
+    "residence": "mother",
+    "visitation": "Upptrappat helgumgänge: först varannan lördag-söndag, sedan fredag-söndag, slutligen fredag-måndag jämna veckor. Sport-, påsk-, höstlov vartannat år samt jul-/nyårshelger och två sommarperioder om två veckor."
+  },
+  "winner": "father",
+  "winner_rationale": "Fadern fick i allt väsentligt det utvidgade umgänge han yrkat. Vårdnadsfrågan prövades inte i hovrätten utan modern behöll ensam vårdnad, men umgänget utvidgades dramatiskt jämfört med tingsrättens dagumgänge varannan lördag.",
+  "key_factors": [
+    "child_best_interest",
+    "child_own_wishes",
+    "domestic_violence_allegation",
+    "substance_abuse_allegation",
+    "social_services_recommendation",
+    "vårdnadsutredning",
+    "sexual_abuse_allegation"
+  ],
+  "social_services_involved": true,
+  "vårdnadsutredning_performed": true,
+  "child_was_heard": true,
+  "appeal_outcome": "modified",
+  "legal_costs_total_sek": 30729,
+  "judges": [
+    "Johanna Hagman",
+    "Sara Fröding Linebäck",
+    "Matilda Hallgren"
+  ],
+  "unanimous": true,
+  "notes": "Modern hade gjort polisanmälan om sexuella övergrepp i november 2023; förundersökningen lades ned och dotterns uttalanden bekräftades inte i barnförhör. Hovrätten noterade att modern under samma period haft en relation med en man som senare dömts för rån med koppling till nätverket Pedo Hunting Sweden, vilket kunde ha påverkat hennes uppfattning. Faderns tidigare narkotikamissbruk bedömdes inte längre utgöra en konkret risk. En nämndeman var skiljaktig i tingsrätten och ansåg att vårdnaden borde varit fortsatt gemensam. Ny key_factor 'sexual_abuse_allegation' används.",
+  "source": "pdftotext",
+  "extraction_confidence": "high",
+  "missing_or_unclear_fields": ["parents[].nationality"]
+}

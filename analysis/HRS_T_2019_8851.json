@@ -1,0 +1,101 @@
+{
+  "case_id": "HRS_T_2019_8851",
+  "court": "Svea hovrätt",
+  "court_level": "hovrätt",
+  "lower_court": "Nyköpings tingsrätt",
+  "lower_court_case_no": "T 3004-18",
+  "ruling_date": "2020-03-31",
+  "saken": "Vårdnad m.m.",
+  "summary": "Tingsrätten förordnade om ensam vårdnad för mamman med mycket begränsat umgänge för pappan med umgängesstöd. Parterna överklagade båda och nådde en överenskommelse i hovrätten om umgänget för pappan med umgängesstöd och hämtning/lämning hos Familjerätten.",
+  "parents": [
+    {
+      "role": "mother",
+      "procedural_role": "klagande",
+      "name_initials": "A.A.",
+      "birth_year": 1985,
+      "age_at_ruling": 34,
+      "nationality": null,
+      "represented_by_counsel": true
+    },
+    {
+      "role": "father",
+      "procedural_role": "klagande",
+      "name_initials": "S.A.F.",
+      "birth_year": 1978,
+      "age_at_ruling": 41,
+      "nationality": null,
+      "represented_by_counsel": true
+    }
+  ],
+  "children": [
+    {
+      "initials": "N.U.A.F.",
+      "birth_year": 2005,
+      "birth_month": 5,
+      "age_at_ruling": 15,
+      "gender": "female"
+    },
+    {
+      "initials": "F.A.F.",
+      "birth_year": 2007,
+      "birth_month": 3,
+      "age_at_ruling": 13,
+      "gender": "female"
+    },
+    {
+      "initials": "G.A.F.",
+      "birth_year": 2009,
+      "birth_month": 1,
+      "age_at_ruling": 11,
+      "gender": "male"
+    },
+    {
+      "initials": "L.A.F.",
+      "birth_year": 2010,
+      "birth_month": 10,
+      "age_at_ruling": 9,
+      "gender": "female"
+    },
+    {
+      "initials": "R.A.F.",
+      "birth_year": 2012,
+      "birth_month": 10,
+      "age_at_ruling": 7,
+      "gender": "male"
+    }
+  ],
+  "n_children": 5,
+  "custody_before": {
+    "legal_custody": "joint",
+    "residence": "mother",
+    "visitation": "Mycket begränsat umgänge med umgängesstöd enligt tingsrättens dom"
+  },
+  "custody_after": {
+    "legal_custody": "sole_mother",
+    "residence": "mother",
+    "visitation": "Vartannat veckoslut, alla lovperioder och fyra veckor sommar med umgängesstöd"
+  },
+  "winner": "both",
+  "winner_rationale": "Parterna nådde en överenskommelse om utökat umgänge för pappan med umgängesstöd, vilket var förenligt med barnens bästa enligt hovrätten.",
+  "key_factors": [
+    "parental_agreement",
+    "child_best_interest",
+    "domestic_violence_allegation"
+  ],
+  "social_services_involved": true,
+  "vårdnadsutredning_performed": true,
+  "child_was_heard": true,
+  "appeal_outcome": "affirmed",
+  "legal_costs_total_sek": 117394,
+  "judges": [
+    "Ragnar Palmkvist",
+    "Dan Öwerström"
+  ],
+  "unanimous": null,
+  "notes": "Mamman och barnen placerades på skyddat boende från september 2018. Pappan misstänktes för hot och våld men förundersökningar lades ned. Barnen var rädda för pappan och uttryckte stark vilja att inte träffa honom. Umgängesstödjare skulle vara med vid hämtning och lämning till december 2020.",
+  "extraction_confidence": "high",
+  "missing_or_unclear_fields": [
+    "parents.nationality"
+  ],
+  "source": "markdown"
+}

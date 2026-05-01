@@ -1,0 +1,85 @@
+{
+  "case_id": "HRS_T_2017_11396",
+  "court": "Svea hovrätt",
+  "court_level": "hovrätt",
+  "lower_court": "Gotlands tingsrätt",
+  "lower_court_case_no": "T 43-17",
+  "ruling_date": "2019-02-01",
+  "saken": "Vårdnad m.m.",
+  "summary": "Hovrätten ändrade tingsrättens dom om gemensam vårdnad till ensam vårdnad för fadern. Modern hade de senaste fyra åren aktivt motverkat umgänge mellan barnen och fadern. Hovrätten bedömde att fadern var lämpligare att tillgodose barnens behov av kontakt med båda föräldrarna. Umgänge mellan barnen och modern skulle planeras senare.",
+  "parents": [
+    {
+      "role": "father",
+      "procedural_role": "motpart",
+      "name_initials": "M.N.",
+      "birth_year": 1974,
+      "age_at_ruling": 44,
+      "nationality": null,
+      "represented_by_counsel": true
+    },
+    {
+      "role": "mother",
+      "procedural_role": "klagande",
+      "name_initials": "F.S.",
+      "birth_year": 1981,
+      "age_at_ruling": 37,
+      "nationality": null,
+      "represented_by_counsel": true
+    }
+  ],
+  "children": [
+    {
+      "initials": "E.S.",
+      "birth_year": 2007,
+      "birth_month": 5,
+      "age_at_ruling": 11,
+      "gender": "male"
+    },
+    {
+      "initials": "N.S.",
+      "birth_year": 2010,
+      "birth_month": 9,
+      "age_at_ruling": 8,
+      "gender": "female"
+    }
+  ],
+  "n_children": 2,
+  "custody_before": {
+    "legal_custody": "joint",
+    "residence": "mother",
+    "visitation": "Mycket begränsat - barnen hade inte träffat fadern på ca fem år"
+  },
+  "custody_after": {
+    "legal_custody": "sole_father",
+    "residence": "father",
+    "visitation": "Planeras senare i samråd med BUP/socialnämnd. Initialt ingen reglerad umgänge med modern för att barnen ska kunna återknyta till fadern."
+  },
+  "winner": "father",
+  "winner_rationale": "Fadern fick huvudyrkandet om ensam vårdnad och att barnen ska bo hos honom. Modern förlorade vårdnaden främst på grund av sitt aktiva motarbete av kontakt mellan barnen och fadern.",
+  "key_factors": [
+    "parental_agreement",
+    "child_best_interest",
+    "cooperation_problems",
+    "domestic_violence_allegation",
+    "vårdnadsutredning",
+    "social_services_recommendation",
+    "parental_alienation"
+  ],
+  "social_services_involved": true,
+  "vårdnadsutredning_performed": true,
+  "child_was_heard": true,
+  "appeal_outcome": "modified",
+  "legal_costs_total_sek": null,
+  "judges": [
+    "Joakim Zetterstedt",
+    "Christina Brobacke"
+  ],
+  "unanimous": null,
+  "notes": "Fadern hade tidigare dömts för misshandel av barnen men utredningen visade att risken för fortsatt våld var mycket begränsad. Modern hade dock aktivt och skadligt motverkat barnens relation till fadern under flera år. Hovrätten bedömde att fadern hade bäst förutsättningar att tillgodose barnens behov av kontakt med båda föräldrarna.",
+  "extraction_confidence": "high",
+  "missing_or_unclear_fields": [
+    "legal_costs_total_sek",
+    "unanimous"
+  ],
+  "source": "txt"
+}
