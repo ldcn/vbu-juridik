@@ -9,6 +9,7 @@ from __future__ import annotations
 
 import csv
 import json
+import re
 import statistics
 from collections import Counter, defaultdict
 from html import escape
@@ -160,9 +161,11 @@ DEFAULT_UI_TEXT = {
       "year": "Mål per år",
       "court": "Fördelning per domstol (avgörande)",
       "origin_tingsratt": "Ursprunglig tingsrätt (första instäns)",
-      "winners": "Vinnare",
+      "winners": "Utfall per part",
       "appeal": "Hovrättens utfall i förhållande till tingsrätten",
       "outcome": "Detaljerat utfall (vårdnad + boende + umgänge)",
+      "access_score": "Kontaktbalans",
+      "access_score_note": "\u2212100\u00a0=\u00a0barnet enbart hos mor utan faderskontakt\u00a0\u00b7\u00a00\u00a0=\u00a0v\u00e4xelvis boende\u00a0\u00b7\u00a0+100\u00a0=\u00a0barnet enbart hos far utan moderskontakt",
       "legal_before": "Rättslig vårdnad – före",
       "legal_after": "Rättslig vårdnad – efter",
       "residence_before": "Boende – före",
@@ -217,6 +220,7 @@ DEFAULT_UI_TEXT = {
         "winners": True,
         "appeal": True,
         "outcome": True,
+        "access_score": True,
         "legal_before": True,
         "legal_after": True,
         "residence_before": True,
@@ -374,16 +378,63 @@ def _outcome_label(c: dict) -> str:
     return ", ".join(p[0].upper() + p[1:] if i == 0 else p for i, p in enumerate(parts))
 
 
+_NO_VISIT_RE = re.compile(
+  r"inget umgänge|inga umgängen|utan umgänge|nekad?\s+umgänge|nekad?\s+all\s+kontakt",
+  re.IGNORECASE,
+)
+
+
+def _parental_access_score(c: dict) -> int | None:
+  """Return a score from -100 to +100 representing the child's access balance.
+
+  -100 = lives exclusively with mother, no father contact.
+    0  = equal / alternating parenting.
+  +100 = lives exclusively with father, no mother contact.
+
+  Reads the explicit ``parental_access_score`` field if the agent has set it;
+  otherwise falls back to a heuristic based on ``custody_after.residence``
+  and the free-text ``visitation`` string.  Returns None if undetermined.
+  """
+  explicit = c.get("parental_access_score")
+  if isinstance(explicit, (int, float)):
+    return int(max(-100, min(100, explicit)))
+
+  ca = c.get("custody_after") or {}
+  children_outcomes = c.get("children_custody_outcomes") or []
+
+  # Per-child outcomes (if populated by agent)
+  if children_outcomes:
+    scores = []
+    for ch in children_outcomes:
+      s = _parental_access_score(ch)
+      if s is not None:
+        scores.append(s)
+    if scores:
+      return round(sum(scores) / len(scores))
+
+  res = ca.get("residence")
+  visit = ca.get("visitation") or ""
+  no_visit = bool(_NO_VISIT_RE.search(visit))
+
+  if res == "alternating":
+    return 0
+  if res == "mother":
+    return -100 if no_visit else -50
+  if res == "father":
+    return 100 if no_visit else 50
+  return None
+
+
 def load_cases() -> list[dict]:
-    cases = []
-    for f in sorted(ANALYSIS_DIR.glob("*.json")):
-        if f.name in {"overview.json"}:
-            continue
-        try:
-            cases.append(json.loads(f.read_text(encoding="utf-8")))
-        except Exception as e:
-            print(f"WARN: could not load {f}: {e}")
-    return cases
+  cases = []
+  for f in sorted(ANALYSIS_DIR.glob("*.json")):
+    if f.name in {"overview.json", "overview_ui_text.json"}:
+      continue
+    try:
+      cases.append(json.loads(f.read_text(encoding="utf-8")))
+    except Exception as e:
+      print(f"WARN: could not load {f}: {e}")
+  return cases
 
 
 def to_csv_row(c: dict) -> dict:
@@ -483,6 +534,12 @@ def build_aggregates(cases: list[dict]) -> dict:
     appeal = Counter(c.get("appeal_outcome") for c in cases if c.get("court_level") == "hovrätt")
     costs = [c.get("legal_costs_total_sek") for c in cases if isinstance(c.get("legal_costs_total_sek"), (int, float))]
     low_conf = [c.get("case_id") for c in cases if c.get("extraction_confidence") == "low"]
+    access_scores_raw = [_parental_access_score(c) for c in cases]
+    access_score_dist = dict(
+      sorted(
+        Counter(s for s in access_scores_raw if s is not None).items()
+      )
+    )
 
     return {
         "total_cases": total,
@@ -510,7 +567,9 @@ def build_aggregates(cases: list[dict]) -> dict:
         "legal_costs_sek_stats": stats(costs),
         "outcome_detail": dict(Counter(_outcome_label(c) for c in cases).most_common()),
         "low_confidence_cases": low_conf,
-    }
+        "access_score_distribution": access_score_dist,
+        "access_score_stats": stats([s for s in access_scores_raw if s is not None]),
+      }
 
 
 # ---------------------------------------------------------------------------
@@ -617,8 +676,8 @@ def render_md(agg: dict) -> str:
     lines.append("## Mål per år (datum för aktuell domstols dom)")
     lines.append(md_table(["År", "Antal"], list(agg["by_year"].items())))
     lines.append("")
-    lines.append("## Utfall (vinnare)")
-    lines.append(md_table(["Vinnare", "Antal"], list(tr_winners(agg["winners"]).items())))
+    lines.append("## Utfall per part")
+    lines.append(md_table(["Utfall per part", "Antal"], list(tr_winners(agg["winners"]).items())))
     lines.append("")
     lines.append("## Detaljerat utfall (vårdnad + boende + umgänge)")
     lines.append(md_table(["Utfall", "Antal"], list(agg["outcome_detail"].items())))
@@ -781,7 +840,8 @@ def _case_for_js(c: dict) -> dict:
         "appeal": SV_APPEAL.get(c.get("appeal_outcome"), "okänt") if c.get("court_level") == "hovrätt" else None,
         "cost": c.get("legal_costs_total_sek") if isinstance(c.get("legal_costs_total_sek"), (int, float)) else None,
         "outcome": _outcome_label(c),
-    }
+        "access_score": _parental_access_score(c),
+      }
 
 
 def render_html(agg: dict, cases: list[dict], ui: dict) -> str:
@@ -806,7 +866,8 @@ def render_html(agg: dict, cases: list[dict], ui: dict) -> str:
         "heard": _to_chart_pairs(tr_bool_dict(agg["child_was_heard"])),
         "appeal": _to_chart_pairs(tr_appeal(agg["appeal_outcomes_hovratt"])),
         "outcome": _to_chart_pairs(agg["outcome_detail"]),
-    }
+        "access_score": _to_chart_pairs({str(k): v for k, v in agg["access_score_distribution"].items()}),
+      }
     data_json = json.dumps(charts, ensure_ascii=False)
     cases_for_js = [_case_for_js(c) for c in cases]
     cases_json = json.dumps(cases_for_js, ensure_ascii=False)
@@ -892,6 +953,17 @@ def render_html(agg: dict, cases: list[dict], ui: dict) -> str:
       f'        <div class="card"><h3>{escape(charts_ui["winners"])}</h3><div class="canvas-wrap"><canvas id="ch_winners"></canvas></div></div>' if is_visible("charts", "winners") else "",
       f'        <div class="card"><h3>{escape(charts_ui["appeal"])}</h3><div class="canvas-wrap"><canvas id="ch_appeal"></canvas></div></div>' if is_visible("charts", "appeal") else "",
       f'        <div class="card wide"><h3>{escape(charts_ui["outcome"])}</h3><div class="canvas-wrap" style="height:__OUTCOME_H__px"><canvas id="ch_outcome"></canvas></div></div>' if is_visible("charts", "outcome") else "",
+      (
+        f'        <div class="card">'
+        f'<h3>{escape(charts_ui["access_score"])}</h3>'
+        f'<p style="font-size:.8rem;color:var(--muted);margin:.2rem 0 .6rem 0">'
+        f'{escape(charts_ui.get("access_score_note", ""))}</p>'
+        f'<div class="canvas-wrap"><canvas id="ch_access_score"></canvas></div>'
+        f'<div class="stats-row"><span>n=<strong id="kpi_as_n">–</strong></span>'
+        f'<span>Snitt: <strong id="kpi_as_mean">–</strong></span>'
+        f'<span>Median: <strong id="kpi_as_median">–</strong></span></div>'
+        f'</div>'
+      ) if is_visible("charts", "access_score") else "",
     ] if x)
 
     vardnad_cards = "\n".join(x for x in [
@@ -1084,6 +1156,15 @@ def render_html(agg: dict, cases: list[dict], ui: dict) -> str:
     function colorFor(label, fallbackIdx) {
       return LABEL_COLOR[label] || PALETTE[fallbackIdx % PALETTE.length];
     }
+    function colorForScore(scoreStr) {
+      const s = parseInt(scoreStr, 10);
+      if (isNaN(s)) return '#9ca3af';
+      if (s < -60) return '#2563eb';   // strong mother side — blue
+      if (s < -10) return '#60a5fa';   // moderate mother side — light blue
+      if (s <= 10) return '#059669';   // neutral / alternating — green
+      if (s <= 60) return '#f472b6';   // moderate father side — light pink
+      return '#db2777';                 // strong father side — pink
+    }
     const inst = {};
     const CHART_META = {
       court_level:      {type: 'pie'},
@@ -1106,6 +1187,7 @@ def render_html(agg: dict, cases: list[dict], ui: dict) -> str:
       heard:            {type: 'pie'},
       appeal:           {type: 'pie'},
       outcome:          {type: 'barh'},
+      access_score:     {type: 'bar', sort: 'numeric_label'},
     };
 
     function fmt(tpl, vars) {
@@ -1163,6 +1245,7 @@ def render_html(agg: dict, cases: list[dict], ui: dict) -> str:
         heard:            tally(cases, c => c.heard),
         appeal:           tally(cases.filter(c => c.appeal), c => c.appeal),
         outcome:          tally(cases, c => c.outcome),
+        access_score:     tally(cases.filter(c => c.access_score != null), c => String(c.access_score)),
       };
       const out = {};
       for (const k in m) {
@@ -1214,7 +1297,9 @@ def render_html(agg: dict, cases: list[dict], ui: dict) -> str:
         const meta = CHART_META[key];
         const { labels, data } = agg[key];
         let datasets;
-        if (meta.type === 'pie') {
+        if (key === 'access_score') {
+          datasets = [{ label: UI.js_labels.count_series, data, backgroundColor: labels.map(l => colorForScore(l)) }];
+        } else if (meta.type === 'pie') {
           datasets = [{ data, backgroundColor: labels.map((l, i) => colorFor(l, i)) }];
         } else if (meta.type === 'line') {
           datasets = [{
@@ -1297,6 +1382,10 @@ def render_html(agg: dict, cases: list[dict], ui: dict) -> str:
       set('kpi_cost_mean', costs.length ? fmtInt(mean(costs)) : '–');
       set('kpi_cost_median', costs.length ? fmtInt(median(costs)) : '–');
       set('kpi_cost_max', costs.length ? fmtInt(Math.max.apply(null, costs)) : '–');
+      const asValues = filtered.map(c => c.access_score).filter(x => x != null);
+      set('kpi_as_n', asValues.length);
+      set('kpi_as_mean', asValues.length ? (Math.round(mean(asValues) * 10) / 10) : '–');
+      set('kpi_as_median', asValues.length ? median(asValues) : '–');
     }
 
     function applyFilter() {

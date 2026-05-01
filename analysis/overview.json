@@ -1,9 +1,8 @@
 {
-  "total_cases": 66,
+  "total_cases": 65,
   "by_court_level": {
     "hovrätt": 60,
-    "tingsrätt": 5,
-    "null": 1
+    "tingsrätt": 5
   },
   "by_court": {
     "Svea hovrätt": 37,
@@ -16,8 +15,7 @@
     "Norrtälje tingsrätt": 1,
     "Stockholms tingsrätt": 1,
     "Södertörns tingsrätt": 1,
-    "Växjö tingsrätt": 1,
-    "null": 1
+    "Växjö tingsrätt": 1
   },
   "by_origin_tingsratt": {
     "Södertälje tingsrätt": 11,
@@ -45,11 +43,9 @@
     "Vänersborgs tingsrätt": 1,
     "Borås tingsrätt": 1,
     "Norrtälje tingsrätt": 1,
-    "Växjö tingsrätt": 1,
-    "null": 1
+    "Växjö tingsrätt": 1
   },
   "by_year": {
-    "": 1,
     "2013": 2,
     "2014": 3,
     "2015": 6,
@@ -68,13 +64,12 @@
     "father": 11,
     "partial_mother": 4,
     "partial_father": 10,
-    "neither": 2,
-    "null": 1
+    "neither": 2
   },
   "custody_legal_transitions": {
     "joint → joint": 14,
     "joint → sole_mother": 7,
-    "null → null": 11,
+    "null → null": 10,
     "sole_father → joint": 3,
     "sole_mother → joint": 5,
     "joint → sole_father": 4,
@@ -98,8 +93,7 @@
     "mother → mother for older son, alternating for younger daughter": 1,
     "unknown → mother": 1,
     "other → other": 1,
-    "unclear → alternating": 1,
-    "null → null": 1
+    "unclear → alternating": 1
   },
   "n_children_distribution": {
     "1": 27,
@@ -190,16 +184,14 @@
   },
   "social_services_involved": {
     "false": 8,
-    "true": 57,
-    "null": 1
+    "true": 57
   },
   "vårdnadsutredning_performed": {
     "false": 8,
-    "true": 57,
-    "null": 1
+    "true": 57
   },
   "child_was_heard": {
-    "null": 11,
+    "null": 10,
     "true": 28,
     "false": 27
   },
@@ -247,8 +239,21 @@
     "Ensam vårdnad (mor), boende hos mor, omfattande umgänge": 1,
     "Gemensam vårdnad, boende hos far, umgänge varannan vecka": 1,
     "Gemensam vårdnad, boende hos far, videoumgänge / distansumgänge": 1,
-    "Gemensam vårdnad, växelvist boende, övrigt reglerat umgänge": 1,
-    "Blandad vårdnad (per barn)": 1
+    "Gemensam vårdnad, växelvist boende, övrigt reglerat umgänge": 1
   },
-  "low_confidence_cases": []
+  "low_confidence_cases": [],
+  "access_score_distribution": {
+    "-100": 1,
+    "-50": 46,
+    "0": 2,
+    "50": 11,
+    "100": 1
+  },
+  "access_score_stats": {
+    "n": 61,
+    "mean": -28.69,
+    "median": -50,
+    "min": -100,
+    "max": 100
+  }
 }

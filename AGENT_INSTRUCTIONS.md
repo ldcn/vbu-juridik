@@ -126,6 +126,29 @@ For each case produce a JSON object with exactly these fields:
   "winner": "mother|father|both|neither|partial_mother|partial_father",
   "winner_rationale": "1-2 sentences explaining who got what they asked for.",
 
+  // Parental-contact balance for the child(ren) after the ruling.
+  // Scale: -100 = child lives exclusively with mother, no father contact;
+  //           0 = equal / alternating parenting (växelvist boende);
+  //        +100 = child lives exclusively with father, no mother contact.
+  // Estimate based on the actual time split described in the ruling.
+  // Examples: alternating weeks → 0; mother residence + every-other-weekend father → -65;
+  // sole mother, supervised visits only → -85; sole mother, no visitation ordered → -100.
+  // If the case has multiple children with different outcomes, set this to
+  // the arithmetic mean of all children's individual scores (rounded to integer)
+  // and populate children_custody_outcomes with per-child details.
+  // Leave null if the ruling gives no information about actual time allocation.
+  "parental_access_score": null,
+
+  // Only needed when siblings have materially different custody / residence outcomes.
+  "children_custody_outcomes": [
+    {
+      "child_index": 0,
+      "residence": "mother|father|alternating|other|unclear",
+      "visitation": "free text or null",
+      "parental_access_score": null
+    }
+  ],
+
   "key_factors": [                           // pick from a controlled vocabulary, extend if needed
     "parental_agreement",
     "child_best_interest",
