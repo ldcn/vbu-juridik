@@ -4,6 +4,14 @@ Detta dokument loggar alla ändringar i repositoryt.
 
 ## 2026-05-01 (2)
 
+- Changed Cloudflare analytics integration to environment-variable configuration in `analysis/build_overview.py`.
+  - New env var: `CLOUDFLARE_WEB_ANALYTICS_TOKEN`.
+  - If the variable is set, the beacon script is injected into generated HTML.
+  - If unset, no analytics script is emitted (secure default, no hardcoded token in source).
+
+- Added Cloudflare Web Analytics beacon to generated dashboard HTML via template update in `analysis/build_overview.py`.
+  - Snippet is now emitted in `<head>` for `analysis/overview.html` on each `build_overview.py` run.
+
 - Refined parental-access scoring in `analysis/build_overview.py`:
   - Heuristic now supports finer buckets `-100, -75, -50, -25, 0, 25, 50, 75, 100` instead of only coarse `-100/-50/0/50/100`.
   - Scoring uses residence + visitation text signals (e.g. no contact, supervised/very limited contact, varannan helg, substantial contact, alternating/equal split).

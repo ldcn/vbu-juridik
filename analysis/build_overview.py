@@ -9,6 +9,7 @@ from __future__ import annotations
 
 import csv
 import json
+import os
 import re
 import statistics
 from collections import Counter, defaultdict
@@ -486,6 +487,19 @@ def _format_sek(value: float | int | None) -> str:
   return f"{sign}{abs(n):,}".replace(",", " ") + " kr"
 
 
+def _cloudflare_analytics_tag() -> str:
+  token = (os.getenv("CLOUDFLARE_WEB_ANALYTICS_TOKEN") or "").strip()
+  if not token:
+    return ""
+  token_json = json.dumps({"token": token}, ensure_ascii=False)
+  return (
+    "  <!-- Cloudflare Web Analytics -->"
+    "<script defer src='https://static.cloudflareinsights.com/beacon.min.js' "
+    f"data-cf-beacon='{token_json}'></script>"
+    "<!-- End Cloudflare Web Analytics -->"
+  )
+
+
 def load_cases() -> list[dict]:
   cases = []
   for f in sorted(ANALYSIS_DIR.glob("*.json")):
@@ -906,6 +920,7 @@ def _case_for_js(c: dict) -> dict:
 
 
 def render_html(agg: dict, cases: list[dict], ui: dict) -> str:
+    cf_analytics_tag = _cloudflare_analytics_tag()
     charts = {
         "court_level": _to_chart_pairs(tr_court_level(agg["by_court_level"])),
         "court": _to_chart_pairs({(k or "okänt"): v for k, v in agg["by_court"].items()}),
@@ -928,7 +943,7 @@ def render_html(agg: dict, cases: list[dict], ui: dict) -> str:
         "appeal": _to_chart_pairs(tr_appeal(agg["appeal_outcomes_hovratt"])),
         "outcome": _to_chart_pairs(agg["outcome_detail"]),
         "access_score": _to_chart_pairs({str(k): v for k, v in agg["access_score_distribution"].items()}),
-      }
+    }
     data_json = json.dumps(charts, ensure_ascii=False)
     cases_for_js = [_case_for_js(c) for c in cases]
     cases_json = json.dumps(cases_for_js, ensure_ascii=False)
@@ -1507,6 +1522,7 @@ def render_html(agg: dict, cases: list[dict], ui: dict) -> str:
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>{escape(page_title)}</title>
   <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+{cf_analytics_tag}
   <style>{css}</style>
 </head>
 <body>
