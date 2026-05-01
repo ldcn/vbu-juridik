@@ -1,0 +1,108 @@
+{
+  "page": {
+    "title": "Översikt – svenska vårdnadsmål",
+    "subtitle": "Aggregerad statistik från {total_cases} domar om vårdnad, boende och umgänge."
+  },
+  "nav": {
+    "nyckeltal": "Nyckeltal",
+    "filter": "Filter",
+    "instans": "Instans & år",
+    "utfall": "Utfall",
+    "vardnad": "Vårdnad & boende",
+    "barn": "Barn",
+    "foraldrar": "Föräldrar",
+    "faktorer": "Nyckelfaktorer",
+    "process": "Processuella drag",
+    "bilaga": "Bilaga: sammanfattningar"
+  },
+  "sections": {
+    "nyckeltal": {
+      "title": "Nyckeltal",
+      "description": "Snabb översikt över omfattning, barnvolym och genomsnittliga åldrar i materialet."
+    },
+    "filter": {
+      "title": "Filter och jämförelse",
+      "description": "Filtrera hela dashboardsiffran på ursprunglig tingsrätt, eller jämför flera tingsrätter sida vid sida."
+    },
+    "instans": {
+      "title": "Instans och år",
+      "description": "Visar hur målen fördelar sig mellan domstolsnivåer, avgörande domstolar och kalenderår."
+    },
+    "utfall": {
+      "title": "Utfall",
+      "description": "Belyser vem som får gehör samt hur hovrätten förhåller sig till tingsrättens avgörande."
+    },
+    "vardnad": {
+      "title": "Vårdnad och boende",
+      "description": "Jämför läget före och efter dom avseende rättslig vårdnad och barnets boende."
+    },
+    "barn": {
+      "title": "Barn",
+      "description": "Beskriver antal barn per mål, könsfördelning och åldersstruktur i 5-årsintervall."
+    },
+    "foraldrar": {
+      "title": "Föräldrar",
+      "description": "Visar åldersfördelning för mödrar och fäder vid tidpunkten för avgörandet."
+    },
+    "faktorer": {
+      "title": "Nyckelfaktorer i domskäl",
+      "description": "Frekvenser av centrala omständigheter och argument som domstolen beaktar."
+    },
+    "process": {
+      "title": "Processuella drag",
+      "description": "Sammanfattar processindikatorer och rapporterade kostnader i materialet."
+    },
+    "bilaga": {
+      "title": "Bilaga: kort sammanfattning per mål",
+      "description": "Varje sammanfattning är på max 150 ord. Sorterat på målnummer."
+    }
+  },
+  "filter": {
+    "intro": "Välj en eller flera <strong>ursprungliga tingsrätter</strong> (första instans) för att begränsa all statistik nedan till de målen. Markera <em>jämförelseläge</em> för att se varje vald tingsrätt som en egen serie i diagrammen (Ctrl/Cmd-klicka för flera).",
+    "court_label": "Ursprunglig tingsrätt:",
+    "compare_label": "Jämförelseläge",
+    "clear_button": "Rensa val"
+  },
+  "charts": {
+    "court_level": "Fördelning per instans",
+    "year": "Mål per år",
+    "court": "Fördelning per domstol (avgörande)",
+    "origin_tingsratt": "Ursprunglig tingsrätt (första instäns)",
+    "winners": "Vinnare",
+    "appeal": "Hovrättens utfall i förhållande till tingsrätten",
+    "outcome": "Detaljerat utfall (vårdnad + boende + umgänge)",
+    "legal_before": "Rättslig vårdnad – före",
+    "legal_after": "Rättslig vårdnad – efter",
+    "residence_before": "Boende – före",
+    "residence_after": "Boende – efter",
+    "n_children": "Antal barn per mål",
+    "child_gender": "Barnens kön",
+    "child_age": "Barnens ålder (5-årsintervall)",
+    "mother_age": "Mödrarnas ålder (5-årsintervall)",
+    "father_age": "Fädernas ålder (5-årsintervall)",
+    "factors": "Nyckelfaktorer i domskäl",
+    "soc": "Socialtjänst inblandad",
+    "vu": "Vårdnadsutredning utförd",
+    "heard": "Barnet hört"
+  },
+  "kpi": {
+    "total": "mål totalt",
+    "kids_n": "mål med barnantal",
+    "children": "barn totalt",
+    "child_age": "snittålder barn (år)",
+    "mother_age": "snittålder mor (år)",
+    "father_age": "snittålder far (år)",
+    "cost_n": "mål med kostnadsuppgift",
+    "cost_mean": "snittkostnad (SEK)",
+    "cost_median": "mediankostnad (SEK)",
+    "cost_max": "högsta kostnad (SEK)"
+  },
+  "js_labels": {
+    "cases_series": "Mål",
+    "count_series": "Antal",
+    "show_all": "Visar alla {total} mål",
+    "show_filtered": "Visar {total} mål från {courts}",
+    "compare": "Jämför {n_courts} tingsrätter ({parts} = {total} mål)"
+  },
+  "footer": "Genererad av build_overview.py. Underliggande data: per-fall-JSON i analysis/."
+}

@@ -1,12 +1,13 @@
 # Översikt – svenska vårdnadsmål
 
-Totalt antal mål: **65**
+Totalt antal mål: **66**
 
 ## Fördelning per instans
 | Instans | Antal |
 |---|---|
 | hovrätt | 60 |
 | tingsrätt | 5 |
+| okänt | 1 |
 
 ## Fördelning per domstol (avgörande instans)
 | Domstol | Antal |
@@ -22,6 +23,7 @@ Totalt antal mål: **65**
 | Stockholms tingsrätt | 1 |
 | Södertörns tingsrätt | 1 |
 | Växjö tingsrätt | 1 |
+| okänt | 1 |
 
 ## Ursprunglig tingsrätt (första instäns)
 | Tingsrätt | Antal |
@@ -52,10 +54,12 @@ Totalt antal mål: **65**
 | Borås tingsrätt | 1 |
 | Norrtälje tingsrätt | 1 |
 | Växjö tingsrätt | 1 |
+| okänt | 1 |
 
 ## Mål per år (datum för aktuell domstols dom)
 | År | Antal |
 |---|---|
+|  | 1 |
 | 2013 | 2 |
 | 2014 | 3 |
 | 2015 | 6 |
@@ -77,6 +81,7 @@ Totalt antal mål: **65**
 | delvis mor | 4 |
 | delvis far | 10 |
 | ingen | 2 |
+| okänt | 1 |
 
 ## Detaljerat utfall (vårdnad + boende + umgänge)
 | Utfall | Antal |
@@ -112,13 +117,14 @@ Totalt antal mål: **65**
 | Gemensam vårdnad, boende hos far, umgänge varannan vecka | 1 |
 | Gemensam vårdnad, boende hos far, videoumgänge / distansumgänge | 1 |
 | Gemensam vårdnad, växelvist boende, övrigt reglerat umgänge | 1 |
+| Blandad vårdnad (per barn) | 1 |
 
 ## Övergångsmatris – rättslig vårdnad (före → efter)
 | Övergång | Antal |
 |---|---|
 | gemensam → gemensam | 14 |
 | gemensam → ensam mor | 7 |
-| okänt → okänt | 10 |
+| okänt → okänt | 11 |
 | ensam far → gemensam | 3 |
 | ensam mor → gemensam | 5 |
 | gemensam → ensam far | 4 |
@@ -145,6 +151,7 @@ Totalt antal mål: **65**
 | okänt → hos mor | 1 |
 | annat → annat | 1 |
 | oklart → växelvis | 1 |
+| okänt → okänt | 1 |
 
 ## Antal barn per mål
 | Antal barn | Mål |
@@ -226,9 +233,9 @@ n=121  Snitt: 8.79  Median: 9  Min/Max: 2–17
 ## Processuella drag
 | Egenskap | Värden |
 |---|---|
-| Socialtjänst inblandad | {"nej": 8, "ja": 57} |
-| Vårdnadsutredning utförd | {"nej": 8, "ja": 57} |
-| Barnet hört | {"okänt": 10, "ja": 28, "nej": 27} |
+| Socialtjänst inblandad | {"nej": 8, "ja": 57, "okänt": 1} |
+| Vårdnadsutredning utförd | {"nej": 8, "ja": 57, "okänt": 1} |
+| Barnet hört | {"okänt": 11, "ja": 28, "nej": 27} |
 
 ## Hovrättens utfall i förhållande till tingsrätten
 | Utfall | Antal |
@@ -246,4 +253,4 @@ _Inga._
 
 ## Sammanfattande beskrivning
 
-Datasetet omfattar 65 mål, övervägande hovrättsavgöranden. Utfallen fördelar sig enligt följande: båda=16, mor=22, far=11, delvis mor=4, delvis far=10, ingen=2. De vanligaste motiveringarna i domarna rör barnets bästa (63), samarbetssvårigheter (51), påståenden om våld (38), vårdnadsutredning (35), socialtjänstens rekommendation (28). I de hovrättsavgöranden som granskats fördelar sig utfallen ändrad=45, förlikning=4, fastställd=9, delvis ändrad=2. Samarbetssvårigheter, barnets bästa och uppgifter om våld eller missbruk återkommer som centrala teman. För djupare analys, se per-fall-JSON i samma mapp.
+Datasetet omfattar 66 mål, övervägande hovrättsavgöranden. Utfallen fördelar sig enligt följande: båda=16, mor=22, far=11, delvis mor=4, delvis far=10, ingen=2, okänt=1. De vanligaste motiveringarna i domarna rör barnets bästa (63), samarbetssvårigheter (51), påståenden om våld (38), vårdnadsutredning (35), socialtjänstens rekommendation (28). I de hovrättsavgöranden som granskats fördelar sig utfallen ändrad=45, förlikning=4, fastställd=9, delvis ändrad=2. Samarbetssvårigheter, barnets bästa och uppgifter om våld eller missbruk återkommer som centrala teman. För djupare analys, se per-fall-JSON i samma mapp.

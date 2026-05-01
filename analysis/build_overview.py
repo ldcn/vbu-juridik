@@ -90,6 +90,140 @@ SV_LEVEL = {
     "högsta domstolen": "högsta domstolen",
 }
 
+DEFAULT_UI_TEXT = {
+    "page": {
+      "title": "Översikt – svenska vårdnadsmål",
+      "subtitle": "Aggregerad statistik från {total_cases} domar om vårdnad, boende och umgänge.",
+    },
+    "nav": {
+      "nyckeltal": "Nyckeltal",
+      "filter": "Filter",
+      "instans": "Instans & år",
+      "utfall": "Utfall",
+      "vardnad": "Vårdnad & boende",
+      "barn": "Barn",
+      "foraldrar": "Föräldrar",
+      "faktorer": "Nyckelfaktorer",
+      "process": "Processuella drag",
+      "bilaga": "Bilaga: sammanfattningar",
+    },
+    "sections": {
+      "nyckeltal": {
+        "title": "Nyckeltal",
+        "description": "Snabb översikt över omfattning, barnvolym och genomsnittliga åldrar i materialet.",
+      },
+      "filter": {
+        "title": "Filter och jämförelse",
+        "description": "Filtrera hela dashboardsiffran på ursprunglig tingsrätt, eller jämför flera tingsrätter sida vid sida.",
+      },
+      "instans": {
+        "title": "Instans och år",
+        "description": "Visar hur målen fördelar sig mellan domstolsnivåer, avgörande domstolar och kalenderår.",
+      },
+      "utfall": {
+        "title": "Utfall",
+        "description": "Belyser vem som får gehör samt hur hovrätten förhåller sig till tingsrättens avgörande.",
+      },
+      "vardnad": {
+        "title": "Vårdnad och boende",
+        "description": "Jämför läget före och efter dom avseende rättslig vårdnad och barnets boende.",
+      },
+      "barn": {
+        "title": "Barn",
+        "description": "Beskriver antal barn per mål, könsfördelning och åldersstruktur i 5-årsintervall.",
+      },
+      "foraldrar": {
+        "title": "Föräldrar",
+        "description": "Visar åldersfördelning för mödrar och fäder vid tidpunkten för avgörandet.",
+      },
+      "faktorer": {
+        "title": "Nyckelfaktorer i domskäl",
+        "description": "Frekvenser av centrala omständigheter och argument som domstolen beaktar.",
+      },
+      "process": {
+        "title": "Processuella drag",
+        "description": "Sammanfattar processindikatorer och rapporterade kostnader i materialet.",
+      },
+      "bilaga": {
+        "title": "Bilaga: kort sammanfattning per mål",
+        "description": "Varje sammanfattning är på max 150 ord. Sorterat på målnummer.",
+      },
+    },
+    "filter": {
+      "intro": "Välj en eller flera <strong>ursprungliga tingsrätter</strong> (första instans) för att begränsa all statistik nedan till de målen. Markera <em>jämförelseläge</em> för att se varje vald tingsrätt som en egen serie i diagrammen (Ctrl/Cmd-klicka för flera).",
+      "court_label": "Ursprunglig tingsrätt:",
+      "compare_label": "Jämförelseläge",
+      "clear_button": "Rensa val",
+    },
+    "charts": {
+      "court_level": "Fördelning per instans",
+      "year": "Mål per år",
+      "court": "Fördelning per domstol (avgörande)",
+      "origin_tingsratt": "Ursprunglig tingsrätt (första instäns)",
+      "winners": "Vinnare",
+      "appeal": "Hovrättens utfall i förhållande till tingsrätten",
+      "outcome": "Detaljerat utfall (vårdnad + boende + umgänge)",
+      "legal_before": "Rättslig vårdnad – före",
+      "legal_after": "Rättslig vårdnad – efter",
+      "residence_before": "Boende – före",
+      "residence_after": "Boende – efter",
+      "n_children": "Antal barn per mål",
+      "child_gender": "Barnens kön",
+      "child_age": "Barnens ålder (5-årsintervall)",
+      "mother_age": "Mödrarnas ålder (5-årsintervall)",
+      "father_age": "Fädernas ålder (5-årsintervall)",
+      "factors": "Nyckelfaktorer i domskäl",
+      "soc": "Socialtjänst inblandad",
+      "vu": "Vårdnadsutredning utförd",
+      "heard": "Barnet hört",
+    },
+    "kpi": {
+      "total": "mål totalt",
+      "kids_n": "mål med barnantal",
+      "children": "barn totalt",
+      "child_age": "snittålder barn (år)",
+      "mother_age": "snittålder mor (år)",
+      "father_age": "snittålder far (år)",
+      "cost_n": "mål med kostnadsuppgift",
+      "cost_mean": "snittkostnad (SEK)",
+      "cost_median": "mediankostnad (SEK)",
+      "cost_max": "högsta kostnad (SEK)",
+    },
+    "js_labels": {
+      "cases_series": "Mål",
+      "count_series": "Antal",
+      "show_all": "Visar alla {total} mål",
+      "show_filtered": "Visar {total} mål från {courts}",
+      "compare": "Jämför {n_courts} tingsrätter ({parts} = {total} mål)",
+    },
+    "footer": "Genererad av build_overview.py. Underliggande data: per-fall-JSON i analysis/.",
+  }
+
+
+def _deep_merge_dict(base: dict, override: dict) -> dict:
+    merged = dict(base)
+    for key, value in (override or {}).items():
+      if isinstance(value, dict) and isinstance(merged.get(key), dict):
+        merged[key] = _deep_merge_dict(merged[key], value)
+      else:
+        merged[key] = value
+    return merged
+
+
+def load_ui_text() -> dict:
+    path = ANALYSIS_DIR / "overview_ui_text.json"
+    if not path.exists():
+      return DEFAULT_UI_TEXT
+    try:
+      raw = json.loads(path.read_text(encoding="utf-8"))
+    except Exception as e:
+      print(f"WARN: could not load {path}: {e}; using defaults")
+      return DEFAULT_UI_TEXT
+    if not isinstance(raw, dict):
+      print(f"WARN: {path} must be a JSON object; using defaults")
+      return DEFAULT_UI_TEXT
+    return _deep_merge_dict(DEFAULT_UI_TEXT, raw)
+
 
 def sv(map_: dict, value):
     if value is None:
@@ -602,7 +736,7 @@ def _case_for_js(c: dict) -> dict:
     }
 
 
-def render_html(agg: dict, cases: list[dict]) -> str:
+def render_html(agg: dict, cases: list[dict], ui: dict) -> str:
     charts = {
         "court_level": _to_chart_pairs(tr_court_level(agg["by_court_level"])),
         "court": _to_chart_pairs({(k or "okänt"): v for k, v in agg["by_court"].items()}),
@@ -628,6 +762,15 @@ def render_html(agg: dict, cases: list[dict]) -> str:
     data_json = json.dumps(charts, ensure_ascii=False)
     cases_for_js = [_case_for_js(c) for c in cases]
     cases_json = json.dumps(cases_for_js, ensure_ascii=False)
+    ui_json = json.dumps(ui, ensure_ascii=False)
+
+    page_title = ui["page"]["title"]
+    page_subtitle = ui["page"]["subtitle"].format(total_cases=agg["total_cases"])
+    nav = ui["nav"]
+    sections = ui["sections"]
+    charts_ui = ui["charts"]
+    kpi_ui = ui["kpi"]
+    filter_ui = ui["filter"]
 
     s_child = agg["child_age_stats"]
     s_mother = agg["mother_age_stats"]
@@ -660,8 +803,8 @@ def render_html(agg: dict, cases: list[dict]) -> str:
     cost_max = int(s_costs.get("max", 0)) if cost_n else "–"
 
     filter_options = "\n".join(
-        f'            <option value="{escape(name)}">{escape(name)} ({n})</option>'
-        for name, n in agg["by_origin_tingsratt"].items()
+      f'            <option value="{escape(name or "okänt")}">{escape(name or "okänt")} ({n})</option>'
+      for name, n in agg["by_origin_tingsratt"].items()
     )
 
     css = """
@@ -770,8 +913,9 @@ def render_html(agg: dict, cases: list[dict]) -> str:
     }
     """
 
-    js = """
+    js = r"""
     const ALL = __CASES__;
+    const UI = __UI__;
     const PALETTE = [
       '#2563eb','#db2777','#059669','#d97706','#7c3aed','#0891b2',
       '#dc2626','#65a30d','#ea580c','#0d9488','#9333ea','#ca8a04',
@@ -828,6 +972,12 @@ def render_html(agg: dict, cases: list[dict]) -> str:
       appeal:           {type: 'pie'},
       outcome:          {type: 'barh'},
     };
+
+    function fmt(tpl, vars) {
+      return String(tpl || '').replace(/\{(\w+)\}/g, (_, k) => (
+        Object.prototype.hasOwnProperty.call(vars, k) ? String(vars[k]) : ''
+      ));
+    }
 
     function tally(items, keyFn) {
       const m = new Map();
@@ -933,17 +1083,17 @@ def render_html(agg: dict, cases: list[dict]) -> str:
           datasets = [{ data, backgroundColor: labels.map((l, i) => colorFor(l, i)) }];
         } else if (meta.type === 'line') {
           datasets = [{
-            label: 'Mål', data,
+            label: UI.js_labels.cases_series, data,
             borderColor: '#2563eb',
             backgroundColor: 'rgba(37,99,235,0.15)',
             fill: true, tension: 0.25, pointRadius: 4
           }];
         } else if (meta.type === 'barh') {
-          datasets = [{ label: 'Antal', data, backgroundColor: '#db2777' }];
+          datasets = [{ label: UI.js_labels.count_series, data, backgroundColor: '#db2777' }];
         } else {
           // bar — färglägg per etikett om vi har stabil färg, annars enhetlig accent
           const colors = labels.map((l, i) => LABEL_COLOR[l] || '#2563eb');
-          datasets = [{ label: 'Antal', data, backgroundColor: colors }];
+          datasets = [{ label: UI.js_labels.count_series, data, backgroundColor: colors }];
         }
         renderChart('ch_' + key, key, datasets, labels, false);
       }
@@ -1025,13 +1175,20 @@ def render_html(agg: dict, cases: list[dict]) -> str:
         filtered = ALL.filter(c => courts.includes(c.origin));
         renderCompare(courts);
         const counts = courts.map(c => ALL.filter(x => x.origin === c).length);
-        label = 'Jämför ' + courts.length + ' tingsrätter (' + counts.join(' + ') + ' = ' + filtered.length + ' mål)';
+        label = fmt(UI.js_labels.compare, {
+          n_courts: courts.length,
+          parts: counts.join(' + '),
+          total: filtered.length,
+        });
       } else {
         if (courts.length > 0) {
           filtered = ALL.filter(c => courts.includes(c.origin));
-          label = 'Visar ' + filtered.length + ' mål från ' + courts.join(', ');
+          label = fmt(UI.js_labels.show_filtered, {
+            total: filtered.length,
+            courts: courts.join(', '),
+          });
         } else {
-          label = 'Visar alla ' + ALL.length + ' mål';
+          label = fmt(UI.js_labels.show_all, { total: ALL.length });
         }
         renderSingle(filtered);
       }
@@ -1052,65 +1209,65 @@ def render_html(agg: dict, cases: list[dict]) -> str:
       document.getElementById('filter_clear').addEventListener('click', clearFilter);
       applyFilter();
     });
-    """.replace("__CASES__", cases_json)
+    """.replace("__CASES__", cases_json).replace("__UI__", ui_json)
 
     html = f"""<!doctype html>
 <html lang="sv">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Översikt – svenska vårdnadsmål</title>
+  <title>{escape(page_title)}</title>
   <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
   <style>{css}</style>
 </head>
 <body>
   <header class="page">
-    <h1>Översikt – svenska vårdnadsmål</h1>
-    <p>Aggregerad statistik från {agg['total_cases']} domar om vårdnad, boende och umgänge.</p>
+    <h1>{escape(page_title)}</h1>
+    <p>{escape(page_subtitle)}</p>
   </header>
 
   <nav>
-    <a href="#nyckeltal">Nyckeltal</a>
-    <a href="#filter">Filter</a>
-    <a href="#instans">Instans &amp; år</a>
-    <a href="#utfall">Utfall</a>
-    <a href="#vardnad">Vårdnad &amp; boende</a>
-    <a href="#barn">Barn</a>
-    <a href="#foraldrar">Föräldrar</a>
-    <a href="#faktorer">Nyckelfaktorer</a>
-    <a href="#process">Processuella drag</a>
-    <a href="#bilaga">Bilaga: sammanfattningar</a>
+    <a href="#nyckeltal">{escape(nav['nyckeltal'])}</a>
+    <a href="#filter">{escape(nav['filter'])}</a>
+    <a href="#instans">{escape(nav['instans'])}</a>
+    <a href="#utfall">{escape(nav['utfall'])}</a>
+    <a href="#vardnad">{escape(nav['vardnad'])}</a>
+    <a href="#barn">{escape(nav['barn'])}</a>
+    <a href="#foraldrar">{escape(nav['foraldrar'])}</a>
+    <a href="#faktorer">{escape(nav['faktorer'])}</a>
+    <a href="#process">{escape(nav['process'])}</a>
+    <a href="#bilaga">{escape(nav['bilaga'])}</a>
   </nav>
 
   <main>
     <section id="nyckeltal">
-      <h2>Nyckeltal</h2>
+      <h2>{escape(sections['nyckeltal']['title'])}</h2>
+      <p style="color:var(--muted)">{escape(sections['nyckeltal']['description'])}</p>
       <div class="kpi-grid">
-        <div class="kpi"><div class="num" id="kpi_total">{agg['total_cases']}</div><div class="lbl">mål totalt</div></div>
-        <div class="kpi"><div class="num" id="kpi_kids_n">{s_kids.get('n', 0)}</div><div class="lbl">mål med barnantal</div></div>
-        <div class="kpi"><div class="num" id="kpi_children">{s_child.get('n', 0)}</div><div class="lbl">barn totalt</div></div>
-        <div class="kpi"><div class="num" id="kpi_child_age">{s_child.get('mean', '–')}</div><div class="lbl">snittålder barn (år)</div></div>
-        <div class="kpi"><div class="num" id="kpi_mother_age">{s_mother.get('mean', '–')}</div><div class="lbl">snittålder mor (år)</div></div>
-        <div class="kpi"><div class="num" id="kpi_father_age">{s_father.get('mean', '–')}</div><div class="lbl">snittålder far (år)</div></div>
+        <div class="kpi"><div class="num" id="kpi_total">{agg['total_cases']}</div><div class="lbl">{escape(kpi_ui['total'])}</div></div>
+        <div class="kpi"><div class="num" id="kpi_kids_n">{s_kids.get('n', 0)}</div><div class="lbl">{escape(kpi_ui['kids_n'])}</div></div>
+        <div class="kpi"><div class="num" id="kpi_children">{s_child.get('n', 0)}</div><div class="lbl">{escape(kpi_ui['children'])}</div></div>
+        <div class="kpi"><div class="num" id="kpi_child_age">{s_child.get('mean', '–')}</div><div class="lbl">{escape(kpi_ui['child_age'])}</div></div>
+        <div class="kpi"><div class="num" id="kpi_mother_age">{s_mother.get('mean', '–')}</div><div class="lbl">{escape(kpi_ui['mother_age'])}</div></div>
+        <div class="kpi"><div class="num" id="kpi_father_age">{s_father.get('mean', '–')}</div><div class="lbl">{escape(kpi_ui['father_age'])}</div></div>
       </div>
     </section>
 
     <section id="filter">
-      <h2>Filter och jämförelse</h2>
+      <h2>{escape(sections['filter']['title'])}</h2>
+      <p style="color:var(--muted)">{escape(sections['filter']['description'])}</p>
       <div class="card">
         <p style="margin:.2rem 0 .8rem 0; color:var(--muted); font-size:.92rem;">
-          Välj en eller flera <strong>ursprungliga tingsrätter</strong> (första instans) för att begränsa
-          all statistik nedan till de målen. Markera <em>jämförelseläge</em> för att se varje vald
-          tingsrätt som en egen serie i diagrammen (Ctrl/Cmd-klicka för flera).
+          {filter_ui['intro']}
         </p>
         <div class="filter-row">
-          <label for="filter_courts" style="font-weight:600;">Ursprunglig tingsrätt:</label>
+          <label for="filter_courts" style="font-weight:600;">{escape(filter_ui['court_label'])}</label>
           <select id="filter_courts" multiple size="8" style="min-width:280px; flex:1;">
 {filter_options}
           </select>
           <div class="filter-controls">
-            <label><input type="checkbox" id="filter_compare"> Jämförelseläge</label>
-            <button id="filter_clear" type="button">Rensa val</button>
+            <label><input type="checkbox" id="filter_compare"> {escape(filter_ui['compare_label'])}</label>
+            <button id="filter_clear" type="button">{escape(filter_ui['clear_button'])}</button>
           </div>
         </div>
         <div id="filter_status" style="margin-top:.6rem; font-size:.9rem; color:var(--accent); font-weight:600;"></div>
@@ -1118,72 +1275,76 @@ def render_html(agg: dict, cases: list[dict]) -> str:
     </section>
 
     <section id="instans">
-      <h2>Instans och år</h2>
+      <h2>{escape(sections['instans']['title'])}</h2>
+      <p style="color:var(--muted)">{escape(sections['instans']['description'])}</p>
       <div class="grid">
         <div class="card">
-          <h3>Fördelning per instans</h3>
+          <h3>{escape(charts_ui['court_level'])}</h3>
           <div class="canvas-wrap"><canvas id="ch_court_level"></canvas></div>
         </div>
         <div class="card">
-          <h3>Mål per år</h3>
+          <h3>{escape(charts_ui['year'])}</h3>
           <div class="canvas-wrap"><canvas id="ch_year"></canvas></div>
         </div>
         <div class="card">
-          <h3>Fördelning per domstol (avgörande)</h3>
+          <h3>{escape(charts_ui['court'])}</h3>
           <div class="canvas-wrap" style="height:360px"><canvas id="ch_court"></canvas></div>
         </div>
         <div class="card wide">
-          <h3>Ursprunglig tingsrätt (första instäns)</h3>
+          <h3>{escape(charts_ui['origin_tingsratt'])}</h3>
           <div class="canvas-wrap" style="height:__ORIGIN_H__px"><canvas id="ch_origin_tingsratt"></canvas></div>
         </div>
       </div>
     </section>
 
     <section id="utfall">
-      <h2>Utfall</h2>
+      <h2>{escape(sections['utfall']['title'])}</h2>
+      <p style="color:var(--muted)">{escape(sections['utfall']['description'])}</p>
       <div class="grid">
         <div class="card">
-          <h3>Vinnare</h3>
+          <h3>{escape(charts_ui['winners'])}</h3>
           <div class="canvas-wrap"><canvas id="ch_winners"></canvas></div>
         </div>
         <div class="card">
-          <h3>Hovrättens utfall i förhållande till tingsrätten</h3>
+          <h3>{escape(charts_ui['appeal'])}</h3>
           <div class="canvas-wrap"><canvas id="ch_appeal"></canvas></div>
         </div>
         <div class="card wide">
-          <h3>Detaljerat utfall (vårdnad + boende + umgänge)</h3>
+          <h3>{escape(charts_ui['outcome'])}</h3>
           <div class="canvas-wrap" style="height:__OUTCOME_H__px"><canvas id="ch_outcome"></canvas></div>
         </div>
       </div>
     </section>
 
     <section id="vardnad">
-      <h2>Vårdnad och boende</h2>
+      <h2>{escape(sections['vardnad']['title'])}</h2>
+      <p style="color:var(--muted)">{escape(sections['vardnad']['description'])}</p>
       <div class="grid">
         <div class="card">
-          <h3>Rättslig vårdnad – före</h3>
+          <h3>{escape(charts_ui['legal_before'])}</h3>
           <div class="canvas-wrap"><canvas id="ch_legal_before"></canvas></div>
         </div>
         <div class="card">
-          <h3>Rättslig vårdnad – efter</h3>
+          <h3>{escape(charts_ui['legal_after'])}</h3>
           <div class="canvas-wrap"><canvas id="ch_legal_after"></canvas></div>
         </div>
         <div class="card">
-          <h3>Boende – före</h3>
+          <h3>{escape(charts_ui['residence_before'])}</h3>
           <div class="canvas-wrap"><canvas id="ch_residence_before"></canvas></div>
         </div>
         <div class="card">
-          <h3>Boende – efter</h3>
+          <h3>{escape(charts_ui['residence_after'])}</h3>
           <div class="canvas-wrap"><canvas id="ch_residence_after"></canvas></div>
         </div>
       </div>
     </section>
 
     <section id="barn">
-      <h2>Barn</h2>
+      <h2>{escape(sections['barn']['title'])}</h2>
+      <p style="color:var(--muted)">{escape(sections['barn']['description'])}</p>
       <div class="grid">
         <div class="card">
-          <h3>Antal barn per mål</h3>
+          <h3>{escape(charts_ui['n_children'])}</h3>
           <div class="canvas-wrap"><canvas id="ch_n_children"></canvas></div>
           <div class="stats-row">
             <span>Snitt: <strong>{s_kids.get('mean', '–')}</strong></span>
@@ -1192,11 +1353,11 @@ def render_html(agg: dict, cases: list[dict]) -> str:
           </div>
         </div>
         <div class="card">
-          <h3>Barnens kön</h3>
+          <h3>{escape(charts_ui['child_gender'])}</h3>
           <div class="canvas-wrap"><canvas id="ch_child_gender"></canvas></div>
         </div>
         <div class="card">
-          <h3>Barnens ålder (5-årsintervall)</h3>
+          <h3>{escape(charts_ui['child_age'])}</h3>
           <div class="canvas-wrap"><canvas id="ch_child_age"></canvas></div>
           <div class="stats-row">
             <span>n=<strong>{s_child.get('n', 0)}</strong></span>
@@ -1209,10 +1370,11 @@ def render_html(agg: dict, cases: list[dict]) -> str:
     </section>
 
     <section id="foraldrar">
-      <h2>Föräldrar</h2>
+      <h2>{escape(sections['foraldrar']['title'])}</h2>
+      <p style="color:var(--muted)">{escape(sections['foraldrar']['description'])}</p>
       <div class="grid">
         <div class="card">
-          <h3>Mödrarnas ålder (5-årsintervall)</h3>
+          <h3>{escape(charts_ui['mother_age'])}</h3>
           <div class="canvas-wrap"><canvas id="ch_mother_age"></canvas></div>
           <div class="stats-row">
             <span>n=<strong>{s_mother.get('n', 0)}</strong></span>
@@ -1222,7 +1384,7 @@ def render_html(agg: dict, cases: list[dict]) -> str:
           </div>
         </div>
         <div class="card">
-          <h3>Fädernas ålder (5-årsintervall)</h3>
+          <h3>{escape(charts_ui['father_age'])}</h3>
           <div class="canvas-wrap"><canvas id="ch_father_age"></canvas></div>
           <div class="stats-row">
             <span>n=<strong>{s_father.get('n', 0)}</strong></span>
@@ -1235,36 +1397,39 @@ def render_html(agg: dict, cases: list[dict]) -> str:
     </section>
 
     <section id="faktorer">
-      <h2>Nyckelfaktorer i domskäl</h2>
+      <h2>{escape(sections['faktorer']['title'])}</h2>
+      <p style="color:var(--muted)">{escape(sections['faktorer']['description'])}</p>
       <div class="card">
+        <h3>{escape(charts_ui['factors'])}</h3>
         <div class="canvas-wrap" style="height:420px"><canvas id="ch_factors"></canvas></div>
       </div>
     </section>
 
     <section id="process">
-      <h2>Processuella drag</h2>
+      <h2>{escape(sections['process']['title'])}</h2>
+      <p style="color:var(--muted)">{escape(sections['process']['description'])}</p>
       <div class="grid">
-        <div class="card"><h3>Socialtjänst inblandad</h3><div class="canvas-wrap"><canvas id="ch_soc"></canvas></div></div>
-        <div class="card"><h3>Vårdnadsutredning utförd</h3><div class="canvas-wrap"><canvas id="ch_vu"></canvas></div></div>
-        <div class="card"><h3>Barnet hört</h3><div class="canvas-wrap"><canvas id="ch_heard"></canvas></div></div>
+        <div class="card"><h3>{escape(charts_ui['soc'])}</h3><div class="canvas-wrap"><canvas id="ch_soc"></canvas></div></div>
+        <div class="card"><h3>{escape(charts_ui['vu'])}</h3><div class="canvas-wrap"><canvas id="ch_vu"></canvas></div></div>
+        <div class="card"><h3>{escape(charts_ui['heard'])}</h3><div class="canvas-wrap"><canvas id="ch_heard"></canvas></div></div>
       </div>
       <div class="kpi-grid" style="margin-top:1.5rem">
-        <div class="kpi"><div class="num" id="kpi_cost_n">{cost_n}</div><div class="lbl">mål med kostnadsuppgift</div></div>
-        <div class="kpi"><div class="num" id="kpi_cost_mean">{cost_mean}</div><div class="lbl">snittkostnad (SEK)</div></div>
-        <div class="kpi"><div class="num" id="kpi_cost_median">{cost_median}</div><div class="lbl">mediankostnad (SEK)</div></div>
-        <div class="kpi"><div class="num" id="kpi_cost_max">{cost_max}</div><div class="lbl">högsta kostnad (SEK)</div></div>
+        <div class="kpi"><div class="num" id="kpi_cost_n">{cost_n}</div><div class="lbl">{escape(kpi_ui['cost_n'])}</div></div>
+        <div class="kpi"><div class="num" id="kpi_cost_mean">{cost_mean}</div><div class="lbl">{escape(kpi_ui['cost_mean'])}</div></div>
+        <div class="kpi"><div class="num" id="kpi_cost_median">{cost_median}</div><div class="lbl">{escape(kpi_ui['cost_median'])}</div></div>
+        <div class="kpi"><div class="num" id="kpi_cost_max">{cost_max}</div><div class="lbl">{escape(kpi_ui['cost_max'])}</div></div>
       </div>
     </section>
 
     <section id="bilaga">
-      <h2>Bilaga: kort sammanfattning per mål</h2>
-      <p style="color:var(--muted)">Varje sammanfattning är på max 150 ord. Sorterat på målnummer.</p>
+      <h2>{escape(sections['bilaga']['title'])}</h2>
+      <p style="color:var(--muted)">{escape(sections['bilaga']['description'])}</p>
 {appendix_html}
     </section>
   </main>
 
   <footer>
-    Genererad av build_overview.py. Underliggande data: per-fall-JSON i analysis/.
+    {escape(ui['footer'])}
   </footer>
 
   <script>
@@ -1289,11 +1454,12 @@ def main() -> None:
     cases = load_cases()
     csv_path = write_csv(cases)
     agg = build_aggregates(cases)
+    ui = load_ui_text()
     (ANALYSIS_DIR / "overview.json").write_text(
         json.dumps(agg, ensure_ascii=False, indent=2), encoding="utf-8"
     )
     (ANALYSIS_DIR / "overview.md").write_text(render_md(agg), encoding="utf-8")
-    (ANALYSIS_DIR / "overview.html").write_text(render_html(agg, cases), encoding="utf-8")
+    (ANALYSIS_DIR / "overview.html").write_text(render_html(agg, cases, ui), encoding="utf-8")
     print(f"Wrote {csv_path}, overview.json, overview.md, overview.html  ({len(cases)} cases).")
 
 
